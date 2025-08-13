@@ -1,0 +1,61 @@
+name: Publish VS Code Extension
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        
+    - name: Install dependencies
+      run: |
+        npm install -g vsce
+        
+    - name: Package extension
+      run: vsce package
+      
+    - name: Upload VSIX as artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: lucid-labs-theme-${{ github.ref_name }}
+        path: '*.vsix'
+        
+    - name: Create GitHub Release
+      if: startsWith(github.ref, 'refs/tags/')
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ github.ref }}
+        draft: false
+        prerelease: false
+        
+    - name: Upload Release Asset
+      if: startsWith(github.ref, 'refs/tags/')
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ./lucid-labs-theme-*.vsix
+        asset_name: lucid-labs-theme-${{ github.ref_name }}.vsix
+        asset_content_type: application/zip
+        
+    - name: Publish to VS Code Marketplace
+      if: startsWith(github.ref, 'refs/tags/')
+      env:
+        VSCE_PAT: ${{ secrets.VSCE_PAT }}
+      run: vsce publish -p $VSCE_PAT

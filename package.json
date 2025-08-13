@@ -1,0 +1,72 @@
+{
+  "name": "lucid-labs-theme",
+  "displayName": "Lucid Labs Theme",
+  "description": "A professional dark theme for Visual Studio Code based on Lucid Labs brand guidelines. Features dark purple backgrounds, teal accents, and cloud-inspired aesthetics perfect for Azure development, PowerShell scripting, and enterprise coding.",
+  "version": "1.0.1",
+  "publisher": "lucidlabs",
+  "license": "MIT",
+  "icon": "icon.png",
+  "author": {
+    "name": "Lucid Labs",
+    "url": "https://lucidlabs.com.au"
+  },
+  "keywords": [
+    "theme",
+    "dark theme",
+    "colour theme",
+    "lucid labs",
+    "purple",
+    "teal",
+    "professional",
+    "cloud",
+    "azure",
+    "powershell",
+    "enterprise",
+    "brand",
+    "microsoft",
+    "dark mode"
+  ],
+  "categories": [
+    "Themes"
+  ],
+  "galleryBanner": {
+    "color": "#271D3B",
+    "theme": "dark"
+  },
+  "qna": "marketplace",
+  "extensionKind": [
+    "ui"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Lucid Labs Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/lucid-labs-color-theme.json"
+      },
+      {
+        "label": "Lucid Labs Light",
+        "uiTheme": "vs",
+        "path": "./themes/lucid-labs-light-theme.json"
+      }
+    ]
+  },
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LucidLabsAU/lucid-labs-vscode-theme.git"
+  },
+  "bugs": {
+    "url": "https://github.com/LucidLabsAU/lucid-labs-vscode-theme/issues"
+  },
+  "homepage": "https://lucidlabs.com.au",
+  "sponsor": {
+    "url": "https://lucidlabs.com.au"
+  },
+  "scripts": {
+    "package": "vsce package",
+    "publish": "vsce publish"
+  }
+}
