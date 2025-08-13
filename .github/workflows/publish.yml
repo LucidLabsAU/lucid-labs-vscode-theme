@@ -17,11 +17,11 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: '18'
+        node-version: '20'
         
     - name: Install dependencies
       run: |
-        npm install -g vsce
+        npm install -g @vscode/vsce
         
     - name: Package extension
       run: vsce package
