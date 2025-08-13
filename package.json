@@ -67,6 +67,8 @@
   },
   "scripts": {
     "package": "vsce package",
-    "publish": "vsce publish"
+    "publish": "vsce publish",
+    "deploy": "vsce publish",
+    "test": "echo \"No tests specified\" && exit 0"
   }
 }
