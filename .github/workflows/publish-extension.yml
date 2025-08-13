@@ -20,8 +20,9 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 18.x
-      - run: npm install
+          node-version: 20.x
+      - name: Install VSCE
+        run: npm install -g @vscode/vsce
       - name: Run tests on Linux
         run: xvfb-run -a npm test
         if: runner.os == 'Linux'
@@ -39,9 +40,8 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 18.x
-      - run: npm install
+          node-version: 20.x
+      - name: Install VSCE
+        run: npm install -g @vscode/vsce
       - name: Publish to VS Code Marketplace
-        run: npm run deploy
-        env:
-          VSCE_PAT: ${{ secrets.VSCE_PAT }}
+        run: vsce publish -p ${{ secrets.VSCE_PAT }}
