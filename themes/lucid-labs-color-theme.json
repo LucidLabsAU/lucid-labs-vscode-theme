@@ -208,7 +208,27 @@
     "gitDecoration.untrackedResourceForeground": "#339999",
     "gitDecoration.ignoredResourceForeground": "#CCCCCC80",
     "gitDecoration.conflictingResourceForeground": "#F0F0E1",
-    "gitDecoration.submoduleResourceForeground": "#C3D7CD"
+    "gitDecoration.submoduleResourceForeground": "#C3D7CD",
+
+    // Inline suggestion (e.g., GitHub Copilot ghost text)
+    "editorGhostText.foreground": "#33999980",
+
+    // Inlay hints (parameter/type hints)
+    "editorInlayHint.background": "#33293F",
+    "editorInlayHint.foreground": "#CCCCCC",
+    "editorInlayHint.typeBackground": "#33293F",
+    "editorInlayHint.typeForeground": "#C3D7CD",
+    "editorInlayHint.parameterBackground": "#33293F",
+    "editorInlayHint.parameterForeground": "#CCCCCC",
+
+    // Inline Chat (Copilot Chat / VS Code inline chat)
+    "inlineChat.background": "#1E1628",
+    "inlineChat.border": "#33999950",
+    "inlineChatInput.background": "#33293F",
+    "inlineChatInput.border": "#33999950",
+    "inlineChatInput.focusBorder": "#339999",
+    "inlineChatDiff.inserted": "#33999930",
+    "inlineChatDiff.removed": "#FF4B4630"
   },
   "tokenColors": [
     {

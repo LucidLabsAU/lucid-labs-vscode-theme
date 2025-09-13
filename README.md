@@ -59,6 +59,30 @@ The extension provides both light and dark variants that automatically follow yo
 5. Select "Install from VSIX..."
 6. Choose the downloaded file
 
+### Development
+
+To build from source:
+
+- Install VSCE: `npm install -g @vscode/vsce`
+- Package the extension: `vsce package`
+- Install the generated `.vsix` in VS Code via Extensions → `...` → Install from VSIX
+
+## 🔁 Automated Releases & Publishing
+
+- Automated releases use Release Please. It opens a release PR that bumps `package.json`, updates `CHANGELOG.md`, and proposes a tag.
+- When you merge the release PR, Release Please creates a GitHub release and tag (e.g. `v1.0.5`).
+- The `Publish VS Code Extension` workflow detects the tag and:
+  - Packages the extension (`vsce package`)
+  - Uploads the `.vsix` as a release asset
+  - Publishes to the VS Code Marketplace (`vsce publish`)
+
+Setup required:
+- Add repo secret `VSCE_PAT` with your Visual Studio Marketplace Personal Access Token.
+- Push to `main` using conventional commits for best changelog results.
+
+Manual publish:
+- Tag a release like `git tag vX.Y.Z && git push origin vX.Y.Z` to trigger the publish workflow.
+
 ## Brand Guidelines Compliance
 
 This theme follows the Lucid Labs Brand Guidelines:
