@@ -1,17 +1,14 @@
-name: Manual Publish
+name: Auto Version & Publish
 
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'themes/**'
+      - 'package.json'
+      - '!.github/**'
   workflow_dispatch:
-    inputs:
-      version_type:
-        description: 'Version bump type'
-        required: true
-        default: 'patch'
-        type: choice
-        options:
-          - patch
-          - minor
-          - major
 
 permissions:
   id-token: write
@@ -24,8 +21,11 @@ env:
   KEY_VAULT_NAME: "lucidhub-kv-dev"
 
 jobs:
-  publish:
+  version-and-publish:
     runs-on: ubuntu-latest
+    # Skip if commit message contains [skip ci] or is from dependabot version bump
+    if: "!contains(github.event.head_commit.message, '[skip ci]') && !contains(github.event.head_commit.message, 'chore: bump version')"
+
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
@@ -43,20 +43,23 @@ jobs:
         git config user.name "github-actions[bot]"
         git config user.email "github-actions[bot]@users.noreply.github.com"
 
-    - name: Bump version
+    - name: Bump patch version
       id: version
       run: |
-        NEW_VERSION=$(npm version ${{ inputs.version_type }} --no-git-tag-version)
+        # Get current version
+        CURRENT_VERSION=$(node -p "require('./package.json').version")
+        echo "Current version: $CURRENT_VERSION"
+
+        # Bump patch version
+        NEW_VERSION=$(npm version patch --no-git-tag-version)
         echo "New version: $NEW_VERSION"
         echo "new_version=$NEW_VERSION" >> $GITHUB_OUTPUT
 
-    - name: Commit and tag
+    - name: Commit version bump
       run: |
         git add package.json
-        git commit -m "chore: release ${{ steps.version.outputs.new_version }} [skip ci]"
-        git tag ${{ steps.version.outputs.new_version }}
+        git commit -m "chore: bump version to ${{ steps.version.outputs.new_version }} [skip ci]"
         git push
-        git push origin ${{ steps.version.outputs.new_version }}
 
     - name: Azure Login (OIDC)
       uses: azure/login@v2
@@ -78,20 +81,10 @@ jobs:
     - name: Package extension
       run: vsce package
 
-    - name: Upload VSIX as artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: lucid-labs-theme-${{ steps.version.outputs.new_version }}
-        path: '*.vsix'
-
-    - name: Create GitHub Release
-      uses: softprops/action-gh-release@v1
-      with:
-        tag_name: ${{ steps.version.outputs.new_version }}
-        files: '*.vsix'
-        generate_release_notes: true
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
     - name: Publish to VS Code Marketplace
       run: vsce publish -p "${{ steps.keyvault.outputs.VSCE_PAT }}"
+
+    - name: Create Git tag
+      run: |
+        git tag ${{ steps.version.outputs.new_version }}
+        git push origin ${{ steps.version.outputs.new_version }}
