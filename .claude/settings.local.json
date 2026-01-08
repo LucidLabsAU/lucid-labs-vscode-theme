@@ -1,0 +1,6 @@
+{
+  "permissions": {
+    "allow": ["mcp__microsoft-learn__microsoft_docs_search"],
+    "defaultMode": "bypassPermissions"
+  }
+}
