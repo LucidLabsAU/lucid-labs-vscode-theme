@@ -1,0 +1,2 @@
+# Ignore theme files to preserve intentional blank line groupings
+themes/*.json

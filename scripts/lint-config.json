@@ -1,0 +1,61 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Configuration for VS Code theme linting. Reference: https://code.visualstudio.com/api/references/theme-color",
+  "deprecatedProperties": {
+    "editorIndentGuide.background": {
+      "replacement": "editorIndentGuide.background1",
+      "since": "1.52"
+    },
+    "editorIndentGuide.activeBackground": {
+      "replacement": "editorIndentGuide.activeBackground1",
+      "since": "1.52"
+    },
+    "editorBracketMatch.background": {
+      "replacement": "editorBracketHighlight.background1",
+      "since": "1.60"
+    },
+    "editor.onTypeRenameBackground": {
+      "replacement": "editor.linkedEditingBackground",
+      "since": "1.52"
+    },
+    "list.filterMatchBackground": {
+      "replacement": "list.filterMatchBorder",
+      "since": "1.40"
+    },
+    "editor.snippetTabstopHighlightBackground": {
+      "replacement": "editorSnippetTabstopHighlightBackground",
+      "since": "1.0"
+    },
+    "editor.snippetTabstopHighlightBorder": {
+      "replacement": "editorSnippetTabstopHighlightBorder",
+      "since": "1.0"
+    },
+    "editor.snippetFinalTabstopHighlightBackground": {
+      "replacement": "editorSnippetFinalTabstopHighlightBackground",
+      "since": "1.0"
+    },
+    "editor.snippetFinalTabstopHighlightBorder": {
+      "replacement": "editorSnippetFinalTabstopHighlightBorder",
+      "since": "1.0"
+    },
+    "editorUnnecessary.foreground": {
+      "replacement": "editorUnnecessaryCode.opacity",
+      "since": "1.30"
+    },
+    "debugToolBar.border": {
+      "replacement": "debugToolBar.background with transparency",
+      "since": "1.30"
+    }
+  },
+  "requiresTransparency": [
+    "editorOverviewRuler.findMatchForeground",
+    "editorOverviewRuler.rangeHighlightForeground",
+    "editorOverviewRuler.selectionHighlightForeground",
+    "editorOverviewRuler.wordHighlightForeground",
+    "editorOverviewRuler.wordHighlightStrongForeground",
+    "chat.linesAddedForeground",
+    "chat.linesRemovedForeground",
+    "chat.requestBubbleBackground",
+    "chat.requestBubbleHoverBackground"
+  ]
+}

@@ -66,9 +66,14 @@
     "url": "https://lucidlabs.com.au"
   },
   "scripts": {
+    "lint": "node scripts/lint-themes.js",
     "package": "vsce package",
     "publish": "vsce publish",
     "deploy": "vsce publish",
-    "test": "echo \"No tests specified\" && exit 0"
+    "test": "echo \"No tests specified\" && exit 0",
+    "prepare": "husky || true"
+  },
+  "devDependencies": {
+    "husky": "^9.1.7"
   }
 }

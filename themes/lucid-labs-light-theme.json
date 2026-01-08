@@ -18,8 +18,8 @@
     "editor.wordHighlightStrongBackground": "#33999930",
     "editorLineNumber.foreground": "#7454B3",
     "editorLineNumber.activeForeground": "#339999",
-    "editorIndentGuide.background": "#CCCCCC30",
-    "editorIndentGuide.activeBackground": "#339999",
+    "editorIndentGuide.background1": "#CCCCCC30",
+    "editorIndentGuide.activeBackground1": "#339999",
     "editorWhitespace.foreground": "#CCCCCC50",
     "editorRuler.foreground": "#CCCCCC30",
     
@@ -104,12 +104,10 @@
     "terminal.ansiBrightCyan": "#339999",
     "terminal.ansiBrightWhite": "#FFFFFF",
 
-    // Terminal selection and cursor for CLI tools
     "terminal.selectionBackground": "#33999940",
     "terminalCursor.foreground": "#339999",
     "terminalCursor.background": "#FFFFFF",
 
-    // Terminal command decorations (Claude Code, Copilot CLI status indicators)
     "terminalCommandDecoration.defaultBackground": "#33999940",
     "terminalCommandDecoration.successBackground": "#28A74560",
     "terminalCommandDecoration.errorBackground": "#DC354560",
@@ -120,7 +118,6 @@
     "terminal.hoverHighlightBackground": "#33999920",
     "terminal.inactiveSelectionBackground": "#33999920",
 
-    // Terminal tab styling
     "terminal.tab.activeBorder": "#7454B3",
 
     "button.background": "#339999",
@@ -199,11 +196,11 @@
     "merge.border": "#33999950",
     
     "editorOverviewRuler.border": "#33999920",
-    "editorOverviewRuler.findMatchForeground": "#339999",
-    "editorOverviewRuler.rangeHighlightForeground": "#339999",
-    "editorOverviewRuler.selectionHighlightForeground": "#339999",
-    "editorOverviewRuler.wordHighlightForeground": "#339999",
-    "editorOverviewRuler.wordHighlightStrongForeground": "#339999",
+    "editorOverviewRuler.findMatchForeground": "#339999CC",
+    "editorOverviewRuler.rangeHighlightForeground": "#33999999",
+    "editorOverviewRuler.selectionHighlightForeground": "#33999999",
+    "editorOverviewRuler.wordHighlightForeground": "#33999999",
+    "editorOverviewRuler.wordHighlightStrongForeground": "#339999CC",
     "editorOverviewRuler.modifiedForeground": "#7454B3",
     "editorOverviewRuler.addedForeground": "#339999",
     "editorOverviewRuler.deletedForeground": "#FF4B46",
@@ -231,10 +228,8 @@
     "gitDecoration.conflictingResourceForeground": "#B89500",
     "gitDecoration.submoduleResourceForeground": "#5D8A7D",
 
-    // Inline suggestion (e.g., GitHub Copilot ghost text)
     "editorGhostText.foreground": "#271D3B66",
 
-    // Inlay hints (parameter/type hints)
     "editorInlayHint.background": "#F5F5FF",
     "editorInlayHint.foreground": "#27213570",
     "editorInlayHint.typeBackground": "#F5F5FF",
@@ -242,7 +237,6 @@
     "editorInlayHint.parameterBackground": "#F5F5FF",
     "editorInlayHint.parameterForeground": "#27213570",
 
-    // Inline Chat (Copilot Chat / VS Code inline chat)
     "inlineChat.background": "#F5F5FF",
     "inlineChat.foreground": "#271D3B",
     "inlineChat.border": "#33999930",
@@ -254,7 +248,6 @@
     "inlineChatDiff.inserted": "#33999920",
     "inlineChatDiff.removed": "#FF4B4615",
 
-    // Chat Panel (GitHub Copilot Chat, Agents, Sessions)
     "chat.requestBorder": "#33999930",
     "chat.requestBackground": "#F5F5FF",
     "chat.slashCommandBackground": "#339999",
@@ -262,15 +255,14 @@
     "chat.avatarBackground": "#339999",
     "chat.avatarForeground": "#FFFFFF",
     "chat.editedFileForeground": "#7454B3",
-    "chat.linesAddedForeground": "#339999",
-    "chat.linesRemovedForeground": "#FF4B46",
+    "chat.linesAddedForeground": "#339999CC",
+    "chat.linesRemovedForeground": "#FF4B46CC",
     "chat.requestCodeBorder": "#33999920",
-    "chat.requestBubbleBackground": "#F5F5FF",
-    "chat.requestBubbleHoverBackground": "#E8E8F5",
+    "chat.requestBubbleBackground": "#F5F5FFE6",
+    "chat.requestBubbleHoverBackground": "#E8E8F5E6",
     "chat.checkpointSeparator": "#33999930",
     "chatManagement.sashBorder": "#339999",
 
-    // AI Lightbulb
     "editorLightBulbAi.foreground": "#339999"
   },
   "tokenColors": [
