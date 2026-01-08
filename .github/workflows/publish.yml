@@ -6,58 +6,64 @@ on:
       - 'v*'
   workflow_dispatch:
 
+permissions:
+  id-token: write
+  contents: write
+
+env:
+  AZURE_CLIENT_ID: "32a7f876-b319-4703-be8c-f45654b3ad13"
+  AZURE_TENANT_ID: "38fcc012-5a88-4df9-b912-44ad0ee73268"
+  AZURE_SUBSCRIPTION_ID: "42fa28b4-93f8-496e-8093-53417e5be8bf"
+  KEY_VAULT_NAME: "lucidhub-kv-dev"
+
 jobs:
   publish:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-      
+
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
         node-version: '20'
-        
-    - name: Install dependencies
+
+    - name: Azure Login (OIDC)
+      uses: azure/login@v2
+      with:
+        client-id: ${{ env.AZURE_CLIENT_ID }}
+        tenant-id: ${{ env.AZURE_TENANT_ID }}
+        subscription-id: ${{ env.AZURE_SUBSCRIPTION_ID }}
+
+    - name: Get VSCE PAT from Key Vault
+      id: keyvault
       run: |
-        npm install -g @vscode/vsce
-        
+        VSCE_PAT=$(az keyvault secret show --vault-name "${{ env.KEY_VAULT_NAME }}" --name "vsce-marketplace-pat" --query "value" -o tsv)
+        echo "::add-mask::$VSCE_PAT"
+        echo "VSCE_PAT=$VSCE_PAT" >> $GITHUB_OUTPUT
+
+    - name: Install dependencies
+      run: npm install -g @vscode/vsce
+
     - name: Package extension
       run: vsce package
-      
+
     - name: Upload VSIX as artifact
       uses: actions/upload-artifact@v4
       with:
         name: lucid-labs-theme-${{ github.ref_name }}
         path: '*.vsix'
-        
+
     - name: Create GitHub Release
       id: create_release
       if: startsWith(github.ref, 'refs/tags/')
-      uses: actions/create-release@v1
+      uses: softprops/action-gh-release@v1
+      with:
+        files: '*.vsix'
+        generate_release_notes: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        tag_name: ${{ github.ref }}
-        release_name: Release ${{ github.ref }}
-        draft: false
-        prerelease: false
-        
-    - name: Upload Release Asset
-      if: startsWith(github.ref, 'refs/tags/')
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./lucid-labs-theme-*.vsix
-        asset_name: lucid-labs-theme-${{ github.ref_name }}.vsix
-        asset_content_type: application/zip
-        
+
     - name: Publish to VS Code Marketplace
       if: startsWith(github.ref, 'refs/tags/')
-      env:
-        VSCE_PAT: ${{ secrets.VSCE_PAT }}
-      run: vsce publish -p $VSCE_PAT
+      run: vsce publish -p "${{ steps.keyvault.outputs.VSCE_PAT }}"
