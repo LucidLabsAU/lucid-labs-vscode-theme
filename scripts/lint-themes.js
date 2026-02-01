@@ -24,6 +24,14 @@ const REQUIRES_TRANSPARENCY = config.requiresTransparency;
 const THEMES_DIR = path.join(__dirname, '..', 'themes');
 
 /**
+ * Escape special regex characters in a string
+ * This properly escapes ALL regex metacharacters including backslashes
+ */
+function escapeRegex(string) {
+  return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+/**
  * Check if a hex color has transparency (alpha channel)
  * Valid formats: #RRGGBBAA or #RGBA
  */
@@ -56,7 +64,7 @@ function lintThemeFile(filePath) {
 
     // Check for deprecated properties
     for (const [deprecated, info] of Object.entries(DEPRECATED_PROPERTIES)) {
-      const regex = new RegExp(`"${deprecated.replace(/\./g, '\\.')}"\\s*:`);
+      const regex = new RegExp(`"${escapeRegex(deprecated)}"\\s*:`);
       if (regex.test(line)) {
         errors.push({
           type: 'deprecated',
@@ -72,7 +80,7 @@ function lintThemeFile(filePath) {
 
     // Check for properties that require transparency
     for (const prop of REQUIRES_TRANSPARENCY) {
-      const regex = new RegExp(`"${prop.replace(/\./g, '\\.')}"\\s*:\\s*"(#[0-9A-Fa-f]+)"`);
+      const regex = new RegExp(`"${escapeRegex(prop)}"\\s*:\\s*"(#[0-9A-Fa-f]+)"`);
       const match = line.match(regex);
       if (match) {
         const color = match[1];
