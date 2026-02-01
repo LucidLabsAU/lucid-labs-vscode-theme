@@ -33,3 +33,7 @@ updates:
       - "dependencies"
       - "npm"
     open-pull-requests-limit: 10
+    groups:
+      npm-dependencies:
+        patterns:
+          - "*"
