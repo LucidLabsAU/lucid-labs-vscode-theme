@@ -24,11 +24,11 @@ const REQUIRES_TRANSPARENCY = config.requiresTransparency;
 const THEMES_DIR = path.join(__dirname, '..', 'themes');
 
 /**
- * Escape special regex characters in a string
- * This properly escapes ALL regex metacharacters including backslashes
+ * Escape all regex special characters in a string
+ * Handles: . * + ? ^ $ { } ( ) | [ ] \
  */
-function escapeRegex(string) {
-  return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+function escapeRegex(str) {
+  return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
 /**
