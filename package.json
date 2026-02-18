@@ -2,7 +2,7 @@
   "name": "lucid-labs-theme",
   "displayName": "Lucid Labs Theme",
   "description": "A professional dark theme for Visual Studio Code based on Lucid Labs brand guidelines. Features dark purple backgrounds, teal accents, and cloud-inspired aesthetics perfect for Azure development, PowerShell scripting, and enterprise coding.",
-  "version": "1.1.2",
+  "version": "1.1.0",
   "publisher": "lucidlabs",
   "license": "MIT",
   "icon": "icon.png",
