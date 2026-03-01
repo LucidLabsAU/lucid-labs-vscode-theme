@@ -2,6 +2,19 @@
 
 All notable changes to the Lucid Labs Theme extension will be documented in this file.
 
+## [1.3.0](https://github.com/LucidLabsAU/lucid-labs-vscode-theme/compare/lucid-labs-theme-v1.2.0...lucid-labs-theme-v1.3.0) (2026-03-01)
+
+
+### Features
+
+* improve contrast and reduce eye strain across both themes ([a102bf2](https://github.com/LucidLabsAU/lucid-labs-vscode-theme/commit/a102bf241955ec7eefbada447d8a902aac1df8dc))
+
+
+### Bug Fixes
+
+* clean up VSIX packaging and bump to v1.3.1 ([5dbfa8a](https://github.com/LucidLabsAU/lucid-labs-vscode-theme/commit/5dbfa8a583eee9451eef46f3de8b9702d21c1090))
+* dynamically allowlist GitHub runner IP for Key Vault access ([e7c643b](https://github.com/LucidLabsAU/lucid-labs-vscode-theme/commit/e7c643b63e12e32940b75f8891f16d519bc0ba69))
+
 ## [1.2.0](https://github.com/LucidLabsAU/lucid-labs-vscode-theme/compare/lucid-labs-theme-v1.1.2...lucid-labs-theme-v1.2.0) (2026-02-18)
 
 
