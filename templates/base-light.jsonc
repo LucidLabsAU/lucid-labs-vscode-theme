@@ -1,0 +1,772 @@
+// Base light theme template
+// Placeholders: {{role}} resolves to brand colour, {{role}}XX appends hex alpha
+{
+  "type": "light",
+  "colors": {
+    "editor.background": "{{background}}",
+    "editor.foreground": "{{foreground}}",
+    "editorCursor.foreground": "{{accent}}",
+    "editor.lineHighlightBackground": "{{backgroundDeep}}",
+    "editor.selectionBackground": "{{accent}}30",
+    "editor.selectionHighlightBackground": "{{accent}}20",
+    "editor.findMatchBackground": "{{findMatch|accent}}50",
+    "editor.findMatchHighlightBackground": "{{findMatch|accent}}30",
+    "editor.wordHighlightBackground": "{{accent}}20",
+    "editor.wordHighlightStrongBackground": "{{accent}}30",
+    "editorLineNumber.foreground": "{{keyword}}",
+    "editorLineNumber.activeForeground": "{{accent}}",
+    "editorIndentGuide.background1": "{{guideMuted|muted}}30",
+    "editorIndentGuide.activeBackground1": "{{accent}}",
+    "editorWhitespace.foreground": "{{guideMuted|muted}}50",
+    "editorRuler.foreground": "{{guideMuted|muted}}30",
+
+    "activityBar.background": "{{backgroundDeep}}",
+    "activityBar.foreground": "{{foreground}}",
+    "activityBar.inactiveForeground": "{{inactiveForeground|foreground}}70",
+    "activityBar.border": "{{keyword}}30",
+    "activityBar.activeBorder": "{{keyword}}",
+    "activityBar.activeBackground": "{{keyword}}15",
+    "activityBar.activeFocusBorder": "{{keyword}}",
+    "activityBarBadge.background": "{{badge|accent}}",
+    "activityBarBadge.foreground": "#FFFFFF",
+
+    "sideBar.background": "{{backgroundPanel}}",
+    "sideBar.foreground": "{{foreground}}",
+    "sideBar.border": "{{keyword}}30",
+    "sideBarTitle.foreground": "{{keyword}}",
+    "sideBarSectionHeader.background": "{{keyword}}15",
+    "sideBarSectionHeader.foreground": "{{sectionHeader|keyword}}",
+    "sideBarSectionHeader.border": "{{keyword}}20",
+
+    "list.activeSelectionBackground": "{{accent}}40",
+    "list.activeSelectionForeground": "{{listActiveSelectionForeground|foreground}}",
+    "list.inactiveSelectionBackground": "{{accent}}20",
+    "list.hoverBackground": "{{accent}}15",
+    "list.focusBackground": "{{accent}}30",
+    "list.highlightForeground": "{{accent}}",
+
+    "titleBar.activeBackground": "{{backgroundDeep}}",
+    "titleBar.activeForeground": "{{foreground}}",
+    "titleBar.inactiveBackground": "{{backgroundDeep}}",
+    "titleBar.inactiveForeground": "{{inactiveForeground|foreground}}70",
+    "titleBar.border": "{{keyword}}30",
+
+    "statusBar.background": "{{statusBar|keyword}}",
+    "statusBar.foreground": "#FFFFFF",
+    "statusBar.border": "{{statusBarBorder|sectionHeader|keyword}}",
+    "statusBar.noFolderBackground": "{{statusBarBorder|sectionHeader|keyword}}",
+    "statusBar.debuggingBackground": "{{debuggingBg|success}}",
+    "statusBar.debuggingForeground": "{{debuggingFg|#FFFFFF}}",
+    "statusBarItem.hoverBackground": "{{statusBarBorder|sectionHeader|keyword}}80",
+    "statusBarItem.prominentBackground": "{{prominentButton|accent}}",
+    "statusBarItem.prominentHoverBackground": "{{prominentButtonHover|accentHover}}",
+    "statusBarItem.remoteBackground": "{{remote|accent}}",
+    "statusBarItem.remoteForeground": "{{remoteForeground|#FFFFFF}}",
+
+    "tab.activeBackground": "{{background}}",
+    "tab.activeForeground": "{{foreground}}",
+    "tab.activeBorder": "{{keyword}}",
+    "tab.inactiveBackground": "{{backgroundDeep}}",
+    "tab.inactiveForeground": "{{inactiveForeground|foreground}}70",
+    "tab.border": "{{keyword}}20",
+    "tab.hoverBackground": "{{backgroundDeep}}",
+    "tab.hoverForeground": "{{foreground}}",
+
+    "editorGroupHeader.tabsBackground": "{{backgroundDeep}}",
+    "editorGroupHeader.tabsBorder": "{{keyword}}20",
+    "editorGroup.border": "{{keyword}}20",
+
+    "panel.background": "{{backgroundPanel}}",
+    "panel.border": "{{keyword}}20",
+    "panelTitle.activeForeground": "{{keyword}}",
+    "panelTitle.inactiveForeground": "{{inactiveForeground|foreground}}60",
+    "panelTitle.activeBorder": "{{keyword}}",
+
+    "terminal.background": "{{background}}",
+    "terminal.foreground": "{{foreground}}",
+    "terminal.ansiBlack": "{{terminal.black}}",
+    "terminal.ansiRed": "{{terminal.red}}",
+    "terminal.ansiGreen": "{{terminal.green}}",
+    "terminal.ansiYellow": "{{terminal.yellow}}",
+    "terminal.ansiBlue": "{{terminal.blue}}",
+    "terminal.ansiMagenta": "{{terminal.magenta}}",
+    "terminal.ansiCyan": "{{terminal.cyan}}",
+    "terminal.ansiWhite": "{{terminal.white}}",
+    "terminal.ansiBrightBlack": "{{terminal.brightBlack}}",
+    "terminal.ansiBrightRed": "{{terminal.brightRed}}",
+    "terminal.ansiBrightGreen": "{{terminal.brightGreen}}",
+    "terminal.ansiBrightYellow": "{{terminal.brightYellow}}",
+    "terminal.ansiBrightBlue": "{{terminal.brightBlue}}",
+    "terminal.ansiBrightMagenta": "{{terminal.brightMagenta}}",
+    "terminal.ansiBrightCyan": "{{terminal.brightCyan}}",
+    "terminal.ansiBrightWhite": "{{terminal.brightWhite}}",
+
+    "terminal.selectionBackground": "{{accent}}40",
+    "terminalCursor.foreground": "{{accent}}",
+    "terminalCursor.background": "{{background}}",
+
+    "terminalCommandDecoration.defaultBackground": "{{accent}}40",
+    "terminalCommandDecoration.successBackground": "{{terminalSuccess|success}}60",
+    "terminalCommandDecoration.errorBackground": "{{terminalError|terminal.red}}60",
+    "terminal.findMatchBackground": "{{findMatch|accent}}60",
+    "terminal.findMatchBorder": "{{findMatchBorder|accent}}",
+    "terminal.findMatchHighlightBackground": "{{findMatch|accent}}40",
+    "terminal.findMatchHighlightBorder": "{{findMatchBorder|accent}}80",
+    "terminal.hoverHighlightBackground": "{{accent}}20",
+    "terminal.inactiveSelectionBackground": "{{accent}}20",
+
+    "terminal.tab.activeBorder": "{{keyword}}",
+
+    "button.background": "{{button|accent}}",
+    "button.foreground": "#FFFFFF",
+    "button.hoverBackground": "{{buttonHover|accentHover}}",
+
+    "input.background": "{{backgroundInput}}",
+    "input.foreground": "{{foreground}}",
+    "input.border": "{{accent}}50",
+    "input.placeholderForeground": "{{muted}}",
+    "inputOption.activeBorder": "{{accent}}",
+    "inputValidation.errorBackground": "{{error}}20",
+    "inputValidation.errorBorder": "{{error}}",
+
+    "dropdown.background": "{{backgroundInput}}",
+    "dropdown.foreground": "{{foreground}}",
+    "dropdown.border": "{{accent}}50",
+
+    "focusBorder": "{{accent}}",
+    "foreground": "{{foreground}}",
+    "selection.background": "{{accent}}50",
+    "errorForeground": "{{error}}",
+    "icon.foreground": "{{accent}}",
+
+    "menu.background": "{{background}}",
+    "menu.foreground": "{{foreground}}",
+    "menu.selectionBackground": "{{accent}}30",
+    "menu.selectionForeground": "{{foreground}}",
+    "menu.border": "{{accent}}30",
+
+    "menubar.selectionBackground": "{{accent}}30",
+    "menubar.selectionForeground": "{{foreground}}",
+
+    "notificationCenter.border": "{{accent}}20",
+    "notificationCenterHeader.background": "{{notificationHeader|backgroundElevated}}",
+    "notificationToast.border": "{{accent}}20",
+    "notifications.background": "{{background}}",
+    "notifications.border": "{{accent}}20",
+    "notifications.foreground": "{{foreground}}",
+
+    "badge.background": "{{badge|accent}}",
+    "badge.foreground": "#FFFFFF",
+
+    "progressBar.background": "{{accent}}",
+
+    "scrollbar.shadow": "{{shadow}}50",
+    "scrollbarSlider.background": "{{accent}}30",
+    "scrollbarSlider.hoverBackground": "{{accent}}50",
+    "scrollbarSlider.activeBackground": "{{accent}}70",
+
+    "editorWidget.background": "{{background}}",
+    "editorWidget.border": "{{accent}}50",
+    "editorSuggestWidget.background": "{{background}}",
+    "editorSuggestWidget.border": "{{accent}}50",
+    "editorSuggestWidget.foreground": "{{foreground}}",
+    "editorSuggestWidget.highlightForeground": "{{accent}}",
+    "editorSuggestWidget.selectedBackground": "{{accent}}50",
+
+    "peekView.border": "{{accent}}",
+    "peekViewEditor.background": "{{peekEditorBg|backgroundDeep}}",
+    "peekViewEditor.matchHighlightBackground": "{{accent}}50",
+    "peekViewResult.background": "{{peekResultBg|backgroundPanel}}",
+    "peekViewResult.fileForeground": "{{peekFileFg|foreground}}",
+    "peekViewResult.lineForeground": "{{peekLineFg|muted}}",
+    "peekViewResult.matchHighlightBackground": "{{accent}}50",
+    "peekViewResult.selectionBackground": "{{accent}}50",
+    "peekViewResult.selectionForeground": "{{peekFileFg|foreground}}",
+    "peekViewTitle.background": "{{peekTitleBg|shadow}}",
+    "peekViewTitleDescription.foreground": "{{peekTitleDesc|muted}}",
+    "peekViewTitleLabel.foreground": "{{accent}}",
+
+    "merge.currentHeaderBackground": "{{mergeSuccess|success}}50",
+    "merge.currentContentBackground": "{{mergeSuccess|success}}20",
+    "merge.incomingHeaderBackground": "{{mergeIncoming|info}}50",
+    "merge.incomingContentBackground": "{{mergeIncoming|info}}20",
+    "merge.border": "{{accent}}50",
+
+    "editorOverviewRuler.border": "{{accent}}20",
+    "editorOverviewRuler.findMatchForeground": "{{accent}}CC",
+    "editorOverviewRuler.rangeHighlightForeground": "{{accent}}99",
+    "editorOverviewRuler.selectionHighlightForeground": "{{accent}}99",
+    "editorOverviewRuler.wordHighlightForeground": "{{accent}}99",
+    "editorOverviewRuler.wordHighlightStrongForeground": "{{accent}}CC",
+    "editorOverviewRuler.modifiedForeground": "{{modified|keyword}}",
+    "editorOverviewRuler.addedForeground": "{{added|success}}",
+    "editorOverviewRuler.deletedForeground": "{{error}}",
+    "editorOverviewRuler.errorForeground": "{{error}}",
+    "editorOverviewRuler.warningForeground": "{{warning}}",
+    "editorOverviewRuler.infoForeground": "{{info}}",
+
+    "minimap.findMatchHighlight": "{{accent}}80",
+    "minimap.selectionHighlight": "{{accent}}50",
+    "minimap.errorHighlight": "{{error}}",
+    "minimap.warningHighlight": "{{warning}}",
+    "minimapSlider.background": "{{accent}}30",
+    "minimapSlider.hoverBackground": "{{accent}}50",
+    "minimapSlider.activeBackground": "{{accent}}70",
+
+    "diffEditor.insertedTextBackground": "{{added|success}}20",
+    "diffEditor.removedTextBackground": "{{error}}20",
+    "diffEditor.insertedTextBorder": "{{added|success}}50",
+    "diffEditor.removedTextBorder": "{{error}}50",
+
+    "gitDecoration.modifiedResourceForeground": "{{modified|keyword}}",
+    "gitDecoration.deletedResourceForeground": "{{error}}",
+    "gitDecoration.untrackedResourceForeground": "{{added|success}}",
+    "gitDecoration.ignoredResourceForeground": "{{muted}}",
+    "gitDecoration.conflictingResourceForeground": "{{warning}}",
+    "gitDecoration.submoduleResourceForeground": "{{submodule|string}}",
+
+    "editorGhostText.foreground": "{{foreground}}66",
+
+    "editorInlayHint.background": "{{backgroundDeep}}",
+    "editorInlayHint.foreground": "{{inlayHintFg|foreground}}70",
+    "editorInlayHint.typeBackground": "{{backgroundDeep}}",
+    "editorInlayHint.typeForeground": "{{foreground}}",
+    "editorInlayHint.parameterBackground": "{{backgroundDeep}}",
+    "editorInlayHint.parameterForeground": "{{inlayHintFg|foreground}}70",
+
+    "inlineChat.background": "{{backgroundPanel}}",
+    "inlineChat.foreground": "{{foreground}}",
+    "inlineChat.border": "{{accent}}30",
+    "inlineChat.shadow": "{{shadow}}20",
+    "inlineChatInput.background": "{{backgroundInput}}",
+    "inlineChatInput.border": "{{accent}}50",
+    "inlineChatInput.focusBorder": "{{accent}}",
+    "inlineChatInput.placeholderForeground": "{{inputPlaceholder|muted}}",
+    "inlineChatDiff.inserted": "{{added|success}}20",
+    "inlineChatDiff.removed": "{{error}}15",
+
+    "chat.requestBorder": "{{accent}}30",
+    "chat.requestBackground": "{{backgroundPanel}}",
+    "chat.slashCommandBackground": "{{button|accent}}",
+    "chat.slashCommandForeground": "#FFFFFF",
+    "chat.avatarBackground": "{{avatarBackground|accent}}",
+    "chat.avatarForeground": "{{avatarForeground|#FFFFFF}}",
+    "chat.editedFileForeground": "{{modified|keyword}}",
+    "chat.linesAddedForeground": "{{added|success}}CC",
+    "chat.linesRemovedForeground": "{{error}}CC",
+    "chat.requestCodeBorder": "{{accent}}20",
+    "chat.requestBubbleBackground": "{{backgroundPanel}}E6",
+    "chat.requestBubbleHoverBackground": "{{backgroundHover}}E6",
+    "chat.checkpointSeparator": "{{accent}}30",
+    "chatManagement.sashBorder": "{{accent}}",
+
+    "editorLightBulbAi.foreground": "{{accent}}"
+  },
+  "tokenColors": [
+    {
+      "name": "Comment",
+      "scope": ["comment", "punctuation.definition.comment"],
+      "settings": {
+        "fontStyle": "italic",
+        "foreground": "{{comment}}"
+      }
+    },
+    {
+      "name": "Variables",
+      "scope": ["variable", "string constant.other.placeholder"],
+      "settings": {
+        "foreground": "{{foreground}}"
+      }
+    },
+    {
+      "name": "Colors",
+      "scope": ["constant.other.color"],
+      "settings": {
+        "foreground": "{{accent}}"
+      }
+    },
+    {
+      "name": "Invalid",
+      "scope": ["invalid", "invalid.illegal"],
+      "settings": {
+        "foreground": "{{error}}"
+      }
+    },
+    {
+      "name": "Keyword, Storage",
+      "scope": ["keyword", "storage.type", "storage.modifier"],
+      "settings": {
+        "foreground": "{{keyword}}"
+      }
+    },
+    {
+      "name": "Operator, Misc",
+      "scope": [
+        "keyword.control",
+        "constant.other.color",
+        "punctuation",
+        "meta.tag",
+        "punctuation.definition.tag",
+        "punctuation.separator.inheritance.php",
+        "punctuation.definition.tag.html",
+        "punctuation.definition.tag.begin.html",
+        "punctuation.definition.tag.end.html",
+        "punctuation.section.embedded",
+        "keyword.other.template",
+        "keyword.other.substitution"
+      ],
+      "settings": {
+        "foreground": "{{function}}"
+      }
+    },
+    {
+      "name": "Tag",
+      "scope": [
+        "entity.name.tag",
+        "meta.tag.sgml",
+        "markup.deleted.git_gutter"
+      ],
+      "settings": {
+        "foreground": "{{tag|keyword}}"
+      }
+    },
+    {
+      "name": "Function, Special Method",
+      "scope": [
+        "entity.name.function",
+        "meta.function-call",
+        "variable.function",
+        "support.function",
+        "keyword.other.special-method"
+      ],
+      "settings": {
+        "foreground": "{{function}}"
+      }
+    },
+    {
+      "name": "Block Level Variables",
+      "scope": ["meta.block variable.other"],
+      "settings": {
+        "foreground": "{{foreground}}"
+      }
+    },
+    {
+      "name": "Other Variable, String Link",
+      "scope": ["support.other.variable", "string.other.link"],
+      "settings": {
+        "foreground": "{{foreground}}"
+      }
+    },
+    {
+      "name": "Number, Constant, Function Argument, Tag Attribute, Embedded",
+      "scope": [
+        "constant.numeric",
+        "constant.language",
+        "support.constant",
+        "constant.character",
+        "constant.escape",
+        "variable.parameter",
+        "keyword.other.unit",
+        "keyword.other"
+      ],
+      "settings": {
+        "foreground": "{{constant}}"
+      }
+    },
+    {
+      "name": "String, Symbols, Inherited Class, Markup Heading",
+      "scope": [
+        "string",
+        "constant.other.symbol",
+        "constant.other.key",
+        "entity.other.inherited-class",
+        "markup.heading",
+        "markup.inserted.git_gutter",
+        "meta.group.braces.curly constant.other.object.key.js string.unquoted.label.js"
+      ],
+      "settings": {
+        "foreground": "{{string}}"
+      }
+    },
+    {
+      "name": "Class, Support",
+      "scope": [
+        "entity.name",
+        "support.type",
+        "support.class",
+        "support.other.namespace.use.php",
+        "meta.use.php",
+        "support.other.namespace.php",
+        "markup.changed.git_gutter",
+        "support.type.sys-types"
+      ],
+      "settings": {
+        "foreground": "{{accent}}"
+      }
+    },
+    {
+      "name": "Entity Types",
+      "scope": ["support.type"],
+      "settings": {
+        "foreground": "{{keyword}}"
+      }
+    },
+    {
+      "name": "CSS Class and Support",
+      "scope": [
+        "source.css support.type.property-name",
+        "source.sass support.type.property-name",
+        "source.scss support.type.property-name",
+        "source.less support.type.property-name",
+        "source.stylus support.type.property-name",
+        "source.postcss support.type.property-name"
+      ],
+      "settings": {
+        "foreground": "{{accent}}"
+      }
+    },
+    {
+      "name": "Sub-methods",
+      "scope": [
+        "entity.name.module.js",
+        "variable.import.parameter.js",
+        "variable.other.class.js"
+      ],
+      "settings": {
+        "foreground": "{{foreground}}"
+      }
+    },
+    {
+      "name": "Language methods",
+      "scope": ["variable.language"],
+      "settings": {
+        "fontStyle": "italic",
+        "foreground": "{{keyword}}"
+      }
+    },
+    {
+      "name": "entity.name.method.js",
+      "scope": ["entity.name.method.js"],
+      "settings": {
+        "fontStyle": "italic",
+        "foreground": "{{function}}"
+      }
+    },
+    {
+      "name": "meta.method.js",
+      "scope": [
+        "meta.class-method.js entity.name.function.js",
+        "variable.function.constructor"
+      ],
+      "settings": {
+        "foreground": "{{function}}"
+      }
+    },
+    {
+      "name": "Attributes",
+      "scope": ["entity.other.attribute-name"],
+      "settings": {
+        "foreground": "{{keyword}}"
+      }
+    },
+    {
+      "name": "HTML Attributes",
+      "scope": [
+        "text.html.basic entity.other.attribute-name.html",
+        "text.html.basic entity.other.attribute-name"
+      ],
+      "settings": {
+        "fontStyle": "italic",
+        "foreground": "{{htmlAttribute|function}}"
+      }
+    },
+    {
+      "name": "CSS Classes",
+      "scope": ["entity.other.attribute-name.class"],
+      "settings": {
+        "foreground": "{{cssClass|function}}"
+      }
+    },
+    {
+      "name": "CSS ID's",
+      "scope": ["source.sass keyword.control"],
+      "settings": {
+        "foreground": "{{accent}}"
+      }
+    },
+    {
+      "name": "Inserted",
+      "scope": ["markup.inserted"],
+      "settings": {
+        "foreground": "{{added|success}}"
+      }
+    },
+    {
+      "name": "Deleted",
+      "scope": ["markup.deleted"],
+      "settings": {
+        "foreground": "{{error}}"
+      }
+    },
+    {
+      "name": "Changed",
+      "scope": ["markup.changed"],
+      "settings": {
+        "foreground": "{{modified|keyword}}"
+      }
+    },
+    {
+      "name": "Regular Expressions",
+      "scope": ["string.regexp"],
+      "settings": {
+        "foreground": "{{regex|success}}"
+      }
+    },
+    {
+      "name": "Escape Characters",
+      "scope": ["constant.character.escape"],
+      "settings": {
+        "foreground": "{{regex|success}}"
+      }
+    },
+    {
+      "name": "URL",
+      "scope": ["*url*", "*link*", "*uri*"],
+      "settings": {
+        "fontStyle": "underline"
+      }
+    },
+    {
+      "name": "Decorators",
+      "scope": [
+        "tag.decorator.js entity.name.tag.js",
+        "tag.decorator.js punctuation.definition.tag.js"
+      ],
+      "settings": {
+        "fontStyle": "italic",
+        "foreground": "{{function}}"
+      }
+    },
+    {
+      "name": "ES7 Bind Operator",
+      "scope": [
+        "source.js constant.other.object.key.js string.unquoted.label.js"
+      ],
+      "settings": {
+        "fontStyle": "italic",
+        "foreground": "{{foreground}}"
+      }
+    },
+    {
+      "name": "JSON Key - Level 0",
+      "scope": [
+        "source.json meta.structure.dictionary.json support.type.property-name.json"
+      ],
+      "settings": {
+        "foreground": "{{accent}}"
+      }
+    },
+    {
+      "name": "JSON Key - Level 1",
+      "scope": [
+        "source.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json support.type.property-name.json"
+      ],
+      "settings": {
+        "foreground": "{{jsonLevel1|keyword}}"
+      }
+    },
+    {
+      "name": "JSON Key - Level 2",
+      "scope": [
+        "source.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json support.type.property-name.json"
+      ],
+      "settings": {
+        "foreground": "{{string}}"
+      }
+    },
+    {
+      "name": "JSON Key - Level 3",
+      "scope": [
+        "source.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json support.type.property-name.json"
+      ],
+      "settings": {
+        "foreground": "{{jsonLevel3|constant}}"
+      }
+    },
+    {
+      "name": "Markdown - Plain",
+      "scope": [
+        "text.html.markdown",
+        "punctuation.definition.list_item.markdown"
+      ],
+      "settings": {
+        "foreground": "{{foreground}}"
+      }
+    },
+    {
+      "name": "Markdown - Markup Raw Inline",
+      "scope": ["text.html.markdown markup.inline.raw.markdown"],
+      "settings": {
+        "foreground": "{{markdownRaw|keyword}}"
+      }
+    },
+    {
+      "name": "Markdown - Markup Raw Inline Punctuation",
+      "scope": [
+        "text.html.markdown markup.inline.raw.markdown punctuation.definition.raw.markdown"
+      ],
+      "settings": {
+        "foreground": "{{function}}"
+      }
+    },
+    {
+      "name": "Markdown - Heading",
+      "scope": [
+        "markdown.heading",
+        "markup.heading | markup.heading entity.name",
+        "markup.heading.markdown punctuation.definition.heading.markdown"
+      ],
+      "settings": {
+        "foreground": "{{accent}}"
+      }
+    },
+    {
+      "name": "Markup - Italic",
+      "scope": ["markup.italic"],
+      "settings": {
+        "fontStyle": "italic",
+        "foreground": "{{keyword}}"
+      }
+    },
+    {
+      "name": "Markup - Bold",
+      "scope": ["markup.bold", "markup.bold string"],
+      "settings": {
+        "fontStyle": "bold",
+        "foreground": "{{keyword}}"
+      }
+    },
+    {
+      "name": "Markup - Bold-Italic",
+      "scope": [
+        "markup.bold markup.italic",
+        "markup.italic markup.bold",
+        "markup.quote markup.bold",
+        "markup.bold markup.italic string",
+        "markup.italic markup.bold string",
+        "markup.quote markup.bold string"
+      ],
+      "settings": {
+        "fontStyle": "bold",
+        "foreground": "{{keyword}}"
+      }
+    },
+    {
+      "name": "Markup - Underline",
+      "scope": ["markup.underline"],
+      "settings": {
+        "fontStyle": "underline",
+        "foreground": "{{string}}"
+      }
+    },
+    {
+      "name": "Markdown - Blockquote",
+      "scope": ["markup.quote punctuation.definition.blockquote.markdown"],
+      "settings": {
+        "foreground": "{{blockquote|comment}}"
+      }
+    },
+    {
+      "name": "Markup - Quote",
+      "scope": ["markup.quote"],
+      "settings": {
+        "fontStyle": "italic"
+      }
+    },
+    {
+      "name": "Markdown - Link",
+      "scope": ["string.other.link.title.markdown"],
+      "settings": {
+        "foreground": "{{accent}}"
+      }
+    },
+    {
+      "name": "Markdown - Link Description",
+      "scope": ["string.other.link.description.title.markdown"],
+      "settings": {
+        "foreground": "{{keyword}}"
+      }
+    },
+    {
+      "name": "Markdown - Link Anchor",
+      "scope": ["constant.other.reference.link.markdown"],
+      "settings": {
+        "foreground": "{{string}}"
+      }
+    },
+    {
+      "name": "Markup - Raw Block",
+      "scope": ["markup.raw.block"],
+      "settings": {
+        "foreground": "{{markdownRaw|keyword}}"
+      }
+    },
+    {
+      "name": "Markdown - Raw Block Fenced",
+      "scope": ["markup.raw.block.fenced.markdown"],
+      "settings": {
+        "foreground": "{{foreground}}"
+      }
+    },
+    {
+      "name": "Markdown - Fenced Code Block",
+      "scope": ["punctuation.definition.fenced.markdown"],
+      "settings": {
+        "foreground": "{{foreground}}"
+      }
+    },
+    {
+      "name": "Markdown - Fenced Code Block Variable",
+      "scope": [
+        "markup.raw.block.fenced.markdown",
+        "variable.language.fenced.markdown",
+        "punctuation.section.class.end"
+      ],
+      "settings": {
+        "foreground": "{{foreground}}"
+      }
+    },
+    {
+      "name": "Markdown - Fenced Language",
+      "scope": ["variable.language.fenced.markdown"],
+      "settings": {
+        "foreground": "{{accent}}"
+      }
+    },
+    {
+      "name": "Markdown - Separator",
+      "scope": ["meta.separator"],
+      "settings": {
+        "fontStyle": "bold",
+        "foreground": "{{accent}}"
+      }
+    },
+    {
+      "name": "Markup - Table",
+      "scope": ["markup.table"],
+      "settings": {
+        "foreground": "{{foreground}}"
+      }
+    }
+  ],
+  "semanticHighlighting": true,
+  "semanticTokenColors": {
+    "enumMember": "{{string}}",
+    "variable.constant": "{{constant}}",
+    "variable.defaultLibrary": "{{keyword}}",
+    "variable:dart": "{{foreground}}",
+    "property:dart": "{{function}}",
+    "annotation:dart": "{{keyword}}",
+    "parameter.label:dart": "{{foreground}}"
+  }
+}

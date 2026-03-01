@@ -21,7 +21,7 @@ const config = JSON.parse(fs.readFileSync(CONFIG_PATH, 'utf8'));
 const DEPRECATED_PROPERTIES = config.deprecatedProperties;
 const REQUIRES_TRANSPARENCY = config.requiresTransparency;
 
-const THEMES_DIR = path.join(__dirname, '..', 'themes');
+const EXTENSIONS_DIR = path.join(__dirname, '..', 'extensions');
 
 /**
  * Escape all regex special characters in a string
@@ -111,12 +111,20 @@ function main() {
     process.exit(1);
   }
 
-  const themeFiles = fs.readdirSync(THEMES_DIR)
-    .filter(file => file.endsWith('.json'))
-    .map(file => path.join(THEMES_DIR, file));
+  const themeFiles = [];
+  for (const ext of fs.readdirSync(EXTENSIONS_DIR)) {
+    const themesDir = path.join(EXTENSIONS_DIR, ext, 'themes');
+    if (fs.existsSync(themesDir)) {
+      for (const file of fs.readdirSync(themesDir)) {
+        if (file.endsWith('.json')) {
+          themeFiles.push(path.join(themesDir, file));
+        }
+      }
+    }
+  }
 
   if (themeFiles.length === 0) {
-    console.log('No theme files found in themes/ directory.');
+    console.log('No theme files found in extensions/*/themes/.');
     process.exit(0);
   }
 

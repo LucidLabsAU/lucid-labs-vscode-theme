@@ -5,9 +5,15 @@ on:
     branches:
       - main
     paths:
-      - 'themes/**'
-      - 'package.json'
+      - 'extensions/**'
+      - 'templates/**'
+      - 'brands/**'
   workflow_dispatch:
+    inputs:
+      extension:
+        description: 'Extension to publish (blank = auto-detect)'
+        required: false
+        type: string
 
 permissions:
   id-token: write
@@ -20,9 +26,50 @@ env:
   KEY_VAULT_NAME: "lucidhub-kv-dev"
 
 jobs:
-  publish:
+  detect-changes:
     runs-on: ubuntu-latest
     if: "!contains(github.event.head_commit.message, '[skip ci]')"
+    outputs:
+      extensions: ${{ steps.detect.outputs.extensions }}
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v6
+      with:
+        fetch-depth: 2
+
+    - name: Detect changed extensions
+      id: detect
+      run: |
+        if [ -n "${{ inputs.extension }}" ]; then
+          echo 'extensions=["${{ inputs.extension }}"]' >> $GITHUB_OUTPUT
+          exit 0
+        fi
+
+        CHANGED_FILES=$(git diff --name-only HEAD~1 HEAD)
+
+        # If templates or brands changed, publish all extensions
+        if echo "$CHANGED_FILES" | grep -qE '^(templates/|brands/)'; then
+          EXTENSIONS=$(ls -d extensions/*/ | xargs -I{} basename {} | jq -R -s -c 'split("\n") | map(select(. != ""))')
+          echo "extensions=$EXTENSIONS" >> $GITHUB_OUTPUT
+          exit 0
+        fi
+
+        # Otherwise, only publish extensions with changes
+        EXTENSIONS=$(echo "$CHANGED_FILES" | grep '^extensions/' | cut -d/ -f2 | sort -u | jq -R -s -c 'split("\n") | map(select(. != ""))')
+        if [ "$EXTENSIONS" = "[]" ] || [ -z "$EXTENSIONS" ]; then
+          echo 'extensions=[]' >> $GITHUB_OUTPUT
+        else
+          echo "extensions=$EXTENSIONS" >> $GITHUB_OUTPUT
+        fi
+
+  publish:
+    needs: detect-changes
+    if: needs.detect-changes.outputs.extensions != '[]'
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        extension: ${{ fromJson(needs.detect-changes.outputs.extensions) }}
 
     steps:
     - name: Checkout code
@@ -36,8 +83,9 @@ jobs:
     - name: Get version
       id: version
       run: |
-        VERSION=$(node -p "require('./package.json').version")
+        VERSION=$(node -p "require('./extensions/${{ matrix.extension }}/package.json').version")
         echo "version=$VERSION" >> $GITHUB_OUTPUT
+        echo "Publishing ${{ matrix.extension }} v$VERSION"
 
     - name: Azure Login (OIDC)
       uses: azure/login@v2
@@ -69,10 +117,19 @@ jobs:
     - name: Install vsce
       run: npm install -g @vscode/vsce
 
+    - name: Copy brand assets
+      run: |
+        BRAND_DIR="brands/${{ matrix.extension }}"
+        EXT_DIR="extensions/${{ matrix.extension }}"
+        [ -f "$BRAND_DIR/icon.png" ] && cp "$BRAND_DIR/icon.png" "$EXT_DIR/icon.png"
+        [ -f "$BRAND_DIR/README.md" ] && cp "$BRAND_DIR/README.md" "$EXT_DIR/README.md"
+
     - name: Package extension
+      working-directory: extensions/${{ matrix.extension }}
       run: vsce package
 
     - name: Publish to VS Code Marketplace
+      working-directory: extensions/${{ matrix.extension }}
       run: |
-        echo "Publishing version ${{ steps.version.outputs.version }}"
+        echo "Publishing ${{ matrix.extension }} v${{ steps.version.outputs.version }}"
         vsce publish -p "${{ steps.keyvault.outputs.VSCE_PAT }}"

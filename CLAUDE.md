@@ -4,43 +4,72 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a VS Code colour theme extension for Lucid Labs. It provides dark and light theme variants based on the Lucid Labs brand guidelines.
+This is a **theme factory** monorepo that generates multiple branded VS Code colour themes from shared templates. Each brand defines a colour palette; templates define the full theme structure with `{{role}}` placeholders; the generator substitutes colours to produce final theme JSON files.
+
+### Current Brands
+
+| Brand | Extension ID | Version |
+|-------|-------------|---------|
+| Lucid Labs | `lucidlabs.lucid-labs-theme` | 1.3.2 |
+| CHARLI Health | `lucidlabs.charli-health-theme` | 1.0.0 |
 
 ## Commands
 
 ```bash
-# Package the extension into a .vsix file
-npm run package    # or: vsce package
+# Generate all theme files from templates + brand configs
+npm run generate
 
-# Publish to VS Code Marketplace (PAT fetched from Azure Key Vault)
-npm run publish    # or: vsce publish
+# Generate a single brand
+node scripts/generate.js --brand lucid-labs
+
+# Lint all generated themes
+npm run lint
+
+# Package all extensions
+npm run package:all
+
+# Package a single extension
+cd extensions/lucid-labs && vsce package
 ```
 
 Note: Requires `@vscode/vsce` to be installed globally (`npm install -g @vscode/vsce`).
 
 ## Architecture
 
-- **Theme Files**: `themes/lucid-labs-color-theme.json` (dark) and `themes/lucid-labs-light-theme.json` (light)
-- **Extension Manifest**: `package.json` defines the extension metadata and theme contributions
-- **Release Automation**: GitHub Actions workflows in `.github/workflows/` handle Release Please and marketplace publishing
-- **VSIX Packaging**: `.vscodeignore` excludes dev files (scripts, .claude, .husky, etc.)
+```
+brands/<name>/brand.json      → Colour palette (semantic roles per dark/light variant)
+templates/base-dark.jsonc      → Dark theme template with {{role}} placeholders
+templates/base-light.jsonc     → Light theme template with {{role}} placeholders
+scripts/generate.js            → Substitutes brand colours into templates → JSON
+extensions/<name>/themes/      → Generated theme files (committed)
+extensions/<name>/package.json → VS Code extension manifest
+```
 
-## Brand Colour Palette (Dark Theme)
+### Key Files
 
-| Colour         | Hex       | Contrast | Usage                              |
-|----------------|-----------|----------|------------------------------------|
-| Primary Purple | `#271D3B` | -        | Main background                    |
-| Teal Accent    | `#339999` | 4.6:1    | Highlights, links, active elements |
-| Light Purple   | `#9B7ED9` | 4.8:1    | Keywords, secondary elements       |
-| Sage Green     | `#C3D7CD` | 10.5:1   | Strings, symbols                   |
-| Off-White      | `#E8E0F0` | 12.3:1   | Primary text (warm, reduced glare) |
-| Dark Grey      | `#101820` | -        | Panels, status bar                 |
+- **Brand Configs**: `brands/*/brand.json` — ~40 semantic colour roles per variant (background, foreground, accent, keyword, string, function, etc.)
+- **Templates**: `templates/base-*.jsonc` — 224+ UI colours, 55 tokenColor entries, 7 semantic tokens with `{{role}}` placeholders
+- **Generator**: `scripts/generate.js` — supports `{{role}}`, `{{role}}XX` (alpha suffix), `{{a|b|c}}` (fallback chains)
+- **Linter**: `scripts/lint-themes.js` — checks for deprecated properties, comments, and missing transparency
+- **CI/CD**: `.github/workflows/auto-publish.yml` — matrix publish with change detection, Azure OIDC + Key Vault
+- **Release**: `release-please-config.json` — multi-package config for independent versioning
 
-All text colours meet WCAG AA minimum contrast (4.5:1) against backgrounds.
+### Pre-commit Hook
+
+The husky pre-commit hook runs `npm run generate && npm run lint` to ensure generated themes are always up-to-date and valid.
+
+## Adding a New Brand
+
+1. Create `brands/<name>/brand.json` with palette mapped to semantic roles
+2. Add `brands/<name>/icon.png` and `brands/<name>/README.md`
+3. Create `extensions/<name>/package.json`, `.vscodeignore`, and `CHANGELOG.md`
+4. Add entries to `release-please-config.json` and `.release-please-manifest.json`
+5. Run `npm run generate`
 
 ## Release Process
 
 1. Push to `main` using conventional commits
-2. Release Please opens a release PR with version bump and changelog
-3. Merging the release PR creates a GitHub release and tag
-4. The Auto Publish workflow authenticates via Azure OIDC, fetches the VSCE PAT from Key Vault, and publishes to the VS Code Marketplace
+2. Release Please opens release PRs per package with version bumps and changelogs
+3. Merging a release PR creates a GitHub release and tag
+4. Auto Publish detects which extensions changed and publishes them via matrix strategy
+5. Azure OIDC authenticates, fetches VSCE PAT from Key Vault, publishes to marketplace

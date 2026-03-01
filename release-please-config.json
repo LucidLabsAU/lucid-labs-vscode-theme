@@ -1,8 +1,14 @@
 {
   "packages": {
-    ".": {
+    "extensions/lucid-labs": {
       "release-type": "node",
-      "changelog-path": "CHANGELOG.md"
+      "changelog-path": "CHANGELOG.md",
+      "component": "lucid-labs-theme"
+    },
+    "extensions/charli": {
+      "release-type": "node",
+      "changelog-path": "CHANGELOG.md",
+      "component": "charli-health-theme"
     }
   }
 }
