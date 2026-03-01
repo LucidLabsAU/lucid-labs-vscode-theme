@@ -138,6 +138,21 @@ function main() {
   const darkTemplate = parseJsonc(fs.readFileSync(path.join(TEMPLATES_DIR, 'base-dark.jsonc'), 'utf8'));
   const lightTemplate = parseJsonc(fs.readFileSync(path.join(TEMPLATES_DIR, 'base-light.jsonc'), 'utf8'));
 
+  // Load icon templates
+  const iconTemplateDir = path.join(TEMPLATES_DIR, 'icons');
+  const iconThemeTemplatePath = path.join(TEMPLATES_DIR, 'icon-theme.jsonc');
+  const hasIconTemplates = fs.existsSync(iconTemplateDir) && fs.existsSync(iconThemeTemplatePath);
+  let iconSvgTemplates = {};
+  let iconThemeTemplate = null;
+  if (hasIconTemplates) {
+    iconThemeTemplate = parseJsonc(fs.readFileSync(iconThemeTemplatePath, 'utf8'));
+    for (const file of fs.readdirSync(iconTemplateDir)) {
+      if (file.endsWith('.svg')) {
+        iconSvgTemplates[file] = fs.readFileSync(path.join(iconTemplateDir, file), 'utf8');
+      }
+    }
+  }
+
   // Discover brands
   const brands = fs.readdirSync(BRANDS_DIR).filter(dir => {
     if (targetBrand && dir !== targetBrand) return false;
@@ -195,6 +210,38 @@ function main() {
       console.log(`  ✓ ${brand}-light.json`);
     } else {
       hasErrors = true;
+    }
+
+    // Generate icon theme (uses dark palette for icons)
+    if (hasIconTemplates && brandConfig.dark) {
+      const iconOutDir = path.join(extDir, 'icons');
+      fs.mkdirSync(iconOutDir, { recursive: true });
+
+      const palette = flatten(brandConfig.dark);
+      let iconErrors = false;
+
+      // Substitute SVG templates
+      for (const [file, svgTemplate] of Object.entries(iconSvgTemplates)) {
+        const { result, errors } = substitute(svgTemplate, palette);
+        if (errors.length > 0) {
+          console.error(`  SVG errors in ${file}:`, errors);
+          iconErrors = true;
+        } else {
+          fs.writeFileSync(path.join(iconOutDir, file), result);
+        }
+      }
+
+      // Write icon theme definition (no substitution needed, just copy)
+      fs.writeFileSync(
+        path.join(extDir, 'icon-theme.json'),
+        JSON.stringify(iconThemeTemplate, null, 2) + '\n'
+      );
+
+      if (!iconErrors) {
+        console.log(`  ✓ icon-theme.json (${Object.keys(iconSvgTemplates).length} icons)`);
+      } else {
+        hasErrors = true;
+      }
     }
   }
 

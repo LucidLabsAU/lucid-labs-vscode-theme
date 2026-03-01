@@ -2,7 +2,7 @@
   "name": "charli-health-theme",
   "displayName": "CHARLI Health",
   "description": "A warm, accessible VS Code colour theme based on the CHARLI Health brand guidelines. Features Taffy pink, Blueberry blue, Jungle green, Apricot, and Salmon with both dark and light variants optimised for healthcare development.",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "publisher": "lucidlabs",
   "license": "MIT",
   "icon": "icon.png",
@@ -22,10 +22,13 @@
     "accessible",
     "pink",
     "pastel",
-    "brand"
+    "brand",
+    "icon theme",
+    "icons"
   ],
   "categories": [
-    "Themes"
+    "Themes",
+    "Icon Themes"
   ],
   "galleryBanner": {
     "color": "#1E1A24",
@@ -46,6 +49,13 @@
         "label": "CHARLI Light",
         "uiTheme": "vs",
         "path": "./themes/charli-light.json"
+      }
+    ],
+    "iconThemes": [
+      {
+        "id": "charli-health-icons",
+        "label": "CHARLI Health Icons",
+        "path": "./icon-theme.json"
       }
     ]
   },

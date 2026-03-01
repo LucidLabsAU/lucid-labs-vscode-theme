@@ -64,6 +64,12 @@
       "brightCyan": "#5BC5BC",
       "brightWhite": "#E8E0F0"
     },
+    "bracket1": "#339999",
+    "bracket2": "#9B7ED9",
+    "bracket3": "#E8C84D",
+    "bracket4": "#5BBF7A",
+    "bracket5": "#DA70D6",
+    "bracket6": "#C3D7CD",
     "galleryBanner": "#271D3B"
   },
   "light": {
@@ -133,6 +139,12 @@
       "brightCyan": "#339999",
       "brightWhite": "#FFFFFF"
     },
+    "bracket1": "#339999",
+    "bracket2": "#7454B3",
+    "bracket3": "#B8860B",
+    "bracket4": "#28A745",
+    "bracket5": "#9B59B6",
+    "bracket6": "#2E7D32",
     "galleryBanner": "#F5F5FF"
   }
 }
