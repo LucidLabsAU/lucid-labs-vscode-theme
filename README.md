@@ -4,17 +4,18 @@ A professional dark theme for Visual Studio Code that brings the sophisticated L
 
 ![Lucid Labs Theme Preview](https://lucidlabs.gallerycdn.vsassets.io/extensions/lucidlabs/lucid-labs-theme/1.0.1/1755041913219/Microsoft.VisualStudio.Services.Icons.Default)
 
-## ✨ Features
+## Features
 
-🎨 **Brand-Aligned Design** - Meticulously crafted using official Lucid Labs brand guidelines  
-🌙 **Dual Theme Support** - Both professional dark and clean light theme variants  
-🌓 **System Theme Support** - Automatically follows your system's light/dark preference  
-☁️ **Cloud-Inspired Aesthetics** - Reflects Lucid Labs' expertise in cloud technologies  
-🔧 **Enterprise-Ready** - Perfect for client demonstrations and professional environments  
-⚡ **Enhanced Navigation** - Colored top, left, and bottom navigation bars with brand accents  
-📱 **Micro-Icon Ready** - Includes favicon and micro-icons for web integration
+- **Brand-Aligned Design** - Meticulously crafted using official Lucid Labs brand guidelines
+- **Dual Theme Support** - Both professional dark and clean light theme variants
+- **System Theme Support** - Automatically follows your system's light/dark preference
+- **Cloud-Inspired Aesthetics** - Reflects Lucid Labs' expertise in cloud technologies
+- **Enterprise-Ready** - Perfect for client demonstrations and professional environments
+- **Enhanced Navigation** - Coloured top, left, and bottom navigation bars with brand accents
+- **WCAG AA Contrast** - All text colours meet or exceed WCAG AA accessibility standards
+- **Easy on the Eyes** - Warm off-white text and softened terminal colours reduce eye strain
 
-## 🎨 Color Palette
+## Colour Palette
 
 Our carefully selected colours ensure both brand consistency and optimal developer experience:
 
@@ -22,20 +23,20 @@ Our carefully selected colours ensure both brand consistency and optimal develop
 | ------------------ | --------- | --------------------------------------------- |
 | **Primary Purple** | `#271D3B` | Main background, primary brand colour         |
 | **Teal Accent**    | `#339999` | Highlights, links, functions, active elements |
-| **Light Purple**   | `#7454B3` | Keywords, tags, secondary elements            |
-| **Light Grey**     | `#CCCCCC` | Secondary text, inactive elements             |
+| **Light Purple**   | `#9B7ED9` | Keywords, tags, secondary elements            |
+| **Sage Green**     | `#C3D7CD` | Strings, symbols, inherited classes           |
+| **Off-White**      | `#E8E0F0` | Primary text (warm, reduced glare)            |
 | **Dark Grey**      | `#101820` | Panels, status bar, containers                |
-| **White**          | `#FFFFFF` | Primary text, high contrast elements          |
 
-## 🚀 Installation
+## Installation
 
-### From VSCode Marketplace (Recommended)
+### From VS Code Marketplace (Recommended)
 
-1. Open VSCode
+1. Open VS Code
 2. Go to Extensions (Ctrl+Shift+X / Cmd+Shift+X)
 3. Search for "Lucid Labs Theme"
 4. Click Install
-5. Go to File → Preferences → Color Theme
+5. Go to File > Preferences > Colour Theme
 6. Choose your preferred variant:
    - **Lucid Labs Dark** - Professional dark theme
    - **Lucid Labs Light** - Clean light theme
@@ -43,19 +44,19 @@ Our carefully selected colours ensure both brand consistency and optimal develop
 ### From Command Palette
 
 1. Open Command Palette (Ctrl+Shift+P / Cmd+Shift+P)
-2. Type "Preferences: Color Theme"
+2. Type "Preferences: Colour Theme"
 3. Select your preferred Lucid Labs theme variant
 
 ### System Theme Support
 
-The extension provides both light and dark variants that automatically follow your system preferences when using VSCode's "Auto" theme setting.
+The extension provides both light and dark variants that automatically follow your system preferences when using VS Code's "Auto" theme setting.
 
 ### Manual Installation
 
 1. Download the `.vsix` file from releases
-2. Open VSCode
+2. Open VS Code
 3. Go to Extensions (Ctrl+Shift+X / Cmd+Shift+X)
-4. Click the three dots menu (⋯)
+4. Click the three dots menu (...)
 5. Select "Install from VSIX..."
 6. Choose the downloaded file
 
@@ -65,23 +66,17 @@ To build from source:
 
 - Install VSCE: `npm install -g @vscode/vsce`
 - Package the extension: `vsce package`
-- Install the generated `.vsix` in VS Code via Extensions → `...` → Install from VSIX
+- Install the generated `.vsix` in VS Code via Extensions > `...` > Install from VSIX
 
-## 🔁 Automated Releases & Publishing
+## Automated Releases and Publishing
 
-- Automated releases use Release Please. It opens a release PR that bumps `package.json`, updates `CHANGELOG.md`, and proposes a tag.
-- When you merge the release PR, Release Please creates a GitHub release and tag (e.g. `v1.0.5`).
-- The `Publish VS Code Extension` workflow detects the tag and:
+- Automated releases use [Release Please](https://github.com/googleapis/release-please). It opens a release PR that bumps `package.json`, updates `CHANGELOG.md`, and proposes a tag.
+- When you merge the release PR, Release Please creates a GitHub release and tag.
+- The Auto Publish workflow detects changes to themes or `package.json` and:
+  - Authenticates to Azure via OIDC
+  - Retrieves the VSCE PAT from Azure Key Vault
   - Packages the extension (`vsce package`)
-  - Uploads the `.vsix` as a release asset
   - Publishes to the VS Code Marketplace (`vsce publish`)
-
-Setup required:
-- Add repo secret `VSCE_PAT` with your Visual Studio Marketplace Personal Access Token.
-- Push to `main` using conventional commits for best changelog results.
-
-Manual publish:
-- Tag a release like `git tag vX.Y.Z && git push origin vX.Y.Z` to trigger the publish workflow.
 
 ## Brand Guidelines Compliance
 
@@ -89,20 +84,10 @@ This theme follows the Lucid Labs Brand Guidelines:
 
 - Uses approved primary and secondary colours
 - Maintains brand consistency across all UI elements
-- Supports both horizontal and vertical logo layouts
 - Implements proper colour hierarchy and contrast ratios
+- All text meets WCAG AA minimum contrast requirements
 
-## Screenshots
-
-The theme provides excellent readability for:
-
-- PowerShell scripting (primary use case)
-- JSON configuration files
-- Markdown documentation
-- Azure Resource Manager templates
-- Python automation scripts
-
-## 💻 Supported Languages
+## Supported Languages
 
 The theme provides enhanced syntax highlighting for:
 
@@ -120,7 +105,7 @@ The theme provides enhanced syntax highlighting for:
 - HTML/XML markup
 - CSS/SCSS styling
 
-**Documentation & Configuration:**
+**Documentation and Configuration:**
 
 - Markdown (.md)
 - YAML (.yml, .yaml)
@@ -134,21 +119,7 @@ The theme provides enhanced syntax highlighting for:
 - PHP (.php)
 - SQL (.sql)
 
-## 📸 Screenshots
-
-### PowerShell Development
-
-The theme is specifically optimized for PowerShell development, making your automation scripts more readable and professional.
-
-### JSON Configuration
-
-Perfect for Azure ARM templates, VS Code settings, and configuration files with clear property highlighting.
-
-### Markdown Documentation
-
-Clean, readable documentation with proper heading hierarchy and code block highlighting.
-
-## 🤝 Contributing
+## Contributing
 
 We welcome contributions! To suggest improvements or report issues:
 
@@ -157,34 +128,34 @@ We welcome contributions! To suggest improvements or report issues:
 3. Use the "theme" label for categorisation
 4. Follow our contribution guidelines
 
-## 📋 Requirements
+## Requirements
 
-- Visual Studio Code version 1.74.0 or higher
+- Visual Studio Code version 1.107.0 or higher
 - No additional dependencies required
 
-## 🔄 Updates
+## Updates
 
 This extension is actively maintained. Check the [changelog](CHANGELOG.md) for the latest updates and improvements.
 
-## 📜 License
+## Licence
 
-MIT License - See [LICENSE](LICENSE) file for full details.
+MIT Licence - See [LICENSE](LICENSE) file for full details.
 
-## 🏢 About Lucid Labs
+## About Lucid Labs
 
-Lucid Labs is a leading Microsoft Partner specializing in:
+Lucid Labs is a leading Microsoft Partner specialising in:
 
-- ☁️ Azure cloud solutions and migrations
-- 🔒 Microsoft 365 security and compliance
-- 🤖 Enterprise automation and DevOps
-- 📊 Data analytics and AI solutions
+- Azure cloud solutions and migrations
+- Microsoft 365 security and compliance
+- Enterprise automation and DevOps
+- Data analytics and AI solutions
 
 **Contact us:**
 
-- 🌐 Website: [lucidlabs.com.au](https://lucidlabs.com.au/contact)
-- 📍 Location: Brisbane, Queensland, Australia
+- Website: [lucidlabs.com.au](https://lucidlabs.com.au/contact)
+- Location: Brisbane, Queensland, Australia
 
 ---
 
-_"Guidelines transform a brand into a lasting impression."_  
-— Lucid Labs Brand Guidelines
+_"Guidelines transform a brand into a lasting impression."_
+-- Lucid Labs Brand Guidelines
