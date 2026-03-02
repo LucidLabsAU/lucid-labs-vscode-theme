@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+  <!-- Open produce crate -->
+  <rect x="0.5" y="5" width="15" height="9" rx="1" fill="{{accent}}" opacity=".6"/>
+  <path d="M0.5 6h15l-2 8H2.5L0.5 6z" fill="{{accent}}"/>
+  <!-- Slats -->
+  <line x1="1" y1="9" x2="15" y2="9" stroke="{{foreground}}" stroke-width="0.5" opacity=".2"/>
+  <line x1="1.5" y1="12" x2="14.5" y2="12" stroke="{{foreground}}" stroke-width="0.5" opacity=".2"/>
+  <!-- Leaves spilling out -->
+  <path d="M5 5C5.5 3 7 2 8 2.5C7 2.5 5.8 3.2 5.3 5Z" fill="{{success}}"/>
+  <path d="M11 5C10.5 3.5 9 3 8.5 3.5C9.2 3.2 10.3 3.5 10.7 5Z" fill="{{success}}" opacity=".7"/>
+</svg>

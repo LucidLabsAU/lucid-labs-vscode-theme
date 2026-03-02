@@ -1,0 +1,73 @@
+{
+  "name": "banjo-loans-theme",
+  "displayName": "Banjo Loans",
+  "description": "A bold VS Code colour theme featuring electric blue accents and deep purple backgrounds, inspired by the Banjo Loans visual identity. Built and published by Lucid Labs on behalf of Banjo Loans. All trademarks belong to their respective owners.",
+  "version": "1.0.0",
+  "publisher": "lucidlabs",
+  "license": "MIT",
+  "icon": "icon.png",
+  "author": {
+    "name": "Lucid Labs",
+    "url": "https://lucidlabs.com.au"
+  },
+  "keywords": [
+    "theme",
+    "dark theme",
+    "light theme",
+    "colour theme",
+    "banjo",
+    "banjo loans",
+    "fintech",
+    "finance",
+    "blue",
+    "purple",
+    "professional",
+    "brand",
+    "icon theme",
+    "icons"
+  ],
+  "categories": [
+    "Themes",
+    "Other"
+  ],
+  "galleryBanner": {
+    "color": "#1A1024",
+    "theme": "dark"
+  },
+  "qna": "marketplace",
+  "extensionKind": [
+    "ui"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Banjo Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/banjo-loans-dark.json"
+      },
+      {
+        "label": "Banjo Light",
+        "uiTheme": "vs",
+        "path": "./themes/banjo-loans-light.json"
+      }
+    ],
+    "iconThemes": [
+      {
+        "id": "banjo-loans-icons",
+        "label": "Banjo Loans Icons",
+        "path": "./icon-theme.json"
+      }
+    ]
+  },
+  "engines": {
+    "vscode": "^1.107.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LucidLabsAU/lucid-labs-vscode-theme.git"
+  },
+  "bugs": {
+    "url": "https://github.com/LucidLabsAU/lucid-labs-vscode-theme/issues"
+  },
+  "homepage": "https://banjoloans.com"
+}

@@ -1,0 +1,73 @@
+{
+  "name": "perfection-fresh-theme",
+  "displayName": "Perfection Fresh",
+  "description": "A vibrant VS Code colour theme featuring red seal accents and fresh produce greens, inspired by the Perfection Fresh Australia visual identity. Built and published by Lucid Labs on behalf of Perfection Fresh. All trademarks belong to their respective owners.",
+  "version": "1.0.0",
+  "publisher": "lucidlabs",
+  "license": "MIT",
+  "icon": "icon.png",
+  "author": {
+    "name": "Lucid Labs",
+    "url": "https://lucidlabs.com.au"
+  },
+  "keywords": [
+    "theme",
+    "dark theme",
+    "light theme",
+    "colour theme",
+    "perfection",
+    "perfection fresh",
+    "fresh produce",
+    "agriculture",
+    "red",
+    "green",
+    "brand",
+    "australia",
+    "icon theme",
+    "icons"
+  ],
+  "categories": [
+    "Themes",
+    "Other"
+  ],
+  "galleryBanner": {
+    "color": "#141414",
+    "theme": "dark"
+  },
+  "qna": "marketplace",
+  "extensionKind": [
+    "ui"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Perfection Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/perfection-fresh-dark.json"
+      },
+      {
+        "label": "Perfection Light",
+        "uiTheme": "vs",
+        "path": "./themes/perfection-fresh-light.json"
+      }
+    ],
+    "iconThemes": [
+      {
+        "id": "perfection-fresh-icons",
+        "label": "Perfection Fresh Icons",
+        "path": "./icon-theme.json"
+      }
+    ]
+  },
+  "engines": {
+    "vscode": "^1.107.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LucidLabsAU/lucid-labs-vscode-theme.git"
+  },
+  "bugs": {
+    "url": "https://github.com/LucidLabsAU/lucid-labs-vscode-theme/issues"
+  },
+  "homepage": "https://www.perfection.com.au"
+}

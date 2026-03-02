@@ -1,1 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><circle cx="8" cy="2.5" r="2" fill="#F58F85"/><circle cx="4" cy="13" r="2" fill="#F58F85"/><circle cx="12" cy="13" r="2" fill="#F58F85"/><path d="M8 4.5V8l-4 5M8 8l4 5" fill="none" stroke="#F58F85" stroke-width="1.5" stroke-linecap="round"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 714 714">
+  <!-- CHARLI C letterform -->
+  <path d="M78.1,365.9c0,162.3,110.1,275.5,274,282.4,8.1.2,14.9-5.7,14.9-13.6V94.8c0-7.6-6.8-13.8-14.9-13.6-163.9,6.9-274,118.1-274,284.6h0Z" fill="#F1A8C9"/>
+  <path d="M498,513.9c-44.9,0-74.4,27.4-74.4,67.1s29.5,67.6,74.4,67.6,73.9-27.4,73.9-67.6-30-67.1-73.9-67.1Z" fill="#F1A8C9"/>
+</svg>

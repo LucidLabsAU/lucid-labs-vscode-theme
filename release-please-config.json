@@ -9,6 +9,16 @@
       "release-type": "node",
       "changelog-path": "CHANGELOG.md",
       "component": "charli-health-theme"
+    },
+    "extensions/banjo-loans": {
+      "release-type": "node",
+      "changelog-path": "CHANGELOG.md",
+      "component": "banjo-loans-theme"
+    },
+    "extensions/perfection-fresh": {
+      "release-type": "node",
+      "changelog-path": "CHANGELOG.md",
+      "component": "perfection-fresh-theme"
     }
   }
 }

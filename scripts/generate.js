@@ -220,9 +220,17 @@ function main() {
       const palette = flatten(brandConfig.dark);
       let iconErrors = false;
 
-      // Substitute SVG templates
+      // Check for brand-specific icon overrides
+      const brandIconDir = path.join(brandDir, 'icons');
+      const hasBrandIcons = fs.existsSync(brandIconDir);
+
+      // Substitute SVG templates (brand overrides take precedence)
       for (const [file, svgTemplate] of Object.entries(iconSvgTemplates)) {
-        const { result, errors } = substitute(svgTemplate, palette);
+        const brandIconPath = path.join(brandIconDir, file);
+        const template = hasBrandIcons && fs.existsSync(brandIconPath)
+          ? fs.readFileSync(brandIconPath, 'utf8')
+          : svgTemplate;
+        const { result, errors } = substitute(template, palette);
         if (errors.length > 0) {
           console.error(`  SVG errors in ${file}:`, errors);
           iconErrors = true;

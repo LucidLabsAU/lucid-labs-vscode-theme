@@ -1,6 +1,6 @@
 # CHARLI Health
 
-A warm, accessible VS Code colour theme based on the CHARLI Health brand guidelines. Features Taffy pink, Blueberry blue, Jungle green, Apricot, and Salmon with both dark and light variants optimised for healthcare development.
+A warm, accessible VS Code colour theme featuring Taffy pink, Blueberry blue, and Jungle green, inspired by the CHARLI Health visual identity.
 
 ## Brand Colours
 
@@ -43,4 +43,4 @@ A warm, accessible VS Code colour theme based on the CHARLI Health brand guideli
 
 ## About
 
-Built by [Lucid Labs](https://lucidlabs.com.au) for the [CHARLI Health](https://charli.health) platform.
+Built and published by [Lucid Labs](https://lucidlabs.com.au) on behalf of [CHARLI Health](https://charli.health). This theme is inspired by the CHARLI Health visual identity. All brand names and trademarks are the property of their respective owners.

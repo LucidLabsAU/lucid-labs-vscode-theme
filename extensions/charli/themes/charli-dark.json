@@ -63,6 +63,12 @@
     "titleBar.inactiveBackground": "#161220",
     "titleBar.inactiveForeground": "#9692A380",
     "titleBar.border": "#161220",
+    "commandCenter.foreground": "#F0E8E0",
+    "commandCenter.activeForeground": "#F0E8E0",
+    "commandCenter.background": "#F0E8E015",
+    "commandCenter.activeBackground": "#F0E8E025",
+    "commandCenter.border": "#F0E8E030",
+    "commandCenter.activeBorder": "#F0E8E050",
     "statusBar.background": "#161220",
     "statusBar.foreground": "#F0E8E0",
     "statusBar.border": "#161220",
@@ -845,7 +851,7 @@
   },
   "name": "CHARLI Health Dark",
   "displayName": "CHARLI Health Dark",
-  "description": "A warm, accessible VS Code colour theme based on the CHARLI Health brand guidelines. Features Taffy pink, Blueberry blue, Jungle green, Apricot, and Salmon with both dark and light variants optimised for healthcare development.",
+  "description": "A warm, accessible VS Code colour theme featuring Taffy pink, Blueberry blue, and Jungle green, inspired by the CHARLI Health visual identity. Built and published by Lucid Labs on behalf of CHARLI Health. All trademarks belong to their respective owners.",
   "version": "1.0.0",
   "publisher": "lucidlabs"
 }
