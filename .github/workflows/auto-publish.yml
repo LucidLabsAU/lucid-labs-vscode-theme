@@ -11,7 +11,7 @@ on:
   workflow_dispatch:
     inputs:
       extension:
-        description: 'Extension to publish (blank = auto-detect)'
+        description: 'Extension to publish (blank = all)'
         required: false
         type: string
 
@@ -69,13 +69,23 @@ jobs:
           echo "extensions=$EXTENSIONS" >> $GITHUB_OUTPUT
         fi
 
-  fetch-secrets:
+  publish:
     needs: detect-changes
     if: needs.detect-changes.outputs.extensions != '[]'
     runs-on: ubuntu-latest
-    outputs:
-      vsce_pat: ${{ steps.keyvault.outputs.VSCE_PAT }}
+
     steps:
+    - name: Checkout code
+      uses: actions/checkout@v6
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v6
+      with:
+        node-version: '20'
+
+    - name: Install vsce
+      run: npm install -g @vscode/vsce
+
     - name: Azure Login (OIDC)
       uses: azure/login@v2
       with:
@@ -96,67 +106,62 @@ jobs:
       run: |
         VSCE_PAT=$(az keyvault secret show --vault-name "${{ env.KEY_VAULT_NAME }}" --name "vsce-marketplace-pat" --query "value" -o tsv)
         echo "::add-mask::$VSCE_PAT"
-        echo "VSCE_PAT=$VSCE_PAT" >> $GITHUB_OUTPUT
+        echo "VSCE_PAT=$VSCE_PAT" >> "$GITHUB_ENV"
 
     - name: Remove runner access from Key Vault
       if: always()
       run: |
         az keyvault network-rule remove --name "${{ env.KEY_VAULT_NAME }}" --ip-address "${{ steps.firewall.outputs.runner_ip }}/32" --only-show-errors
 
-  publish:
-    needs: [detect-changes, fetch-secrets]
-    if: needs.detect-changes.outputs.extensions != '[]'
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      max-parallel: 1
-      matrix:
-        extension: ${{ fromJson(needs.detect-changes.outputs.extensions) }}
-
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v6
-
-    - name: Setup Node.js
-      uses: actions/setup-node@v6
-      with:
-        node-version: '20'
-
-    - name: Get version
-      id: version
+    - name: Publish extensions
       run: |
-        VERSION=$(node -p "require('./extensions/${{ matrix.extension }}/package.json').version")
-        echo "version=$VERSION" >> $GITHUB_OUTPUT
-        echo "Publishing ${{ matrix.extension }} v$VERSION"
+        EXTENSIONS='${{ needs.detect-changes.outputs.extensions }}'
+        FAILED=""
+        SUCCEEDED=""
 
-    - name: Install vsce
-      run: npm install -g @vscode/vsce
+        for ext in $(echo "$EXTENSIONS" | jq -r '.[]'); do
+          echo "::group::Publishing $ext"
 
-    - name: Copy brand assets
-      run: |
-        BRAND_DIR="brands/${{ matrix.extension }}"
-        EXT_DIR="extensions/${{ matrix.extension }}"
-        [ -f "$BRAND_DIR/icon.png" ] && cp "$BRAND_DIR/icon.png" "$EXT_DIR/icon.png"
-        [ -f "$BRAND_DIR/README.md" ] && cp "$BRAND_DIR/README.md" "$EXT_DIR/README.md"
+          VERSION=$(node -p "require('./extensions/$ext/package.json').version")
+          echo "Version: $VERSION"
 
-    - name: Package extension
-      working-directory: extensions/${{ matrix.extension }}
-      run: vsce package
+          # Copy brand assets
+          [ -f "brands/$ext/icon.png" ] && cp "brands/$ext/icon.png" "extensions/$ext/icon.png"
+          [ -f "brands/$ext/README.md" ] && cp "brands/$ext/README.md" "extensions/$ext/README.md"
 
-    - name: Publish to VS Code Marketplace
-      working-directory: extensions/${{ matrix.extension }}
-      run: |
-        echo "Publishing ${{ matrix.extension }} v${{ steps.version.outputs.version }}"
-        for attempt in 1 2 3; do
-          echo "Attempt $attempt of 3..."
-          if vsce publish -p "${{ needs.fetch-secrets.outputs.vsce_pat }}"; then
-            echo "Published successfully!"
-            exit 0
+          # Package
+          (cd "extensions/$ext" && vsce package)
+
+          # Publish with retry
+          PUBLISHED=false
+          for attempt in 1 2 3; do
+            echo "Attempt $attempt of 3..."
+            if (cd "extensions/$ext" && vsce publish -p "$VSCE_PAT"); then
+              echo "$ext v$VERSION published successfully!"
+              SUCCEEDED="$SUCCEEDED $ext"
+              PUBLISHED=true
+              break
+            fi
+            if [ $attempt -lt 3 ]; then
+              echo "Retrying in 30s..."
+              sleep 30
+            fi
+          done
+
+          if [ "$PUBLISHED" = "false" ]; then
+            echo "::error::Failed to publish $ext after 3 attempts"
+            FAILED="$FAILED $ext"
           fi
-          if [ $attempt -lt 3 ]; then
-            echo "Publish failed, retrying in 30s..."
-            sleep 30
-          fi
+
+          echo "::endgroup::"
+
+          # Brief pause between extensions to avoid rate limits
+          sleep 5
         done
-        echo "All publish attempts failed"
-        exit 1
+
+        echo ""
+        echo "=== Summary ==="
+        [ -n "$SUCCEEDED" ] && echo "Succeeded:$SUCCEEDED"
+        [ -n "$FAILED" ] && echo "Failed:$FAILED"
+        [ -n "$FAILED" ] && exit 1
+        echo "All extensions published successfully!"
