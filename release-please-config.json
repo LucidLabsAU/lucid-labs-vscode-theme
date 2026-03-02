@@ -19,6 +19,11 @@
       "release-type": "node",
       "changelog-path": "CHANGELOG.md",
       "component": "perfection-fresh-theme"
+    },
+    "extensions/australian-food-fibre": {
+      "release-type": "node",
+      "changelog-path": "CHANGELOG.md",
+      "component": "australian-food-fibre-theme"
     }
   }
 }

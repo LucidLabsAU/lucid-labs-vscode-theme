@@ -1,0 +1,73 @@
+{
+  "name": "australian-food-fibre-theme",
+  "displayName": "Australian Food & Fibre",
+  "description": "A professional VS Code colour theme inspired by the Australian Food & Fibre (AFF) visual identity. Features deep navy backgrounds with gold accents, evoking Australian cotton fields and agricultural excellence. Built and published by Lucid Labs on behalf of Australian Food & Fibre. All trademarks belong to their respective owners.",
+  "version": "1.0.0",
+  "publisher": "lucidlabs",
+  "license": "MIT",
+  "icon": "icon.png",
+  "author": {
+    "name": "Lucid Labs",
+    "url": "https://lucidlabs.com.au"
+  },
+  "keywords": [
+    "theme",
+    "dark theme",
+    "light theme",
+    "colour theme",
+    "australian food fibre",
+    "aff",
+    "cotton",
+    "agriculture",
+    "navy",
+    "gold",
+    "professional",
+    "brand",
+    "icon theme",
+    "icons"
+  ],
+  "categories": [
+    "Themes",
+    "Other"
+  ],
+  "galleryBanner": {
+    "color": "#0E1826",
+    "theme": "dark"
+  },
+  "qna": "marketplace",
+  "extensionKind": [
+    "ui"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "AFF Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/australian-food-fibre-dark.json"
+      },
+      {
+        "label": "AFF Light",
+        "uiTheme": "vs",
+        "path": "./themes/australian-food-fibre-light.json"
+      }
+    ],
+    "iconThemes": [
+      {
+        "id": "australian-food-fibre-icons",
+        "label": "Australian Food & Fibre Icons",
+        "path": "./icon-theme.json"
+      }
+    ]
+  },
+  "engines": {
+    "vscode": "^1.107.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LucidLabsAU/lucid-labs-vscode-theme.git"
+  },
+  "bugs": {
+    "url": "https://github.com/LucidLabsAU/lucid-labs-vscode-theme/issues"
+  },
+  "homepage": "https://australianfoodandfibre.com.au"
+}
