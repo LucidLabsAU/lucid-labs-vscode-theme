@@ -62,31 +62,13 @@ jobs:
           echo "extensions=$EXTENSIONS" >> $GITHUB_OUTPUT
         fi
 
-  publish:
+  fetch-secrets:
     needs: detect-changes
     if: needs.detect-changes.outputs.extensions != '[]'
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        extension: ${{ fromJson(needs.detect-changes.outputs.extensions) }}
-
+    outputs:
+      vsce_pat: ${{ steps.keyvault.outputs.VSCE_PAT }}
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v6
-
-    - name: Setup Node.js
-      uses: actions/setup-node@v6
-      with:
-        node-version: '20'
-
-    - name: Get version
-      id: version
-      run: |
-        VERSION=$(node -p "require('./extensions/${{ matrix.extension }}/package.json').version")
-        echo "version=$VERSION" >> $GITHUB_OUTPUT
-        echo "Publishing ${{ matrix.extension }} v$VERSION"
-
     - name: Azure Login (OIDC)
       uses: azure/login@v2
       with:
@@ -114,6 +96,32 @@ jobs:
       run: |
         az keyvault network-rule remove --name "${{ env.KEY_VAULT_NAME }}" --ip-address "${{ steps.firewall.outputs.runner_ip }}/32" --only-show-errors
 
+  publish:
+    needs: [detect-changes, fetch-secrets]
+    if: needs.detect-changes.outputs.extensions != '[]'
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        extension: ${{ fromJson(needs.detect-changes.outputs.extensions) }}
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v6
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v6
+      with:
+        node-version: '20'
+
+    - name: Get version
+      id: version
+      run: |
+        VERSION=$(node -p "require('./extensions/${{ matrix.extension }}/package.json').version")
+        echo "version=$VERSION" >> $GITHUB_OUTPUT
+        echo "Publishing ${{ matrix.extension }} v$VERSION"
+
     - name: Install vsce
       run: npm install -g @vscode/vsce
 
@@ -132,4 +140,16 @@ jobs:
       working-directory: extensions/${{ matrix.extension }}
       run: |
         echo "Publishing ${{ matrix.extension }} v${{ steps.version.outputs.version }}"
-        vsce publish -p "${{ steps.keyvault.outputs.VSCE_PAT }}"
+        for attempt in 1 2 3; do
+          echo "Attempt $attempt of 3..."
+          if vsce publish -p "${{ needs.fetch-secrets.outputs.vsce_pat }}"; then
+            echo "Published successfully!"
+            exit 0
+          fi
+          if [ $attempt -lt 3 ]; then
+            echo "Publish failed, retrying in 30s..."
+            sleep 30
+          fi
+        done
+        echo "All publish attempts failed"
+        exit 1
