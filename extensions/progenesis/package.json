@@ -1,0 +1,72 @@
+{
+  "name": "progenesis-theme",
+  "displayName": "Progenesis",
+  "description": "A professional, tech-forward VS Code colour theme featuring Progenesis blue, gradient teal, and magenta accents, inspired by the Progenesis visual identity. Built and published by Lucid Labs on behalf of Progenesis. All trademarks belong to their respective owners.",
+  "version": "1.0.0",
+  "publisher": "lucidlabs",
+  "license": "MIT",
+  "icon": "icon.png",
+  "author": {
+    "name": "Lucid Labs",
+    "url": "https://lucidlabs.com.au"
+  },
+  "keywords": [
+    "theme",
+    "dark theme",
+    "light theme",
+    "colour theme",
+    "progenesis",
+    "lease management",
+    "professional",
+    "blue",
+    "teal",
+    "corporate",
+    "brand",
+    "icon theme",
+    "icons"
+  ],
+  "categories": [
+    "Themes",
+    "Other"
+  ],
+  "galleryBanner": {
+    "color": "#181C26",
+    "theme": "dark"
+  },
+  "qna": "marketplace",
+  "extensionKind": [
+    "ui"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Progenesis Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/progenesis-dark.json"
+      },
+      {
+        "label": "Progenesis Light",
+        "uiTheme": "vs",
+        "path": "./themes/progenesis-light.json"
+      }
+    ],
+    "iconThemes": [
+      {
+        "id": "progenesis-icons",
+        "label": "Progenesis Icons",
+        "path": "./icon-theme.json"
+      }
+    ]
+  },
+  "engines": {
+    "vscode": "^1.107.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LucidLabsAU/lucid-labs-vscode-theme.git"
+  },
+  "bugs": {
+    "url": "https://github.com/LucidLabsAU/lucid-labs-vscode-theme/issues"
+  },
+  "homepage": "https://www.progensoft.com"
+}

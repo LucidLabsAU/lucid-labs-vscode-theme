@@ -1,0 +1,189 @@
+{
+  "hidesExplorerArrows": false,
+  "iconDefinitions": {
+    "_file": {
+      "iconPath": "./icons/file.svg"
+    },
+    "_folder": {
+      "iconPath": "./icons/folder.svg"
+    },
+    "_folder_open": {
+      "iconPath": "./icons/folder-open.svg"
+    },
+    "_js": {
+      "iconPath": "./icons/js.svg"
+    },
+    "_ts": {
+      "iconPath": "./icons/ts.svg"
+    },
+    "_json": {
+      "iconPath": "./icons/json.svg"
+    },
+    "_html": {
+      "iconPath": "./icons/html.svg"
+    },
+    "_css": {
+      "iconPath": "./icons/css.svg"
+    },
+    "_python": {
+      "iconPath": "./icons/python.svg"
+    },
+    "_markdown": {
+      "iconPath": "./icons/markdown.svg"
+    },
+    "_image": {
+      "iconPath": "./icons/image.svg"
+    },
+    "_git": {
+      "iconPath": "./icons/git.svg"
+    },
+    "_config": {
+      "iconPath": "./icons/config.svg"
+    },
+    "_lock": {
+      "iconPath": "./icons/lock.svg"
+    },
+    "_test": {
+      "iconPath": "./icons/test.svg"
+    },
+    "_readme": {
+      "iconPath": "./icons/readme.svg"
+    },
+    "_license": {
+      "iconPath": "./icons/license.svg"
+    },
+    "_react": {
+      "iconPath": "./icons/react.svg"
+    },
+    "_dart": {
+      "iconPath": "./icons/dart.svg"
+    },
+    "_yaml": {
+      "iconPath": "./icons/yaml.svg"
+    },
+    "_shell": {
+      "iconPath": "./icons/shell.svg"
+    },
+    "_svg": {
+      "iconPath": "./icons/svg.svg"
+    },
+    "_database": {
+      "iconPath": "./icons/database.svg"
+    }
+  },
+  "file": "_file",
+  "folder": "_folder",
+  "folderExpanded": "_folder_open",
+  "rootFolder": "_folder",
+  "rootFolderExpanded": "_folder_open",
+  "fileExtensions": {
+    "js": "_js",
+    "mjs": "_js",
+    "cjs": "_js",
+    "ts": "_ts",
+    "mts": "_ts",
+    "cts": "_ts",
+    "jsx": "_react",
+    "tsx": "_react",
+    "json": "_json",
+    "jsonc": "_json",
+    "json5": "_json",
+    "html": "_html",
+    "htm": "_html",
+    "xhtml": "_html",
+    "css": "_css",
+    "scss": "_css",
+    "sass": "_css",
+    "less": "_css",
+    "py": "_python",
+    "pyw": "_python",
+    "pyi": "_python",
+    "md": "_markdown",
+    "mdx": "_markdown",
+    "markdown": "_markdown",
+    "png": "_image",
+    "jpg": "_image",
+    "jpeg": "_image",
+    "gif": "_image",
+    "bmp": "_image",
+    "webp": "_image",
+    "ico": "_image",
+    "svg": "_svg",
+    "yaml": "_yaml",
+    "yml": "_yaml",
+    "toml": "_config",
+    "ini": "_config",
+    "conf": "_config",
+    "cfg": "_config",
+    "env": "_config",
+    "sh": "_shell",
+    "bash": "_shell",
+    "zsh": "_shell",
+    "fish": "_shell",
+    "ps1": "_shell",
+    "psm1": "_shell",
+    "bat": "_shell",
+    "cmd": "_shell",
+    "dart": "_dart",
+    "sql": "_database",
+    "sqlite": "_database",
+    "db": "_database",
+    "lock": "_lock"
+  },
+  "fileNames": {
+    "package.json": "_json",
+    "package-lock.json": "_lock",
+    "tsconfig.json": "_config",
+    "jsconfig.json": "_config",
+    ".gitignore": "_git",
+    ".gitattributes": "_git",
+    ".gitmodules": "_git",
+    ".prettierrc": "_config",
+    ".prettierrc.json": "_config",
+    ".prettierignore": "_config",
+    ".eslintrc": "_config",
+    ".eslintrc.json": "_config",
+    ".eslintrc.js": "_config",
+    "eslint.config.js": "_config",
+    "eslint.config.mjs": "_config",
+    ".editorconfig": "_config",
+    "dockerfile": "_config",
+    "docker-compose.yml": "_config",
+    "docker-compose.yaml": "_config",
+    ".dockerignore": "_config",
+    ".env": "_config",
+    ".env.local": "_config",
+    ".env.production": "_config",
+    ".env.development": "_config",
+    "readme.md": "_readme",
+    "README.md": "_readme",
+    "README": "_readme",
+    "license": "_license",
+    "LICENSE": "_license",
+    "LICENSE.md": "_license",
+    "LICENSE.txt": "_license",
+    "changelog.md": "_readme",
+    "CHANGELOG.md": "_readme",
+    "makefile": "_config",
+    "Makefile": "_config"
+  },
+  "languageIds": {
+    "javascript": "_js",
+    "typescript": "_ts",
+    "javascriptreact": "_react",
+    "typescriptreact": "_react",
+    "json": "_json",
+    "jsonc": "_json",
+    "html": "_html",
+    "css": "_css",
+    "scss": "_css",
+    "less": "_css",
+    "python": "_python",
+    "markdown": "_markdown",
+    "yaml": "_yaml",
+    "shellscript": "_shell",
+    "powershell": "_shell",
+    "dart": "_dart",
+    "sql": "_database"
+  }
+}

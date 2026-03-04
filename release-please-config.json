@@ -24,6 +24,11 @@
       "release-type": "node",
       "changelog-path": "CHANGELOG.md",
       "component": "australian-food-fibre-theme"
+    },
+    "extensions/progenesis": {
+      "release-type": "node",
+      "changelog-path": "CHANGELOG.md",
+      "component": "progenesis-theme"
     }
   }
 }
