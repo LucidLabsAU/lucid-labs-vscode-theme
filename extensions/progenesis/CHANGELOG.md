@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.1
+
+### Bug Fixes
+
+- Fix icon aspect ratio with proper padding for square display
+
 ## 1.0.0 (Initial Release)
 
 ### Features
