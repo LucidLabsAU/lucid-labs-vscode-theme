@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.2
+
+### Bug Fixes
+
+- Add white background to icon for better visibility in marketplace
+
 ## 1.0.1
 
 ### Bug Fixes
