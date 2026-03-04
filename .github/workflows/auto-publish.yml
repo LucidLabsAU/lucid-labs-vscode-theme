@@ -9,11 +9,6 @@ on:
       - 'templates/**'
       - 'brands/**'
   workflow_dispatch:
-    inputs:
-      extension:
-        description: 'Extension to publish (blank = all)'
-        required: false
-        type: string
 
 permissions:
   id-token: write
@@ -40,23 +35,16 @@ jobs:
     - name: Detect changed extensions
       id: detect
       env:
-        INPUT_EXTENSION: ${{ inputs.extension }}
         EVENT_NAME: ${{ github.event_name }}
       run: |
-        if [ -n "$INPUT_EXTENSION" ]; then
-          # Validate input matches an actual extension directory
-          if [ ! -d "extensions/$INPUT_EXTENSION" ]; then
-            echo "::error::Unknown extension: $INPUT_EXTENSION"
-            exit 1
-          fi
-          echo "extensions=[\"$INPUT_EXTENSION\"]" >> $GITHUB_OUTPUT
-          exit 0
-        fi
+        all_extensions() {
+          find extensions -mindepth 1 -maxdepth 1 -type d -printf '%f\n' | sort | jq -R -s -c 'split("\n") | map(select(. != ""))'
+        }
 
-        # Manual dispatch with no input: publish all extensions
+        # Manual dispatch: publish all extensions
         if [ "$EVENT_NAME" = "workflow_dispatch" ]; then
-          EXTENSIONS=$(ls -d extensions/*/ | xargs -I{} basename {} | jq -R -s -c 'split("\n") | map(select(. != ""))')
-          echo "extensions=$EXTENSIONS" >> $GITHUB_OUTPUT
+          EXTENSIONS=$(all_extensions)
+          echo "extensions=${EXTENSIONS}" >> "$GITHUB_OUTPUT"
           exit 0
         fi
 
@@ -64,17 +52,17 @@ jobs:
 
         # If templates or brands changed, publish all extensions
         if echo "$CHANGED_FILES" | grep -qE '^(templates/|brands/)'; then
-          EXTENSIONS=$(ls -d extensions/*/ | xargs -I{} basename {} | jq -R -s -c 'split("\n") | map(select(. != ""))')
-          echo "extensions=$EXTENSIONS" >> $GITHUB_OUTPUT
+          EXTENSIONS=$(all_extensions)
+          echo "extensions=${EXTENSIONS}" >> "$GITHUB_OUTPUT"
           exit 0
         fi
 
         # Otherwise, only publish extensions with changes
         EXTENSIONS=$(echo "$CHANGED_FILES" | grep '^extensions/' | cut -d/ -f2 | sort -u | jq -R -s -c 'split("\n") | map(select(. != ""))')
         if [ "$EXTENSIONS" = "[]" ] || [ -z "$EXTENSIONS" ]; then
-          echo 'extensions=[]' >> $GITHUB_OUTPUT
+          echo 'extensions=[]' >> "$GITHUB_OUTPUT"
         else
-          echo "extensions=$EXTENSIONS" >> $GITHUB_OUTPUT
+          echo "extensions=${EXTENSIONS}" >> "$GITHUB_OUTPUT"
         fi
 
   publish:
@@ -105,7 +93,7 @@ jobs:
       id: firewall
       run: |
         RUNNER_IP=$(curl -s https://api.ipify.org)
-        echo "runner_ip=$RUNNER_IP" >> $GITHUB_OUTPUT
+        echo "runner_ip=$RUNNER_IP" >> "$GITHUB_OUTPUT"
         az keyvault network-rule add --name "${{ env.KEY_VAULT_NAME }}" --ip-address "$RUNNER_IP/32" --only-show-errors
         sleep 10
 
@@ -146,8 +134,15 @@ jobs:
           PUBLISHED=false
           for attempt in 1 2 3; do
             echo "Attempt $attempt of 3..."
-            if (cd "extensions/$ext" && vsce publish -p "$VSCE_PAT"); then
+            PUBLISH_OUTPUT=$( (cd "extensions/$ext" && vsce publish -p "$VSCE_PAT") 2>&1) && {
               echo "$ext v$VERSION published successfully!"
+              SUCCEEDED="$SUCCEEDED $ext"
+              PUBLISHED=true
+              break
+            }
+            echo "$PUBLISH_OUTPUT"
+            if echo "$PUBLISH_OUTPUT" | grep -q "already exists"; then
+              echo "$ext v$VERSION already published — skipping."
               SUCCEEDED="$SUCCEEDED $ext"
               PUBLISHED=true
               break
