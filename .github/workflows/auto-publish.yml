@@ -39,14 +39,22 @@ jobs:
 
     - name: Detect changed extensions
       id: detect
+      env:
+        INPUT_EXTENSION: ${{ inputs.extension }}
+        EVENT_NAME: ${{ github.event_name }}
       run: |
-        if [ -n "${{ inputs.extension }}" ]; then
-          echo 'extensions=["${{ inputs.extension }}"]' >> $GITHUB_OUTPUT
+        if [ -n "$INPUT_EXTENSION" ]; then
+          # Validate input matches an actual extension directory
+          if [ ! -d "extensions/$INPUT_EXTENSION" ]; then
+            echo "::error::Unknown extension: $INPUT_EXTENSION"
+            exit 1
+          fi
+          echo "extensions=[\"$INPUT_EXTENSION\"]" >> $GITHUB_OUTPUT
           exit 0
         fi
 
         # Manual dispatch with no input: publish all extensions
-        if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+        if [ "$EVENT_NAME" = "workflow_dispatch" ]; then
           EXTENSIONS=$(ls -d extensions/*/ | xargs -I{} basename {} | jq -R -s -c 'split("\n") | map(select(. != ""))')
           echo "extensions=$EXTENSIONS" >> $GITHUB_OUTPUT
           exit 0
@@ -114,8 +122,10 @@ jobs:
         az keyvault network-rule remove --name "${{ env.KEY_VAULT_NAME }}" --ip-address "${{ steps.firewall.outputs.runner_ip }}/32" --only-show-errors
 
     - name: Publish extensions
+      env:
+        EXTENSIONS_JSON: ${{ needs.detect-changes.outputs.extensions }}
       run: |
-        EXTENSIONS='${{ needs.detect-changes.outputs.extensions }}'
+        EXTENSIONS="$EXTENSIONS_JSON"
         FAILED=""
         SUCCEEDED=""
 
