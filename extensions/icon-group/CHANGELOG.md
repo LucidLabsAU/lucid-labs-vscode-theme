@@ -1,5 +1,10 @@
 # Change Log
 
+## 1.2.0 (2026-03-18)
+
+- Custom branded git icon using the "O" from the ICON logo with
+  multicoloured segments (yellow, green, purple, blue)
+
 ## 1.1.0 (2026-03-18)
 
 - Full VS Code theme API coverage (896 colour keys, up from 149)

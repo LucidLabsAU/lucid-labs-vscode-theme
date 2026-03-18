@@ -1,5 +1,9 @@
 {
-  "cSpell.words": ["lucidlabs"],
+  "cSpell.language": "en-AU",
+  "cSpell.words": [
+    "lucidlabs",
+    "Stackframe"
+  ],
   "github.copilot.chat.codeGeneration.instructions": [
     { "file": ".github/copilot-instructions.md" }
   ]
