@@ -1,0 +1,77 @@
+{
+  "name": "tasmania-theme",
+  "displayName": "Tasmania",
+  "description": "A professional theme for Visual Studio Code featuring Tasmania's iconic blue and forest green colour palette.",
+  "version": "1.0.0",
+  "publisher": "lucidlabs",
+  "license": "MIT",
+  "icon": "icon.png",
+  "author": {
+    "name": "Lucid Labs",
+    "url": "https://lucidlabs.com.au"
+  },
+  "keywords": [
+    "theme",
+    "dark theme",
+    "light theme",
+    "colour theme",
+    "tasmania",
+    "tas",
+    "blue",
+    "green",
+    "professional",
+    "australian",
+    "hobart",
+    "brand",
+    "dark mode",
+    "icon theme",
+    "icons"
+  ],
+  "categories": [
+    "Themes",
+    "Other"
+  ],
+  "galleryBanner": {
+    "color": "#0B1218",
+    "theme": "dark"
+  },
+  "qna": "marketplace",
+  "extensionKind": [
+    "ui"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Tasmania Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/tasmania-dark.json"
+      },
+      {
+        "label": "Tasmania Light",
+        "uiTheme": "vs",
+        "path": "./themes/tasmania-light.json"
+      }
+    ],
+    "iconThemes": [
+      {
+        "id": "tasmania-icons",
+        "label": "Tasmania Icons",
+        "path": "./icon-theme.json"
+      }
+    ]
+  },
+  "engines": {
+    "vscode": "^1.107.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LucidLabsAU/lucid-labs-vscode-theme.git"
+  },
+  "bugs": {
+    "url": "https://github.com/LucidLabsAU/lucid-labs-vscode-theme/issues"
+  },
+  "homepage": "https://www.tas.gov.au",
+  "sponsor": {
+    "url": "https://lucidlabs.com.au"
+  }
+}

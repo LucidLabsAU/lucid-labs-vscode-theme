@@ -1,8 +1,8 @@
 {
   "name": "queensland-theme",
   "displayName": "Queensland",
-  "description": "A professional theme for Visual Studio Code featuring Queensland's iconic blue and maroon colour palette with the Queensland Coat of Arms.",
-  "version": "1.0.0",
+  "description": "A professional theme for Visual Studio Code featuring Queensland's iconic blue colour palette with the Queensland Coat of Arms.",
+  "version": "1.1.0",
   "publisher": "lucidlabs",
   "license": "MIT",
   "icon": "icon.png",
@@ -18,7 +18,6 @@
     "queensland",
     "qld",
     "blue",
-    "maroon",
     "professional",
     "australian",
     "brisbane",

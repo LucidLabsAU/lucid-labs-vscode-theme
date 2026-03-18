@@ -1,0 +1,77 @@
+{
+  "name": "victoria-theme",
+  "displayName": "Victoria",
+  "description": "A professional theme for Visual Studio Code featuring Victoria's iconic blue and navy colour palette.",
+  "version": "1.0.0",
+  "publisher": "lucidlabs",
+  "license": "MIT",
+  "icon": "icon.png",
+  "author": {
+    "name": "Lucid Labs",
+    "url": "https://lucidlabs.com.au"
+  },
+  "keywords": [
+    "theme",
+    "dark theme",
+    "light theme",
+    "colour theme",
+    "victoria",
+    "vic",
+    "blue",
+    "navy",
+    "professional",
+    "australian",
+    "melbourne",
+    "brand",
+    "dark mode",
+    "icon theme",
+    "icons"
+  ],
+  "categories": [
+    "Themes",
+    "Other"
+  ],
+  "galleryBanner": {
+    "color": "#0C0E18",
+    "theme": "dark"
+  },
+  "qna": "marketplace",
+  "extensionKind": [
+    "ui"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Victoria Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/victoria-dark.json"
+      },
+      {
+        "label": "Victoria Light",
+        "uiTheme": "vs",
+        "path": "./themes/victoria-light.json"
+      }
+    ],
+    "iconThemes": [
+      {
+        "id": "victoria-icons",
+        "label": "Victoria Icons",
+        "path": "./icon-theme.json"
+      }
+    ]
+  },
+  "engines": {
+    "vscode": "^1.107.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LucidLabsAU/lucid-labs-vscode-theme.git"
+  },
+  "bugs": {
+    "url": "https://github.com/LucidLabsAU/lucid-labs-vscode-theme/issues"
+  },
+  "homepage": "https://www.vic.gov.au",
+  "sponsor": {
+    "url": "https://lucidlabs.com.au"
+  }
+}

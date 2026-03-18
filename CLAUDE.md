@@ -17,7 +17,14 @@ This is a **theme factory** monorepo that generates multiple branded VS Code col
 | Banjo Loans | `lucidlabs.banjo-loans-theme` | 1.1.0 |
 | Progenesis | `lucidlabs.progenesis-theme` | 1.1.0 |
 | Icon Group | `lucidlabs.icon-group-theme` | 1.2.0 |
-| Queensland | `lucidlabs.queensland-theme` | 1.0.0 |
+| Queensland | `lucidlabs.queensland-theme` | 1.1.0 |
+| New South Wales | `lucidlabs.new-south-wales-theme` | 1.0.0 |
+| Victoria | `lucidlabs.victoria-theme` | 1.0.0 |
+| Tasmania | `lucidlabs.tasmania-theme` | 1.0.0 |
+| South Australia | `lucidlabs.south-australia-theme` | 1.0.0 |
+| Western Australia | `lucidlabs.western-australia-theme` | 1.0.0 |
+| Northern Territory | `lucidlabs.northern-territory-theme` | 1.0.0 |
+| ACT | `lucidlabs.act-theme` | 1.0.0 |
 
 ## Commands
 

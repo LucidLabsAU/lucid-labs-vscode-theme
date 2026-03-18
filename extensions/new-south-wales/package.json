@@ -1,0 +1,77 @@
+{
+  "name": "new-south-wales-theme",
+  "displayName": "New South Wales",
+  "description": "A professional theme for Visual Studio Code featuring New South Wales' iconic blue and waratah red colour palette.",
+  "version": "1.0.0",
+  "publisher": "lucidlabs",
+  "license": "MIT",
+  "icon": "icon.png",
+  "author": {
+    "name": "Lucid Labs",
+    "url": "https://lucidlabs.com.au"
+  },
+  "keywords": [
+    "theme",
+    "dark theme",
+    "light theme",
+    "colour theme",
+    "new south wales",
+    "nsw",
+    "blue",
+    "waratah",
+    "professional",
+    "australian",
+    "sydney",
+    "brand",
+    "dark mode",
+    "icon theme",
+    "icons"
+  ],
+  "categories": [
+    "Themes",
+    "Other"
+  ],
+  "galleryBanner": {
+    "color": "#0D0E14",
+    "theme": "dark"
+  },
+  "qna": "marketplace",
+  "extensionKind": [
+    "ui"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "New South Wales Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/new-south-wales-dark.json"
+      },
+      {
+        "label": "New South Wales Light",
+        "uiTheme": "vs",
+        "path": "./themes/new-south-wales-light.json"
+      }
+    ],
+    "iconThemes": [
+      {
+        "id": "new-south-wales-icons",
+        "label": "New South Wales Icons",
+        "path": "./icon-theme.json"
+      }
+    ]
+  },
+  "engines": {
+    "vscode": "^1.107.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LucidLabsAU/lucid-labs-vscode-theme.git"
+  },
+  "bugs": {
+    "url": "https://github.com/LucidLabsAU/lucid-labs-vscode-theme/issues"
+  },
+  "homepage": "https://www.nsw.gov.au",
+  "sponsor": {
+    "url": "https://lucidlabs.com.au"
+  }
+}

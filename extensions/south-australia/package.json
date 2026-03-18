@@ -1,0 +1,77 @@
+{
+  "name": "south-australia-theme",
+  "displayName": "South Australia",
+  "description": "A professional theme for Visual Studio Code featuring South Australia's iconic blue and red colour palette.",
+  "version": "1.0.0",
+  "publisher": "lucidlabs",
+  "license": "MIT",
+  "icon": "icon.png",
+  "author": {
+    "name": "Lucid Labs",
+    "url": "https://lucidlabs.com.au"
+  },
+  "keywords": [
+    "theme",
+    "dark theme",
+    "light theme",
+    "colour theme",
+    "south australia",
+    "sa",
+    "blue",
+    "red",
+    "professional",
+    "australian",
+    "adelaide",
+    "brand",
+    "dark mode",
+    "icon theme",
+    "icons"
+  ],
+  "categories": [
+    "Themes",
+    "Other"
+  ],
+  "galleryBanner": {
+    "color": "#0A0C18",
+    "theme": "dark"
+  },
+  "qna": "marketplace",
+  "extensionKind": [
+    "ui"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "South Australia Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/south-australia-dark.json"
+      },
+      {
+        "label": "South Australia Light",
+        "uiTheme": "vs",
+        "path": "./themes/south-australia-light.json"
+      }
+    ],
+    "iconThemes": [
+      {
+        "id": "south-australia-icons",
+        "label": "South Australia Icons",
+        "path": "./icon-theme.json"
+      }
+    ]
+  },
+  "engines": {
+    "vscode": "^1.107.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LucidLabsAU/lucid-labs-vscode-theme.git"
+  },
+  "bugs": {
+    "url": "https://github.com/LucidLabsAU/lucid-labs-vscode-theme/issues"
+  },
+  "homepage": "https://www.sa.gov.au",
+  "sponsor": {
+    "url": "https://lucidlabs.com.au"
+  }
+}

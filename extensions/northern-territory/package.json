@@ -1,0 +1,77 @@
+{
+  "name": "northern-territory-theme",
+  "displayName": "Northern Territory",
+  "description": "A professional theme for Visual Studio Code featuring the Northern Territory's iconic red ochre and black colour palette.",
+  "version": "1.0.0",
+  "publisher": "lucidlabs",
+  "license": "MIT",
+  "icon": "icon.png",
+  "author": {
+    "name": "Lucid Labs",
+    "url": "https://lucidlabs.com.au"
+  },
+  "keywords": [
+    "theme",
+    "dark theme",
+    "light theme",
+    "colour theme",
+    "northern territory",
+    "nt",
+    "ochre",
+    "red",
+    "professional",
+    "australian",
+    "darwin",
+    "brand",
+    "dark mode",
+    "icon theme",
+    "icons"
+  ],
+  "categories": [
+    "Themes",
+    "Other"
+  ],
+  "galleryBanner": {
+    "color": "#120E0A",
+    "theme": "dark"
+  },
+  "qna": "marketplace",
+  "extensionKind": [
+    "ui"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Northern Territory Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/northern-territory-dark.json"
+      },
+      {
+        "label": "Northern Territory Light",
+        "uiTheme": "vs",
+        "path": "./themes/northern-territory-light.json"
+      }
+    ],
+    "iconThemes": [
+      {
+        "id": "northern-territory-icons",
+        "label": "Northern Territory Icons",
+        "path": "./icon-theme.json"
+      }
+    ]
+  },
+  "engines": {
+    "vscode": "^1.107.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LucidLabsAU/lucid-labs-vscode-theme.git"
+  },
+  "bugs": {
+    "url": "https://github.com/LucidLabsAU/lucid-labs-vscode-theme/issues"
+  },
+  "homepage": "https://nt.gov.au",
+  "sponsor": {
+    "url": "https://lucidlabs.com.au"
+  }
+}
