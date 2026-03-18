@@ -1,0 +1,104 @@
+name: New Brand Theme Request
+description: Request a new branded VS Code theme to be added to the theme factory
+title: "[Brand] "
+labels: ["brand", "enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## New Brand Theme Request
+
+        Provide brand details below. The AI agent will scrape the website, extract brand colours from the logo and site, and generate the full theme automatically.
+
+  - type: input
+    id: brand-name
+    attributes:
+      label: Brand Name
+      description: The official name of the brand/organisation
+      placeholder: "e.g. Acme Corporation"
+    validations:
+      required: true
+
+  - type: input
+    id: website-url
+    attributes:
+      label: Website URL
+      description: Primary website for colour extraction and brand research
+      placeholder: "https://example.com"
+    validations:
+      required: true
+
+  - type: textarea
+    id: logo
+    attributes:
+      label: Logo
+      description: |
+        Attach a logo image (PNG, SVG, or JPG) by dragging it here, or provide a direct URL to the logo file.
+        This will be used for the extension icon (converted to 256×256 PNG) and colour extraction.
+      placeholder: "Drag and drop logo here, or paste a URL to the logo file"
+    validations:
+      required: false
+
+  - type: textarea
+    id: brand-colours
+    attributes:
+      label: Known Brand Colours (optional)
+      description: |
+        If you know the brand's official colours, list them here. Otherwise the agent will extract them from the website and logo.
+      placeholder: |
+        Primary: #1A2B3C
+        Secondary: #4D5E6F
+        Accent: #FF9900
+    validations:
+      required: false
+
+  - type: textarea
+    id: brand-guidelines-url
+    attributes:
+      label: Brand Guidelines URL (optional)
+      description: Link to brand guidelines, style guide, or media kit if available
+      placeholder: "https://example.com/brand-guidelines"
+    validations:
+      required: false
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Brand Description
+      description: Brief description of the brand/organisation for the marketplace listing
+      placeholder: "e.g. Acme Corporation is a leading provider of..."
+    validations:
+      required: false
+
+  - type: dropdown
+    id: theme-preference
+    attributes:
+      label: Theme Emphasis
+      description: Which theme variant should be the primary focus?
+      options:
+        - Both dark and light (default)
+        - Dark theme primary
+        - Light theme primary
+    validations:
+      required: false
+
+  - type: textarea
+    id: special-requests
+    attributes:
+      label: Special Requests (optional)
+      description: |
+        Any specific colour preferences, aesthetic direction, or special requirements?
+        e.g. "Use the blue from the logo for keywords", "Match the dark navy from the website footer"
+      placeholder: "Any specific preferences..."
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: I have permission to use this brand's identity for a VS Code theme
+          required: true
+        - label: The website URL is publicly accessible
+          required: true
