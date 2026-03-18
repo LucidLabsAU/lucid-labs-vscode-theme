@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="#8899AA">
+  <text x="2" y="5.5" font-family="monospace" font-size="5" fill="#8899AA">01</text>
+  <text x="8" y="5.5" font-family="monospace" font-size="5" fill="#8899AA">10</text>
+  <text x="2" y="10" font-family="monospace" font-size="5" fill="#8899AA">11</text>
+  <text x="8" y="10" font-family="monospace" font-size="5" fill="#8899AA">00</text>
+  <text x="2" y="14.5" font-family="monospace" font-size="5" fill="#8899AA">01</text>
+  <text x="8" y="14.5" font-family="monospace" font-size="5" fill="#8899AA">11</text>
+</svg>
