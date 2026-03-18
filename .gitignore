@@ -2,6 +2,8 @@ node_modules/
 .DS_Store
 .vscode/*
 !.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/mcp.json
 *.vsix
 npm-debug.log*
 package-lock.json

@@ -1,5 +1,7 @@
 {
   "recommendations": [
+    "github.copilot",
+    "github.copilot-chat",
     "lucidlabs.lucid-labs-theme",
     "lucidlabs.charli-health-theme"
   ]
