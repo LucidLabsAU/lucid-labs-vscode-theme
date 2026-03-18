@@ -33,6 +33,10 @@ A warm, accessible VS Code colour theme featuring Taffy pink, Blueberry blue, an
 - **Constants**: Deep Salmon (`#B04840`)
 - **Panels**: Almond (`#FDE7D2`)
 
+## Features
+
+- **Custom Icon Theme** — Branded file icons for popular languages and tools
+
 ## Installation
 
 1. Open VS Code
@@ -40,6 +44,10 @@ A warm, accessible VS Code colour theme featuring Taffy pink, Blueberry blue, an
 3. Search for "CHARLI Health"
 4. Click Install
 5. Select the theme: File > Preferences > Colour Theme
+
+## Request a Custom Theme
+
+Want a branded VS Code theme for your organisation? [Open a new brand theme request](https://github.com/LucidLabsAU/lucid-labs-vscode-theme/issues/new?template=new-brand-theme.yml) — just provide your brand name, website, and logo.
 
 ## About
 

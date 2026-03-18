@@ -9,7 +9,7 @@ iconic blue and gold colour palette.
 - **Dual Theme Support** — Both professional dark and clean light theme variants
 - **System Theme Support** — Automatically follows your system's light/dark preference
 - **WCAG AA Contrast** — All text colours meet or exceed accessibility standards
-- **Custom Icon Theme** — 23 branded file icons
+- **Custom Icon Theme** — Branded file icons for popular languages and tools
 
 ## Colour Palette
 
@@ -28,6 +28,10 @@ iconic blue and gold colour palette.
 4. Click Install
 5. Go to File > Preferences > Colour Theme
 6. Choose **ACT Dark** or **ACT Light**
+
+## Request a Custom Theme
+
+Want a branded VS Code theme for your organisation? [Open a new brand theme request](https://github.com/LucidLabsAU/lucid-labs-vscode-theme/issues/new?template=new-brand-theme.yml) — just provide your brand name, website, and logo.
 
 ## Licence
 
