@@ -33,10 +33,6 @@ A bold VS Code colour theme featuring electric blue accents and deep purple back
 - **Constants**: Burnt sienna (`#A85020`)
 - **Status Bar**: Electric blue (`#0039F6`)
 
-## Features
-
-- **Custom Icon Theme** — Branded file icons for popular languages and tools
-
 ## Installation
 
 1. Open VS Code
@@ -44,10 +40,6 @@ A bold VS Code colour theme featuring electric blue accents and deep purple back
 3. Search for "Banjo Loans"
 4. Click Install
 5. Select the theme: File > Preferences > Colour Theme
-
-## Request a Custom Theme
-
-Want a branded VS Code theme for your organisation? [Open a new brand theme request](https://github.com/LucidLabsAU/lucid-labs-vscode-theme/issues/new?template=new-brand-theme.yml) — just provide your brand name, website, and logo.
 
 ## About
 

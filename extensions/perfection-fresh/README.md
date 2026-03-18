@@ -33,10 +33,6 @@ A vibrant VS Code colour theme featuring red seal accents and fresh produce gree
 - **Constants**: Harvest gold (`#A86B20`)
 - **Status Bar**: Red Seal (`#CC2936`)
 
-## Features
-
-- **Custom Icon Theme** — Branded file icons for popular languages and tools
-
 ## Installation
 
 1. Open VS Code
@@ -44,10 +40,6 @@ A vibrant VS Code colour theme featuring red seal accents and fresh produce gree
 3. Search for "Perfection Fresh"
 4. Click Install
 5. Select the theme: File > Preferences > Colour Theme
-
-## Request a Custom Theme
-
-Want a branded VS Code theme for your organisation? [Open a new brand theme request](https://github.com/LucidLabsAU/lucid-labs-vscode-theme/issues/new?template=new-brand-theme.yml) — just provide your brand name, website, and logo.
 
 ## About
 

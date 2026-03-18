@@ -33,10 +33,6 @@ A professional VS Code colour theme inspired by the Australian Food & Fibre (AFF
 - **Constants**: Dark gold (`#8B6B20`)
 - **Status Bar**: Navy blue (`#1E3D82`)
 
-## Features
-
-- **Custom Icon Theme** — Branded file icons for popular languages and tools
-
 ## Installation
 
 1. Open VS Code
@@ -44,10 +40,6 @@ A professional VS Code colour theme inspired by the Australian Food & Fibre (AFF
 3. Search for "Australian Food & Fibre"
 4. Click Install
 5. Select the theme: File > Preferences > Colour Theme
-
-## Request a Custom Theme
-
-Want a branded VS Code theme for your organisation? [Open a new brand theme request](https://github.com/LucidLabsAU/lucid-labs-vscode-theme/issues/new?template=new-brand-theme.yml) — just provide your brand name, website, and logo.
 
 ## About
 

@@ -12,7 +12,6 @@ A professional theme for Visual Studio Code inspired by Icon Group's brand ident
 - **Enhanced Navigation** - Coloured top, left, and bottom navigation bars with brand accents
 - **WCAG AA Contrast** - All text colours meet or exceed WCAG AA accessibility standards
 - **Easy on the Eyes** - Warm off-white text and softened terminal colours reduce eye strain
-- **Custom Icon Theme** — Branded file icons for popular languages and tools
 
 ## Colour Palette
 
@@ -129,10 +128,6 @@ This extension is actively maintained. Check the [changelog](CHANGELOG.md) for t
 ## Licence
 
 MIT Licence - See [LICENSE](LICENSE) file for full details.
-
-## Request a Custom Theme
-
-Want a branded VS Code theme for your organisation? [Open a new brand theme request](https://github.com/LucidLabsAU/lucid-labs-vscode-theme/issues/new?template=new-brand-theme.yml) — just provide your brand name, website, and logo.
 
 ## About Icon Group
 
