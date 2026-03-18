@@ -9,7 +9,7 @@ iconic red ochre and black colour palette.
 - **Dual Theme Support** — Both professional dark and clean light theme variants
 - **System Theme Support** — Automatically follows your system's light/dark preference
 - **WCAG AA Contrast** — All text colours meet or exceed accessibility standards
-- **Custom Icon Theme** — 23 branded file icons
+- **Custom Icon Theme** — Branded file icons for popular languages and tools
 
 ## Colour Palette
 
