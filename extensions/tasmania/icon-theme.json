@@ -237,6 +237,27 @@
     },
     "_vsix": {
       "iconPath": "./icons/vsix.svg"
+    },
+    "_copilot": {
+      "iconPath": "./icons/copilot.svg"
+    },
+    "_claude": {
+      "iconPath": "./icons/claude.svg"
+    },
+    "_dependabot": {
+      "iconPath": "./icons/dependabot.svg"
+    },
+    "_workflow": {
+      "iconPath": "./icons/workflow.svg"
+    },
+    "_nginx": {
+      "iconPath": "./icons/nginx.svg"
+    },
+    "_github": {
+      "iconPath": "./icons/github.svg"
+    },
+    "_vscode": {
+      "iconPath": "./icons/vscode.svg"
     }
   },
   "file": "_file",
@@ -462,7 +483,28 @@
     "angular.json": "_angular",
     "nuget.config": "_nuget",
     "NuGet.Config": "_nuget",
-    ".vscodeignore": "_vscodeignore"
+    ".vscodeignore": "_vscodeignore",
+    "CLAUDE.md": "_claude",
+    ".claude": "_claude",
+    "claude.json": "_claude",
+    "copilot-instructions.md": "_copilot",
+    ".copilotignore": "_copilot",
+    "dependabot.yml": "_dependabot",
+    "dependabot.yaml": "_dependabot",
+    "nginx.conf": "_nginx",
+    "nginx.config": "_nginx"
+  },
+  "folderNames": {
+    ".github": "_github",
+    ".vscode": "_vscode",
+    ".claude": "_claude",
+    "node_modules": "_config"
+  },
+  "folderNamesExpanded": {
+    ".github": "_github",
+    ".vscode": "_vscode",
+    ".claude": "_claude",
+    "node_modules": "_config"
   },
   "languageIds": {
     "javascript": "_js",
