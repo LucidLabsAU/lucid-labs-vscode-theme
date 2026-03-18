@@ -231,6 +231,12 @@
     },
     "_al": {
       "iconPath": "./icons/al.svg"
+    },
+    "_vscodeignore": {
+      "iconPath": "./icons/vscodeignore.svg"
+    },
+    "_vsix": {
+      "iconPath": "./icons/vsix.svg"
     }
   },
   "file": "_file",
@@ -398,7 +404,8 @@
     "drawio": "_drawio",
     "tmdl": "_tmdl",
     "al": "_al",
-    "code-workspace": "_workspace"
+    "code-workspace": "_workspace",
+    "vsix": "_vsix"
   },
   "fileNames": {
     "package.json": "_json",
@@ -454,7 +461,8 @@
     "settings.gradle.kts": "_gradle",
     "angular.json": "_angular",
     "nuget.config": "_nuget",
-    "NuGet.Config": "_nuget"
+    "NuGet.Config": "_nuget",
+    ".vscodeignore": "_vscodeignore"
   },
   "languageIds": {
     "javascript": "_js",

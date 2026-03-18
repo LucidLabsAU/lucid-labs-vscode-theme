@@ -1,1 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><rect x="1" y="1" width="14" height="14" rx="2" fill="#20DCD3"/><text x="8" y="11" font-family="sans-serif" font-weight="700" font-size="5.5" fill="#1E2330" text-anchor="middle">Wa</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 1l6 3.5v7L8 15l-6-3.5v-7L8 1z" fill="#20DCD3" opacity=".3"/><path d="M4 6l2 4 2-3 2 3 2-4" fill="none" stroke="#20DCD3" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>

@@ -1,4 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="{{keyword}}">
-  <rect x="1" y="2" width="14" height="12" rx="2" fill="none" stroke="{{keyword}}" stroke-width="1.3"/>
-  <text x="8" y="11.5" font-family="monospace" font-size="8" font-weight="bold" text-anchor="middle" fill="{{keyword}}">AL</text>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 1l7 7-7 7-7-7 7-7z" fill="{{keyword}}" opacity=".3"/><path d="M8 1l7 7-7 7-7-7 7-7z" fill="none" stroke="{{keyword}}" stroke-width="1.2"/><path d="M6 10V6l2 2 2-2v4" stroke="{{keyword}}" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
