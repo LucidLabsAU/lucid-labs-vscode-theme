@@ -2,7 +2,7 @@
   "name": "australian-food-fibre-theme",
   "displayName": "Australian Food & Fibre",
   "description": "A professional VS Code colour theme inspired by the Australian Food & Fibre (AFF) visual identity. Features deep navy backgrounds with gold accents, evoking Australian cotton fields and agricultural excellence. Built and published by Lucid Labs on behalf of Australian Food & Fibre. All trademarks belong to their respective owners.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "publisher": "lucidlabs",
   "license": "MIT",
   "icon": "icon.png",

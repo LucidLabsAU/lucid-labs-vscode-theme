@@ -10,13 +10,13 @@ This is a **theme factory** monorepo that generates multiple branded VS Code col
 
 | Brand | Extension ID | Version |
 |-------|-------------|---------|
-| Lucid Labs | `lucidlabs.lucid-labs-theme` | 1.5.0 |
-| CHARLi | `lucidlabs.charli-health-theme` | 1.1.0 |
-| Perfection Fresh | `lucidlabs.perfection-fresh-theme` | 1.0.0 |
-| Australian Food & Fibre | `lucidlabs.australian-food-fibre-theme` | 1.0.0 |
-| Banjo Loans | `lucidlabs.banjo-loans-theme` | 1.0.0 |
-| Progenesis | `lucidlabs.progenesis-theme` | 1.0.1 |
-| Icon Group | `lucidlabs.icon-group-theme` | 1.0.0 |
+| Lucid Labs | `lucidlabs.lucid-labs-theme` | 1.6.0 |
+| CHARLi | `lucidlabs.charli-health-theme` | 1.2.0 |
+| Perfection Fresh | `lucidlabs.perfection-fresh-theme` | 1.1.0 |
+| Australian Food & Fibre | `lucidlabs.australian-food-fibre-theme` | 1.1.0 |
+| Banjo Loans | `lucidlabs.banjo-loans-theme` | 1.1.0 |
+| Progenesis | `lucidlabs.progenesis-theme` | 1.1.0 |
+| Icon Group | `lucidlabs.icon-group-theme` | 1.1.0 |
 
 ## Commands
 
