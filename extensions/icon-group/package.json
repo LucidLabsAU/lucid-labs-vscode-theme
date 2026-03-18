@@ -1,0 +1,79 @@
+{
+  "name": "icon-group-theme",
+  "displayName": "Icon Group",
+  "description": "A professional theme for Visual Studio Code inspired by Icon Group's brand identity. Features navy blue backgrounds, gold accents, and healthcare-focused aesthetics reflecting Icon Group's leadership in cancer care.",
+  "version": "1.0.0",
+  "publisher": "lucidlabs",
+  "license": "MIT",
+  "icon": "icon.png",
+  "author": {
+    "name": "Icon Group",
+    "url": "https://icongroup.global"
+  },
+  "keywords": [
+    "theme",
+    "dark theme",
+    "colour theme",
+    "icon group",
+    "navy",
+    "blue",
+    "gold",
+    "healthcare",
+    "professional",
+    "cancer care",
+    "oncology",
+    "brand",
+    "purple",
+    "green",
+    "dark mode",
+    "icon theme",
+    "icons"
+  ],
+  "categories": [
+    "Themes",
+    "Other"
+  ],
+  "galleryBanner": {
+    "color": "#0E2A4A",
+    "theme": "dark"
+  },
+  "qna": "marketplace",
+  "extensionKind": [
+    "ui"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Icon Group Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/icon-group-dark.json"
+      },
+      {
+        "label": "Icon Group Light",
+        "uiTheme": "vs",
+        "path": "./themes/icon-group-light.json"
+      }
+    ],
+    "iconThemes": [
+      {
+        "id": "icon-group-icons",
+        "label": "Icon Group Icons",
+        "path": "./icon-theme.json"
+      }
+    ]
+  },
+  "engines": {
+    "vscode": "^1.107.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LucidLabsAU/lucid-labs-vscode-theme.git"
+  },
+  "bugs": {
+    "url": "https://github.com/LucidLabsAU/lucid-labs-vscode-theme/issues"
+  },
+  "homepage": "https://icongroup.global",
+  "sponsor": {
+    "url": "https://icongroup.global"
+  }
+}

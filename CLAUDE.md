@@ -16,6 +16,7 @@ This is a **theme factory** monorepo that generates multiple branded VS Code col
 | Australian Food & Fibre | `lucidlabs.australian-food-fibre-theme` | 1.0.0 |
 | Banjo Loans | `lucidlabs.banjo-loans-theme` | 1.0.0 |
 | Progenesis | `lucidlabs.progenesis-theme` | 1.0.1 |
+| Icon Group | `lucidlabs.icon-group-theme` | 1.0.0 |
 
 ## Commands
 
