@@ -2,8 +2,6 @@
 
 A professional theme for Visual Studio Code inspired by Icon Group's brand identity. Features navy blue backgrounds, gold accents, and a healthcare-focused colour palette reflecting Icon Group's leadership in cancer care across Australia and the Asia-Pacific region.
 
-![Icon Group Theme Preview](https://lucidlabs.gallerycdn.vsassets.io/extensions/lucidlabs/icon-group-theme/1.0.0/Microsoft.VisualStudio.Services.Icons.Default)
-
 ## Features
 
 - **Brand-Aligned Design** - Crafted using official Icon Group brand colours from icongroup.global

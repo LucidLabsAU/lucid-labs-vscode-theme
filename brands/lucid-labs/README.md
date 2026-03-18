@@ -2,8 +2,6 @@
 
 A professional dark theme for Visual Studio Code that brings the sophisticated Lucid Labs brand identity to your development environment. Perfect for Azure developers, PowerShell scripters, and enterprise teams seeking a consistent, professional coding experience.
 
-![Lucid Labs Theme Preview](https://lucidlabs.gallerycdn.vsassets.io/extensions/lucidlabs/lucid-labs-theme/1.0.1/1755041913219/Microsoft.VisualStudio.Services.Icons.Default)
-
 ## Features
 
 - **Brand-Aligned Design** - Meticulously crafted using official Lucid Labs brand guidelines
