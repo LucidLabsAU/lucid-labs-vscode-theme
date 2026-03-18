@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.1.1] - 2026-03-18
+
+### Changed
+- Marketplace icon replaced with geographic state/territory silhouette
+- Custom git file icon now shows state/territory outline in brand colour
+
 ## [1.1.0] - 2026-03-18
 
 ### Added
