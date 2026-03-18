@@ -1,0 +1,61 @@
+name: Weekly Contrast Audit
+
+on:
+  schedule:
+    - cron: "0 0 * * 1" # Monday midnight UTC
+  workflow_dispatch:
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - run: npm ci
+
+      - name: Run contrast check
+        id: contrast
+        run: node scripts/check-contrast.js 2>&1 | tee contrast-output.txt
+        continue-on-error: true
+
+      - name: Create issue on failure
+        if: steps.contrast.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Close any existing contrast audit issues
+          EXISTING=$(gh issue list --label "accessibility" --state open --search "[Contrast Audit]" --json number -q '.[].number' || true)
+          for num in $EXISTING; do
+            gh issue close "$num" --comment "Superseded by new audit run."
+          done
+
+          gh issue create \
+            --title "[Contrast Audit] WCAG failures detected — $(date +%Y-%m-%d)" \
+            --label "accessibility" \
+            --body "$(cat <<'BODY'
+          ## WCAG Contrast Audit Results
+
+          The weekly contrast audit detected failures. See output below:
+
+          \`\`\`
+          $(cat contrast-output.txt)
+          \`\`\`
+
+          ### Next Steps
+
+          1. Review failing colour pairs in the relevant `brands/<name>/brand.json`
+          2. Adjust colours to meet WCAG AA minimums (4.5:1 for text, 3:1 for UI)
+          3. Run \`npm run generate && node scripts/check-contrast.js\` locally to verify
+          4. Open a PR with the fixes
+
+          > Assign to \`@copilot\` to attempt an automated fix using the \`fix-contrast\` prompt.
+          BODY
+          )"
