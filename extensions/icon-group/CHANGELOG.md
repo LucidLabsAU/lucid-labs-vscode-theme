@@ -1,5 +1,14 @@
 # Change Log
 
+## [1.6.0] - 2026-03-22
+
+### Fixed
+- Improved WCAG AA contrast ratios for better accessibility across dark and light theme variants
+- Fixed deprecated icon theme property and .env file icon mapping consistency
+
+### Changed
+- Aligned light theme template with dark theme role fallback patterns for better brand customisation support
+
 ## [1.3.0] - 2026-03-18
 
 ### Added
