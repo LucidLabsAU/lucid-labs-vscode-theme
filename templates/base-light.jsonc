@@ -58,7 +58,7 @@
     "editor.inlineValuesBackground": "{{accent}}10",
 
     // Line numbers
-    "editorLineNumber.foreground": "{{keyword}}",
+    "editorLineNumber.foreground": "{{lineNumber|keyword}}",
     "editorLineNumber.activeForeground": "{{accent}}",
     "editorLineNumber.dimmedForeground": "{{muted}}50",
 
@@ -81,7 +81,7 @@
     "editorIndentGuide.activeBackground4": "{{bracket4}}",
     "editorIndentGuide.activeBackground5": "{{bracket5}}",
     "editorIndentGuide.activeBackground6": "{{bracket6}}",
-    "editorWhitespace.foreground": "{{guideMuted|muted}}50",
+    "editorWhitespace.foreground": "{{indentGuide|keyword}}50",
     "editorRuler.foreground": "{{guideMuted|muted}}30",
 
     // Unicode highlight
@@ -139,7 +139,7 @@
 
     // ─── Editor gutter ───────────────────────────────────────
     "editorGutter.background": "{{background}}",
-    "editorGutter.modifiedBackground": "{{modified|keyword}}",
+    "editorGutter.modifiedBackground": "{{modified|function}}",
     "editorGutter.addedBackground": "{{added|success}}",
     "editorGutter.deletedBackground": "{{error}}",
     "editorGutter.commentRangeForeground": "{{muted}}40",
@@ -204,7 +204,7 @@
     "activityBar.activeFocusBorder": "{{keyword}}",
     "activityBar.dropBorder": "{{keyword}}",
     "activityBarBadge.background": "{{badge|accent}}",
-    "activityBarBadge.foreground": "#FFFFFF",
+    "activityBarBadge.foreground": "{{badgeForeground|#FFFFFF}}",
     "activityBarTop.foreground": "{{foreground}}",
     "activityBarTop.activeBorder": "{{keyword}}",
     "activityBarTop.inactiveForeground": "{{inactiveForeground|foreground}}70",
@@ -1061,7 +1061,7 @@
       "scope": ["comment", "punctuation.definition.comment"],
       "settings": {
         "fontStyle": "italic",
-        "foreground": "{{comment}}"
+        "foreground": "{{commentToken|comment}}"
       }
     },
     {
