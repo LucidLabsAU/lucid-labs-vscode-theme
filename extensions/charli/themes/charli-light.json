@@ -907,7 +907,7 @@
       ],
       "settings": {
         "fontStyle": "italic",
-        "foreground": "#9692A3"
+        "foreground": "#6E6A7E"
       }
     },
     {
@@ -1366,7 +1366,7 @@
         "markup.quote punctuation.definition.blockquote.markdown"
       ],
       "settings": {
-        "foreground": "#9692A3"
+        "foreground": "#6E6A7E"
       }
     },
     {

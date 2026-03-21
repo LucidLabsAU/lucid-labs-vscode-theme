@@ -2,6 +2,8 @@ name: "Copilot Setup Steps"
 
 on: workflow_dispatch
 
+permissions: {}
+
 jobs:
   copilot-setup-steps:
     runs-on: ubuntu-latest

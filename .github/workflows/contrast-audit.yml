@@ -5,6 +5,8 @@ on:
     - cron: "0 0 * * 1" # Monday midnight UTC
   workflow_dispatch:
 
+permissions: {}
+
 jobs:
   audit:
     runs-on: ubuntu-latest

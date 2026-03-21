@@ -4,9 +4,18 @@
   "description": "A warm, accessible VS Code colour theme featuring Taffy pink, Blueberry blue, and Jungle green, inspired by the CHARLI Health visual identity. Built and published by Lucid Labs on behalf of CHARLI Health. All trademarks belong to their respective owners.",
   "publisher": "lucidlabs",
   "keywords": [
-    "theme", "dark theme", "light theme", "colour theme", "charli",
-    "charli health", "healthcare", "warm", "accessible", "pink",
-    "pastel", "brand"
+    "theme",
+    "dark theme",
+    "light theme",
+    "colour theme",
+    "charli",
+    "charli health",
+    "healthcare",
+    "warm",
+    "accessible",
+    "pink",
+    "pastel",
+    "brand"
   ],
   "homepage": "https://charli.health",
   "dark": {
@@ -98,7 +107,7 @@
     "success": "#1B7264",
     "warning": "#9E7520",
     "info": "#1D76B8",
-    "comment": "#9692A3",
+    "comment": "#6E6A7E",
     "shadow": "#58595B",
     "tag": "#B04840",
     "htmlAttribute": "#9E4470",

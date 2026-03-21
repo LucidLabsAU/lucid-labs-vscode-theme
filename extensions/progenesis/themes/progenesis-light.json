@@ -240,7 +240,7 @@
     "commandCenter.inactiveBorder": "#2A2D3515",
     "commandCenter.activeBorder": "#2A2D3550",
     "commandCenter.debuggingBackground": "#1F7AFF20",
-    "statusBar.background": "#1F7AFF",
+    "statusBar.background": "#1766D9",
     "statusBar.foreground": "#FFFFFF",
     "statusBar.border": "#1766D9",
     "statusBar.noFolderBackground": "#1766D9",
@@ -385,7 +385,7 @@
     "terminalSymbolIcon.flagForeground": "#9E7520",
     "terminalSymbolIcon.optionForeground": "#2A2D35",
     "terminalSymbolIcon.optionValueForeground": "#1B7264",
-    "terminalSymbolIcon.methodForeground": "#1F7AFF",
+    "terminalSymbolIcon.methodForeground": "#1766D9",
     "terminalSymbolIcon.argumentForeground": "#8E2580",
     "terminalSymbolIcon.inlineSuggestionForeground": "#8892A4",
     "terminalSymbolIcon.fileForeground": "#8892A4",
@@ -834,24 +834,24 @@
     "symbolIcon.classForeground": "#062E73",
     "symbolIcon.colorForeground": "#1F7AFF",
     "symbolIcon.constantForeground": "#8E2580",
-    "symbolIcon.constructorForeground": "#1F7AFF",
+    "symbolIcon.constructorForeground": "#1766D9",
     "symbolIcon.enumeratorForeground": "#062E73",
     "symbolIcon.enumeratorMemberForeground": "#8E2580",
     "symbolIcon.eventForeground": "#9E7520",
     "symbolIcon.fieldForeground": "#1F7AFF",
     "symbolIcon.fileForeground": "#8892A4",
     "symbolIcon.folderForeground": "#1F7AFF",
-    "symbolIcon.functionForeground": "#1F7AFF",
+    "symbolIcon.functionForeground": "#1766D9",
     "symbolIcon.interfaceForeground": "#062E73",
     "symbolIcon.keyForeground": "#1F7AFF",
     "symbolIcon.keywordForeground": "#062E73",
-    "symbolIcon.methodForeground": "#1F7AFF",
+    "symbolIcon.methodForeground": "#1766D9",
     "symbolIcon.moduleForeground": "#1F7AFF",
     "symbolIcon.namespaceForeground": "#1F7AFF",
     "symbolIcon.nullForeground": "#8892A4",
     "symbolIcon.numberForeground": "#8E2580",
     "symbolIcon.objectForeground": "#1F7AFF",
-    "symbolIcon.operatorForeground": "#1F7AFF",
+    "symbolIcon.operatorForeground": "#1766D9",
     "symbolIcon.packageForeground": "#1F7AFF",
     "symbolIcon.propertyForeground": "#2A2D35",
     "symbolIcon.referenceForeground": "#1F7AFF",
@@ -907,7 +907,7 @@
       ],
       "settings": {
         "fontStyle": "italic",
-        "foreground": "#8892A4"
+        "foreground": "#667080"
       }
     },
     {
@@ -967,7 +967,7 @@
         "keyword.other.substitution"
       ],
       "settings": {
-        "foreground": "#1F7AFF"
+        "foreground": "#1766D9"
       }
     },
     {
@@ -991,7 +991,7 @@
         "keyword.other.special-method"
       ],
       "settings": {
-        "foreground": "#1F7AFF"
+        "foreground": "#1766D9"
       }
     },
     {
@@ -1111,7 +1111,7 @@
       ],
       "settings": {
         "fontStyle": "italic",
-        "foreground": "#1F7AFF"
+        "foreground": "#1766D9"
       }
     },
     {
@@ -1121,7 +1121,7 @@
         "variable.function.constructor"
       ],
       "settings": {
-        "foreground": "#1F7AFF"
+        "foreground": "#1766D9"
       }
     },
     {
@@ -1226,7 +1226,7 @@
       ],
       "settings": {
         "fontStyle": "italic",
-        "foreground": "#1F7AFF"
+        "foreground": "#1766D9"
       }
     },
     {
@@ -1300,7 +1300,7 @@
         "text.html.markdown markup.inline.raw.markdown punctuation.definition.raw.markdown"
       ],
       "settings": {
-        "foreground": "#1F7AFF"
+        "foreground": "#1766D9"
       }
     },
     {
@@ -1366,7 +1366,7 @@
         "markup.quote punctuation.definition.blockquote.markdown"
       ],
       "settings": {
-        "foreground": "#8892A4"
+        "foreground": "#667080"
       }
     },
     {
@@ -1492,7 +1492,7 @@
     "namespace": "#1F7AFF",
     "decorator": "#062E73",
     "variable:dart": "#2A2D35",
-    "property:dart": "#1F7AFF",
+    "property:dart": "#1766D9",
     "annotation:dart": "#062E73",
     "parameter.label:dart": "#2A2D35"
   },

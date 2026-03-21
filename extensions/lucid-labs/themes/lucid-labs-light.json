@@ -385,7 +385,7 @@
     "terminalSymbolIcon.flagForeground": "#B89500",
     "terminalSymbolIcon.optionForeground": "#271D3B",
     "terminalSymbolIcon.optionValueForeground": "#2E7D32",
-    "terminalSymbolIcon.methodForeground": "#339999",
+    "terminalSymbolIcon.methodForeground": "#2B8282",
     "terminalSymbolIcon.argumentForeground": "#B87333",
     "terminalSymbolIcon.inlineSuggestionForeground": "#8E8E9A",
     "terminalSymbolIcon.fileForeground": "#8E8E9A",
@@ -834,24 +834,24 @@
     "symbolIcon.classForeground": "#7454B3",
     "symbolIcon.colorForeground": "#339999",
     "symbolIcon.constantForeground": "#B87333",
-    "symbolIcon.constructorForeground": "#339999",
+    "symbolIcon.constructorForeground": "#2B8282",
     "symbolIcon.enumeratorForeground": "#7454B3",
     "symbolIcon.enumeratorMemberForeground": "#B87333",
     "symbolIcon.eventForeground": "#B89500",
     "symbolIcon.fieldForeground": "#339999",
     "symbolIcon.fileForeground": "#8E8E9A",
     "symbolIcon.folderForeground": "#339999",
-    "symbolIcon.functionForeground": "#339999",
+    "symbolIcon.functionForeground": "#2B8282",
     "symbolIcon.interfaceForeground": "#7454B3",
     "symbolIcon.keyForeground": "#339999",
     "symbolIcon.keywordForeground": "#7454B3",
-    "symbolIcon.methodForeground": "#339999",
+    "symbolIcon.methodForeground": "#2B8282",
     "symbolIcon.moduleForeground": "#339999",
     "symbolIcon.namespaceForeground": "#339999",
     "symbolIcon.nullForeground": "#8E8E9A",
     "symbolIcon.numberForeground": "#B87333",
     "symbolIcon.objectForeground": "#339999",
-    "symbolIcon.operatorForeground": "#339999",
+    "symbolIcon.operatorForeground": "#2B8282",
     "symbolIcon.packageForeground": "#339999",
     "symbolIcon.propertyForeground": "#271D3B",
     "symbolIcon.referenceForeground": "#339999",
@@ -907,7 +907,7 @@
       ],
       "settings": {
         "fontStyle": "italic",
-        "foreground": "#8E8E9A"
+        "foreground": "#717178"
       }
     },
     {
@@ -967,7 +967,7 @@
         "keyword.other.substitution"
       ],
       "settings": {
-        "foreground": "#339999"
+        "foreground": "#2B8282"
       }
     },
     {
@@ -991,7 +991,7 @@
         "keyword.other.special-method"
       ],
       "settings": {
-        "foreground": "#339999"
+        "foreground": "#2B8282"
       }
     },
     {
@@ -1111,7 +1111,7 @@
       ],
       "settings": {
         "fontStyle": "italic",
-        "foreground": "#339999"
+        "foreground": "#2B8282"
       }
     },
     {
@@ -1121,7 +1121,7 @@
         "variable.function.constructor"
       ],
       "settings": {
-        "foreground": "#339999"
+        "foreground": "#2B8282"
       }
     },
     {
@@ -1141,7 +1141,7 @@
       ],
       "settings": {
         "fontStyle": "italic",
-        "foreground": "#339999"
+        "foreground": "#2B8282"
       }
     },
     {
@@ -1150,7 +1150,7 @@
         "entity.other.attribute-name.class"
       ],
       "settings": {
-        "foreground": "#339999"
+        "foreground": "#2B8282"
       }
     },
     {
@@ -1226,7 +1226,7 @@
       ],
       "settings": {
         "fontStyle": "italic",
-        "foreground": "#339999"
+        "foreground": "#2B8282"
       }
     },
     {
@@ -1300,7 +1300,7 @@
         "text.html.markdown markup.inline.raw.markdown punctuation.definition.raw.markdown"
       ],
       "settings": {
-        "foreground": "#339999"
+        "foreground": "#2B8282"
       }
     },
     {
@@ -1492,7 +1492,7 @@
     "namespace": "#339999",
     "decorator": "#7454B3",
     "variable:dart": "#271D3B",
-    "property:dart": "#339999",
+    "property:dart": "#2B8282",
     "annotation:dart": "#7454B3",
     "parameter.label:dart": "#271D3B"
   },

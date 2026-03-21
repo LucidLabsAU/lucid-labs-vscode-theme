@@ -260,7 +260,7 @@
     "list.focusHighlightForeground": "{{accent}}",
     "list.focusOutline": "{{accent}}80",
     "list.focusAndSelectionOutline": "{{accent}}",
-    "list.highlightForeground": "{{accent}}",
+    "list.highlightForeground": "{{listHighlight|accent}}",
     "list.dropBackground": "{{accent}}30",
     "list.dropBetweenBackground": "{{accent}}",
     "list.invalidItemForeground": "{{error}}",

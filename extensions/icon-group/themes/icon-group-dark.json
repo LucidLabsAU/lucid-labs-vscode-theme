@@ -47,12 +47,12 @@
     "editor.focusedStackFrameHighlightBackground": "#4CAF7D30",
     "editor.inlineValuesForeground": "#B0BEC5CC",
     "editor.inlineValuesBackground": "#FDBD1015",
-    "editorLineNumber.foreground": "#9B6FCF",
+    "editorLineNumber.foreground": "#B48EE0",
     "editorLineNumber.activeForeground": "#FDBD10",
     "editorLineNumber.dimmedForeground": "#B0BEC550",
     "editorMultiCursor.primary.foreground": "#FDBD10",
     "editorMultiCursor.primary.background": "#0E2A4A",
-    "editorMultiCursor.secondary.foreground": "#9B6FCF",
+    "editorMultiCursor.secondary.foreground": "#B48EE0",
     "editorMultiCursor.secondary.background": "#0E2A4A",
     "editorIndentGuide.background1": "#FDBD1025",
     "editorIndentGuide.background2": "#9B6FCF25",
@@ -66,8 +66,8 @@
     "editorIndentGuide.activeBackground4": "#4CAF7D",
     "editorIndentGuide.activeBackground5": "#E8635A",
     "editorIndentGuide.activeBackground6": "#7BC8A4",
-    "editorWhitespace.foreground": "#9B6FCF50",
-    "editorRuler.foreground": "#9B6FCF30",
+    "editorWhitespace.foreground": "#B48EE050",
+    "editorRuler.foreground": "#B48EE030",
     "editorUnicodeHighlight.border": "#FDBD10",
     "editorUnicodeHighlight.background": "#FDBD1020",
     "editorLink.activeForeground": "#FDBD10",
@@ -148,9 +148,9 @@
     "inlineEdit.gutterIndicator.primaryBorder": "#FDBD10",
     "inlineEdit.gutterIndicator.primaryForeground": "#FDBD10",
     "inlineEdit.gutterIndicator.primaryBackground": "#FDBD1020",
-    "inlineEdit.gutterIndicator.secondaryBorder": "#9B6FCF",
-    "inlineEdit.gutterIndicator.secondaryForeground": "#9B6FCF",
-    "inlineEdit.gutterIndicator.secondaryBackground": "#9B6FCF20",
+    "inlineEdit.gutterIndicator.secondaryBorder": "#B48EE0",
+    "inlineEdit.gutterIndicator.secondaryForeground": "#B48EE0",
+    "inlineEdit.gutterIndicator.secondaryBackground": "#B48EE020",
     "inlineEdit.gutterIndicator.successfulBorder": "#4CAF7D",
     "inlineEdit.gutterIndicator.successfulForeground": "#4CAF7D",
     "inlineEdit.gutterIndicator.successfulBackground": "#4CAF7D20",
@@ -257,9 +257,9 @@
     "statusBarItem.prominentBackground": "#FDBD10",
     "statusBarItem.prominentHoverForeground": "#E0E8F0",
     "statusBarItem.prominentHoverBackground": "#E5AA0E",
-    "statusBarItem.remoteBackground": "#9B6FCF",
+    "statusBarItem.remoteBackground": "#B48EE0",
     "statusBarItem.remoteForeground": "#E0E8F0",
-    "statusBarItem.remoteHoverBackground": "#9B6FCFCC",
+    "statusBarItem.remoteHoverBackground": "#B48EE0CC",
     "statusBarItem.remoteHoverForeground": "#E0E8F0",
     "statusBarItem.errorBackground": "#E8635A",
     "statusBarItem.errorForeground": "#E0E8F0",
@@ -392,12 +392,12 @@
     "terminalSymbolIcon.folderForeground": "#FDBD10",
     "terminalSymbolIcon.pullRequestDoneForeground": "#4CAF7D",
     "terminalSymbolIcon.pullRequestForeground": "#FDBD10",
-    "terminalSymbolIcon.remoteForeground": "#9B6FCF",
+    "terminalSymbolIcon.remoteForeground": "#B48EE0",
     "terminalSymbolIcon.stashForeground": "#9B6FCF",
     "terminalSymbolIcon.symbolText": "#E0E8F0",
     "terminalSymbolIcon.symbolicLinkFileForeground": "#FDBD1080",
     "terminalSymbolIcon.symbolicLinkFolderForeground": "#FDBD1080",
-    "terminalSymbolIcon.tagForeground": "#9B6FCF",
+    "terminalSymbolIcon.tagForeground": "#B48EE0",
     "button.background": "#FDBD10",
     "button.foreground": "#E0E8F0",
     "button.border": "#FDBD1000",
@@ -674,7 +674,7 @@
     "gitDecoration.submoduleResourceForeground": "#7BC8A4",
     "git.blame.editorDecorationForeground": "#B0BEC560",
     "scmGraph.foreground1": "#FDBD10",
-    "scmGraph.foreground2": "#9B6FCF",
+    "scmGraph.foreground2": "#B48EE0",
     "scmGraph.foreground3": "#7BC8A4",
     "scmGraph.foreground4": "#FDBD10",
     "scmGraph.foreground5": "#4CAF7D",
@@ -682,7 +682,7 @@
     "scmGraph.historyItemHoverAdditionsForeground": "#4CAF7D",
     "scmGraph.historyItemHoverDeletionsForeground": "#E8635A",
     "scmGraph.historyItemRefColor": "#FDBD10",
-    "scmGraph.historyItemRemoteRefColor": "#9B6FCF",
+    "scmGraph.historyItemRemoteRefColor": "#B48EE0",
     "scmGraph.historyItemBaseRefColor": "#7BC8A4",
     "pickerGroup.border": "#FDBD1030",
     "pickerGroup.foreground": "#FDBD10",
@@ -736,13 +736,13 @@
     "debugView.stateLabelForeground": "#E0E8F0",
     "debugView.stateLabelBackground": "#FDBD1050",
     "debugView.valueChangedHighlight": "#FDBD1080",
-    "debugTokenExpression.name": "#9B6FCF",
+    "debugTokenExpression.name": "#B48EE0",
     "debugTokenExpression.value": "#7BC8A4",
     "debugTokenExpression.string": "#7BC8A4",
     "debugTokenExpression.boolean": "#F0E6C8",
     "debugTokenExpression.number": "#F0E6C8",
     "debugTokenExpression.error": "#E8635A",
-    "debugTokenExpression.type": "#9B6FCF",
+    "debugTokenExpression.type": "#B48EE0",
     "debugIcon.breakpointForeground": "#E8635A",
     "debugIcon.breakpointDisabledForeground": "#B0BEC580",
     "debugIcon.breakpointUnverifiedForeground": "#FDBD10",
@@ -831,20 +831,20 @@
     "breadcrumbPicker.background": "#0B2240",
     "symbolIcon.arrayForeground": "#F0E6C8",
     "symbolIcon.booleanForeground": "#F0E6C8",
-    "symbolIcon.classForeground": "#9B6FCF",
+    "symbolIcon.classForeground": "#B48EE0",
     "symbolIcon.colorForeground": "#FDBD10",
     "symbolIcon.constantForeground": "#F0E6C8",
     "symbolIcon.constructorForeground": "#4DA6E8",
-    "symbolIcon.enumeratorForeground": "#9B6FCF",
+    "symbolIcon.enumeratorForeground": "#B48EE0",
     "symbolIcon.enumeratorMemberForeground": "#F0E6C8",
     "symbolIcon.eventForeground": "#FDBD10",
     "symbolIcon.fieldForeground": "#FDBD10",
     "symbolIcon.fileForeground": "#B0BEC5",
     "symbolIcon.folderForeground": "#FDBD10",
     "symbolIcon.functionForeground": "#4DA6E8",
-    "symbolIcon.interfaceForeground": "#9B6FCF",
+    "symbolIcon.interfaceForeground": "#B48EE0",
     "symbolIcon.keyForeground": "#FDBD10",
-    "symbolIcon.keywordForeground": "#9B6FCF",
+    "symbolIcon.keywordForeground": "#B48EE0",
     "symbolIcon.methodForeground": "#4DA6E8",
     "symbolIcon.moduleForeground": "#FDBD10",
     "symbolIcon.namespaceForeground": "#FDBD10",
@@ -857,9 +857,9 @@
     "symbolIcon.referenceForeground": "#FDBD10",
     "symbolIcon.snippetForeground": "#7BC8A4",
     "symbolIcon.stringForeground": "#7BC8A4",
-    "symbolIcon.structForeground": "#9B6FCF",
+    "symbolIcon.structForeground": "#B48EE0",
     "symbolIcon.textForeground": "#E0E8F0",
-    "symbolIcon.typeParameterForeground": "#9B6FCF",
+    "symbolIcon.typeParameterForeground": "#B48EE0",
     "symbolIcon.unitForeground": "#F0E6C8",
     "symbolIcon.variableForeground": "#E0E8F0",
     "extensionButton.prominentForeground": "#E0E8F0",
@@ -874,7 +874,7 @@
     "extensionIcon.starForeground": "#FDBD10",
     "extensionIcon.verifiedForeground": "#4CAF7D",
     "extensionIcon.preReleaseForeground": "#FDBD10",
-    "extensionIcon.sponsorForeground": "#9B6FCF",
+    "extensionIcon.sponsorForeground": "#B48EE0",
     "extensionIcon.privateForeground": "#B0BEC580",
     "extensionButton.border": "#FDBD1000",
     "mcpIcon.starForeground": "#FDBD10",
@@ -885,10 +885,10 @@
     "charts.yellow": "#FDBD10",
     "charts.orange": "#F0E6C8",
     "charts.green": "#4CAF7D",
-    "charts.purple": "#9B6FCF",
+    "charts.purple": "#B48EE0",
     "markdownAlert.note.foreground": "#4DA6E8",
     "markdownAlert.tip.foreground": "#4CAF7D",
-    "markdownAlert.important.foreground": "#9B6FCF",
+    "markdownAlert.important.foreground": "#B48EE0",
     "markdownAlert.warning.foreground": "#FDBD10",
     "markdownAlert.caution.foreground": "#E8635A",
     "agentSessionReadIndicator.foreground": "#FDBD10",
@@ -947,7 +947,7 @@
         "storage.modifier"
       ],
       "settings": {
-        "foreground": "#9B6FCF"
+        "foreground": "#B48EE0"
       }
     },
     {
@@ -978,7 +978,7 @@
         "markup.deleted.git_gutter"
       ],
       "settings": {
-        "foreground": "#9B6FCF"
+        "foreground": "#B48EE0"
       }
     },
     {
@@ -1066,7 +1066,7 @@
         "support.type"
       ],
       "settings": {
-        "foreground": "#9B6FCF"
+        "foreground": "#B48EE0"
       }
     },
     {
@@ -1101,7 +1101,7 @@
       ],
       "settings": {
         "fontStyle": "italic",
-        "foreground": "#9B6FCF"
+        "foreground": "#B48EE0"
       }
     },
     {
@@ -1130,7 +1130,7 @@
         "entity.other.attribute-name"
       ],
       "settings": {
-        "foreground": "#9B6FCF"
+        "foreground": "#B48EE0"
       }
     },
     {
@@ -1254,7 +1254,7 @@
         "source.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json support.type.property-name.json"
       ],
       "settings": {
-        "foreground": "#9B6FCF"
+        "foreground": "#B48EE0"
       }
     },
     {
@@ -1291,7 +1291,7 @@
         "text.html.markdown markup.inline.raw.markdown"
       ],
       "settings": {
-        "foreground": "#9B6FCF"
+        "foreground": "#B48EE0"
       }
     },
     {
@@ -1321,7 +1321,7 @@
       ],
       "settings": {
         "fontStyle": "italic",
-        "foreground": "#9B6FCF"
+        "foreground": "#B48EE0"
       }
     },
     {
@@ -1332,7 +1332,7 @@
       ],
       "settings": {
         "fontStyle": "bold",
-        "foreground": "#9B6FCF"
+        "foreground": "#B48EE0"
       }
     },
     {
@@ -1347,7 +1347,7 @@
       ],
       "settings": {
         "fontStyle": "bold",
-        "foreground": "#9B6FCF"
+        "foreground": "#B48EE0"
       }
     },
     {
@@ -1393,7 +1393,7 @@
         "string.other.link.description.title.markdown"
       ],
       "settings": {
-        "foreground": "#9B6FCF"
+        "foreground": "#B48EE0"
       }
     },
     {
@@ -1411,7 +1411,7 @@
         "markup.raw.block"
       ],
       "settings": {
-        "foreground": "#9B6FCF"
+        "foreground": "#B48EE0"
       }
     },
     {
@@ -1476,24 +1476,24 @@
   "semanticTokenColors": {
     "enumMember": "#F0E6C8",
     "variable.constant": "#F0E6C8",
-    "variable.defaultLibrary": "#9B6FCF",
+    "variable.defaultLibrary": "#B48EE0",
     "variable.readonly": "#E0E8F0",
     "property.readonly": "#F0E6C8",
     "parameter": "#E0E8F0",
     "type": {
-      "foreground": "#9B6FCF",
+      "foreground": "#B48EE0",
       "italic": true
     },
     "interface": {
-      "foreground": "#9B6FCF",
+      "foreground": "#B48EE0",
       "italic": true
     },
-    "enum": "#9B6FCF",
+    "enum": "#B48EE0",
     "namespace": "#FDBD10",
-    "decorator": "#9B6FCF",
+    "decorator": "#B48EE0",
     "variable:dart": "#E0E8F0",
     "property:dart": "#4DA6E8",
-    "annotation:dart": "#9B6FCF",
+    "annotation:dart": "#B48EE0",
     "parameter.label:dart": "#E0E8F0"
   },
   "name": "Icon Group Dark",
