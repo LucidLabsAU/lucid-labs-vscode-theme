@@ -1,7 +1,7 @@
 // Icon theme definition template
 // Generated per brand by scripts/generate.js
 {
-  "hidesExplorerArrows": false,
+  "hideExplorerArrows": false,
   "iconDefinitions": {
     "_file": { "iconPath": "./icons/file.svg" },
     "_folder": { "iconPath": "./icons/folder.svg" },
@@ -134,7 +134,7 @@
     "ini": "_config",
     "conf": "_config",
     "cfg": "_config",
-    "env": "_config",
+    "env": "_env_icon",
     "sh": "_shell",
     "bash": "_shell",
     "zsh": "_shell",

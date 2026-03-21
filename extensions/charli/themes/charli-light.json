@@ -112,7 +112,7 @@
     "editorUnnecessaryCode.border": "#9692A340",
     "editorUnnecessaryCode.opacity": "#00000077",
     "editorGutter.background": "#FFF6ED",
-    "editorGutter.modifiedBackground": "#1D76B8",
+    "editorGutter.modifiedBackground": "#9E4470",
     "editorGutter.addedBackground": "#1B7264",
     "editorGutter.deletedBackground": "#C0524A",
     "editorGutter.commentRangeForeground": "#9692A340",
