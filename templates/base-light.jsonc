@@ -99,6 +99,7 @@
 
     // ─── Bracket pairs ───────────────────────────────────────
     "editorBracketMatch.border": "{{accent}}60",
+    "editorBracketMatch.foreground": "{{accent}}",
     "editorBracketHighlight.foreground1": "{{bracket1}}",
     "editorBracketHighlight.foreground2": "{{bracket2}}",
     "editorBracketHighlight.foreground3": "{{bracket3}}",
@@ -812,6 +813,8 @@
     "quickInputList.focusBackground": "{{accent}}30",
     "quickInputList.focusForeground": "{{foreground}}",
     "quickInputList.focusIconForeground": "{{foreground}}",
+    "quickInputList.hoverBackground": "{{backgroundHover}}",
+    "quickInput.border": "{{accent}}25",
     "quickInputTitle.background": "{{backgroundDeep}}",
 
     // ─── Keybinding labels ───────────────────────────────────

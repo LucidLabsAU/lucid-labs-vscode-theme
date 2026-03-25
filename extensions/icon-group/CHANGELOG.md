@@ -1,5 +1,10 @@
 # Change Log
 
+## [1.7.0] - 2026-03-26
+
+### Added
+- New VS Code v1.113 colour tokens: `editorBracketMatch.foreground`, `quickInputList.hoverBackground`, `quickInput.border`
+
 ## [1.6.0] - 2026-03-22
 
 ### Fixed
