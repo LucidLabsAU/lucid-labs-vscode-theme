@@ -895,7 +895,7 @@
     "markdownAlert.warning.foreground": "#C49A00",
     "markdownAlert.caution.foreground": "#D63B30",
     "agentSessionReadIndicator.foreground": "#006FB9",
-    "agentStatusIndicator.background": "#006FB9",
+    "agentStatusIndicator.background": "#F4F7FA",
     "actionBar.toggledBackground": "#006FB930",
     "ports.iconRunningProcessForeground": "#009572",
     "commentsView.resolvedIcon": "#009572",

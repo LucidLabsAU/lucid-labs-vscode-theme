@@ -1046,7 +1046,7 @@
 
     // ─── Agent session ───────────────────────────────────────
     "agentSessionReadIndicator.foreground": "{{accent}}",
-    "agentStatusIndicator.background": "{{accent}}",
+    "agentStatusIndicator.background": "{{backgroundElevated}}",
 
     // ─── Action bar ──────────────────────────────────────────
     "actionBar.toggledBackground": "{{accent}}30",
