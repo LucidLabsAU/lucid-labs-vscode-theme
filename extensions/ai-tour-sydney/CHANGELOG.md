@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.0] - 2026-04-20
+
+### Changed
+- Rebalanced palette to match the AI Tour Sydney landing page — promoted mint-teal family (`#4ECDC4`, `#7FE5D8`, `#B8F1E6`) alongside navy/blue
+- Keywords, strings, modified diff, JSON headers, markdown raw, and merge-incoming now teal-leaning
+- Functions shift from pure blue to teal (`#1E9BA5`) to break up blue dominance
+- Terminal cyan/magenta and rainbow brackets refreshed to the teal family
+
 ## [1.0.0] - 2026-04-20
 
 ### Added
