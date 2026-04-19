@@ -1,0 +1,48 @@
+{
+  "name": "ai-tour-sydney-theme",
+  "displayName": "AI Tour Sydney",
+  "version": "1.0.0",
+  "description": "A modern, premium dark theme inspired by the AI Tour Sydney 20-24 April 2026 event",
+  "publisher": "lucidlabs",
+  "icon": "icon.png",
+  "license": "MIT",
+  "homepage": "https://github.com/LucidLabsAU/lucid-labs-vscode-theme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LucidLabsAU/lucid-labs-vscode-theme.git"
+  },
+  "bugs": {
+    "url": "https://github.com/LucidLabsAU/lucid-labs-vscode-theme/issues"
+  },
+  "keywords": [
+    "theme",
+    "dark theme",
+    "colour theme",
+    "ai tour",
+    "sydney",
+    "blue",
+    "cyan",
+    "modern",
+    "premium"
+  ],
+  "engines": {
+    "vscode": "^1.113.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "AI Tour Sydney Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/ai-tour-sydney-dark.json"
+      },
+      {
+        "label": "AI Tour Sydney Light",
+        "uiTheme": "vs",
+        "path": "./themes/ai-tour-sydney-light.json"
+      }
+    ]
+  }
+}

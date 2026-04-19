@@ -1,0 +1,13 @@
+.gitignore
+.git
+.github
+.gitattributes
+.DS_Store
+*.orig
+*.rej
+*.swp
+*.swo
+*~
+.vscode-test
+.vscode-test.log
+.code-workspace
