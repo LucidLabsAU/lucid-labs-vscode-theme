@@ -1,21 +1,27 @@
 ---
-name: Continuous Documentation
-description: Keep documentation in sync after PRs are merged to main
-triggers:
-  - type: pull_request
-    activity: closed
-    merged: true
-    branch: main
+on:
+  pull_request:
+    types: [closed]
+    branches: [main]
+
 permissions:
   contents: read
-  pull-requests: write
+  pull-requests: read
+
+network: defaults
+
 safe-outputs:
-  - create-pull-request
+  create-pull-request:
+    max: 1
 ---
 
 # Continuous Documentation Sync
 
 After a PR is merged to main, check that documentation is up to date and open a fix PR if not.
+
+## Instructions
+
+Only act when `github.event.pull_request.merged == true` and the base branch is `main`. Otherwise do nothing.
 
 ## Checks
 

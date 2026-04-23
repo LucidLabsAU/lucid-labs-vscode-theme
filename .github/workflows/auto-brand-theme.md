@@ -1,17 +1,20 @@
 ---
-name: Auto Brand Theme
-description: Automatically create a new VS Code theme when a brand issue is opened
-triggers:
-  - type: issues
-    activity: opened
-    label: brand
+on:
+  issues:
+    types: [opened]
+
 permissions:
   contents: read
-  pull-requests: write
-  issues: write
+  pull-requests: read
+  issues: read
+
+network: defaults
+
 safe-outputs:
-  - create-pull-request
-  - comment-on-issue
+  create-pull-request:
+    max: 1
+  add-comment:
+    max: 1
 ---
 
 # Auto Brand Theme Creation
@@ -19,6 +22,8 @@ safe-outputs:
 When a new issue is opened with the `brand` label, automatically create a complete VS Code theme.
 
 ## Instructions
+
+Only act when the issue has the `brand` label (check `github.event.issue.labels` for a label with `name == 'brand'`). Otherwise do nothing.
 
 1. Read the issue body and extract brand details (name, website, colours, logo)
 2. Follow the complete brand creation workflow in `.github/copilot-instructions.md`

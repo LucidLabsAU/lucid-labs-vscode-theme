@@ -1,15 +1,17 @@
 ---
-name: CI Failure Analysis
-description: Analyse CI failures and comment with fix suggestions
-triggers:
-  - type: check_run
-    activity: completed
-    conclusion: failure
+on:
+  check_run:
+    types: [completed]
+
 permissions:
   contents: read
-  pull-requests: write
+  pull-requests: read
+
+network: defaults
+
 safe-outputs:
-  - comment-on-pull-request
+  add-comment:
+    max: 1
 ---
 
 # CI Failure Analysis
@@ -17,6 +19,8 @@ safe-outputs:
 When a CI check fails on a pull request, analyse the failure and comment with a diagnosis and suggested fix.
 
 ## Instructions
+
+Only act when `github.event.check_run.conclusion == 'failure'`. Otherwise do nothing.
 
 1. Read the failing check run's logs
 2. Identify the root cause — categorise as one of:
