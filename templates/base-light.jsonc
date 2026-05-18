@@ -708,6 +708,7 @@
     "minimap.infoHighlight": "{{info}}",
     "minimap.chatEditHighlight": "{{accent}}30",
     "editorMinimap.inlineChatInserted": "{{added|success}}30",
+    "editorMinimap.inlineChatRemoved": "{{error}}30",
     "minimapSlider.background": "{{accent}}30",
     "minimapSlider.hoverBackground": "{{accent}}50",
     "minimapSlider.activeBackground": "{{accent}}70",
@@ -773,7 +774,11 @@
     "chat.requestBubbleHoverBackground": "{{backgroundHover}}E6",
     "chat.checkpointSeparator": "{{accent}}30",
     "chat.thinkingShimmer": "{{accent}}30",
+    "chat.inputWorkingBorderColor1": "{{button|accent}}",
+    "chat.inputWorkingBorderColor2": "{{accentHover|accent}}",
+    "chat.inputWorkingBorderColor3": "{{accent}}",
     "chatManagement.sashBorder": "{{accent}}",
+    "aiCustomizationManagement.sashBorder": "{{accent}}",
 
     // ─── Panel chat ──────────────────────────────────────────
     "interactive.activeCodeBorder": "{{accent}}",
@@ -1046,6 +1051,8 @@
 
     // ─── Agent session ───────────────────────────────────────
     "agentSessionReadIndicator.foreground": "{{accent}}",
+    "agentSessionSelectedBadge.border": "{{accent}}40",
+    "agentSessionSelectedUnfocusedBadge.border": "{{foreground}}40",
     "agentStatusIndicator.background": "{{backgroundElevated}}",
 
     // ─── Action bar ──────────────────────────────────────────

@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.7.0] - 2026-05-19
+
+### Added
+- New VS Code v1.115 agent UI colour tokens: `agentSessionSelectedBadge.border`, `agentSessionSelectedUnfocusedBadge.border`, `aiCustomizationManagement.sashBorder`, `chat.inputWorkingBorderColor1/2/3`, `editorMinimap.inlineChatRemoved`
+
+
 ## [1.6.0] - 2026-03-26
 
 ### Added

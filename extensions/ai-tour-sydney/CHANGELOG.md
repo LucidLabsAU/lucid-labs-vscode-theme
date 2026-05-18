@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.2.0] - 2026-05-19
+
+### Added
+- New VS Code v1.115 agent UI colour tokens: `agentSessionSelectedBadge.border`, `agentSessionSelectedUnfocusedBadge.border`, `aiCustomizationManagement.sashBorder`, `chat.inputWorkingBorderColor1/2/3`, `editorMinimap.inlineChatRemoved`
+
+### Fixed
+- Replaced corrupted placeholder `icon.png` with the proper 1024×1024 brand logo (the previous file was 96 bytes of base64 text and rendered as no icon in the marketplace)
+
+
 ## [1.1.0] - 2026-04-20
 
 ### Changed
