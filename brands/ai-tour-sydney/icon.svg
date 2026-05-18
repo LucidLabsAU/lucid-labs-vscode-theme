@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <!-- Background gradient: deep night-harbour to electric purple -->
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0B1F3A"/>
+      <stop offset="55%" stop-color="#1B3A8B"/>
+      <stop offset="100%" stop-color="#6A2BD9"/>
+    </linearGradient>
+
+    <!-- Sun/AI core glow -->
+    <radialGradient id="sun" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFE6A8" stop-opacity="1"/>
+      <stop offset="55%" stop-color="#FF8FB1" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#FF8FB1" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Opera House shell gradient (white → soft cyan) -->
+    <linearGradient id="shell" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#9FE6FF"/>
+    </linearGradient>
+
+    <!-- Water reflection gradient -->
+    <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+
+  </defs>
+
+  <g>
+    <!-- Background -->
+    <rect width="512" height="512" fill="url(#bg)"/>
+
+    <!-- Soft starfield -->
+    <g fill="#FFFFFF" opacity="0.55">
+      <circle cx="60"  cy="70"  r="1.2"/>
+      <circle cx="110" cy="40"  r="0.9"/>
+      <circle cx="180" cy="90"  r="1.4"/>
+      <circle cx="240" cy="55"  r="0.8"/>
+      <circle cx="310" cy="80"  r="1.1"/>
+      <circle cx="380" cy="50"  r="1.3"/>
+      <circle cx="440" cy="100" r="0.9"/>
+      <circle cx="80"  cy="170" r="0.8"/>
+      <circle cx="460" cy="180" r="1.0"/>
+      <circle cx="50"  cy="240" r="0.9"/>
+    </g>
+
+    <!-- AI sun / glow behind structure -->
+    <circle cx="256" cy="220" r="170" fill="url(#sun)"/>
+    <circle cx="256" cy="220" r="56" fill="#FFF6D6" opacity="0.95"/>
+
+    <!-- Neural network removed -->
+
+    <!-- Harbour Bridge arch (stylised) -->
+    <g stroke="#B9C9E8" fill="none" opacity="0.75">
+      <path d="M40,330 Q256,170 472,330" stroke-width="6"/>
+      <line x1="40"  y1="330" x2="40"  y2="380" stroke-width="6"/>
+      <line x1="472" y1="330" x2="472" y2="380" stroke-width="6"/>
+      <line x1="40"  y1="345" x2="472" y2="345" stroke-width="3"/>
+    </g>
+    <!-- Bridge verticals (suspenders) -->
+    <g stroke="#B9C9E8" stroke-width="1.5" opacity="0.6">
+      <line x1="100" y1="345" x2="100" y2="290"/>
+      <line x1="150" y1="345" x2="150" y2="260"/>
+      <line x1="200" y1="345" x2="200" y2="235"/>
+      <line x1="256" y1="345" x2="256" y2="225"/>
+      <line x1="312" y1="345" x2="312" y2="235"/>
+      <line x1="362" y1="345" x2="362" y2="260"/>
+      <line x1="412" y1="345" x2="412" y2="290"/>
+    </g>
+
+    <!-- Opera House shells (stylised, geometric) -->
+    <g fill="url(#shell)">
+      <!-- back row, taller -->
+      <path d="M150,400 Q175,250 215,400 Z"/>
+      <path d="M205,400 Q235,230 280,400 Z"/>
+      <path d="M270,400 Q305,245 350,400 Z"/>
+      <!-- front row, shorter overlay -->
+      <path d="M180,400 Q200,310 235,400 Z" opacity="0.92"/>
+      <path d="M235,400 Q265,295 305,400 Z" opacity="0.92"/>
+      <path d="M300,400 Q330,320 365,400 Z" opacity="0.92"/>
+    </g>
+    <!-- Subtle shell outlines -->
+    <g stroke="#FFFFFF" stroke-width="1.2" fill="none" opacity="0.6">
+      <path d="M150,400 Q175,250 215,400"/>
+      <path d="M205,400 Q235,230 280,400"/>
+      <path d="M270,400 Q305,245 350,400"/>
+    </g>
+
+    <!-- Water platform -->
+    <rect x="0" y="400" width="512" height="6" fill="#0E2447"/>
+
+    <!-- Water reflection -->
+    <g opacity="0.9">
+      <rect x="0" y="406" width="512" height="106" fill="#08152C"/>
+      <!-- shimmering lines -->
+      <g stroke="#7CF4FF" stroke-width="1.4" opacity="0.55">
+        <line x1="60"  y1="425" x2="130" y2="425"/>
+        <line x1="180" y1="438" x2="260" y2="438"/>
+        <line x1="290" y1="425" x2="370" y2="425"/>
+        <line x1="100" y1="455" x2="180" y2="455"/>
+        <line x1="220" y1="468" x2="320" y2="468"/>
+        <line x1="350" y1="455" x2="430" y2="455"/>
+        <line x1="80"  y1="485" x2="170" y2="485"/>
+        <line x1="260" y1="490" x2="360" y2="490"/>
+      </g>
+      <rect x="0" y="406" width="512" height="50" fill="url(#water)"/>
+    </g>
+
+    <!-- Wordmark -->
+    <g font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" text-anchor="middle">
+      <text x="256" y="455"
+            font-size="28" font-weight="800" fill="#FFFFFF"
+            letter-spacing="6">AI TOUR</text>
+      <text x="256" y="488"
+            font-size="20" font-weight="500" fill="#7CF4FF"
+            letter-spacing="10">SYDNEY</text>
+    </g>
+  </g>
+</svg>
