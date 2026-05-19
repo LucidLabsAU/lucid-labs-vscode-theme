@@ -8,8 +8,8 @@ This repository is a **theme factory monorepo** that generates branded VS Code c
 brands/<slug>/brand.json       → Colour palette (~40 semantic roles per dark/light variant)
 brands/<slug>/icon.png         → 256×256 PNG extension icon
 brands/<slug>/README.md        → Marketplace README
-templates/base-dark.jsonc      → Dark theme template (896 colour keys with {{role}} placeholders)
-templates/base-light.jsonc     → Light theme template (896 colour keys with {{role}} placeholders)
+templates/base-dark.jsonc      → Dark theme template (906 colour keys with {{role}} placeholders)
+templates/base-light.jsonc     → Light theme template (906 colour keys with {{role}} placeholders)
 scripts/generate.js            → Substitutes brand colours into templates → JSON
 extensions/<slug>/themes/      → Generated theme files (committed, never hand-edited)
 extensions/<slug>/package.json → VS Code extension manifest
@@ -177,7 +177,7 @@ Then activate via File > Preferences > Colour Theme.
 
 ## Colour Derivation Strategy
 
-The templates derive ~896 VS Code colour keys from ~15 core semantic roles using:
+The templates derive ~906 VS Code colour keys from ~15 core semantic roles using:
 
 - **Alpha transparency** — `{{accent}}30` for subtle backgrounds, `{{accent}}80` for prominent
 - **Fallback chains** — `{{modified|function}}` tries `modified`, falls back to `function`

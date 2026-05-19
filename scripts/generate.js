@@ -179,7 +179,7 @@ function main() {
     fs.mkdirSync(outDir, { recursive: true });
 
     // Copy brand assets into extension dir for local packaging
-    for (const asset of ['icon.png', 'README.md']) {
+    for (const asset of ['icon.png', 'README.md', 'brand.json', 'activity-icon.svg']) {
       const src = path.join(brandDir, asset);
       if (fs.existsSync(src)) {
         fs.copyFileSync(src, path.join(extDir, asset));

@@ -2,10 +2,11 @@
   "name": "lucid-labs-theme",
   "displayName": "Lucid Labs",
   "description": "A professional dark theme for Visual Studio Code based on Lucid Labs brand guidelines. Features dark purple backgrounds, teal accents, and cloud-inspired aesthetics perfect for Azure development, PowerShell scripting, and enterprise coding.",
-  "version": "1.12.0",
+  "version": "1.13.0",
   "publisher": "lucidlabs",
   "license": "MIT",
   "icon": "icon.png",
+  "main": "./extension.js",
   "author": {
     "name": "Lucid Labs",
     "url": "https://lucidlabs.com.au"
@@ -40,6 +41,9 @@
   "extensionKind": [
     "ui"
   ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
   "contributes": {
     "themes": [
       {
@@ -58,6 +62,136 @@
         "id": "lucid-labs-icons",
         "label": "Lucid Labs Icons",
         "path": "./icon-theme.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "lucidLabsTheme.switchDark",
+        "title": "Switch to Lucid Labs Dark",
+        "category": "Lucid Labs"
+      },
+      {
+        "command": "lucidLabsTheme.switchLight",
+        "title": "Switch to Lucid Labs Light",
+        "category": "Lucid Labs"
+      },
+      {
+        "command": "lucidLabsTheme.toggleVariant",
+        "title": "Toggle Dark/Light Variant",
+        "category": "Lucid Labs"
+      },
+      {
+        "command": "lucidLabsTheme.openAbout",
+        "title": "Open Theme Reference",
+        "category": "Lucid Labs",
+        "icon": "$(symbol-color)"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "lucidLabsTheme.toggleVariant",
+        "key": "ctrl+alt+l",
+        "mac": "cmd+alt+l"
+      }
+    ],
+    "configuration": {
+      "title": "Lucid Labs Theme",
+      "properties": {
+        "lucidLabsTheme.showStatusBarItem": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show the Lucid Labs brand chip in the status bar while a Lucid Labs theme is active."
+        }
+      }
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "lucidLabsThemeContainer",
+          "title": "Lucid Labs",
+          "icon": "activity-icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "lucidLabsThemeContainer": [
+        {
+          "id": "lucidLabsPalette",
+          "name": "Brand Palette",
+          "icon": "activity-icon.svg",
+          "contextualTitle": "Lucid Labs"
+        }
+      ]
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "lucidLabsTheme.openAbout",
+          "when": "view == lucidLabsPalette",
+          "group": "navigation"
+        }
+      ]
+    },
+    "walkthroughs": [
+      {
+        "id": "lucidLabsThemeWelcome",
+        "title": "Get Started with Lucid Labs",
+        "description": "Set up the Lucid Labs theme, discover its features, and learn how to switch variants.",
+        "steps": [
+          {
+            "id": "activate",
+            "title": "Activate the theme",
+            "description": "Pick the variant that suits your workflow:\n[Activate Lucid Labs Dark](command:lucidLabsTheme.switchDark)\n[Activate Lucid Labs Light](command:lucidLabsTheme.switchLight)",
+            "media": {
+              "markdown": "walkthroughs/welcome.md"
+            },
+            "completionEvents": [
+              "onCommand:lucidLabsTheme.switchDark",
+              "onCommand:lucidLabsTheme.switchLight"
+            ]
+          },
+          {
+            "id": "variants",
+            "title": "Switch variants on the fly",
+            "description": "Press `Cmd+Alt+L` (macOS) or `Ctrl+Alt+L` (Windows/Linux) to toggle between dark and light.\n[Toggle Now](command:lucidLabsTheme.toggleVariant)",
+            "media": {
+              "markdown": "walkthroughs/variants.md"
+            },
+            "completionEvents": [
+              "onCommand:lucidLabsTheme.toggleVariant"
+            ]
+          },
+          {
+            "id": "icons",
+            "title": "Enable the Lucid Labs file icons",
+            "description": "Match your editor chrome with brand-aligned file icons.\n[Choose Icon Theme](command:workbench.action.selectIconTheme)",
+            "media": {
+              "markdown": "walkthroughs/icons.md"
+            },
+            "completionEvents": [
+              "onCommand:workbench.action.selectIconTheme"
+            ]
+          },
+          {
+            "id": "palette",
+            "title": "Explore the brand palette",
+            "description": "Open the Brand Palette view in the activity bar to browse every colour role with one-click copy.\n[Open Theme Reference](command:lucidLabsTheme.openAbout)",
+            "media": {
+              "markdown": "walkthroughs/palette.md"
+            },
+            "completionEvents": [
+              "onCommand:lucidLabsTheme.openAbout"
+            ]
+          },
+          {
+            "id": "next",
+            "title": "Stay in the loop",
+            "description": "Follow updates, file issues, or request a custom brand theme.",
+            "media": {
+              "markdown": "walkthroughs/next-steps.md"
+            }
+          }
+        ]
       }
     ]
   },

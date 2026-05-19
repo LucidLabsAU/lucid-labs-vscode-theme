@@ -1,5 +1,19 @@
 # Change Log
 
+## [1.13.0] - 2026-05-19
+
+### Added
+- **Walkthrough onboarding** — 5-step guided setup that opens automatically after install, covering activation, variant switching, file icons, the brand palette, and next steps
+- **Brand Palette view** — dedicated Activity Bar view container that lists every colour role in the active variant with one-click copy-to-clipboard
+- **Theme Reference webview** — full-page interactive colour reference rendered live in the active variant (`Lucid Labs: Open Theme Reference`)
+- **Status bar chip** — confirms the active brand and variant; toggleable via `lucidLabsTheme.showStatusBarItem`
+- **Quick-switch commands** — `Lucid Labs: Switch to Dark`, `Switch to Light`, `Toggle Variant`, `Open Theme Reference`
+- **Toggle keybinding** — `Cmd+Alt+L` / `Ctrl+Alt+L` cycles between dark and light variants
+- **Marketplace preview** — 8 screenshots added to the README covering editor (dark/light), terminal, command palette, chat, walkthrough, palette tree, and diff editor
+
+### Changed
+- Extension is no longer themes-only — now contributes commands, views, walkthrough, configuration, and a keybinding (still UI-kind, no workspace access)
+
 ## [1.12.0] - 2026-05-19
 
 ### Added
