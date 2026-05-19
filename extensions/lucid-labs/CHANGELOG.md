@@ -1,5 +1,10 @@
 # Change Log
 
+## [1.13.1] - 2026-05-19
+
+### Fixed
+- README marketplace preview: corrected broken `05-chat.png` reference to the actual `05-settings.png` capture (the chat shot was dropped in favour of Settings during the pilot)
+
 ## [1.13.0] - 2026-05-19
 
 ### Added

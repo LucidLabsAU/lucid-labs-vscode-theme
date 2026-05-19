@@ -13,8 +13,8 @@ A professional VS Code theme that brings the official **Lucid Labs** brand ident
 | Terminal | Command Palette |
 |---|---|
 | ![Terminal](https://raw.githubusercontent.com/LucidLabsAU/lucid-labs-vscode-theme/main/extensions/lucid-labs/screenshots/03-terminal.png) | ![Command Palette](https://raw.githubusercontent.com/LucidLabsAU/lucid-labs-vscode-theme/main/extensions/lucid-labs/screenshots/04-command-palette.png) |
-| **Chat** | **Walkthrough** |
-| ![Chat](https://raw.githubusercontent.com/LucidLabsAU/lucid-labs-vscode-theme/main/extensions/lucid-labs/screenshots/05-chat.png) | ![Walkthrough](https://raw.githubusercontent.com/LucidLabsAU/lucid-labs-vscode-theme/main/extensions/lucid-labs/screenshots/06-walkthrough.png) |
+| **Settings** | **Walkthrough** |
+| ![Settings](https://raw.githubusercontent.com/LucidLabsAU/lucid-labs-vscode-theme/main/extensions/lucid-labs/screenshots/05-settings.png) | ![Walkthrough](https://raw.githubusercontent.com/LucidLabsAU/lucid-labs-vscode-theme/main/extensions/lucid-labs/screenshots/06-walkthrough.png) |
 | **Brand Palette view** | **Diff editor** |
 | ![Palette tree](https://raw.githubusercontent.com/LucidLabsAU/lucid-labs-vscode-theme/main/extensions/lucid-labs/screenshots/07-palette-tree.png) | ![Diff](https://raw.githubusercontent.com/LucidLabsAU/lucid-labs-vscode-theme/main/extensions/lucid-labs/screenshots/08-diff.png) |
 
