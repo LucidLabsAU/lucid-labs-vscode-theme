@@ -1,0 +1,75 @@
+{
+  "name": "aurora-dairies-theme",
+  "displayName": "Aurora Dairies",
+  "description": "A calm, modern VS Code colour theme inspired by the Aurora Dairies visual identity. Features deep aurora-blue surfaces with cream foreground and pasture-green syntax accents, evoking dawn skies over Australian and New Zealand pasture-based dairy farms. Built and published by Lucid Labs on behalf of Aurora Dairies. All trademarks belong to their respective owners.",
+  "version": "1.0.0",
+  "publisher": "lucidlabs",
+  "license": "MIT",
+  "icon": "icon.png",
+  "author": {
+    "name": "Lucid Labs",
+    "url": "https://lucidlabs.com.au"
+  },
+  "keywords": [
+    "theme",
+    "dark theme",
+    "light theme",
+    "colour theme",
+    "aurora",
+    "aurora dairies",
+    "dairy",
+    "agriculture",
+    "agribusiness",
+    "blue",
+    "cream",
+    "australia",
+    "new zealand",
+    "brand",
+    "icon theme",
+    "icons"
+  ],
+  "categories": [
+    "Themes",
+    "Other"
+  ],
+  "galleryBanner": {
+    "color": "#0C1A33",
+    "theme": "dark"
+  },
+  "qna": "marketplace",
+  "extensionKind": [
+    "ui"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Aurora Dairies Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/aurora-dairies-dark.json"
+      },
+      {
+        "label": "Aurora Dairies Light",
+        "uiTheme": "vs",
+        "path": "./themes/aurora-dairies-light.json"
+      }
+    ],
+    "iconThemes": [
+      {
+        "id": "aurora-dairies-icons",
+        "label": "Aurora Dairies Icons",
+        "path": "./icon-theme.json"
+      }
+    ]
+  },
+  "engines": {
+    "vscode": "^1.107.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LucidLabsAU/lucid-labs-vscode-theme.git"
+  },
+  "bugs": {
+    "url": "https://github.com/LucidLabsAU/lucid-labs-vscode-theme/issues"
+  },
+  "homepage": "https://auroradairies.com.au"
+}
