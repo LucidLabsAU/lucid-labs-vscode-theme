@@ -77,7 +77,7 @@ Verify the `.vsix` is created without errors.
 
 Create a PR with:
 - Title: `feat: add <Brand Name> theme`
-- Body: colour palette table, contrast check results, screenshot instructions
+- Body: colour palette table, contrast check results
 
 ## WCAG Contrast Requirements
 

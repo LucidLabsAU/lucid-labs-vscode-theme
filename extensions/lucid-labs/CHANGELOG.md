@@ -1,9 +1,13 @@
 # Change Log
 
+## [1.14.1] - 2026-05-19
+
+### Changed
+- Documentation cleanup
+
 ## [1.14.0] - 2026-05-19
 
-### Removed
-- Marketplace preview screenshots and capture script — the captured PNGs had visible background leak at the rounded corners and a broken `05-chat.png` reference. The README's Preview section has been removed pending a clean re-capture.
+Maintenance release.
 
 ## [1.13.0] - 2026-05-19
 
@@ -14,7 +18,6 @@
 - **Status bar chip** — confirms the active brand and variant; toggleable via `lucidLabsTheme.showStatusBarItem`
 - **Quick-switch commands** — `Lucid Labs: Switch to Dark`, `Switch to Light`, `Toggle Variant`, `Open Theme Reference`
 - **Toggle keybinding** — `Cmd+Alt+L` / `Ctrl+Alt+L` cycles between dark and light variants
-- **Marketplace preview** — 8 screenshots added to the README covering editor (dark/light), terminal, command palette, chat, walkthrough, palette tree, and diff editor
 
 ### Changed
 - Extension is no longer themes-only — now contributes commands, views, walkthrough, configuration, and a keybinding (still UI-kind, no workspace access)
