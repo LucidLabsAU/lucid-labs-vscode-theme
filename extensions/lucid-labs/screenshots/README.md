@@ -31,7 +31,7 @@ After capture, review the PNGs in this folder, commit, and the marketplace will 
 | `02-editor-light.png` | Same view in light variant | Identical layout to 01 but with Lucid Labs Light active |
 | `03-terminal.png` | Integrated terminal | Run `git status`, `ls -la`, `az account show` to exercise ANSI colours; show prompt |
 | `04-command-palette.png` | Command Palette | `Cmd+Shift+P` → type "Lucid Labs" to show our category in action |
-| `05-settings.png` | Settings UI | `Cmd+,` then filter on `lucidLabsTheme` to show the extension's settings panel |
+| `05-chat.png` | Copilot Chat | A short Copilot chat exchange showing themed bubbles, code blocks, and inline diff |
 | `06-walkthrough.png` | Welcome page walkthrough | Welcome page open with the Lucid Labs walkthrough highlighted; step 1 visible |
 | `07-palette-tree.png` | Custom view container | Activity Bar with Lucid Labs view expanded showing the colour palette browser |
 | `08-diff.png` | Diff editor | A real PR-style diff with side-by-side view and gutter markers |
