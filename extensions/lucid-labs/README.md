@@ -4,20 +4,6 @@ A professional VS Code theme that brings the official **Lucid Labs** brand ident
 
 > Now ships with a guided walkthrough, a Brand Palette view in the activity bar, a status bar chip, and quick-switch commands.
 
-## Preview
-
-![Editor — Dark](https://raw.githubusercontent.com/LucidLabsAU/lucid-labs-vscode-theme/main/extensions/lucid-labs/screenshots/01-editor-dark.png)
-
-![Editor — Light](https://raw.githubusercontent.com/LucidLabsAU/lucid-labs-vscode-theme/main/extensions/lucid-labs/screenshots/02-editor-light.png)
-
-| Terminal | Command Palette |
-|---|---|
-| ![Terminal](https://raw.githubusercontent.com/LucidLabsAU/lucid-labs-vscode-theme/main/extensions/lucid-labs/screenshots/03-terminal.png) | ![Command Palette](https://raw.githubusercontent.com/LucidLabsAU/lucid-labs-vscode-theme/main/extensions/lucid-labs/screenshots/04-command-palette.png) |
-| **Chat** | **Walkthrough** |
-| ![Chat](https://raw.githubusercontent.com/LucidLabsAU/lucid-labs-vscode-theme/main/extensions/lucid-labs/screenshots/05-chat.png) | ![Walkthrough](https://raw.githubusercontent.com/LucidLabsAU/lucid-labs-vscode-theme/main/extensions/lucid-labs/screenshots/06-walkthrough.png) |
-| **Brand Palette view** | **Diff editor** |
-| ![Palette tree](https://raw.githubusercontent.com/LucidLabsAU/lucid-labs-vscode-theme/main/extensions/lucid-labs/screenshots/07-palette-tree.png) | ![Diff](https://raw.githubusercontent.com/LucidLabsAU/lucid-labs-vscode-theme/main/extensions/lucid-labs/screenshots/08-diff.png) |
-
 ## Features
 
 - **906 themed UI tokens** — 100% VS Code colour API coverage across editor, terminal, chat, notebook, debug, diff, status bar, peek view

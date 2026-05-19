@@ -1,5 +1,10 @@
 # Change Log
 
+## [1.14.0] - 2026-05-19
+
+### Removed
+- Marketplace preview screenshots and capture script — the captured PNGs had visible background leak at the rounded corners and a broken `05-chat.png` reference. The README's Preview section has been removed pending a clean re-capture.
+
 ## [1.13.0] - 2026-05-19
 
 ### Added

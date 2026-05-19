@@ -3,5 +3,3 @@
 **/*.vsix
 **/*.log
 node_modules/**
-screenshots/**
-screenshots/README.md
