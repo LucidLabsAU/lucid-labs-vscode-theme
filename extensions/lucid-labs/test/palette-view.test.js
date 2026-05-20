@@ -11,6 +11,7 @@ test('hexToRgb ignores an 8-digit alpha suffix', () => {
 });
 
 test('rgbToCmyk converts teal to the expected percentages', () => {
+  // #339999 -> rgb(51,153,153): k = 1 - 0.6 = 0.4; C = (1-0.2-0.4)/0.6 ≈ 0.667 -> 67%
   assert.deepEqual(pv.rgbToCmyk([51, 153, 153]), [67, 0, 0, 40]);
 });
 
@@ -30,6 +31,6 @@ test('formatCmyk renders a percentage string', () => {
   assert.equal(pv.formatCmyk([67, 0, 0, 40]), 'cmyk(67%, 0%, 0%, 40%)');
 });
 
-test('escapeHtml neutralises angle brackets and quotes', () => {
-  assert.equal(pv.escapeHtml('<a "b">'), '&lt;a &quot;b&quot;&gt;');
+test('escapeHtml neutralises ampersands, angle brackets and quotes', () => {
+  assert.equal(pv.escapeHtml(`& <a 'b' "c">`), '&amp; &lt;a &#39;b&#39; &quot;c&quot;&gt;');
 });
