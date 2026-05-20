@@ -1,5 +1,19 @@
 # Change Log
 
+## [1.15.0]
+
+### Added
+
+- Brand Palette sidebar view: canonical Lucid Labs colours grouped into Primary,
+  Secondary and Other palettes, with HEX / RGB / CMYK one-click copy and PANTONE
+  references.
+- Theme Roles section with a Dark/Light toggle and hex de-duplication, so each
+  colour appears once with every role that uses it.
+
+### Changed
+
+- Activity-bar icon is now the Lucid Labs cloud-and-arrows brand mark.
+
 ## [1.14.1] - 2026-05-19
 
 ### Changed
