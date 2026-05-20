@@ -103,7 +103,7 @@ class PaletteViewProvider {
 
 function openAbout(context) {
   const panel = vscode.window.createWebviewPanel(
-    'lucidLabsAbout',
+    `${CONFIG_NS}About`,
     `${BRAND} — Brand Palette`,
     vscode.ViewColumn.Active,
     { enableScripts: true, retainContextWhenHidden: false },
