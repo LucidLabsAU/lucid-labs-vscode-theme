@@ -69,15 +69,25 @@ function buildContributes(brandKey, displayName) {
 
 /**
  * Patch a parsed package.json: set main/activationEvents and merge the
- * generated contributes keys, preserving themes, iconThemes, keybindings,
- * walkthroughs and all metadata. Idempotent. Returns the same object.
+ * generated contributes keys. Keys the generator does not own — themes,
+ * iconThemes, keybindings, walkthroughs — are left untouched. The generated
+ * keys (viewsContainers, views, commands, configuration) replace any existing
+ * value. `menus` is merged one level deep, so the generated `view/title`
+ * entry is regenerated while any other menu positions are preserved.
+ * Idempotent. Returns the same object.
  */
 function mergeContributes(pkg, brandKey, displayName) {
   pkg.main = './extension.js';
   const events = new Set(pkg.activationEvents || []);
   events.add('onStartupFinished');
   pkg.activationEvents = [...events];
-  pkg.contributes = { ...(pkg.contributes || {}), ...buildContributes(brandKey, displayName) };
+  const existing = pkg.contributes || {};
+  const generated = buildContributes(brandKey, displayName);
+  pkg.contributes = {
+    ...existing,
+    ...generated,
+    menus: { ...(existing.menus || {}), ...generated.menus },
+  };
   return pkg;
 }
 

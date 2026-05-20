@@ -72,3 +72,15 @@ test('mergeContributes is idempotent', () => {
   const twice = eb.mergeContributes(JSON.parse(JSON.stringify(once)), 'charli', 'CHARLi');
   assert.deepEqual(twice, once);
 });
+
+test('mergeContributes preserves menu positions it does not own', () => {
+  const pkg = samplePkg();
+  pkg.contributes.menus = {
+    'editor/context': [{ command: 'charliTheme.somethingElse', group: 'z' }],
+  };
+  const merged = eb.mergeContributes(pkg, 'charli', 'CHARLi');
+  // generator's view/title is added
+  assert.equal(merged.contributes.menus['view/title'][0].command, 'charliTheme.openAbout');
+  // the hand-authored editor/context entry survives
+  assert.equal(merged.contributes.menus['editor/context'][0].command, 'charliTheme.somethingElse');
+});
