@@ -63,3 +63,60 @@ test('dedupeRoles collapses 8-digit alpha hexes onto their 6-digit colour', () =
   });
   assert.deepEqual(result, [{ hex: '#CCCCCC', roles: ['comment', 'commentToken'] }]);
 });
+
+const SAMPLE = {
+  dark: { accent: '#339999', function: '#339999', keyword: '#9B7ED9' },
+  light: { accent: '#2B8282', keyword: '#7454B3' },
+};
+const BRAND_COLOURS = [
+  { name: 'Teal Green', hex: '#339999', rgb: [51, 153, 153], cmyk: [67, 0, 0, 40], pantone: '321 C', group: 'primary', role: 'Accent' },
+  { name: 'Lucid Blue', hex: '#677EB2', rgb: [103, 126, 178], cmyk: [41, 29, 0, 30], pantone: '2129 C', group: 'secondary', role: 'Secondary' },
+];
+
+test('renderPaletteHtml includes the Brand Colours section when brandColors given', () => {
+  const html = pv.renderPaletteHtml({
+    brandName: 'Lucid Labs', palette: SAMPLE, activeVariant: 'dark',
+    brandColors: BRAND_COLOURS, nonce: 'abc123', cspSource: 'vscode-webview://x',
+  });
+  assert.match(html, /Brand Colours/);
+  assert.match(html, /Primary Palette/);
+  assert.match(html, /Secondary Palette/);
+  assert.match(html, /Teal Green/);
+  assert.match(html, /PANTONE 321 C/);
+});
+
+test('renderPaletteHtml omits the Brand Colours section when brandColors absent', () => {
+  const html = pv.renderPaletteHtml({
+    brandName: 'Acme', palette: SAMPLE, activeVariant: 'dark',
+    brandColors: undefined, nonce: 'abc123', cspSource: 'vscode-webview://x',
+  });
+  assert.doesNotMatch(html, /Brand Colours/);
+  assert.match(html, /Theme Roles/);
+});
+
+test('renderPaletteHtml de-dups roles and labels brand-matched colours', () => {
+  const html = pv.renderPaletteHtml({
+    brandName: 'Lucid Labs', palette: SAMPLE, activeVariant: 'dark',
+    brandColors: BRAND_COLOURS, nonce: 'abc123', cspSource: 'vscode-webview://x',
+  });
+  assert.match(html, /accent · function/);
+  assert.match(html, /Teal Green/);
+});
+
+test('renderPaletteHtml embeds the nonce on the script tag and a CSP', () => {
+  const html = pv.renderPaletteHtml({
+    brandName: 'Lucid Labs', palette: SAMPLE, activeVariant: 'dark',
+    brandColors: BRAND_COLOURS, nonce: 'abc123', cspSource: 'vscode-webview://x',
+  });
+  assert.match(html, /<script nonce="abc123">/);
+  assert.match(html, /Content-Security-Policy/);
+  assert.match(html, /nonce-abc123/);
+});
+
+test('renderPaletteHtml sets the initial variant on the body', () => {
+  const html = pv.renderPaletteHtml({
+    brandName: 'Lucid Labs', palette: SAMPLE, activeVariant: 'light',
+    brandColors: BRAND_COLOURS, nonce: 'n', cspSource: 'x',
+  });
+  assert.match(html, /<body data-variant="light">/);
+});
