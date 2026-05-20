@@ -27,3 +27,48 @@ test('monochromeSvg leaves an already-monochrome svg unchanged in meaning', () =
   assert.match(out, /fill="currentColor"/);
   assert.doesNotMatch(out, /fill="currentColor"[^>]*fill="currentColor"/);
 });
+
+function samplePkg() {
+  return {
+    name: 'charli-health-theme',
+    version: '1.7.0',
+    contributes: {
+      themes: [
+        { label: 'CHARLi Dark', uiTheme: 'vs-dark', path: './themes/charli-dark.json' },
+        { label: 'CHARLi Light', uiTheme: 'vs', path: './themes/charli-light.json' },
+      ],
+      iconThemes: [{ id: 'charli-icons', label: 'CHARLi Icons', path: './icon-theme.json' }],
+    },
+  };
+}
+
+test('mergeContributes sets main and activationEvents', () => {
+  const pkg = eb.mergeContributes(samplePkg(), 'charli', 'CHARLi');
+  assert.equal(pkg.main, './extension.js');
+  assert.ok(pkg.activationEvents.includes('onStartupFinished'));
+});
+
+test('mergeContributes adds a namespaced container, webview view and commands', () => {
+  const pkg = eb.mergeContributes(samplePkg(), 'charli', 'CHARLi');
+  assert.equal(pkg.contributes.viewsContainers.activitybar[0].id, 'charliThemeContainer');
+  const view = pkg.contributes.views.charliThemeContainer[0];
+  assert.equal(view.id, 'charliThemePalette');
+  assert.equal(view.type, 'webview');
+  const cmdIds = pkg.contributes.commands.map((c) => c.command);
+  assert.deepEqual(cmdIds, [
+    'charliTheme.switchDark', 'charliTheme.switchLight',
+    'charliTheme.toggleVariant', 'charliTheme.openAbout',
+  ]);
+});
+
+test('mergeContributes preserves themes and iconThemes', () => {
+  const pkg = eb.mergeContributes(samplePkg(), 'charli', 'CHARLi');
+  assert.equal(pkg.contributes.themes.length, 2);
+  assert.equal(pkg.contributes.iconThemes.length, 1);
+});
+
+test('mergeContributes is idempotent', () => {
+  const once = eb.mergeContributes(samplePkg(), 'charli', 'CHARLi');
+  const twice = eb.mergeContributes(JSON.parse(JSON.stringify(once)), 'charli', 'CHARLi');
+  assert.deepEqual(twice, once);
+});
