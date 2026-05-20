@@ -14,6 +14,7 @@
   "scripts": {
     "generate": "node scripts/generate.js",
     "lint": "node scripts/lint-themes.js",
+    "test": "node --test",
     "package:all": "for dir in extensions/*/; do (cd \"$dir\" && vsce package); done",
     "prepare": "husky || true"
   },
