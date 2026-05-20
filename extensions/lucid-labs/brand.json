@@ -21,6 +21,18 @@
   ],
   "homepage": "https://lucidlabs.com.au",
   "sponsor": "https://lucidlabs.com.au",
+  "brandColors": [
+    { "key": "primary", "name": "Deep Purple", "hex": "#271D3B", "rgb": [39, 29, 59], "cmyk": [34, 51, 0, 77], "pantone": "5255 C", "group": "primary", "role": "Wordmark / dark page background / heading text on light surfaces" },
+    { "key": "teal", "name": "Teal Green", "hex": "#339999", "rgb": [51, 153, 153], "cmyk": [67, 0, 0, 40], "pantone": "321 C", "group": "primary", "role": "Accent / hyperlink / highlight / heading rule on dark backgrounds" },
+    { "key": "purple", "name": "Vivid Purple", "hex": "#7454B3", "rgb": [116, 84, 179], "cmyk": [35, 53, 0, 30], "pantone": "2665 C", "group": "primary", "role": "Accent — CTA / brand mark" },
+    { "key": "blue", "name": "Lucid Blue", "hex": "#677EB2", "rgb": [103, 126, 178], "cmyk": [41, 29, 0, 30], "pantone": "2129 C", "group": "secondary", "role": "Accent — secondary / supporting" },
+    { "key": "lightGrey", "name": "Light Grey", "hex": "#CCCCCC", "rgb": [204, 204, 204], "cmyk": [0, 0, 0, 20], "pantone": "Cool Gray 3 C", "group": "secondary", "role": "Footer text, secondary information, muted captions" },
+    { "key": "nearBlack", "name": "Near Black", "hex": "#101820", "rgb": [16, 24, 32], "cmyk": [50, 25, 0, 87], "pantone": "Black 6 C", "group": "secondary", "role": "Maximum-contrast text on light, body chrome on dark" },
+    { "key": "white", "name": "White", "hex": "#FFFFFF", "rgb": [255, 255, 255], "cmyk": [0, 0, 0, 0], "pantone": "", "group": "secondary", "role": "Light surfaces / reversed text" },
+    { "key": "red", "name": "Warm Accent", "hex": "#FF4B46", "rgb": [255, 75, 70], "cmyk": [0, 75, 70, 0], "pantone": "Warm Red C", "group": "other", "role": "Warnings, risk callouts, attention markers" },
+    { "key": "gold", "name": "Lucid Gold", "hex": "#D4A843", "rgb": [212, 168, 67], "cmyk": [10, 25, 80, 15], "pantone": "7752 C", "group": "other", "role": "Warn / highlight badges (derived — not in v1 brand guide)" },
+    { "key": "darkTeal", "name": "Dark Teal", "hex": "#3B7F80", "rgb": [59, 127, 128], "cmyk": [70, 15, 30, 40], "pantone": "7474 C", "group": "other", "role": "Accent depth (derived — not in v1 brand guide)" }
+  ],
   "dark": {
     "background": "#271D3B",
     "foreground": "#E8E0F0",
