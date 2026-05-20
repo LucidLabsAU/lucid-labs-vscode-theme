@@ -176,7 +176,7 @@
           {
             "id": "palette",
             "title": "Explore the brand palette",
-            "description": "Open the Brand Palette view in the activity bar to browse every colour role with one-click copy.\n[Open Theme Reference](command:lucidLabsTheme.openAbout)",
+            "description": "Open the Brand Palette view in the activity bar to browse every colour role with one-click copy.\n[Open Brand Palette](command:lucidLabsTheme.openAbout)",
             "media": {
               "markdown": "walkthroughs/palette.md"
             },
