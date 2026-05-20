@@ -47,6 +47,23 @@ function escapeHtml(s) {
   ));
 }
 
+/**
+ * Collapse a variant's role->colour map into one entry per unique colour.
+ * Only top-level string values matching #RRGGBB(AA) are included; alpha is
+ * dropped so #CCCCCC80 groups with #CCCCCC. First-seen order is preserved.
+ */
+function dedupeRoles(variantColours) {
+  const byHex = new Map();
+  for (const [role, value] of Object.entries(variantColours)) {
+    if (typeof value !== 'string') continue;
+    if (!/^#[0-9A-Fa-f]{6,8}$/.test(value)) continue;
+    const hex = formatHex(value);
+    if (!byHex.has(hex)) byHex.set(hex, []);
+    byHex.get(hex).push(role);
+  }
+  return [...byHex.entries()].map(([hex, roles]) => ({ hex, roles }));
+}
+
 module.exports = {
   hexToRgb,
   rgbToCmyk,
@@ -54,4 +71,5 @@ module.exports = {
   formatRgb,
   formatCmyk,
   escapeHtml,
+  dedupeRoles,
 };

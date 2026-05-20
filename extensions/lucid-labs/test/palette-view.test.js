@@ -34,3 +34,32 @@ test('formatCmyk renders a percentage string', () => {
 test('escapeHtml neutralises ampersands, angle brackets and quotes', () => {
   assert.equal(pv.escapeHtml(`& <a 'b' "c">`), '&amp; &lt;a &#39;b&#39; &quot;c&quot;&gt;');
 });
+
+test('dedupeRoles groups roles that share a hex', () => {
+  const result = pv.dedupeRoles({
+    accent: '#339999',
+    function: '#339999',
+    keyword: '#9B7ED9',
+  });
+  assert.deepEqual(result, [
+    { hex: '#339999', roles: ['accent', 'function'] },
+    { hex: '#9B7ED9', roles: ['keyword'] },
+  ]);
+});
+
+test('dedupeRoles ignores non-string and non-hex values', () => {
+  const result = pv.dedupeRoles({
+    accent: '#339999',
+    terminal: { black: '#000000' },
+    name: 'Lucid Labs',
+  });
+  assert.deepEqual(result, [{ hex: '#339999', roles: ['accent'] }]);
+});
+
+test('dedupeRoles collapses 8-digit alpha hexes onto their 6-digit colour', () => {
+  const result = pv.dedupeRoles({
+    comment: '#CCCCCC',
+    commentToken: '#CCCCCC80',
+  });
+  assert.deepEqual(result, [{ hex: '#CCCCCC', roles: ['comment', 'commentToken'] }]);
+});
