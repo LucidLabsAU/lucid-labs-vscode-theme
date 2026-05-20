@@ -84,3 +84,30 @@ test('mergeContributes preserves menu positions it does not own', () => {
   // the hand-authored editor/context entry survives
   assert.equal(merged.contributes.menus['editor/context'][0].command, 'charliTheme.somethingElse');
 });
+
+const TEMPLATE = [
+  "const BRAND = '__BRAND__';",
+  "const THEME_DARK = '__THEME_DARK__';",
+  "const THEME_LIGHT = '__THEME_LIGHT__';",
+  "const CONFIG_NS = '__CONFIG_NS__';",
+  "const VIEW_ID = '__VIEW_ID__';",
+].join('\n');
+
+const THEMES = [
+  { label: 'CHARLi Dark', uiTheme: 'vs-dark', path: './themes/charli-dark.json' },
+  { label: 'CHARLi Light', uiTheme: 'vs', path: './themes/charli-light.json' },
+];
+
+test('renderExtensionJs substitutes every placeholder', () => {
+  const out = eb.renderExtensionJs(TEMPLATE, 'charli', 'CHARLi', THEMES);
+  assert.match(out, /const BRAND = 'CHARLi';/);
+  assert.match(out, /const THEME_DARK = 'CHARLi Dark';/);
+  assert.match(out, /const THEME_LIGHT = 'CHARLi Light';/);
+  assert.match(out, /const CONFIG_NS = 'charliTheme';/);
+  assert.match(out, /const VIEW_ID = 'charliThemePalette';/);
+  assert.doesNotMatch(out, /__[A-Z_]+__/);
+});
+
+test('renderExtensionJs throws when a theme label is missing', () => {
+  assert.throws(() => eb.renderExtensionJs(TEMPLATE, 'charli', 'CHARLi', []));
+});

@@ -91,4 +91,25 @@ function mergeContributes(pkg, brandKey, displayName) {
   return pkg;
 }
 
-module.exports = { camelCase, nsFor, monochromeSvg, buildContributes, mergeContributes };
+/**
+ * Fill templates/extension.js placeholders for a brand.
+ * themes — the package.json contributes.themes array (used to find labels).
+ */
+function renderExtensionJs(template, brandKey, displayName, themes) {
+  const dark = (themes || []).find((t) => t.uiTheme === 'vs-dark');
+  const light = (themes || []).find((t) => t.uiTheme === 'vs');
+  if (!dark || !light) {
+    throw new Error(`Brand "${brandKey}" is missing a vs-dark or vs theme label`);
+  }
+  const ns = nsFor(brandKey);
+  return template
+    .replace(/__BRAND__/g, displayName)
+    .replace(/__THEME_DARK__/g, dark.label)
+    .replace(/__THEME_LIGHT__/g, light.label)
+    .replace(/__CONFIG_NS__/g, ns)
+    .replace(/__VIEW_ID__/g, `${ns}Palette`);
+}
+
+module.exports = {
+  camelCase, nsFor, monochromeSvg, buildContributes, mergeContributes, renderExtensionJs,
+};
