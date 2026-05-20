@@ -58,7 +58,69 @@
         "label": "Western Australia Icons",
         "path": "./icon-theme.json"
       }
-    ]
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "westernAustraliaThemeContainer",
+          "title": "Western Australia",
+          "icon": "activity-icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "westernAustraliaThemeContainer": [
+        {
+          "id": "westernAustraliaThemePalette",
+          "name": "Brand Palette",
+          "type": "webview",
+          "icon": "activity-icon.svg",
+          "contextualTitle": "Western Australia"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "westernAustraliaTheme.switchDark",
+        "title": "Switch to Western Australia Dark",
+        "category": "Western Australia"
+      },
+      {
+        "command": "westernAustraliaTheme.switchLight",
+        "title": "Switch to Western Australia Light",
+        "category": "Western Australia"
+      },
+      {
+        "command": "westernAustraliaTheme.toggleVariant",
+        "title": "Toggle Dark/Light Variant",
+        "category": "Western Australia"
+      },
+      {
+        "command": "westernAustraliaTheme.openAbout",
+        "title": "Open Brand Palette",
+        "category": "Western Australia",
+        "icon": "$(symbol-color)"
+      }
+    ],
+    "configuration": {
+      "title": "Western Australia Theme",
+      "properties": {
+        "westernAustraliaTheme.showStatusBarItem": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show the Western Australia brand chip in the status bar while a Western Australia theme is active."
+        }
+      }
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "westernAustraliaTheme.openAbout",
+          "when": "view == westernAustraliaThemePalette",
+          "group": "navigation"
+        }
+      ]
+    }
   },
   "engines": {
     "vscode": "^1.107.0"
@@ -73,5 +135,9 @@
   "homepage": "https://www.wa.gov.au",
   "sponsor": {
     "url": "https://lucidlabs.com.au"
-  }
+  },
+  "main": "./extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ]
 }

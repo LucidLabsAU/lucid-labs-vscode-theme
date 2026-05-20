@@ -57,7 +57,69 @@
         "label": "CHARLI Health Icons",
         "path": "./icon-theme.json"
       }
-    ]
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "charliThemeContainer",
+          "title": "CHARLI Health",
+          "icon": "activity-icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "charliThemeContainer": [
+        {
+          "id": "charliThemePalette",
+          "name": "Brand Palette",
+          "type": "webview",
+          "icon": "activity-icon.svg",
+          "contextualTitle": "CHARLI Health"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "charliTheme.switchDark",
+        "title": "Switch to CHARLI Health Dark",
+        "category": "CHARLI Health"
+      },
+      {
+        "command": "charliTheme.switchLight",
+        "title": "Switch to CHARLI Health Light",
+        "category": "CHARLI Health"
+      },
+      {
+        "command": "charliTheme.toggleVariant",
+        "title": "Toggle Dark/Light Variant",
+        "category": "CHARLI Health"
+      },
+      {
+        "command": "charliTheme.openAbout",
+        "title": "Open Brand Palette",
+        "category": "CHARLI Health",
+        "icon": "$(symbol-color)"
+      }
+    ],
+    "configuration": {
+      "title": "CHARLI Health Theme",
+      "properties": {
+        "charliTheme.showStatusBarItem": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show the CHARLI Health brand chip in the status bar while a CHARLI Health theme is active."
+        }
+      }
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "charliTheme.openAbout",
+          "when": "view == charliThemePalette",
+          "group": "navigation"
+        }
+      ]
+    }
   },
   "engines": {
     "vscode": "^1.107.0"
@@ -69,5 +131,9 @@
   "bugs": {
     "url": "https://github.com/LucidLabsAU/lucid-labs-vscode-theme/issues"
   },
-  "homepage": "https://charli.health"
+  "homepage": "https://charli.health",
+  "main": "./extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ]
 }

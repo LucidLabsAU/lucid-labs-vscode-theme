@@ -56,7 +56,69 @@
         "label": "Progenesis Icons",
         "path": "./icon-theme.json"
       }
-    ]
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "progenesisThemeContainer",
+          "title": "Progenesis",
+          "icon": "activity-icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "progenesisThemeContainer": [
+        {
+          "id": "progenesisThemePalette",
+          "name": "Brand Palette",
+          "type": "webview",
+          "icon": "activity-icon.svg",
+          "contextualTitle": "Progenesis"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "progenesisTheme.switchDark",
+        "title": "Switch to Progenesis Dark",
+        "category": "Progenesis"
+      },
+      {
+        "command": "progenesisTheme.switchLight",
+        "title": "Switch to Progenesis Light",
+        "category": "Progenesis"
+      },
+      {
+        "command": "progenesisTheme.toggleVariant",
+        "title": "Toggle Dark/Light Variant",
+        "category": "Progenesis"
+      },
+      {
+        "command": "progenesisTheme.openAbout",
+        "title": "Open Brand Palette",
+        "category": "Progenesis",
+        "icon": "$(symbol-color)"
+      }
+    ],
+    "configuration": {
+      "title": "Progenesis Theme",
+      "properties": {
+        "progenesisTheme.showStatusBarItem": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show the Progenesis brand chip in the status bar while a Progenesis theme is active."
+        }
+      }
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "progenesisTheme.openAbout",
+          "when": "view == progenesisThemePalette",
+          "group": "navigation"
+        }
+      ]
+    }
   },
   "engines": {
     "vscode": "^1.107.0"
@@ -68,5 +130,9 @@
   "bugs": {
     "url": "https://github.com/LucidLabsAU/lucid-labs-vscode-theme/issues"
   },
-  "homepage": "https://www.progensoft.com"
+  "homepage": "https://www.progensoft.com",
+  "main": "./extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ]
 }

@@ -60,7 +60,69 @@
         "label": "Icon Group Icons",
         "path": "./icon-theme.json"
       }
-    ]
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "iconGroupThemeContainer",
+          "title": "Icon Group",
+          "icon": "activity-icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "iconGroupThemeContainer": [
+        {
+          "id": "iconGroupThemePalette",
+          "name": "Brand Palette",
+          "type": "webview",
+          "icon": "activity-icon.svg",
+          "contextualTitle": "Icon Group"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "iconGroupTheme.switchDark",
+        "title": "Switch to Icon Group Dark",
+        "category": "Icon Group"
+      },
+      {
+        "command": "iconGroupTheme.switchLight",
+        "title": "Switch to Icon Group Light",
+        "category": "Icon Group"
+      },
+      {
+        "command": "iconGroupTheme.toggleVariant",
+        "title": "Toggle Dark/Light Variant",
+        "category": "Icon Group"
+      },
+      {
+        "command": "iconGroupTheme.openAbout",
+        "title": "Open Brand Palette",
+        "category": "Icon Group",
+        "icon": "$(symbol-color)"
+      }
+    ],
+    "configuration": {
+      "title": "Icon Group Theme",
+      "properties": {
+        "iconGroupTheme.showStatusBarItem": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show the Icon Group brand chip in the status bar while a Icon Group theme is active."
+        }
+      }
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "iconGroupTheme.openAbout",
+          "when": "view == iconGroupThemePalette",
+          "group": "navigation"
+        }
+      ]
+    }
   },
   "engines": {
     "vscode": "^1.107.0"
@@ -75,5 +137,9 @@
   "homepage": "https://icongroup.global",
   "sponsor": {
     "url": "https://icongroup.global"
-  }
+  },
+  "main": "./extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ]
 }

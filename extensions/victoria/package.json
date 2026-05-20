@@ -58,7 +58,69 @@
         "label": "Victoria Icons",
         "path": "./icon-theme.json"
       }
-    ]
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "victoriaThemeContainer",
+          "title": "Victoria",
+          "icon": "activity-icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "victoriaThemeContainer": [
+        {
+          "id": "victoriaThemePalette",
+          "name": "Brand Palette",
+          "type": "webview",
+          "icon": "activity-icon.svg",
+          "contextualTitle": "Victoria"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "victoriaTheme.switchDark",
+        "title": "Switch to Victoria Dark",
+        "category": "Victoria"
+      },
+      {
+        "command": "victoriaTheme.switchLight",
+        "title": "Switch to Victoria Light",
+        "category": "Victoria"
+      },
+      {
+        "command": "victoriaTheme.toggleVariant",
+        "title": "Toggle Dark/Light Variant",
+        "category": "Victoria"
+      },
+      {
+        "command": "victoriaTheme.openAbout",
+        "title": "Open Brand Palette",
+        "category": "Victoria",
+        "icon": "$(symbol-color)"
+      }
+    ],
+    "configuration": {
+      "title": "Victoria Theme",
+      "properties": {
+        "victoriaTheme.showStatusBarItem": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show the Victoria brand chip in the status bar while a Victoria theme is active."
+        }
+      }
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "victoriaTheme.openAbout",
+          "when": "view == victoriaThemePalette",
+          "group": "navigation"
+        }
+      ]
+    }
   },
   "engines": {
     "vscode": "^1.107.0"
@@ -73,5 +135,9 @@
   "homepage": "https://www.vic.gov.au",
   "sponsor": {
     "url": "https://lucidlabs.com.au"
-  }
+  },
+  "main": "./extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ]
 }

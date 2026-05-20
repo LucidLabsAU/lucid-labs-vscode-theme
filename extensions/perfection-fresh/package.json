@@ -57,7 +57,69 @@
         "label": "Perfection Fresh Icons",
         "path": "./icon-theme.json"
       }
-    ]
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "perfectionFreshThemeContainer",
+          "title": "Perfection Fresh",
+          "icon": "activity-icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "perfectionFreshThemeContainer": [
+        {
+          "id": "perfectionFreshThemePalette",
+          "name": "Brand Palette",
+          "type": "webview",
+          "icon": "activity-icon.svg",
+          "contextualTitle": "Perfection Fresh"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "perfectionFreshTheme.switchDark",
+        "title": "Switch to Perfection Fresh Dark",
+        "category": "Perfection Fresh"
+      },
+      {
+        "command": "perfectionFreshTheme.switchLight",
+        "title": "Switch to Perfection Fresh Light",
+        "category": "Perfection Fresh"
+      },
+      {
+        "command": "perfectionFreshTheme.toggleVariant",
+        "title": "Toggle Dark/Light Variant",
+        "category": "Perfection Fresh"
+      },
+      {
+        "command": "perfectionFreshTheme.openAbout",
+        "title": "Open Brand Palette",
+        "category": "Perfection Fresh",
+        "icon": "$(symbol-color)"
+      }
+    ],
+    "configuration": {
+      "title": "Perfection Fresh Theme",
+      "properties": {
+        "perfectionFreshTheme.showStatusBarItem": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show the Perfection Fresh brand chip in the status bar while a Perfection Fresh theme is active."
+        }
+      }
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "perfectionFreshTheme.openAbout",
+          "when": "view == perfectionFreshThemePalette",
+          "group": "navigation"
+        }
+      ]
+    }
   },
   "engines": {
     "vscode": "^1.107.0"
@@ -69,5 +131,9 @@
   "bugs": {
     "url": "https://github.com/LucidLabsAU/lucid-labs-vscode-theme/issues"
   },
-  "homepage": "https://www.perfection.com.au"
+  "homepage": "https://www.perfection.com.au",
+  "main": "./extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ]
 }

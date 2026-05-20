@@ -59,7 +59,69 @@
         "label": "Aurora Dairies Icons",
         "path": "./icon-theme.json"
       }
-    ]
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "auroraDairiesThemeContainer",
+          "title": "Aurora Dairies",
+          "icon": "activity-icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "auroraDairiesThemeContainer": [
+        {
+          "id": "auroraDairiesThemePalette",
+          "name": "Brand Palette",
+          "type": "webview",
+          "icon": "activity-icon.svg",
+          "contextualTitle": "Aurora Dairies"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "auroraDairiesTheme.switchDark",
+        "title": "Switch to Aurora Dairies Dark",
+        "category": "Aurora Dairies"
+      },
+      {
+        "command": "auroraDairiesTheme.switchLight",
+        "title": "Switch to Aurora Dairies Light",
+        "category": "Aurora Dairies"
+      },
+      {
+        "command": "auroraDairiesTheme.toggleVariant",
+        "title": "Toggle Dark/Light Variant",
+        "category": "Aurora Dairies"
+      },
+      {
+        "command": "auroraDairiesTheme.openAbout",
+        "title": "Open Brand Palette",
+        "category": "Aurora Dairies",
+        "icon": "$(symbol-color)"
+      }
+    ],
+    "configuration": {
+      "title": "Aurora Dairies Theme",
+      "properties": {
+        "auroraDairiesTheme.showStatusBarItem": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show the Aurora Dairies brand chip in the status bar while a Aurora Dairies theme is active."
+        }
+      }
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "auroraDairiesTheme.openAbout",
+          "when": "view == auroraDairiesThemePalette",
+          "group": "navigation"
+        }
+      ]
+    }
   },
   "engines": {
     "vscode": "^1.107.0"
@@ -71,5 +133,9 @@
   "bugs": {
     "url": "https://github.com/LucidLabsAU/lucid-labs-vscode-theme/issues"
   },
-  "homepage": "https://auroradairies.com.au"
+  "homepage": "https://auroradairies.com.au",
+  "main": "./extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ]
 }

@@ -58,7 +58,69 @@
         "label": "Northern Territory Icons",
         "path": "./icon-theme.json"
       }
-    ]
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "northernTerritoryThemeContainer",
+          "title": "Northern Territory",
+          "icon": "activity-icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "northernTerritoryThemeContainer": [
+        {
+          "id": "northernTerritoryThemePalette",
+          "name": "Brand Palette",
+          "type": "webview",
+          "icon": "activity-icon.svg",
+          "contextualTitle": "Northern Territory"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "northernTerritoryTheme.switchDark",
+        "title": "Switch to Northern Territory Dark",
+        "category": "Northern Territory"
+      },
+      {
+        "command": "northernTerritoryTheme.switchLight",
+        "title": "Switch to Northern Territory Light",
+        "category": "Northern Territory"
+      },
+      {
+        "command": "northernTerritoryTheme.toggleVariant",
+        "title": "Toggle Dark/Light Variant",
+        "category": "Northern Territory"
+      },
+      {
+        "command": "northernTerritoryTheme.openAbout",
+        "title": "Open Brand Palette",
+        "category": "Northern Territory",
+        "icon": "$(symbol-color)"
+      }
+    ],
+    "configuration": {
+      "title": "Northern Territory Theme",
+      "properties": {
+        "northernTerritoryTheme.showStatusBarItem": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show the Northern Territory brand chip in the status bar while a Northern Territory theme is active."
+        }
+      }
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "northernTerritoryTheme.openAbout",
+          "when": "view == northernTerritoryThemePalette",
+          "group": "navigation"
+        }
+      ]
+    }
   },
   "engines": {
     "vscode": "^1.107.0"
@@ -73,5 +135,9 @@
   "homepage": "https://nt.gov.au",
   "sponsor": {
     "url": "https://lucidlabs.com.au"
-  }
+  },
+  "main": "./extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ]
 }

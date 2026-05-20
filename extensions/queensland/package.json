@@ -57,7 +57,69 @@
         "label": "Queensland Icons",
         "path": "./icon-theme.json"
       }
-    ]
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "queenslandThemeContainer",
+          "title": "Queensland",
+          "icon": "activity-icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "queenslandThemeContainer": [
+        {
+          "id": "queenslandThemePalette",
+          "name": "Brand Palette",
+          "type": "webview",
+          "icon": "activity-icon.svg",
+          "contextualTitle": "Queensland"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "queenslandTheme.switchDark",
+        "title": "Switch to Queensland Dark",
+        "category": "Queensland"
+      },
+      {
+        "command": "queenslandTheme.switchLight",
+        "title": "Switch to Queensland Light",
+        "category": "Queensland"
+      },
+      {
+        "command": "queenslandTheme.toggleVariant",
+        "title": "Toggle Dark/Light Variant",
+        "category": "Queensland"
+      },
+      {
+        "command": "queenslandTheme.openAbout",
+        "title": "Open Brand Palette",
+        "category": "Queensland",
+        "icon": "$(symbol-color)"
+      }
+    ],
+    "configuration": {
+      "title": "Queensland Theme",
+      "properties": {
+        "queenslandTheme.showStatusBarItem": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show the Queensland brand chip in the status bar while a Queensland theme is active."
+        }
+      }
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "queenslandTheme.openAbout",
+          "when": "view == queenslandThemePalette",
+          "group": "navigation"
+        }
+      ]
+    }
   },
   "engines": {
     "vscode": "^1.107.0"
@@ -72,5 +134,9 @@
   "homepage": "https://www.qld.gov.au",
   "sponsor": {
     "url": "https://lucidlabs.com.au"
-  }
+  },
+  "main": "./extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ]
 }

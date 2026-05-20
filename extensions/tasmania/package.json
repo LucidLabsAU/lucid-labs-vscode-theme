@@ -58,7 +58,69 @@
         "label": "Tasmania Icons",
         "path": "./icon-theme.json"
       }
-    ]
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "tasmaniaThemeContainer",
+          "title": "Tasmania",
+          "icon": "activity-icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "tasmaniaThemeContainer": [
+        {
+          "id": "tasmaniaThemePalette",
+          "name": "Brand Palette",
+          "type": "webview",
+          "icon": "activity-icon.svg",
+          "contextualTitle": "Tasmania"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "tasmaniaTheme.switchDark",
+        "title": "Switch to Tasmania Dark",
+        "category": "Tasmania"
+      },
+      {
+        "command": "tasmaniaTheme.switchLight",
+        "title": "Switch to Tasmania Light",
+        "category": "Tasmania"
+      },
+      {
+        "command": "tasmaniaTheme.toggleVariant",
+        "title": "Toggle Dark/Light Variant",
+        "category": "Tasmania"
+      },
+      {
+        "command": "tasmaniaTheme.openAbout",
+        "title": "Open Brand Palette",
+        "category": "Tasmania",
+        "icon": "$(symbol-color)"
+      }
+    ],
+    "configuration": {
+      "title": "Tasmania Theme",
+      "properties": {
+        "tasmaniaTheme.showStatusBarItem": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show the Tasmania brand chip in the status bar while a Tasmania theme is active."
+        }
+      }
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "tasmaniaTheme.openAbout",
+          "when": "view == tasmaniaThemePalette",
+          "group": "navigation"
+        }
+      ]
+    }
   },
   "engines": {
     "vscode": "^1.107.0"
@@ -73,5 +135,9 @@
   "homepage": "https://www.tas.gov.au",
   "sponsor": {
     "url": "https://lucidlabs.com.au"
-  }
+  },
+  "main": "./extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ]
 }

@@ -57,7 +57,69 @@
         "label": "Australian Food & Fibre Icons",
         "path": "./icon-theme.json"
       }
-    ]
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "australianFoodFibreThemeContainer",
+          "title": "Australian Food & Fibre",
+          "icon": "activity-icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "australianFoodFibreThemeContainer": [
+        {
+          "id": "australianFoodFibreThemePalette",
+          "name": "Brand Palette",
+          "type": "webview",
+          "icon": "activity-icon.svg",
+          "contextualTitle": "Australian Food & Fibre"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "australianFoodFibreTheme.switchDark",
+        "title": "Switch to Australian Food & Fibre Dark",
+        "category": "Australian Food & Fibre"
+      },
+      {
+        "command": "australianFoodFibreTheme.switchLight",
+        "title": "Switch to Australian Food & Fibre Light",
+        "category": "Australian Food & Fibre"
+      },
+      {
+        "command": "australianFoodFibreTheme.toggleVariant",
+        "title": "Toggle Dark/Light Variant",
+        "category": "Australian Food & Fibre"
+      },
+      {
+        "command": "australianFoodFibreTheme.openAbout",
+        "title": "Open Brand Palette",
+        "category": "Australian Food & Fibre",
+        "icon": "$(symbol-color)"
+      }
+    ],
+    "configuration": {
+      "title": "Australian Food & Fibre Theme",
+      "properties": {
+        "australianFoodFibreTheme.showStatusBarItem": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show the Australian Food & Fibre brand chip in the status bar while a Australian Food & Fibre theme is active."
+        }
+      }
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "australianFoodFibreTheme.openAbout",
+          "when": "view == australianFoodFibreThemePalette",
+          "group": "navigation"
+        }
+      ]
+    }
   },
   "engines": {
     "vscode": "^1.107.0"
@@ -69,5 +131,9 @@
   "bugs": {
     "url": "https://github.com/LucidLabsAU/lucid-labs-vscode-theme/issues"
   },
-  "homepage": "https://australianfoodandfibre.com.au"
+  "homepage": "https://australianfoodandfibre.com.au",
+  "main": "./extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ]
 }

@@ -43,6 +43,72 @@
         "uiTheme": "vs",
         "path": "./themes/ai-tour-sydney-light.json"
       }
-    ]
-  }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "aiTourSydneyThemeContainer",
+          "title": "AI Tour Sydney",
+          "icon": "activity-icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "aiTourSydneyThemeContainer": [
+        {
+          "id": "aiTourSydneyThemePalette",
+          "name": "Brand Palette",
+          "type": "webview",
+          "icon": "activity-icon.svg",
+          "contextualTitle": "AI Tour Sydney"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "aiTourSydneyTheme.switchDark",
+        "title": "Switch to AI Tour Sydney Dark",
+        "category": "AI Tour Sydney"
+      },
+      {
+        "command": "aiTourSydneyTheme.switchLight",
+        "title": "Switch to AI Tour Sydney Light",
+        "category": "AI Tour Sydney"
+      },
+      {
+        "command": "aiTourSydneyTheme.toggleVariant",
+        "title": "Toggle Dark/Light Variant",
+        "category": "AI Tour Sydney"
+      },
+      {
+        "command": "aiTourSydneyTheme.openAbout",
+        "title": "Open Brand Palette",
+        "category": "AI Tour Sydney",
+        "icon": "$(symbol-color)"
+      }
+    ],
+    "configuration": {
+      "title": "AI Tour Sydney Theme",
+      "properties": {
+        "aiTourSydneyTheme.showStatusBarItem": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show the AI Tour Sydney brand chip in the status bar while a AI Tour Sydney theme is active."
+        }
+      }
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "aiTourSydneyTheme.openAbout",
+          "when": "view == aiTourSydneyThemePalette",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
+  "main": "./extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ]
 }

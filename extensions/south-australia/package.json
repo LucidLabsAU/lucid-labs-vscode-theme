@@ -58,7 +58,69 @@
         "label": "South Australia Icons",
         "path": "./icon-theme.json"
       }
-    ]
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "southAustraliaThemeContainer",
+          "title": "South Australia",
+          "icon": "activity-icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "southAustraliaThemeContainer": [
+        {
+          "id": "southAustraliaThemePalette",
+          "name": "Brand Palette",
+          "type": "webview",
+          "icon": "activity-icon.svg",
+          "contextualTitle": "South Australia"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "southAustraliaTheme.switchDark",
+        "title": "Switch to South Australia Dark",
+        "category": "South Australia"
+      },
+      {
+        "command": "southAustraliaTheme.switchLight",
+        "title": "Switch to South Australia Light",
+        "category": "South Australia"
+      },
+      {
+        "command": "southAustraliaTheme.toggleVariant",
+        "title": "Toggle Dark/Light Variant",
+        "category": "South Australia"
+      },
+      {
+        "command": "southAustraliaTheme.openAbout",
+        "title": "Open Brand Palette",
+        "category": "South Australia",
+        "icon": "$(symbol-color)"
+      }
+    ],
+    "configuration": {
+      "title": "South Australia Theme",
+      "properties": {
+        "southAustraliaTheme.showStatusBarItem": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show the South Australia brand chip in the status bar while a South Australia theme is active."
+        }
+      }
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "southAustraliaTheme.openAbout",
+          "when": "view == southAustraliaThemePalette",
+          "group": "navigation"
+        }
+      ]
+    }
   },
   "engines": {
     "vscode": "^1.107.0"
@@ -73,5 +135,9 @@
   "homepage": "https://www.sa.gov.au",
   "sponsor": {
     "url": "https://lucidlabs.com.au"
-  }
+  },
+  "main": "./extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ]
 }

@@ -20,6 +20,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const eb = require('./lib/extension-build');
 
 const ROOT = path.join(__dirname, '..');
 const BRANDS_DIR = path.join(ROOT, 'brands');
@@ -153,6 +154,10 @@ function main() {
     }
   }
 
+  // Load extension runtime templates
+  const extensionJsTemplate = fs.readFileSync(path.join(TEMPLATES_DIR, 'extension.js'), 'utf8');
+  const paletteLibSrc = fs.readFileSync(path.join(TEMPLATES_DIR, 'lib', 'palette-view.js'), 'utf8');
+
   // Discover brands
   const brands = fs.readdirSync(BRANDS_DIR).filter(dir => {
     if (targetBrand && dir !== targetBrand) return false;
@@ -190,6 +195,41 @@ function main() {
     const licDst = path.join(extDir, 'LICENSE');
     if (fs.existsSync(licSrc) && !fs.existsSync(licDst)) {
       fs.copyFileSync(licSrc, licDst);
+    }
+
+    // --- Extension runtime: activity icon, palette lib, extension.js, package.json ---
+    const extPkgPath = path.join(extDir, 'package.json');
+    if (fs.existsSync(extPkgPath)) {
+      const extPkg = JSON.parse(fs.readFileSync(extPkgPath, 'utf8'));
+      const themes = (extPkg.contributes && extPkg.contributes.themes) || [];
+
+      // Activity-bar icon: hand-authored brands/<brand>/activity-icon.svg wins;
+      // otherwise derive a monochrome icon from the brand mark icons/git.svg.
+      if (!fs.existsSync(path.join(brandDir, 'activity-icon.svg'))) {
+        const gitMark = path.join(brandDir, 'icons', 'git.svg');
+        if (fs.existsSync(gitMark)) {
+          fs.writeFileSync(
+            path.join(extDir, 'activity-icon.svg'),
+            eb.monochromeSvg(fs.readFileSync(gitMark, 'utf8')),
+          );
+        }
+      }
+
+      // Pure palette module (copied verbatim).
+      fs.mkdirSync(path.join(extDir, 'lib'), { recursive: true });
+      fs.writeFileSync(path.join(extDir, 'lib', 'palette-view.js'), paletteLibSrc);
+
+      // extension.js from the template.
+      fs.writeFileSync(
+        path.join(extDir, 'extension.js'),
+        eb.renderExtensionJs(extensionJsTemplate, brand, brandConfig.displayName, themes),
+      );
+
+      // Patch package.json contributes (idempotent).
+      eb.mergeContributes(extPkg, brand, brandConfig.displayName);
+      fs.writeFileSync(extPkgPath, JSON.stringify(extPkg, null, 2) + '\n');
+
+      console.log(`  ✓ extension runtime (icon, lib, extension.js, package.json)`);
     }
 
     // Generate dark theme

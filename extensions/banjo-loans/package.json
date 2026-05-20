@@ -57,7 +57,69 @@
         "label": "Banjo Loans Icons",
         "path": "./icon-theme.json"
       }
-    ]
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "banjoLoansThemeContainer",
+          "title": "Banjo Loans",
+          "icon": "activity-icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "banjoLoansThemeContainer": [
+        {
+          "id": "banjoLoansThemePalette",
+          "name": "Brand Palette",
+          "type": "webview",
+          "icon": "activity-icon.svg",
+          "contextualTitle": "Banjo Loans"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "banjoLoansTheme.switchDark",
+        "title": "Switch to Banjo Loans Dark",
+        "category": "Banjo Loans"
+      },
+      {
+        "command": "banjoLoansTheme.switchLight",
+        "title": "Switch to Banjo Loans Light",
+        "category": "Banjo Loans"
+      },
+      {
+        "command": "banjoLoansTheme.toggleVariant",
+        "title": "Toggle Dark/Light Variant",
+        "category": "Banjo Loans"
+      },
+      {
+        "command": "banjoLoansTheme.openAbout",
+        "title": "Open Brand Palette",
+        "category": "Banjo Loans",
+        "icon": "$(symbol-color)"
+      }
+    ],
+    "configuration": {
+      "title": "Banjo Loans Theme",
+      "properties": {
+        "banjoLoansTheme.showStatusBarItem": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show the Banjo Loans brand chip in the status bar while a Banjo Loans theme is active."
+        }
+      }
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "banjoLoansTheme.openAbout",
+          "when": "view == banjoLoansThemePalette",
+          "group": "navigation"
+        }
+      ]
+    }
   },
   "engines": {
     "vscode": "^1.107.0"
@@ -69,5 +131,9 @@
   "bugs": {
     "url": "https://github.com/LucidLabsAU/lucid-labs-vscode-theme/issues"
   },
-  "homepage": "https://banjoloans.com"
+  "homepage": "https://banjoloans.com",
+  "main": "./extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ]
 }

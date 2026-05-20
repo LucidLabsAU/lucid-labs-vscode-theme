@@ -58,7 +58,69 @@
         "label": "New South Wales Icons",
         "path": "./icon-theme.json"
       }
-    ]
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "newSouthWalesThemeContainer",
+          "title": "New South Wales",
+          "icon": "activity-icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "newSouthWalesThemeContainer": [
+        {
+          "id": "newSouthWalesThemePalette",
+          "name": "Brand Palette",
+          "type": "webview",
+          "icon": "activity-icon.svg",
+          "contextualTitle": "New South Wales"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "newSouthWalesTheme.switchDark",
+        "title": "Switch to New South Wales Dark",
+        "category": "New South Wales"
+      },
+      {
+        "command": "newSouthWalesTheme.switchLight",
+        "title": "Switch to New South Wales Light",
+        "category": "New South Wales"
+      },
+      {
+        "command": "newSouthWalesTheme.toggleVariant",
+        "title": "Toggle Dark/Light Variant",
+        "category": "New South Wales"
+      },
+      {
+        "command": "newSouthWalesTheme.openAbout",
+        "title": "Open Brand Palette",
+        "category": "New South Wales",
+        "icon": "$(symbol-color)"
+      }
+    ],
+    "configuration": {
+      "title": "New South Wales Theme",
+      "properties": {
+        "newSouthWalesTheme.showStatusBarItem": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show the New South Wales brand chip in the status bar while a New South Wales theme is active."
+        }
+      }
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "newSouthWalesTheme.openAbout",
+          "when": "view == newSouthWalesThemePalette",
+          "group": "navigation"
+        }
+      ]
+    }
   },
   "engines": {
     "vscode": "^1.107.0"
@@ -73,5 +135,9 @@
   "homepage": "https://www.nsw.gov.au",
   "sponsor": {
     "url": "https://lucidlabs.com.au"
-  }
+  },
+  "main": "./extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ]
 }

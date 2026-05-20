@@ -58,7 +58,69 @@
         "label": "ACT Icons",
         "path": "./icon-theme.json"
       }
-    ]
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "actThemeContainer",
+          "title": "ACT",
+          "icon": "activity-icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "actThemeContainer": [
+        {
+          "id": "actThemePalette",
+          "name": "Brand Palette",
+          "type": "webview",
+          "icon": "activity-icon.svg",
+          "contextualTitle": "ACT"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "actTheme.switchDark",
+        "title": "Switch to ACT Dark",
+        "category": "ACT"
+      },
+      {
+        "command": "actTheme.switchLight",
+        "title": "Switch to ACT Light",
+        "category": "ACT"
+      },
+      {
+        "command": "actTheme.toggleVariant",
+        "title": "Toggle Dark/Light Variant",
+        "category": "ACT"
+      },
+      {
+        "command": "actTheme.openAbout",
+        "title": "Open Brand Palette",
+        "category": "ACT",
+        "icon": "$(symbol-color)"
+      }
+    ],
+    "configuration": {
+      "title": "ACT Theme",
+      "properties": {
+        "actTheme.showStatusBarItem": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show the ACT brand chip in the status bar while a ACT theme is active."
+        }
+      }
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "actTheme.openAbout",
+          "when": "view == actThemePalette",
+          "group": "navigation"
+        }
+      ]
+    }
   },
   "engines": {
     "vscode": "^1.107.0"
@@ -73,5 +135,9 @@
   "homepage": "https://www.act.gov.au",
   "sponsor": {
     "url": "https://lucidlabs.com.au"
-  }
+  },
+  "main": "./extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ]
 }
