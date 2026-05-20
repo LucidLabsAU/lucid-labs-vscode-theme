@@ -88,7 +88,7 @@ function brandCard(c) {
     <div class="meta">
       <span class="name">${escapeHtml(c.name)}</span>
       <span class="role">${escapeHtml(c.role || '')}</span>
-      <span class="hex">${fmt.hex}</span>${pantone}
+      <span class="hex">${escapeHtml(fmt.hex)}</span>${pantone}
       <div class="copies">${copyButtons(fmt)}</div>
     </div>
   </div>`;
@@ -98,13 +98,13 @@ function brandCard(c) {
 function roleCard(entry, brandColors) {
   const fmt = colourFormats(entry.hex);
   const match = (brandColors || []).find((c) => formatHex(c.hex) === entry.hex);
-  const title = match ? escapeHtml(match.name) : entry.hex;
+  const title = match ? escapeHtml(match.name) : escapeHtml(entry.hex);
   return `<div class="card">
-    <span class="chip" style="background:${entry.hex}"></span>
+    <span class="chip" style="background:${escapeHtml(formatHex(entry.hex))}"></span>
     <div class="meta">
       <span class="name">${title}</span>
       <span class="role">${entry.roles.map(escapeHtml).join(' · ')}</span>
-      <span class="hex">${fmt.hex}</span>
+      <span class="hex">${escapeHtml(fmt.hex)}</span>
       <div class="copies">${copyButtons(fmt)}</div>
     </div>
   </div>`;
@@ -133,12 +133,14 @@ function brandSection(brandColors) {
  */
 function renderPaletteHtml(opts) {
   const { brandName, palette, activeVariant, brandColors, nonce, cspSource } = opts;
+  const safeNonce = escapeHtml(nonce);
+  const safeCspSource = escapeHtml(cspSource);
   const darkCards = dedupeRoles(palette.dark || {})
     .map((e) => roleCard(e, brandColors)).join('');
   const lightCards = dedupeRoles(palette.light || {})
     .map((e) => roleCard(e, brandColors)).join('');
-  const csp = `default-src 'none'; style-src ${cspSource} 'unsafe-inline'; `
-    + `script-src 'nonce-${nonce}';`;
+  const csp = `default-src 'none'; style-src ${safeCspSource} 'unsafe-inline'; `
+    + `script-src 'nonce-${safeNonce}';`;
   return `<!DOCTYPE html><html lang="en"><head>
 <meta charset="utf-8">
 <meta http-equiv="Content-Security-Policy" content="${csp}">
@@ -189,7 +191,7 @@ ${brandSection(brandColors)}
 <div class="grid roles-light">${lightCards}</div>
 <p class="note">Role CMYK is an approximate RGB&rarr;CMYK conversion (no ICC profile).
 Brand-colour CMYK is the exact Pantone-matched value.</p>
-<script nonce="${nonce}">
+<script nonce="${safeNonce}">
   const vscode = acquireVsCodeApi();
   function syncToggle() {
     const v = document.body.dataset.variant;
@@ -209,7 +211,8 @@ Brand-colour CMYK is the exact Pantone-matched value.</p>
     });
   });
   window.addEventListener('message', (e) => {
-    if (e.data && e.data.type === 'variant') {
+    if (e.data && e.data.type === 'variant'
+        && (e.data.value === 'dark' || e.data.value === 'light')) {
       document.body.dataset.variant = e.data.value;
       syncToggle();
     }

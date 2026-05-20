@@ -120,3 +120,19 @@ test('renderPaletteHtml sets the initial variant on the body', () => {
   });
   assert.match(html, /<body data-variant="light">/);
 });
+
+test('renderPaletteHtml escapes HTML-special characters in brand data', () => {
+  const html = pv.renderPaletteHtml({
+    brandName: '<script>x</script>',
+    palette: SAMPLE,
+    activeVariant: 'dark',
+    brandColors: [{
+      name: 'Evil "<b>"', hex: '#339999', rgb: [51, 153, 153],
+      cmyk: [67, 0, 0, 40], pantone: 'P&Q', group: 'primary', role: 'r',
+    }],
+    nonce: 'n', cspSource: 'x',
+  });
+  assert.doesNotMatch(html, /<script>x<\/script>/);
+  assert.match(html, /&lt;script&gt;x&lt;\/script&gt;/);
+  assert.match(html, /Evil &quot;&lt;b&gt;&quot;/);
+});
