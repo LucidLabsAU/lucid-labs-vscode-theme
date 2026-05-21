@@ -157,6 +157,7 @@ function main() {
   // Load extension runtime templates
   const extensionJsTemplate = fs.readFileSync(path.join(TEMPLATES_DIR, 'extension.js'), 'utf8');
   const paletteLibSrc = fs.readFileSync(path.join(TEMPLATES_DIR, 'lib', 'palette-view.js'), 'utf8');
+  const fallbackIconSrc = fs.readFileSync(path.join(TEMPLATES_DIR, 'activity-icon.svg'), 'utf8');
 
   // Discover brands
   const brands = fs.readdirSync(BRANDS_DIR).filter(dir => {
@@ -204,15 +205,16 @@ function main() {
       const themes = (extPkg.contributes && extPkg.contributes.themes) || [];
 
       // Activity-bar icon: hand-authored brands/<brand>/activity-icon.svg wins;
-      // otherwise derive a monochrome icon from the brand mark icons/git.svg.
+      // else a monochrome conversion of the brand mark icons/git.svg; else the
+      // generic fallback. A conversion that still has {{placeholders}} is rejected.
       if (!fs.existsSync(path.join(brandDir, 'activity-icon.svg'))) {
         const gitMark = path.join(brandDir, 'icons', 'git.svg');
+        let icon = fallbackIconSrc;
         if (fs.existsSync(gitMark)) {
-          fs.writeFileSync(
-            path.join(extDir, 'activity-icon.svg'),
-            eb.monochromeSvg(fs.readFileSync(gitMark, 'utf8')),
-          );
+          const converted = eb.monochromeSvg(fs.readFileSync(gitMark, 'utf8'));
+          if (!converted.includes('{{')) icon = converted;
         }
+        fs.writeFileSync(path.join(extDir, 'activity-icon.svg'), icon);
       }
 
       // Pure palette module (copied verbatim).
@@ -220,10 +222,18 @@ function main() {
       fs.writeFileSync(path.join(extDir, 'lib', 'palette-view.js'), paletteLibSrc);
 
       // extension.js from the template.
-      fs.writeFileSync(
-        path.join(extDir, 'extension.js'),
-        eb.renderExtensionJs(extensionJsTemplate, brand, brandConfig.displayName, themes),
-      );
+      let extensionJs = null;
+      try {
+        extensionJs = eb.renderExtensionJs(
+          extensionJsTemplate, brand, brandConfig.displayName, themes,
+        );
+      } catch (err) {
+        console.error(`  ${err.message}`);
+        hasErrors = true;
+      }
+      if (extensionJs) {
+        fs.writeFileSync(path.join(extDir, 'extension.js'), extensionJs);
+      }
 
       // Patch package.json contributes (idempotent).
       eb.mergeContributes(extPkg, brand, brandConfig.displayName);

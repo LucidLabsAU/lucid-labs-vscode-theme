@@ -28,6 +28,11 @@ test('monochromeSvg leaves an already-monochrome svg unchanged in meaning', () =
   assert.doesNotMatch(out, /fill="currentColor"[^>]*fill="currentColor"/);
 });
 
+test('monochromeSvg handles stroke-coloured marks', () => {
+  const out = eb.monochromeSvg('<svg><path stroke="{{accent}}"/></svg>');
+  assert.equal(out, '<svg fill="currentColor" stroke="currentColor"><path/></svg>');
+});
+
 function samplePkg() {
   return {
     name: 'charli-health-theme',

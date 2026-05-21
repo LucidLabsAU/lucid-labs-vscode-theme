@@ -11,14 +11,20 @@ function nsFor(brandKey) {
 }
 
 /**
- * Turn a brand mark SVG into a single-colour activity-bar icon:
- * strip every per-element fill (template placeholders and literal hex) and set
- * fill="currentColor" once on the root <svg>.
+ * Turn a brand mark SVG into a single-colour activity-bar icon: strip every
+ * per-element fill and stroke colour value (template placeholders and literal
+ * hex) and set fill="currentColor" on the root <svg> — plus stroke="currentColor"
+ * when the mark was stroke-coloured. Marks that still cannot be flattened (e.g.
+ * gradient url() fills) should get a hand-authored brands/<brand>/activity-icon.svg.
  */
 function monochromeSvg(svg) {
-  let out = svg.replace(/\s*fill="(\{\{[^}]+\}\}|#[0-9A-Fa-f]{3,8})"/g, '');
-  if (/<svg[^>]*\sfill="currentColor"/.test(out)) return out;
-  return out.replace(/<svg\b/, '<svg fill="currentColor"');
+  const usesStroke = /\sstroke="(?:\{\{[^}]+\}\}|#[0-9A-Fa-f]{3,8})"/.test(svg);
+  const out = svg.replace(/\s*(?:fill|stroke)="(?:\{\{[^}]+\}\}|#[0-9A-Fa-f]{3,8})"/g, '');
+  if (/<svg[^>]*\s(?:fill|stroke)="currentColor"/.test(out)) return out;
+  const attr = usesStroke
+    ? 'fill="currentColor" stroke="currentColor"'
+    : 'fill="currentColor"';
+  return out.replace(/<svg\b/, `<svg ${attr}`);
 }
 
 /** Build the generated contributes keys for a brand. */
