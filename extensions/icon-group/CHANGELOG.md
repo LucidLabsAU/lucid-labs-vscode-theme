@@ -1,5 +1,13 @@
 # Change Log
 
+## [1.9.0] - 2026-05-21
+
+### Added
+
+- Brand Palette sidebar view with HEX / RGB / CMYK one-click copy and a
+  Dark/Light theme-role toggle.
+- Icon Group brand mark as the activity-bar icon.
+
 ## [1.8.0] - 2026-05-19
 
 ### Added

@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.3.0] - 2026-05-21
+
+### Added
+
+- Brand Palette sidebar view with HEX / RGB / CMYK one-click copy and a
+  Dark/Light theme-role toggle.
+- AI Tour Sydney brand mark as the activity-bar icon.
+
 ## [1.2.0] - 2026-05-19
 
 ### Added

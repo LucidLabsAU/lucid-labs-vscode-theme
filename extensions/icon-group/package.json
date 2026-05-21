@@ -2,7 +2,7 @@
   "name": "icon-group-theme",
   "displayName": "Icon Group",
   "description": "A professional theme for Visual Studio Code inspired by Icon Group's brand identity. Features navy blue backgrounds, gold accents, and healthcare-focused aesthetics reflecting Icon Group's leadership in cancer care.",
-  "version": "1.8.0",
+  "version": "1.9.0",
   "publisher": "lucidlabs",
   "license": "MIT",
   "icon": "icon.png",

@@ -10,21 +10,23 @@ This is a **theme factory** monorepo that generates multiple branded VS Code col
 
 | Brand | Extension ID | Version |
 |-------|-------------|---------|
-| Lucid Labs | `lucidlabs.lucid-labs-theme` | 1.11.0 |
-| CHARLi | `lucidlabs.charli-health-theme` | 1.7.0 |
-| Perfection Fresh | `lucidlabs.perfection-fresh-theme` | 1.6.0 |
-| Australian Food & Fibre | `lucidlabs.australian-food-fibre-theme` | 1.6.0 |
-| Banjo Loans | `lucidlabs.banjo-loans-theme` | 1.6.0 |
-| Progenesis | `lucidlabs.progenesis-theme` | 1.6.0 |
-| Icon Group | `lucidlabs.icon-group-theme` | 1.7.0 |
-| Queensland | `lucidlabs.queensland-theme` | 1.6.0 |
-| New South Wales | `lucidlabs.new-south-wales-theme` | 1.5.0 |
-| Victoria | `lucidlabs.victoria-theme` | 1.5.0 |
-| Tasmania | `lucidlabs.tasmania-theme` | 1.5.0 |
-| South Australia | `lucidlabs.south-australia-theme` | 1.5.0 |
-| Western Australia | `lucidlabs.western-australia-theme` | 1.5.0 |
-| Northern Territory | `lucidlabs.northern-territory-theme` | 1.5.0 |
-| ACT | `lucidlabs.act-theme` | 1.5.0 |
+| Lucid Labs | `lucidlabs.lucid-labs-theme` | 1.15.0 |
+| CHARLI Health | `lucidlabs.charli-health-theme` | 1.9.0 |
+| Perfection Fresh | `lucidlabs.perfection-fresh-theme` | 1.8.0 |
+| Australian Food & Fibre | `lucidlabs.australian-food-fibre-theme` | 1.8.0 |
+| Banjo Loans | `lucidlabs.banjo-loans-theme` | 1.8.0 |
+| Progenesis | `lucidlabs.progenesis-theme` | 1.8.0 |
+| Icon Group | `lucidlabs.icon-group-theme` | 1.9.0 |
+| Queensland | `lucidlabs.queensland-theme` | 1.8.0 |
+| New South Wales | `lucidlabs.new-south-wales-theme` | 1.7.0 |
+| Victoria | `lucidlabs.victoria-theme` | 1.7.0 |
+| Tasmania | `lucidlabs.tasmania-theme` | 1.7.0 |
+| South Australia | `lucidlabs.south-australia-theme` | 1.7.0 |
+| Western Australia | `lucidlabs.western-australia-theme` | 1.7.0 |
+| Northern Territory | `lucidlabs.northern-territory-theme` | 1.7.0 |
+| ACT | `lucidlabs.act-theme` | 1.7.0 |
+| AI Tour Sydney | `lucidlabs.ai-tour-sydney-theme` | 1.3.0 |
+| Aurora Dairies | `lucidlabs.aurora-dairies-theme` | 1.1.0 |
 
 ## Commands
 
