@@ -30,12 +30,13 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v6
       with:
-        fetch-depth: 2
+        fetch-depth: 0
 
     - name: Detect changed extensions
       id: detect
       env:
         EVENT_NAME: ${{ github.event_name }}
+        BEFORE_SHA: ${{ github.event.before }}
       run: |
         all_extensions() {
           find extensions -mindepth 1 -maxdepth 1 -type d -printf '%f\n' | sort | jq -R -s -c 'split("\n") | map(select(. != ""))'
@@ -48,7 +49,17 @@ jobs:
           exit 0
         fi
 
-        CHANGED_FILES=$(git diff --name-only HEAD~1 HEAD)
+        # Diff the whole pushed range (before..HEAD), not just the last commit,
+        # so a trailing housekeeping commit can't mask earlier changes. Fall
+        # back to the last commit if the before-SHA is absent or unreachable
+        # (new branch, force-push, or shallow history).
+        if [ -n "$BEFORE_SHA" ] \
+          && [ "$BEFORE_SHA" != "0000000000000000000000000000000000000000" ] \
+          && git cat-file -e "${BEFORE_SHA}^{commit}" 2>/dev/null; then
+          CHANGED_FILES=$(git diff --name-only "$BEFORE_SHA" HEAD)
+        else
+          CHANGED_FILES=$(git diff --name-only HEAD~1 HEAD)
+        fi
 
         # If templates or brands changed, publish all extensions
         if echo "$CHANGED_FILES" | grep -qE '^(templates/|brands/)'; then
