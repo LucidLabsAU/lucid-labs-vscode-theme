@@ -67,8 +67,14 @@ function dedupeRoles(variantColours) {
 /** Build the three copy buttons for a colour, given pre-formatted strings. */
 function copyButtons(fmt) {
   return ['hex', 'rgb', 'cmyk']
-    .map((k) => `<button class="copy" data-copy="${escapeHtml(fmt[k])}">${k.toUpperCase()}</button>`)
+    .map((k) => `<button class="copy" data-copy="${escapeHtml(fmt[k])}" title="Copy ${escapeHtml(fmt[k])}"><span class="copy-label">${k.toUpperCase()}</span><span class="copy-icon" aria-hidden="true">⧉</span></button>`)
     .join('');
+}
+
+/** Format a role list: show all, with truncation handled in CSS, full text in title. */
+function renderRoles(roles) {
+  const all = roles.join(' · ');
+  return `<span class="role" title="${escapeHtml(all)}">${escapeHtml(all)}</span>`;
 }
 
 /** Format a colour for display, preferring supplied rgb/cmyk over derived. */
@@ -86,11 +92,12 @@ function brandCard(c) {
   return `<div class="card">
     <span class="chip" style="background:${escapeHtml(formatHex(c.hex))}"></span>
     <div class="meta">
-      <span class="name">${escapeHtml(c.name)}</span>
-      <span class="role">${escapeHtml(c.role || '')}</span>
-      <span class="hex">${escapeHtml(fmt.hex)}</span>${pantone}
-      <div class="copies">${copyButtons(fmt)}</div>
+      <span class="name" title="${escapeHtml(c.name)}">${escapeHtml(c.name)}</span>
+      <span class="hex">${escapeHtml(fmt.hex)}</span>
+      ${c.role ? `<span class="role" title="${escapeHtml(c.role)}">${escapeHtml(c.role)}</span>` : ''}
+      ${pantone}
     </div>
+    <div class="copies">${copyButtons(fmt)}</div>
   </div>`;
 }
 
@@ -102,11 +109,11 @@ function roleCard(entry, brandColors) {
   return `<div class="card">
     <span class="chip" style="background:${escapeHtml(formatHex(entry.hex))}"></span>
     <div class="meta">
-      <span class="name">${title}</span>
-      <span class="role">${entry.roles.map(escapeHtml).join(' · ')}</span>
+      <span class="name" title="${title}">${title}</span>
       <span class="hex">${escapeHtml(fmt.hex)}</span>
-      <div class="copies">${copyButtons(fmt)}</div>
+      ${renderRoles(entry.roles)}
     </div>
+    <div class="copies">${copyButtons(fmt)}</div>
   </div>`;
 }
 
@@ -151,29 +158,47 @@ function renderPaletteHtml(opts) {
   h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .04em;
     margin: 18px 0 6px; color: var(--vscode-descriptionForeground); }
   h3 { font-size: 12px; margin: 10px 0 4px; color: var(--vscode-descriptionForeground); }
-  .grid { display: flex; flex-direction: column; gap: 6px; }
-  .card { display: flex; gap: 8px; padding: 8px; border-radius: 6px;
+  .grid { display: grid; gap: 8px;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); }
+  .card { display: flex; flex-direction: column; gap: 6px; padding: 8px;
+    border-radius: 6px; min-width: 0;
     background: var(--vscode-editorWidget-background);
     border: 1px solid var(--vscode-editorWidget-border); }
-  .chip { flex: 0 0 32px; height: 32px; border-radius: 4px;
+  .chip { width: 100%; height: 48px; border-radius: 4px;
     border: 1px solid var(--vscode-editorWidget-border); }
   .meta { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+  .name, .role, .hex, .pantone { overflow: hidden; text-overflow: ellipsis;
+    white-space: nowrap; display: block; }
   .name { font-weight: 600; font-size: 12px; }
-  .role { font-size: 11px; color: var(--vscode-descriptionForeground); }
-  .hex { font-family: var(--vscode-editor-font-family); font-size: 11px; }
+  .role { font-size: 10px; color: var(--vscode-descriptionForeground); }
+  .hex { font-family: var(--vscode-editor-font-family); font-size: 11px;
+    color: var(--vscode-descriptionForeground); }
   .pantone { font-size: 10px; color: var(--vscode-descriptionForeground); }
-  .copies { display: flex; gap: 4px; margin-top: 4px; }
-  button.copy { font-size: 10px; padding: 2px 6px; cursor: pointer;
+  .copies { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px;
+    margin-top: auto; }
+  button.copy { position: relative; font-size: 10px; padding: 5px 4px;
+    cursor: pointer; display: inline-flex; align-items: center;
+    justify-content: center; gap: 3px;
     color: var(--vscode-button-secondaryForeground);
-    background: var(--vscode-button-secondaryBackground); border: none; border-radius: 3px; }
-  button.copy:hover { background: var(--vscode-button-secondaryHoverBackground); }
-  .toggle { display: inline-flex; gap: 4px; margin-left: 8px; }
-  .toggle button { font-size: 10px; padding: 2px 8px; cursor: pointer;
+    background: var(--vscode-button-secondaryBackground);
+    border: 1px solid var(--vscode-button-border, transparent);
+    border-radius: 3px; transition: background .12s; }
+  button.copy:hover { background: var(--vscode-button-secondaryHoverBackground);
+    border-color: var(--vscode-focusBorder); }
+  button.copy .copy-icon { font-size: 11px; opacity: .65; }
+  button.copy:hover .copy-icon { opacity: 1; }
+  button.copy.copied { background: var(--vscode-button-background);
+    color: var(--vscode-button-foreground); }
+  button.copy.copied .copy-label::before { content: '✓ '; }
+  .toggle { display: inline-flex; gap: 4px; }
+  .toggle button { font-size: 10px; padding: 3px 10px; cursor: pointer; line-height: 1.4;
     background: var(--vscode-button-secondaryBackground);
     color: var(--vscode-button-secondaryForeground); border: none; border-radius: 3px; }
   .toggle button.active { background: var(--vscode-button-background);
     color: var(--vscode-button-foreground); }
-  .roles-header { display: flex; align-items: center; }
+  .roles-header { display: flex; align-items: center; justify-content: space-between;
+    gap: 12px; margin: 18px 0 6px; }
+  .roles-header h2 { margin: 0; }
   body[data-variant="dark"] .roles-light { display: none; }
   body[data-variant="light"] .roles-dark { display: none; }
   .note { font-size: 10px; color: var(--vscode-descriptionForeground); margin-top: 12px; }
@@ -208,6 +233,8 @@ Brand-colour CMYK is the exact Pantone-matched value.</p>
   document.querySelectorAll('button.copy').forEach((b) => {
     b.addEventListener('click', () => {
       vscode.postMessage({ type: 'copy', value: b.dataset.copy });
+      b.classList.add('copied');
+      setTimeout(() => b.classList.remove('copied'), 900);
     });
   });
   window.addEventListener('message', (e) => {

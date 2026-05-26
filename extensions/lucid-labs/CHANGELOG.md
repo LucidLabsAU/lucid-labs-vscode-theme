@@ -1,5 +1,17 @@
 # Change Log
 
+## [1.15.1] - 2026-05-26
+
+### Changed
+
+- Brand Palette: responsive grid layout (min/max columns) replaces the single
+  stacked column, cards are more compact, role lists truncate with hover
+  tooltips.
+- HEX / RGB / CMYK copy buttons are larger with a clipboard glyph, clearer hover
+  state, and a brief `✓` confirmation on click.
+- Theme Roles heading and the Dark/Light toggle now share a baseline (toggle
+  right-aligned).
+
 ## [1.15.0] - 2026-05-21
 
 ### Added
