@@ -1,0 +1,141 @@
+{
+  "name": "asplundh-theme",
+  "displayName": "Asplundh",
+  "description": "A bold, high-contrast VS Code colour theme inspired by the Asplundh visual identity — the orange-and-black livery seen on Asplundh utility vegetation management crews and trucks across Australia and the world. Built and published by Lucid Labs on behalf of Asplundh. All trademarks belong to their respective owners.",
+  "version": "1.0.0",
+  "publisher": "lucidlabs",
+  "license": "MIT",
+  "icon": "icon.png",
+  "author": {
+    "name": "Lucid Labs",
+    "url": "https://lucidlabs.com.au"
+  },
+  "keywords": [
+    "theme",
+    "dark theme",
+    "light theme",
+    "colour theme",
+    "asplundh",
+    "one asplundh",
+    "utility",
+    "vegetation management",
+    "arborist",
+    "powering the future",
+    "orange",
+    "black",
+    "australia",
+    "brand",
+    "icon theme",
+    "icons"
+  ],
+  "categories": [
+    "Themes",
+    "Other"
+  ],
+  "galleryBanner": {
+    "color": "#0F0F0F",
+    "theme": "dark"
+  },
+  "qna": "marketplace",
+  "extensionKind": [
+    "ui"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Asplundh Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/asplundh-dark.json"
+      },
+      {
+        "label": "Asplundh Light",
+        "uiTheme": "vs",
+        "path": "./themes/asplundh-light.json"
+      }
+    ],
+    "iconThemes": [
+      {
+        "id": "asplundh-icons",
+        "label": "Asplundh Icons",
+        "path": "./icon-theme.json"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "asplundhThemeContainer",
+          "title": "Asplundh",
+          "icon": "activity-icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "asplundhThemeContainer": [
+        {
+          "id": "asplundhThemePalette",
+          "name": "Brand Palette",
+          "type": "webview",
+          "icon": "activity-icon.svg",
+          "contextualTitle": "Asplundh"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "asplundhTheme.switchDark",
+        "title": "Switch to Asplundh Dark",
+        "category": "Asplundh"
+      },
+      {
+        "command": "asplundhTheme.switchLight",
+        "title": "Switch to Asplundh Light",
+        "category": "Asplundh"
+      },
+      {
+        "command": "asplundhTheme.toggleVariant",
+        "title": "Toggle Dark/Light Variant",
+        "category": "Asplundh"
+      },
+      {
+        "command": "asplundhTheme.openAbout",
+        "title": "Open Brand Palette",
+        "category": "Asplundh",
+        "icon": "$(symbol-color)"
+      }
+    ],
+    "configuration": {
+      "title": "Asplundh Theme",
+      "properties": {
+        "asplundhTheme.showStatusBarItem": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show the Asplundh brand chip in the status bar while a Asplundh theme is active."
+        }
+      }
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "asplundhTheme.openAbout",
+          "when": "view == asplundhThemePalette",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
+  "engines": {
+    "vscode": "^1.107.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LucidLabsAU/lucid-labs-vscode-theme.git"
+  },
+  "bugs": {
+    "url": "https://github.com/LucidLabsAU/lucid-labs-vscode-theme/issues"
+  },
+  "homepage": "https://www.asplundh.com.au",
+  "main": "./extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ]
+}

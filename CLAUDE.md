@@ -1,32 +1,8 @@
-# CLAUDE.md
+# Lucid Labs VS Code Theme Factory
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+Monorepo that generates multiple branded VS Code colour themes from shared templates. Each brand defines a colour palette; templates define the full theme structure with `{{role}}` placeholders; the generator substitutes colours to produce final theme JSON files.
 
-## Project Overview
-
-This is a **theme factory** monorepo that generates multiple branded VS Code colour themes from shared templates. Each brand defines a colour palette; templates define the full theme structure with `{{role}}` placeholders; the generator substitutes colours to produce final theme JSON files.
-
-### Current Brands
-
-| Brand | Extension ID | Version |
-|-------|-------------|---------|
-| Lucid Labs | `lucidlabs.lucid-labs-theme` | 1.15.0 |
-| CHARLI Health | `lucidlabs.charli-health-theme` | 1.9.0 |
-| Perfection Fresh | `lucidlabs.perfection-fresh-theme` | 1.8.0 |
-| Australian Food & Fibre | `lucidlabs.australian-food-fibre-theme` | 1.8.0 |
-| Banjo Loans | `lucidlabs.banjo-loans-theme` | 1.8.0 |
-| Progenesis | `lucidlabs.progenesis-theme` | 1.8.0 |
-| Icon Group | `lucidlabs.icon-group-theme` | 1.9.0 |
-| Queensland | `lucidlabs.queensland-theme` | 1.8.0 |
-| New South Wales | `lucidlabs.new-south-wales-theme` | 1.7.0 |
-| Victoria | `lucidlabs.victoria-theme` | 1.7.0 |
-| Tasmania | `lucidlabs.tasmania-theme` | 1.7.0 |
-| South Australia | `lucidlabs.south-australia-theme` | 1.7.0 |
-| Western Australia | `lucidlabs.western-australia-theme` | 1.7.0 |
-| Northern Territory | `lucidlabs.northern-territory-theme` | 1.7.0 |
-| ACT | `lucidlabs.act-theme` | 1.7.0 |
-| AI Tour Sydney | `lucidlabs.ai-tour-sydney-theme` | 1.3.0 |
-| Aurora Dairies | `lucidlabs.aurora-dairies-theme` | 1.1.0 |
+> **Precedence**: Inherits global (`~/.claude/CLAUDE.md`), workspace (`~/Documents/GitHub/CLAUDE.md`), and org (`LucidLabsAU/CLAUDE.md`). This file owns only repo-specific concerns.
 
 ## Commands
 
@@ -47,11 +23,11 @@ npm run package:all
 cd extensions/lucid-labs && vsce package
 ```
 
-Note: Requires `@vscode/vsce` to be installed globally (`npm install -g @vscode/vsce`).
+Requires `@vscode/vsce` installed globally (`npm install -g @vscode/vsce`).
 
 ## Architecture
 
-```
+```text
 brands/<name>/brand.json      → Colour palette (semantic roles per dark/light variant)
 templates/base-dark.jsonc      → Dark theme template with {{role}} placeholders
 templates/base-light.jsonc     → Light theme template with {{role}} placeholders
@@ -60,30 +36,40 @@ extensions/<name>/themes/      → Generated theme files (committed)
 extensions/<name>/package.json → VS Code extension manifest
 ```
 
-### Key Files
+### Key files
 
-- **Brand Configs**: `brands/*/brand.json` — ~40 semantic colour roles per variant (background, foreground, accent, keyword, string, function, etc.)
+- **Brand configs**: `brands/*/brand.json` — ~40 semantic colour roles per variant (background, foreground, accent, keyword, string, function, etc.)
 - **Templates**: `templates/base-*.jsonc` — 906 UI colour keys (100% VS Code API coverage), 55 tokenColor entries, 15 semantic tokens with `{{role}}` placeholders
 - **Copilot Instructions**: `.github/copilot-instructions.md` — full guide for AI agents to create new brand themes
 - **Generator**: `scripts/generate.js` — supports `{{role}}`, `{{role}}XX` (alpha suffix), `{{a|b|c}}` (fallback chains)
 - **Linter**: `scripts/lint-themes.js` — checks for deprecated properties, comments, and missing transparency
 - **CI/CD**: `.github/workflows/auto-publish.yml` — sequential publish with change detection, Azure OIDC + Key Vault
 
-### Pre-commit Hook
+### Current brands
 
-The husky pre-commit hook runs `npm run generate && npm run lint` to ensure generated themes are always up-to-date and valid.
+| Brand | Extension ID | Version |
+|-------|-------------|---------|
+| Lucid Labs | `lucidlabs.lucid-labs-theme` | 1.15.1 |
+| CHARLI Health | `lucidlabs.charli-health-theme` | 1.9.1 |
+| Perfection Fresh | `lucidlabs.perfection-fresh-theme` | 1.8.1 |
+| Australian Food & Fibre | `lucidlabs.australian-food-fibre-theme` | 1.8.1 |
+| Banjo Loans | `lucidlabs.banjo-loans-theme` | 1.8.1 |
+| Progenesis | `lucidlabs.progenesis-theme` | 1.8.1 |
+| Icon Group | `lucidlabs.icon-group-theme` | 1.9.1 |
+| Queensland | `lucidlabs.queensland-theme` | 1.8.1 |
+| New South Wales | `lucidlabs.new-south-wales-theme` | 1.7.1 |
+| Victoria | `lucidlabs.victoria-theme` | 1.7.1 |
+| Tasmania | `lucidlabs.tasmania-theme` | 1.7.1 |
+| South Australia | `lucidlabs.south-australia-theme` | 1.7.1 |
+| Western Australia | `lucidlabs.western-australia-theme` | 1.7.1 |
+| Northern Territory | `lucidlabs.northern-territory-theme` | 1.7.1 |
+| ACT | `lucidlabs.act-theme` | 1.7.1 |
+| AI Tour Sydney | `lucidlabs.ai-tour-sydney-theme` | 1.3.1 |
+| Aurora Dairies | `lucidlabs.aurora-dairies-theme` | 1.1.1 |
+| Asplundh | `lucidlabs.asplundh-theme` | 1.0.0 |
 
-## Adding a New Brand
+## Repo-specific gotchas
 
-1. Create `brands/<name>/brand.json` with palette mapped to semantic roles
-2. Add `brands/<name>/icon.png` (256x256 PNG) and `brands/<name>/README.md`
-3. Create `extensions/<name>/package.json`, `.vscodeignore`, `CHANGELOG.md`, and `LICENSE`
-4. Run `npm run generate`
-
-## Release Process
-
-1. Bump the version in `extensions/<name>/package.json` and update `CHANGELOG.md`
-2. Push to `main` — auto-publish workflow detects changed extensions
-3. Azure OIDC authenticates, fetches VSCE PAT from Key Vault, publishes to marketplace
-4. Manual dispatch (`workflow_dispatch`) publishes all extensions
-5. Already-published versions are skipped gracefully
+- **Husky pre-commit hook** runs `npm run generate && npm run lint` to ensure generated themes are always up-to-date and valid.
+- **Adding a new brand**: create `brands/<name>/brand.json` with palette mapped to semantic roles, add `brands/<name>/icon.png` (256x256 PNG) and `brands/<name>/README.md`, create `extensions/<name>/{package.json,.vscodeignore,CHANGELOG.md,LICENSE}`, then run `npm run generate`.
+- **Release flow**: bump version in `extensions/<name>/package.json` and update `CHANGELOG.md`, push to `main`. Auto-publish workflow detects changed extensions, Azure OIDC authenticates, fetches VSCE PAT from Key Vault, publishes to marketplace. Manual dispatch (`workflow_dispatch`) publishes all extensions. Already-published versions skip gracefully.
