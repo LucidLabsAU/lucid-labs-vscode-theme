@@ -1,4 +1,5 @@
 {
+  "$schema": "https://json.schemastore.org/package.json",
   "name": "ai-tour-sydney-theme",
   "displayName": "AI Tour Sydney",
   "version": "1.3.2",

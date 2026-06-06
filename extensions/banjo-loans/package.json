@@ -1,4 +1,5 @@
 {
+  "$schema": "https://json.schemastore.org/package.json",
   "name": "banjo-loans-theme",
   "displayName": "Banjo Loans",
   "description": "A bold VS Code colour theme featuring electric blue accents and deep purple backgrounds, inspired by the Banjo Loans visual identity. Built and published by Lucid Labs on behalf of Banjo Loans. All trademarks belong to their respective owners.",

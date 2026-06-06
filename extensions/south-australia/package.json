@@ -1,4 +1,5 @@
 {
+  "$schema": "https://json.schemastore.org/package.json",
   "name": "south-australia-theme",
   "displayName": "South Australia",
   "description": "A professional theme for Visual Studio Code featuring South Australia's iconic blue and red colour palette.",

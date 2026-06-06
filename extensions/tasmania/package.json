@@ -1,4 +1,5 @@
 {
+  "$schema": "https://json.schemastore.org/package.json",
   "name": "tasmania-theme",
   "displayName": "Tasmania",
   "description": "A professional theme for Visual Studio Code featuring Tasmania's iconic blue and forest green colour palette.",
