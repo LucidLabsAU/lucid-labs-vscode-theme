@@ -1,0 +1,143 @@
+{
+  "name": "pax8-ctf-2026-theme",
+  "displayName": "Pax8 CTF 2026",
+  "description": "A neon cyberpunk VS Code colour theme for the Pax8 + Microsoft Beyond 2026 Capture the Flag — terminal-green and cyan on hacker dark. Built and published by Lucid Labs on behalf of Pax8. All trademarks belong to their respective owners.",
+  "version": "1.0.0",
+  "publisher": "lucidlabs",
+  "license": "MIT",
+  "icon": "icon.png",
+  "author": {
+    "name": "Lucid Labs",
+    "url": "https://lucidlabs.com.au"
+  },
+  "keywords": [
+    "theme",
+    "dark theme",
+    "light theme",
+    "colour theme",
+    "pax8",
+    "pax8 ctf",
+    "capture the flag",
+    "ctf",
+    "hacker",
+    "cyberpunk",
+    "security",
+    "neon",
+    "green",
+    "cyan",
+    "blue",
+    "brand",
+    "icon theme",
+    "icons"
+  ],
+  "categories": [
+    "Themes",
+    "Other"
+  ],
+  "galleryBanner": {
+    "color": "#05070D",
+    "theme": "dark"
+  },
+  "qna": "marketplace",
+  "extensionKind": [
+    "ui"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Pax8 CTF 2026 Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/pax8-ctf-2026-dark.json"
+      },
+      {
+        "label": "Pax8 CTF 2026 Light",
+        "uiTheme": "vs",
+        "path": "./themes/pax8-ctf-2026-light.json"
+      }
+    ],
+    "iconThemes": [
+      {
+        "id": "pax8-ctf-2026-icons",
+        "label": "Pax8 CTF 2026 Icons",
+        "path": "./icon-theme.json"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "pax8Ctf2026ThemeContainer",
+          "title": "Pax8 CTF 2026",
+          "icon": "activity-icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "pax8Ctf2026ThemeContainer": [
+        {
+          "id": "pax8Ctf2026ThemePalette",
+          "name": "Brand Palette",
+          "type": "webview",
+          "icon": "activity-icon.svg",
+          "contextualTitle": "Pax8 CTF 2026"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "pax8Ctf2026Theme.switchDark",
+        "title": "Switch to Pax8 CTF 2026 Dark",
+        "category": "Pax8 CTF 2026"
+      },
+      {
+        "command": "pax8Ctf2026Theme.switchLight",
+        "title": "Switch to Pax8 CTF 2026 Light",
+        "category": "Pax8 CTF 2026"
+      },
+      {
+        "command": "pax8Ctf2026Theme.toggleVariant",
+        "title": "Toggle Dark/Light Variant",
+        "category": "Pax8 CTF 2026"
+      },
+      {
+        "command": "pax8Ctf2026Theme.openAbout",
+        "title": "Open Brand Palette",
+        "category": "Pax8 CTF 2026",
+        "icon": "$(symbol-color)"
+      }
+    ],
+    "configuration": {
+      "title": "Pax8 CTF 2026 Theme",
+      "properties": {
+        "pax8Ctf2026Theme.showStatusBarItem": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show the Pax8 CTF 2026 brand chip in the status bar while a Pax8 CTF 2026 theme is active."
+        }
+      }
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "pax8Ctf2026Theme.openAbout",
+          "when": "view == pax8Ctf2026ThemePalette",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
+  "engines": {
+    "vscode": "^1.107.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LucidLabsAU/lucid-labs-vscode-theme.git"
+  },
+  "bugs": {
+    "url": "https://github.com/LucidLabsAU/lucid-labs-vscode-theme/issues"
+  },
+  "homepage": "https://pax8ctf.com",
+  "main": "./extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ]
+}

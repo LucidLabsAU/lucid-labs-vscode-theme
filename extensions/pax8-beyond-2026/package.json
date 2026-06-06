@@ -1,0 +1,141 @@
+{
+  "name": "pax8-beyond-2026-theme",
+  "displayName": "Pax8 Beyond 2026",
+  "description": "A high-energy VS Code colour theme for the Pax8 Beyond 2026 conference — Community Red, Education Yellow and Innovation Blue on black. Built and published by Lucid Labs on behalf of Pax8. All trademarks belong to their respective owners.",
+  "version": "1.0.0",
+  "publisher": "lucidlabs",
+  "license": "MIT",
+  "icon": "icon.png",
+  "author": {
+    "name": "Lucid Labs",
+    "url": "https://lucidlabs.com.au"
+  },
+  "keywords": [
+    "theme",
+    "dark theme",
+    "light theme",
+    "colour theme",
+    "pax8",
+    "pax8 beyond",
+    "beyond 2026",
+    "conference",
+    "event",
+    "red",
+    "yellow",
+    "blue",
+    "black",
+    "brand",
+    "icon theme",
+    "icons"
+  ],
+  "categories": [
+    "Themes",
+    "Other"
+  ],
+  "galleryBanner": {
+    "color": "#000000",
+    "theme": "dark"
+  },
+  "qna": "marketplace",
+  "extensionKind": [
+    "ui"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Pax8 Beyond 2026 Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/pax8-beyond-2026-dark.json"
+      },
+      {
+        "label": "Pax8 Beyond 2026 Light",
+        "uiTheme": "vs",
+        "path": "./themes/pax8-beyond-2026-light.json"
+      }
+    ],
+    "iconThemes": [
+      {
+        "id": "pax8-beyond-2026-icons",
+        "label": "Pax8 Beyond 2026 Icons",
+        "path": "./icon-theme.json"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "pax8Beyond2026ThemeContainer",
+          "title": "Pax8 Beyond 2026",
+          "icon": "activity-icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "pax8Beyond2026ThemeContainer": [
+        {
+          "id": "pax8Beyond2026ThemePalette",
+          "name": "Brand Palette",
+          "type": "webview",
+          "icon": "activity-icon.svg",
+          "contextualTitle": "Pax8 Beyond 2026"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "pax8Beyond2026Theme.switchDark",
+        "title": "Switch to Pax8 Beyond 2026 Dark",
+        "category": "Pax8 Beyond 2026"
+      },
+      {
+        "command": "pax8Beyond2026Theme.switchLight",
+        "title": "Switch to Pax8 Beyond 2026 Light",
+        "category": "Pax8 Beyond 2026"
+      },
+      {
+        "command": "pax8Beyond2026Theme.toggleVariant",
+        "title": "Toggle Dark/Light Variant",
+        "category": "Pax8 Beyond 2026"
+      },
+      {
+        "command": "pax8Beyond2026Theme.openAbout",
+        "title": "Open Brand Palette",
+        "category": "Pax8 Beyond 2026",
+        "icon": "$(symbol-color)"
+      }
+    ],
+    "configuration": {
+      "title": "Pax8 Beyond 2026 Theme",
+      "properties": {
+        "pax8Beyond2026Theme.showStatusBarItem": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show the Pax8 Beyond 2026 brand chip in the status bar while a Pax8 Beyond 2026 theme is active."
+        }
+      }
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "pax8Beyond2026Theme.openAbout",
+          "when": "view == pax8Beyond2026ThemePalette",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
+  "engines": {
+    "vscode": "^1.107.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LucidLabsAU/lucid-labs-vscode-theme.git"
+  },
+  "bugs": {
+    "url": "https://github.com/LucidLabsAU/lucid-labs-vscode-theme/issues"
+  },
+  "homepage": "https://www.pax8beyond.com",
+  "main": "./extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ]
+}

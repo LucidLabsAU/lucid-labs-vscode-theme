@@ -67,6 +67,9 @@ extensions/<name>/package.json → VS Code extension manifest
 | AI Tour Sydney | `lucidlabs.ai-tour-sydney-theme` | 1.3.1 |
 | Aurora Dairies | `lucidlabs.aurora-dairies-theme` | 1.1.1 |
 | Asplundh | `lucidlabs.asplundh-theme` | 1.0.0 |
+| Pax8 | `lucidlabs.pax8-theme` | 1.0.0 |
+| Pax8 Beyond 2026 | `lucidlabs.pax8-beyond-2026-theme` | 1.0.0 |
+| Pax8 CTF 2026 | `lucidlabs.pax8-ctf-2026-theme` | 1.0.0 |
 
 ## Repo-specific gotchas
 

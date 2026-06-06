@@ -1,0 +1,141 @@
+{
+  "name": "pax8-theme",
+  "displayName": "Pax8",
+  "description": "A sharp, black-first VS Code colour theme inspired by the Pax8 visual identity — electric mint green and deep blue on black. Built and published by Lucid Labs on behalf of Pax8. All trademarks belong to their respective owners.",
+  "version": "1.0.0",
+  "publisher": "lucidlabs",
+  "license": "MIT",
+  "icon": "icon.png",
+  "author": {
+    "name": "Lucid Labs",
+    "url": "https://lucidlabs.com.au"
+  },
+  "keywords": [
+    "theme",
+    "dark theme",
+    "light theme",
+    "colour theme",
+    "pax8",
+    "marketplace",
+    "cloud",
+    "msp",
+    "distributor",
+    "mint",
+    "green",
+    "blue",
+    "black",
+    "brand",
+    "icon theme",
+    "icons"
+  ],
+  "categories": [
+    "Themes",
+    "Other"
+  ],
+  "galleryBanner": {
+    "color": "#000000",
+    "theme": "dark"
+  },
+  "qna": "marketplace",
+  "extensionKind": [
+    "ui"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Pax8 Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/pax8-dark.json"
+      },
+      {
+        "label": "Pax8 Light",
+        "uiTheme": "vs",
+        "path": "./themes/pax8-light.json"
+      }
+    ],
+    "iconThemes": [
+      {
+        "id": "pax8-icons",
+        "label": "Pax8 Icons",
+        "path": "./icon-theme.json"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "pax8ThemeContainer",
+          "title": "Pax8",
+          "icon": "activity-icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "pax8ThemeContainer": [
+        {
+          "id": "pax8ThemePalette",
+          "name": "Brand Palette",
+          "type": "webview",
+          "icon": "activity-icon.svg",
+          "contextualTitle": "Pax8"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "pax8Theme.switchDark",
+        "title": "Switch to Pax8 Dark",
+        "category": "Pax8"
+      },
+      {
+        "command": "pax8Theme.switchLight",
+        "title": "Switch to Pax8 Light",
+        "category": "Pax8"
+      },
+      {
+        "command": "pax8Theme.toggleVariant",
+        "title": "Toggle Dark/Light Variant",
+        "category": "Pax8"
+      },
+      {
+        "command": "pax8Theme.openAbout",
+        "title": "Open Brand Palette",
+        "category": "Pax8",
+        "icon": "$(symbol-color)"
+      }
+    ],
+    "configuration": {
+      "title": "Pax8 Theme",
+      "properties": {
+        "pax8Theme.showStatusBarItem": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show the Pax8 brand chip in the status bar while a Pax8 theme is active."
+        }
+      }
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "pax8Theme.openAbout",
+          "when": "view == pax8ThemePalette",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
+  "engines": {
+    "vscode": "^1.107.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LucidLabsAU/lucid-labs-vscode-theme.git"
+  },
+  "bugs": {
+    "url": "https://github.com/LucidLabsAU/lucid-labs-vscode-theme/issues"
+  },
+  "homepage": "https://www.pax8.com",
+  "main": "./extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ]
+}
