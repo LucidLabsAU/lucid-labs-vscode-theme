@@ -69,6 +69,7 @@ extensions/<name>/package.json → VS Code extension manifest
 | Asplundh | `lucidlabs.asplundh-theme` | 1.0.0 |
 | Pax8 | `lucidlabs.pax8-theme` | 1.0.0 |
 | Pax8 Beyond 2026 | `lucidlabs.pax8-beyond-2026-theme` | 1.0.0 |
+| Pax8 Beyond 2026 Copenhagen | `lucidlabs.pax8-beyond-2026-copenhagen-theme` | 1.0.0 |
 | Pax8 CTF 2026 | `lucidlabs.pax8-ctf-2026-theme` | 1.0.0 |
 
 ## Repo-specific gotchas
