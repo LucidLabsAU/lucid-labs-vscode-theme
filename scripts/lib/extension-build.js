@@ -82,7 +82,7 @@ function buildContributes(brandKey, displayName) {
  * entry is regenerated while any other menu positions are preserved.
  * Idempotent. Returns the same object.
  */
-function mergeContributes(pkg, brandKey, displayName) {
+function mergeContributes(pkg, brandKey, displayName, mcp) {
   pkg.main = './extension.js';
   const events = new Set(pkg.activationEvents || []);
   events.add('onStartupFinished');
@@ -94,6 +94,15 @@ function mergeContributes(pkg, brandKey, displayName) {
     ...generated,
     menus: { ...(existing.menus || {}), ...generated.menus },
   };
+  // MCP server registration is brand-gated: present it only for brands that
+  // declare an `mcp` config, and strip a stale entry otherwise (idempotent).
+  if (mcp && mcp.id) {
+    pkg.contributes.mcpServerDefinitionProviders = [
+      { id: mcp.id, label: mcp.label || displayName },
+    ];
+  } else {
+    delete pkg.contributes.mcpServerDefinitionProviders;
+  }
   return pkg;
 }
 
@@ -101,19 +110,22 @@ function mergeContributes(pkg, brandKey, displayName) {
  * Fill templates/extension.js placeholders for a brand.
  * themes — the package.json contributes.themes array (used to find labels).
  */
-function renderExtensionJs(template, brandKey, displayName, themes) {
+function renderExtensionJs(template, brandKey, displayName, themes, mcp) {
   const dark = (themes || []).find((t) => t.uiTheme === 'vs-dark');
   const light = (themes || []).find((t) => t.uiTheme === 'vs');
   if (!dark || !light) {
     throw new Error(`Brand "${brandKey}" is missing a vs-dark or vs theme label`);
   }
   const ns = nsFor(brandKey);
+  // Inlined as a JS literal: an object for MCP-enabled brands, else `null`.
+  const mcpConfig = mcp && mcp.id ? JSON.stringify(mcp) : 'null';
   return template
     .replace(/__BRAND__/g, displayName)
     .replace(/__THEME_DARK__/g, dark.label)
     .replace(/__THEME_LIGHT__/g, light.label)
     .replace(/__CONFIG_NS__/g, ns)
-    .replace(/__VIEW_ID__/g, `${ns}Palette`);
+    .replace(/__VIEW_ID__/g, `${ns}Palette`)
+    .replace(/__MCP_CONFIG__/g, mcpConfig);
 }
 
 module.exports = {

@@ -90,12 +90,34 @@ test('mergeContributes preserves menu positions it does not own', () => {
   assert.equal(merged.contributes.menus['editor/context'][0].command, 'charliTheme.somethingElse');
 });
 
+test('mergeContributes adds an MCP provider when the brand declares one', () => {
+  const pkg = eb.mergeContributes(samplePkg(), 'charli', 'CHARLi', {
+    id: 'lucidOperations', label: 'Lucid Operations', url: 'https://example/mcp',
+  });
+  assert.deepEqual(pkg.contributes.mcpServerDefinitionProviders, [
+    { id: 'lucidOperations', label: 'Lucid Operations' },
+  ]);
+});
+
+test('mergeContributes omits the MCP provider for brands without one', () => {
+  const pkg = eb.mergeContributes(samplePkg(), 'charli', 'CHARLi');
+  assert.equal(pkg.contributes.mcpServerDefinitionProviders, undefined);
+});
+
+test('mergeContributes strips a stale MCP provider (idempotent gate-off)', () => {
+  const pkg = samplePkg();
+  pkg.contributes.mcpServerDefinitionProviders = [{ id: 'old', label: 'Old' }];
+  const merged = eb.mergeContributes(pkg, 'charli', 'CHARLi');
+  assert.equal(merged.contributes.mcpServerDefinitionProviders, undefined);
+});
+
 const TEMPLATE = [
   "const BRAND = '__BRAND__';",
   "const THEME_DARK = '__THEME_DARK__';",
   "const THEME_LIGHT = '__THEME_LIGHT__';",
   "const CONFIG_NS = '__CONFIG_NS__';",
   "const VIEW_ID = '__VIEW_ID__';",
+  'const MCP_CONFIG = __MCP_CONFIG__;',
 ].join('\n');
 
 const THEMES = [
@@ -115,4 +137,19 @@ test('renderExtensionJs substitutes every placeholder', () => {
 
 test('renderExtensionJs throws when a theme label is missing', () => {
   assert.throws(() => eb.renderExtensionJs(TEMPLATE, 'charli', 'CHARLi', []));
+});
+
+test('renderExtensionJs inlines null MCP_CONFIG when no mcp is given', () => {
+  const out = eb.renderExtensionJs(TEMPLATE, 'charli', 'CHARLi', THEMES);
+  assert.match(out, /const MCP_CONFIG = null;/);
+  assert.doesNotMatch(out, /__[A-Z_]+__/);
+});
+
+test('renderExtensionJs inlines the mcp object as a JS literal', () => {
+  const mcp = { id: 'lucidOperations', label: 'Lucid Operations', url: 'https://example/mcp' };
+  const out = eb.renderExtensionJs(TEMPLATE, 'charli', 'CHARLi', THEMES, mcp);
+  const m = out.match(/const MCP_CONFIG = (.+);/);
+  assert.ok(m, 'MCP_CONFIG assignment present');
+  assert.deepEqual(JSON.parse(m[1]), mcp);
+  assert.doesNotMatch(out, /__[A-Z_]+__/);
 });

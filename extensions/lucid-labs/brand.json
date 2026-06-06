@@ -21,6 +21,11 @@
   ],
   "homepage": "https://lucidlabs.com.au",
   "sponsor": "https://lucidlabs.com.au",
+  "mcp": {
+    "id": "lucidOperations",
+    "label": "Lucid Operations",
+    "url": "https://mcp.lucidlabs.com.au/mcp"
+  },
   "brandColors": [
     { "key": "primary", "name": "Deep Purple", "hex": "#271D3B", "rgb": [39, 29, 59], "cmyk": [34, 51, 0, 77], "pantone": "5255 C", "group": "primary", "role": "Wordmark / dark page background / heading text on light surfaces" },
     { "key": "teal", "name": "Teal Green", "hex": "#339999", "rgb": [51, 153, 153], "cmyk": [67, 0, 0, 40], "pantone": "321 C", "group": "primary", "role": "Accent / hyperlink / highlight / heading rule on dark backgrounds" },

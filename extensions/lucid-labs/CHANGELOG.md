@@ -1,5 +1,16 @@
 # Change Log
 
+## [1.16.0] - 2026-06-06
+
+### Added
+
+- **Lucid Operations MCP server.** The extension now registers the hosted
+  Lucid Operations MCP server (`mcp.lucidlabs.com.au`) with VS Code, so it
+  appears in the MCP server list with one click — no hand-edited
+  `.vscode/mcp.json`. Sign-in uses VS Code's built-in MCP OAuth (Entra), so
+  no API keys are stored. Lucid Labs brand only; other branded themes are
+  unaffected.
+
 ## [1.15.2] - 2026-06-06
 
 ### Fixed

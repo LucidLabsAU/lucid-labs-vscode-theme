@@ -10,6 +10,10 @@ const THEME_LIGHT = 'Perfection Light';
 const CONFIG_NS = 'perfectionFreshTheme';
 const VIEW_ID = 'perfectionFreshThemePalette';
 
+// Brand-gated: an HTTP MCP server definition for brands that ship one (the
+// generator substitutes an object for those brands, `null` for the rest).
+const MCP_CONFIG = null;
+
 let brandData;
 
 function loadBrand(extensionPath) {
@@ -112,7 +116,48 @@ function openAbout(context) {
   attachCopyHandler(panel.webview, context.subscriptions);
 }
 
+/**
+ * Register the brand's hosted MCP server with VS Code so it appears in the
+ * MCP server list without the user hand-editing `.vscode/mcp.json`. No-op for
+ * brands without an `mcp` config, and on hosts too old to expose the API.
+ * Authentication is handled by VS Code: on a 401 the server advertises its
+ * OAuth protected-resource metadata and VS Code drives the sign-in flow.
+ */
+function registerMcpProvider(context) {
+  const cfg = MCP_CONFIG;
+  if (!cfg || !cfg.url) {
+    return;
+  }
+  if (
+    !vscode.lm ||
+    typeof vscode.lm.registerMcpServerDefinitionProvider !== 'function' ||
+    typeof vscode.McpHttpServerDefinition !== 'function'
+  ) {
+    return;
+  }
+  const provider = {
+    provideMcpServerDefinitions() {
+      return [
+        new vscode.McpHttpServerDefinition(
+          cfg.label || BRAND,
+          vscode.Uri.parse(cfg.url),
+          cfg.headers || {},
+          cfg.version,
+        ),
+      ];
+    },
+    resolveMcpServerDefinition(server) {
+      // VS Code negotiates OAuth from the server's protected-resource metadata.
+      return server;
+    },
+  };
+  context.subscriptions.push(
+    vscode.lm.registerMcpServerDefinitionProvider(cfg.id || `${CONFIG_NS}Mcp`, provider),
+  );
+}
+
 function activate(context) {
+  registerMcpProvider(context);
   const statusBar = makeStatusBarItem(context);
   refreshStatusBar(statusBar);
 

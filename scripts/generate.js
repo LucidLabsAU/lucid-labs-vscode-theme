@@ -225,7 +225,7 @@ function main() {
       let extensionJs = null;
       try {
         extensionJs = eb.renderExtensionJs(
-          extensionJsTemplate, brand, brandConfig.displayName, themes,
+          extensionJsTemplate, brand, brandConfig.displayName, themes, brandConfig.mcp,
         );
       } catch (err) {
         console.error(`  ${err.message}`);
@@ -236,7 +236,7 @@ function main() {
       }
 
       // Patch package.json contributes (idempotent).
-      eb.mergeContributes(extPkg, brand, brandConfig.displayName);
+      eb.mergeContributes(extPkg, brand, brandConfig.displayName, brandConfig.mcp);
       fs.writeFileSync(extPkgPath, JSON.stringify(extPkg, null, 2) + '\n');
 
       console.log(`  ✓ extension runtime (icon, lib, extension.js, package.json)`);
