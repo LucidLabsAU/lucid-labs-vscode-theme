@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.3.0] - 2026-06-06
+
+### Changed
+
+- **Theme ordering.** Themes are now named `Pax8 <Dark|Light> · <edition>`, so the
+  everyday **Pax8 Dark / Light** sort to the top of the theme picker (which sorts
+  by `localeCompare`) and the editions group beneath each variant.
+
+### Fixed
+
+- **Light-variant contrast.** Removed white-on-pale text on the active list
+  selection (it now uses the dark editor foreground). Full electric-fill
+  contrast sweep across all 8 themes passes.
+
 ## [1.2.0] - 2026-06-06
 
 ### Changed

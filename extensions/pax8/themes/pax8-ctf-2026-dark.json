@@ -1506,8 +1506,8 @@
     "annotation:dart": "#29C5F6",
     "parameter.label:dart": "#E6EDF3"
   },
-  "name": "Pax8 CTF 2026 Dark",
-  "displayName": "Pax8 CTF 2026 Dark",
+  "name": "Pax8 Dark · CTF 2026",
+  "displayName": "Pax8 Dark · CTF 2026",
   "description": "A neon cyberpunk VS Code colour theme for the Pax8 + Microsoft Beyond 2026 Capture the Flag — terminal-green and cyan on hacker dark. Built and published by Lucid Labs on behalf of Pax8. All trademarks belong to their respective owners.",
   "version": "1.0.0",
   "publisher": "lucidlabs"

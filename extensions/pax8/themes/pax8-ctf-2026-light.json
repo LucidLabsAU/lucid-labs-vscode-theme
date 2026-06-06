@@ -197,8 +197,8 @@
     "sideBarStickyScroll.border": "#0E6FA815",
     "sideBarStickyScroll.shadow": "#0A0F1A15",
     "list.activeSelectionBackground": "#0E8C3A40",
-    "list.activeSelectionForeground": "#FFFFFF",
-    "list.activeSelectionIconForeground": "#FFFFFF",
+    "list.activeSelectionForeground": "#0A0F1A",
+    "list.activeSelectionIconForeground": "#0A0F1A",
     "list.inactiveSelectionBackground": "#0E8C3A20",
     "list.inactiveSelectionForeground": "#0A0F1A",
     "list.inactiveSelectionIconForeground": "#0A0F1A",
@@ -1506,8 +1506,8 @@
     "annotation:dart": "#0E6FA8",
     "parameter.label:dart": "#0A0F1A"
   },
-  "name": "Pax8 CTF 2026 Light",
-  "displayName": "Pax8 CTF 2026 Light",
+  "name": "Pax8 Light · CTF 2026",
+  "displayName": "Pax8 Light · CTF 2026",
   "description": "A neon cyberpunk VS Code colour theme for the Pax8 + Microsoft Beyond 2026 Capture the Flag — terminal-green and cyan on hacker dark. Built and published by Lucid Labs on behalf of Pax8. All trademarks belong to their respective owners.",
   "version": "1.0.0",
   "publisher": "lucidlabs"

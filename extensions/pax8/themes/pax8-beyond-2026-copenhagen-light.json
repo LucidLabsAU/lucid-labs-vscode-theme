@@ -197,8 +197,8 @@
     "sideBarStickyScroll.border": "#0077A315",
     "sideBarStickyScroll.shadow": "#0A0A0A15",
     "list.activeSelectionBackground": "#C2002940",
-    "list.activeSelectionForeground": "#FFFFFF",
-    "list.activeSelectionIconForeground": "#FFFFFF",
+    "list.activeSelectionForeground": "#0A0A0A",
+    "list.activeSelectionIconForeground": "#0A0A0A",
     "list.inactiveSelectionBackground": "#C2002920",
     "list.inactiveSelectionForeground": "#0A0A0A",
     "list.inactiveSelectionIconForeground": "#0A0A0A",
@@ -1506,8 +1506,8 @@
     "annotation:dart": "#0077A3",
     "parameter.label:dart": "#0A0A0A"
   },
-  "name": "Pax8 Beyond 2026 Copenhagen Light",
-  "displayName": "Pax8 Beyond 2026 Copenhagen Light",
+  "name": "Pax8 Light · Beyond 2026 Copenhagen",
+  "displayName": "Pax8 Light · Beyond 2026 Copenhagen",
   "description": "A bold, red-forward VS Code colour theme for Pax8 Beyond 2026 Copenhagen (EMEA) — Community Red leading, with Education Yellow and Innovation Blue on black. Built and published by Lucid Labs on behalf of Pax8. All trademarks belong to their respective owners.",
   "version": "1.0.0",
   "publisher": "lucidlabs"

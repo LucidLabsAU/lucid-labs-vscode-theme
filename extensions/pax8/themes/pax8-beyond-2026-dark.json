@@ -1506,8 +1506,8 @@
     "annotation:dart": "#FF4D6A",
     "parameter.label:dart": "#F5F5F5"
   },
-  "name": "Pax8 Beyond 2026 Dark",
-  "displayName": "Pax8 Beyond 2026 Dark",
+  "name": "Pax8 Dark · Beyond 2026",
+  "displayName": "Pax8 Dark · Beyond 2026",
   "description": "A high-energy VS Code colour theme for the Pax8 Beyond 2026 conference — Community Red, Education Yellow and Innovation Blue on black. Built and published by Lucid Labs on behalf of Pax8. All trademarks belong to their respective owners.",
   "version": "1.0.0",
   "publisher": "lucidlabs"

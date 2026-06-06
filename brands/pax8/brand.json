@@ -153,7 +153,6 @@
     "remoteForeground": "#FFFFFF",
     "avatarBackground": "#0447BF",
     "avatarForeground": "#FFFFFF",
-    "listActiveSelectionForeground": "#FFFFFF",
     "guideMuted": "#CCCCCC",
     "inactiveForeground": "#0B0B0D",
     "terminalError": "#C82E3A",
@@ -188,8 +187,8 @@
   },
   "variants": {
     "beyond-2026": {
-      "name": "Pax8 Beyond 2026",
-      "displayName": "Pax8 Beyond 2026",
+      "name": "Beyond 2026",
+      "displayName": "Beyond 2026",
       "description": "A high-energy VS Code colour theme for the Pax8 Beyond 2026 conference — Community Red, Education Yellow and Innovation Blue on black. Built and published by Lucid Labs on behalf of Pax8. All trademarks belong to their respective owners.",
       "dark": {
         "background": "#0A0A0A",
@@ -316,7 +315,6 @@
         "remoteForeground": "#FFFFFF",
         "avatarBackground": "#0077A3",
         "avatarForeground": "#FFFFFF",
-        "listActiveSelectionForeground": "#FFFFFF",
         "guideMuted": "#CCCCCC",
         "inactiveForeground": "#0A0A0A",
         "terminalError": "#C20029",
@@ -351,8 +349,8 @@
       }
     },
     "beyond-2026-copenhagen": {
-      "name": "Pax8 Beyond 2026 Copenhagen",
-      "displayName": "Pax8 Beyond 2026 Copenhagen",
+      "name": "Beyond 2026 Copenhagen",
+      "displayName": "Beyond 2026 Copenhagen",
       "description": "A bold, red-forward VS Code colour theme for Pax8 Beyond 2026 Copenhagen (EMEA) — Community Red leading, with Education Yellow and Innovation Blue on black. Built and published by Lucid Labs on behalf of Pax8. All trademarks belong to their respective owners.",
       "dark": {
         "background": "#0A0A0A",
@@ -479,7 +477,6 @@
         "remoteForeground": "#FFFFFF",
         "avatarBackground": "#C20029",
         "avatarForeground": "#FFFFFF",
-        "listActiveSelectionForeground": "#FFFFFF",
         "guideMuted": "#CCCCCC",
         "inactiveForeground": "#0A0A0A",
         "terminalError": "#C20029",
@@ -514,8 +511,8 @@
       }
     },
     "ctf-2026": {
-      "name": "Pax8 CTF 2026",
-      "displayName": "Pax8 CTF 2026",
+      "name": "CTF 2026",
+      "displayName": "CTF 2026",
       "description": "A neon cyberpunk VS Code colour theme for the Pax8 + Microsoft Beyond 2026 Capture the Flag — terminal-green and cyan on hacker dark. Built and published by Lucid Labs on behalf of Pax8. All trademarks belong to their respective owners.",
       "dark": {
         "background": "#0A0F1A",
@@ -642,7 +639,6 @@
         "remoteForeground": "#FFFFFF",
         "avatarBackground": "#0E8C3A",
         "avatarForeground": "#FFFFFF",
-        "listActiveSelectionForeground": "#FFFFFF",
         "guideMuted": "#CCCCCC",
         "inactiveForeground": "#0A0F1A",
         "terminalError": "#C8401C",

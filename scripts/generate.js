@@ -280,6 +280,11 @@ function main() {
           const template = variant === 'dark' ? darkTemplate : lightTemplate;
           const theme = generateTheme(`${brand}/${vslug}`, variant, subConfig, template);
           if (theme) {
+            // Variant-grouped name: "<Brand> <Variant> · <Edition>" so the
+            // everyday brand themes sort to the top of the (localeCompare) picker.
+            const variantWord = variant === 'dark' ? 'Dark' : 'Light';
+            theme.name = `${brandConfig.displayName} ${variantWord} · ${vcfg.name}`;
+            theme.displayName = theme.name;
             const vPath = path.join(outDir, `${brand}-${vslug}-${variant}.json`);
             fs.writeFileSync(vPath, JSON.stringify(theme, null, 2) + '\n');
             console.log(`  ✓ ${brand}-${vslug}-${variant}.json`);

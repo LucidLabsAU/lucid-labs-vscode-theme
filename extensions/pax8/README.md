@@ -1,15 +1,15 @@
 # Pax8
 
-A black-first VS Code **theme suite** for Pax8 — the everyday Pax8 identity plus the event editions, all in one extension. Pick any of them from `File > Preferences > Theme > Color Theme`.
+A black-first VS Code **theme suite** for Pax8 — the everyday Pax8 identity plus the event editions, all in one extension. Pick any of them from `File > Preferences > Theme > Color Theme`. Themes are named `Pax8 <Dark|Light> · <edition>`, so the everyday **Pax8 Dark / Light** sort to the top of the picker and the editions group beneath each variant.
 
 ## Themes in this extension
 
 | Theme | Lead colour | For |
 |-------|-------------|-----|
 | **Pax8 Dark / Light** | Mint `#03DE91` + Pax8 Blue `#0447BF` | Everyday Pax8 |
-| **Pax8 Beyond 2026 Dark / Light** | Innovation Blue `#00BBEF` | Beyond 2026, Salt Lake City (NA) |
-| **Pax8 Beyond 2026 Copenhagen Dark / Light** | Community Red `#FF0D3B` | Beyond 2026, Bella Center (EMEA), 18–20 Oct 2026 |
-| **Pax8 CTF 2026 Dark / Light** | Terminal green `#39FF14` | Pax8 + Microsoft Beyond Capture the Flag |
+| **Pax8 Dark / Light · Beyond 2026** | Innovation Blue `#00BBEF` | Beyond 2026, Salt Lake City (NA) |
+| **Pax8 Dark / Light · Beyond 2026 Copenhagen** | Community Red `#FF0D3B` | Beyond 2026, Bella Center (EMEA), 18–20 Oct 2026 |
+| **Pax8 Dark / Light · CTF 2026** | Terminal green `#39FF14` | Pax8 + Microsoft Beyond Capture the Flag |
 
 ## Brand colours
 
