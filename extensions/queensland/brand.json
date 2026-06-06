@@ -116,7 +116,6 @@
     "jsonLevel3": "#006A8F",
     "markdownRaw": "#73182C",
     "blockquote": "#0085B3",
-    "listActiveSelectionForeground": "#FFFFFF",
     "guideMuted": "#E0E0E0",
     "inactiveForeground": "#444444",
     "terminalError": "#E22339",

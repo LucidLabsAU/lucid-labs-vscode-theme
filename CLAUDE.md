@@ -49,25 +49,25 @@ extensions/<name>/package.json → VS Code extension manifest
 
 | Brand | Extension ID | Version |
 |-------|-------------|---------|
-| Lucid Labs | `lucidlabs.lucid-labs-theme` | 1.15.1 |
+| Lucid Labs | `lucidlabs.lucid-labs-theme` | 1.15.2 |
 | CHARLI Health | `lucidlabs.charli-health-theme` | 1.9.1 |
-| Perfection Fresh | `lucidlabs.perfection-fresh-theme` | 1.8.1 |
-| Australian Food & Fibre | `lucidlabs.australian-food-fibre-theme` | 1.8.1 |
-| Banjo Loans | `lucidlabs.banjo-loans-theme` | 1.8.1 |
+| Perfection Fresh | `lucidlabs.perfection-fresh-theme` | 1.8.2 |
+| Australian Food & Fibre | `lucidlabs.australian-food-fibre-theme` | 1.8.2 |
+| Banjo Loans | `lucidlabs.banjo-loans-theme` | 1.8.2 |
 | Progenesis | `lucidlabs.progenesis-theme` | 1.8.1 |
-| Icon Group | `lucidlabs.icon-group-theme` | 1.9.1 |
-| Queensland | `lucidlabs.queensland-theme` | 1.8.1 |
-| New South Wales | `lucidlabs.new-south-wales-theme` | 1.7.1 |
-| Victoria | `lucidlabs.victoria-theme` | 1.7.1 |
-| Tasmania | `lucidlabs.tasmania-theme` | 1.7.1 |
-| South Australia | `lucidlabs.south-australia-theme` | 1.7.1 |
-| Western Australia | `lucidlabs.western-australia-theme` | 1.7.1 |
-| Northern Territory | `lucidlabs.northern-territory-theme` | 1.7.1 |
-| ACT | `lucidlabs.act-theme` | 1.7.1 |
-| AI Tour Sydney | `lucidlabs.ai-tour-sydney-theme` | 1.3.1 |
-| Aurora Dairies | `lucidlabs.aurora-dairies-theme` | 1.1.1 |
-| Asplundh | `lucidlabs.asplundh-theme` | 1.0.0 |
-| Pax8 (suite: everyday + Beyond 2026 SLC/Copenhagen + CTF 2026) | `lucidlabs.pax8-theme` | 1.3.0 |
+| Icon Group | `lucidlabs.icon-group-theme` | 1.9.2 |
+| Queensland | `lucidlabs.queensland-theme` | 1.8.2 |
+| New South Wales | `lucidlabs.new-south-wales-theme` | 1.7.2 |
+| Victoria | `lucidlabs.victoria-theme` | 1.7.2 |
+| Tasmania | `lucidlabs.tasmania-theme` | 1.7.2 |
+| South Australia | `lucidlabs.south-australia-theme` | 1.7.2 |
+| Western Australia | `lucidlabs.western-australia-theme` | 1.7.2 |
+| Northern Territory | `lucidlabs.northern-territory-theme` | 1.7.2 |
+| ACT | `lucidlabs.act-theme` | 1.7.2 |
+| AI Tour Sydney | `lucidlabs.ai-tour-sydney-theme` | 1.3.2 |
+| Aurora Dairies | `lucidlabs.aurora-dairies-theme` | 1.1.2 |
+| Asplundh | `lucidlabs.asplundh-theme` | 1.0.1 |
+| Pax8 (suite: everyday + Beyond 2026 SLC/Copenhagen + CTF 2026) | `lucidlabs.pax8-theme` | 1.3.1 |
 
 ## Repo-specific gotchas
 

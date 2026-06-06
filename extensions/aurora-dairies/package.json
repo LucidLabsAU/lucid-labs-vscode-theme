@@ -2,7 +2,7 @@
   "name": "aurora-dairies-theme",
   "displayName": "Aurora Dairies",
   "description": "A calm, modern VS Code colour theme inspired by the Aurora Dairies visual identity. Features deep aurora-blue surfaces with cream foreground and pasture-green syntax accents, evoking dawn skies over Australian and New Zealand pasture-based dairy farms. Built and published by Lucid Labs on behalf of Aurora Dairies. All trademarks belong to their respective owners.",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "publisher": "lucidlabs",
   "license": "MIT",
   "icon": "icon.png",

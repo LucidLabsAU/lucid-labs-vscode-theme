@@ -133,7 +133,6 @@
     "remoteForeground": "#FFFFFF",
     "avatarBackground": "#003599",
     "avatarForeground": "#FFFFFF",
-    "listActiveSelectionForeground": "#FFFFFF",
     "guideMuted": "#CCCCCC",
     "inactiveForeground": "#0A1530",
     "terminalError": "#C82E2E",

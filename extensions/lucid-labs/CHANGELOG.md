@@ -1,5 +1,14 @@
 # Change Log
 
+## [1.15.2] - 2026-06-06
+
+### Fixed
+
+- **Light-variant contrast.** Active list selection no longer uses white
+  text on the pale selection fill — it now uses the dark editor foreground.
+- **Black-on-teal text.** Buttons, badges and prominent items now use near-black
+  text on the teal accent (both variants) instead of low-contrast white.
+
 ## [1.15.1] - 2026-05-26
 
 ### Changed

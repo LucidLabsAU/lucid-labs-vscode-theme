@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.8.2] - 2026-06-06
+
+### Fixed
+
+- **Light-variant contrast.** Active list selection no longer uses white
+  text on the pale selection fill — it now uses the dark editor foreground.
+- **Button/badge text.** Crisp white on the red accent for buttons, badges and
+  prominent items, lifting them to WCAG AA.
+
 ## [1.8.1] - 2026-05-26
 
 ### Changed

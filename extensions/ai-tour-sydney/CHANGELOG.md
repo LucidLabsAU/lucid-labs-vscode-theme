@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.2] - 2026-06-06
+
+### Fixed
+
+- **Button/badge text.** Crisp white on the blue accent for buttons, badges and
+  prominent items, lifting them to WCAG AA.
+
 ## [1.3.1] - 2026-05-26
 
 ### Changed

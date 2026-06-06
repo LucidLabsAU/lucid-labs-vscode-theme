@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.1] - 2026-06-06
+
+### Fixed
+
+- **CTF 2026 light contrast.** Black text on the (darkened) terminal-green
+  buttons and badges in the light variant, lifting them to WCAG AA.
+
 ## [1.3.0] - 2026-06-06
 
 ### Changed

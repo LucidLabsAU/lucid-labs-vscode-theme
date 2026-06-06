@@ -30,6 +30,7 @@
     "borderSubtle": "#1A3B6F",
     "muted": "#B8F1E6",
     "accent": "#1570EF",
+    "accentFg": "#FFFFFF",
     "accentHover": "#0F5FD8",
     "keyword": "#7FE5D8",
     "string": "#B8F1E6",

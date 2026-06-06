@@ -205,7 +205,7 @@
     "activityBar.activeFocusBorder": "{{keyword}}",
     "activityBar.dropBorder": "{{keyword}}",
     "activityBarBadge.background": "{{badge|accent}}",
-    "activityBarBadge.foreground": "{{badgeForeground|#FFFFFF}}",
+    "activityBarBadge.foreground": "{{accentFg|badgeForeground|#FFFFFF}}",
     "activityBarTop.foreground": "{{foreground}}",
     "activityBarTop.activeBorder": "{{keyword}}",
     "activityBarTop.inactiveForeground": "{{inactiveForeground|foreground}}70",
@@ -303,9 +303,9 @@
     "statusBarItem.activeBackground": "{{statusBarBorder|sectionHeader|keyword}}80",
     "statusBarItem.hoverForeground": "#FFFFFF",
     "statusBarItem.hoverBackground": "{{statusBarBorder|sectionHeader|keyword}}80",
-    "statusBarItem.prominentForeground": "#FFFFFF",
+    "statusBarItem.prominentForeground": "{{accentFg|#FFFFFF}}",
     "statusBarItem.prominentBackground": "{{prominentButton|accent}}",
-    "statusBarItem.prominentHoverForeground": "#FFFFFF",
+    "statusBarItem.prominentHoverForeground": "{{accentFg|#FFFFFF}}",
     "statusBarItem.prominentHoverBackground": "{{prominentButtonHover|accentHover}}",
     "statusBarItem.remoteBackground": "{{remote|accent}}",
     "statusBarItem.remoteForeground": "{{remoteForeground|#FFFFFF}}",
@@ -459,7 +459,7 @@
 
     // ─── Buttons ─────────────────────────────────────────────
     "button.background": "{{button|accent}}",
-    "button.foreground": "#FFFFFF",
+    "button.foreground": "{{accentFg|#FFFFFF}}",
     "button.border": "{{button|accent}}00",
     "button.separator": "#FFFFFF40",
     "button.hoverBackground": "{{buttonHover|accentHover}}",
@@ -554,7 +554,7 @@
 
     // ─── Badge ───────────────────────────────────────────────
     "badge.background": "{{badge|accent}}",
-    "badge.foreground": "#FFFFFF",
+    "badge.foreground": "{{accentFg|#FFFFFF}}",
 
     // ─── Progress bar ────────────────────────────────────────
     "progressBar.background": "{{accent}}",
@@ -1015,11 +1015,11 @@
     "symbolIcon.variableForeground": "{{foreground}}",
 
     // ─── Extensions ──────────────────────────────────────────
-    "extensionButton.prominentForeground": "#FFFFFF",
+    "extensionButton.prominentForeground": "{{accentFg|#FFFFFF}}",
     "extensionButton.prominentBackground": "{{accent}}",
     "extensionButton.prominentHoverBackground": "{{accentHover}}",
     "extensionButton.background": "{{accent}}",
-    "extensionButton.foreground": "#FFFFFF",
+    "extensionButton.foreground": "{{accentFg|#FFFFFF}}",
     "extensionButton.hoverBackground": "{{accentHover}}",
     "extensionButton.separator": "#FFFFFF40",
     "extensionBadge.remoteBackground": "{{accent}}",

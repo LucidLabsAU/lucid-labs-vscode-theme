@@ -598,6 +598,7 @@
         "borderSubtle": "#0E8C3A",
         "muted": "#5A6675",
         "accent": "#0E8C3A",
+        "accentFg": "#000000",
         "accentHover": "#0A7530",
         "keyword": "#0E6FA8",
         "string": "#1F7A2E",
