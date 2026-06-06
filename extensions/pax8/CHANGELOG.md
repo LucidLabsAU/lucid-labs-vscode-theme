@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.3.2] - 2026-06-06
+
+### Changed
+
+- **Marketplace description.** Trimmed so the gallery card shows a complete
+  sentence instead of clipping mid-word; the publisher and trademark line now
+  lives in the README footer only.
+- **Manifest.** Added `$schema` for package.json validation.
+
 ## [1.3.1] - 2026-06-06
 
 ### Fixed

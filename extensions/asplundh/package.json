@@ -1,8 +1,9 @@
 {
+  "$schema": "https://json.schemastore.org/package.json",
   "name": "asplundh-theme",
   "displayName": "Asplundh",
-  "description": "A bold, high-contrast VS Code colour theme inspired by the Asplundh visual identity — the orange-and-black livery seen on Asplundh utility vegetation management crews and trucks across Australia and the world. Built and published by Lucid Labs on behalf of Asplundh. All trademarks belong to their respective owners.",
-  "version": "1.0.1",
+  "description": "A bold, high-contrast VS Code colour theme inspired by the Asplundh visual identity — the orange-and-black livery seen on utility vegetation-management crews and trucks worldwide.",
+  "version": "1.0.2",
   "publisher": "lucidlabs",
   "license": "MIT",
   "icon": "icon.png",

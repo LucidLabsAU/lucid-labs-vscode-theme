@@ -1508,7 +1508,7 @@
   },
   "name": "Pax8 Light",
   "displayName": "Pax8 Light",
-  "description": "A black-first VS Code theme suite for Pax8 — the everyday Pax8 identity (electric mint on black) plus event editions for Pax8 Beyond 2026 (Salt Lake City & Copenhagen) and the Pax8 + Microsoft Beyond Capture the Flag. Built and published by Lucid Labs on behalf of Pax8. All trademarks belong to their respective owners.",
+  "description": "A black-first VS Code theme suite for Pax8 — the everyday electric-mint-on-black identity plus event editions for Pax8 Beyond 2026 (Salt Lake City & Copenhagen) and the Pax8 + Microsoft Beyond CTF.",
   "version": "1.0.0",
   "publisher": "lucidlabs"
 }

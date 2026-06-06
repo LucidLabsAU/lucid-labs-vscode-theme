@@ -1,8 +1,9 @@
 {
+  "$schema": "https://json.schemastore.org/package.json",
   "name": "pax8-theme",
   "displayName": "Pax8",
-  "description": "A black-first VS Code theme suite for Pax8 — the everyday Pax8 identity (electric mint on black) plus event editions for Pax8 Beyond 2026 (Salt Lake City & Copenhagen) and the Pax8 + Microsoft Beyond Capture the Flag. Built and published by Lucid Labs on behalf of Pax8. All trademarks belong to their respective owners.",
-  "version": "1.3.1",
+  "description": "A black-first VS Code theme suite for Pax8 — the everyday electric-mint-on-black identity plus event editions for Pax8 Beyond 2026 (Salt Lake City & Copenhagen) and the Pax8 + Microsoft Beyond CTF.",
+  "version": "1.3.2",
   "publisher": "lucidlabs",
   "license": "MIT",
   "icon": "icon.png",
