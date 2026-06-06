@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.1.0] - 2026-06-06
+
+### Changed
+
+- Consolidated all Pax8 themes into this single extension. The standalone
+  `pax8-beyond-2026`, `pax8-beyond-2026-copenhagen` and `pax8-ctf-2026`
+  extensions are retired — their themes now ship here.
+- New marketplace icon: white Pax8 cloud with red/yellow/blue Beyond side stripes.
+
+### Added
+
+- **Pax8 Beyond 2026** Dark/Light — Innovation Blue (Salt Lake City, blue-forward).
+- **Pax8 Beyond 2026 Copenhagen** Dark/Light — Community Red (EMEA, red-forward).
+- **Pax8 CTF 2026** Dark/Light — neon terminal green (Pax8 + Microsoft Beyond CTF).
+
 ## [1.0.0] - 2026-06-06
 
 ### Added

@@ -262,6 +262,34 @@ function main() {
       hasErrors = true;
     }
 
+    // Generate extra theme variants bundled into this one extension.
+    // A brand may declare `variants: { <slug>: { name, displayName?, description?, dark, light } }`
+    // — each becomes its own theme inside the same extension (e.g. event editions).
+    if (brandConfig.variants) {
+      for (const [vslug, vcfg] of Object.entries(brandConfig.variants)) {
+        const subConfig = {
+          name: vcfg.name,
+          displayName: vcfg.displayName || vcfg.name,
+          description: vcfg.description || brandConfig.description,
+          publisher: brandConfig.publisher,
+          dark: vcfg.dark,
+          light: vcfg.light,
+        };
+        for (const variant of ['dark', 'light']) {
+          if (!vcfg[variant]) continue;
+          const template = variant === 'dark' ? darkTemplate : lightTemplate;
+          const theme = generateTheme(`${brand}/${vslug}`, variant, subConfig, template);
+          if (theme) {
+            const vPath = path.join(outDir, `${brand}-${vslug}-${variant}.json`);
+            fs.writeFileSync(vPath, JSON.stringify(theme, null, 2) + '\n');
+            console.log(`  ✓ ${brand}-${vslug}-${variant}.json`);
+          } else {
+            hasErrors = true;
+          }
+        }
+      }
+    }
+
     // Generate icon theme (uses dark palette for icons)
     if (hasIconTemplates && brandConfig.dark) {
       const iconOutDir = path.join(extDir, 'icons');

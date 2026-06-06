@@ -1,8 +1,8 @@
 {
   "name": "pax8-theme",
   "displayName": "Pax8",
-  "description": "A sharp, black-first VS Code colour theme inspired by the Pax8 visual identity — electric mint green and deep blue on black. Built and published by Lucid Labs on behalf of Pax8. All trademarks belong to their respective owners.",
-  "version": "1.0.0",
+  "description": "A black-first VS Code theme suite for Pax8 — the everyday Pax8 identity (electric mint on black) plus event editions for Pax8 Beyond 2026 (Salt Lake City & Copenhagen) and the Pax8 + Microsoft Beyond Capture the Flag. Built and published by Lucid Labs on behalf of Pax8. All trademarks belong to their respective owners.",
+  "version": "1.1.0",
   "publisher": "lucidlabs",
   "license": "MIT",
   "icon": "icon.png",
@@ -16,6 +16,11 @@
     "light theme",
     "colour theme",
     "pax8",
+    "pax8 beyond",
+    "beyond 2026",
+    "copenhagen",
+    "ctf",
+    "capture the flag",
     "marketplace",
     "cloud",
     "msp",
@@ -23,6 +28,8 @@
     "mint",
     "green",
     "blue",
+    "red",
+    "yellow",
     "black",
     "brand",
     "icon theme",
@@ -51,6 +58,36 @@
         "label": "Pax8 Light",
         "uiTheme": "vs",
         "path": "./themes/pax8-light.json"
+      },
+      {
+        "label": "Pax8 Beyond 2026 Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/pax8-beyond-2026-dark.json"
+      },
+      {
+        "label": "Pax8 Beyond 2026 Light",
+        "uiTheme": "vs",
+        "path": "./themes/pax8-beyond-2026-light.json"
+      },
+      {
+        "label": "Pax8 Beyond 2026 Copenhagen Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/pax8-beyond-2026-copenhagen-dark.json"
+      },
+      {
+        "label": "Pax8 Beyond 2026 Copenhagen Light",
+        "uiTheme": "vs",
+        "path": "./themes/pax8-beyond-2026-copenhagen-light.json"
+      },
+      {
+        "label": "Pax8 CTF 2026 Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/pax8-ctf-2026-dark.json"
+      },
+      {
+        "label": "Pax8 CTF 2026 Light",
+        "uiTheme": "vs",
+        "path": "./themes/pax8-ctf-2026-light.json"
       }
     ],
     "iconThemes": [
