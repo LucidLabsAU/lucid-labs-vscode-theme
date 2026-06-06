@@ -98,7 +98,8 @@
     "bracket4": "#29C5F6",
     "bracket5": "#C792EA",
     "bracket6": "#7DE0B8",
-    "galleryBanner": "#000000"
+    "galleryBanner": "#000000",
+    "accentFg": "#00120B"
   },
   "light": {
     "background": "#FFFFFF",
@@ -260,7 +261,8 @@
         "bracket4": "#2BD46E",
         "bracket5": "#FF5C9E",
         "bracket6": "#7FD9F0",
-        "galleryBanner": "#000000"
+        "galleryBanner": "#000000",
+        "accentFg": "#00181F"
       },
       "light": {
         "background": "#FFFFFF",
@@ -422,7 +424,8 @@
         "bracket4": "#2BD46E",
         "bracket5": "#FF5C9E",
         "bracket6": "#7FD9F0",
-        "galleryBanner": "#000000"
+        "galleryBanner": "#000000",
+        "accentFg": "#1A0006"
       },
       "light": {
         "background": "#FFFFFF",
@@ -584,7 +587,8 @@
         "bracket4": "#5C8CFF",
         "bracket5": "#C792EA",
         "bracket6": "#F25022",
-        "galleryBanner": "#05070D"
+        "galleryBanner": "#05070D",
+        "accentFg": "#04140A"
       },
       "light": {
         "background": "#FFFFFF",
@@ -672,5 +676,88 @@
         "galleryBanner": "#F2F4F7"
       }
     }
-  }
+  },
+  "brandColors": [
+    {
+      "group": "primary",
+      "name": "Mint",
+      "hex": "#03DE91",
+      "role": "Pax8 everyday primary — accents, buttons, status bar"
+    },
+    {
+      "group": "primary",
+      "name": "Pax8 Blue",
+      "hex": "#0447BF",
+      "role": "Pax8 everyday secondary — light accent, keywords"
+    },
+    {
+      "group": "primary",
+      "name": "Black",
+      "hex": "#000000",
+      "role": "Core — deepest surface, banner"
+    },
+    {
+      "group": "primary",
+      "name": "White",
+      "hex": "#FFFFFF",
+      "role": "Core — text on mint, light background"
+    },
+    {
+      "group": "secondary",
+      "name": "Community Red",
+      "hex": "#FF0D3B",
+      "pantone": "199C / 2035U",
+      "cmyk": [
+        0,
+        98,
+        75,
+        0
+      ],
+      "role": "Beyond 2026 — Copenhagen lead"
+    },
+    {
+      "group": "secondary",
+      "name": "Education Yellow",
+      "hex": "#ECFF18",
+      "pantone": "389C / 388U",
+      "cmyk": [
+        13,
+        0,
+        100,
+        0
+      ],
+      "role": "Beyond 2026 — strings, highlights"
+    },
+    {
+      "group": "secondary",
+      "name": "Innovation Blue",
+      "hex": "#00BBEF",
+      "pantone": "2985C / 297U",
+      "cmyk": [
+        68,
+        4,
+        0,
+        0
+      ],
+      "role": "Beyond 2026 — Salt Lake City lead"
+    },
+    {
+      "group": "other",
+      "name": "Terminal Green",
+      "hex": "#39FF14",
+      "role": "CTF 2026 — neon primary"
+    },
+    {
+      "group": "other",
+      "name": "Cyber Cyan",
+      "hex": "#29C5F6",
+      "role": "CTF 2026 — keywords, info"
+    },
+    {
+      "group": "other",
+      "name": "Electric Blue",
+      "hex": "#1657FF",
+      "role": "CTF 2026 — functions, links"
+    }
+  ]
 }

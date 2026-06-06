@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.2.0] - 2026-06-06
+
+### Changed
+
+- **Black-on-mint text.** Buttons, badges and prominent items now use near-black
+  text on the mint/brand fills (dark themes), matching Pax8's own black-on-green
+  usage instead of low-contrast white. New `accentFg` brand role drives it.
+- **Brand Palette sidebar** now leads with a named, grouped **Brand Colours**
+  section (Mint, Pax8 Blue, the Beyond press-kit colours with Pantone/CMYK, and
+  the CTF colours) before the exhaustive theme-role dump.
+
 ## [1.1.0] - 2026-06-06
 
 ### Changed
