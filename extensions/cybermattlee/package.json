@@ -1,0 +1,143 @@
+{
+  "$schema": "https://json.schemastore.org/package.json",
+  "name": "cybermattlee-theme",
+  "displayName": "CyberMattLee",
+  "description": "A neon-on-midnight VS Code colour theme inspired by CyberMattLee — Matt Lee's hot-magenta beard and deep-purple cyber aesthetic. Raise the tide of cybersecurity, one keystroke at a time.",
+  "version": "1.0.0",
+  "publisher": "lucidlabs",
+  "license": "MIT",
+  "icon": "icon.png",
+  "author": {
+    "name": "Lucid Labs",
+    "url": "https://lucidlabs.com.au"
+  },
+  "keywords": [
+    "theme",
+    "dark theme",
+    "light theme",
+    "colour theme",
+    "cybermattlee",
+    "matt lee",
+    "cybersecurity",
+    "infosec",
+    "msp",
+    "raise the tide",
+    "beard",
+    "magenta",
+    "purple",
+    "neon",
+    "brand",
+    "icon theme",
+    "icons"
+  ],
+  "categories": [
+    "Themes",
+    "Other"
+  ],
+  "galleryBanner": {
+    "color": "#1E0F38",
+    "theme": "dark"
+  },
+  "qna": "marketplace",
+  "extensionKind": [
+    "ui"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Matt Lee Full Beard",
+        "uiTheme": "vs-dark",
+        "path": "./themes/cybermattlee-dark.json"
+      },
+      {
+        "label": "Matt Lee Shaved",
+        "uiTheme": "vs",
+        "path": "./themes/cybermattlee-light.json"
+      }
+    ],
+    "iconThemes": [
+      {
+        "id": "cybermattlee-icons",
+        "label": "CyberMattLee Icons",
+        "path": "./icon-theme.json"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "cybermattleeThemeContainer",
+          "title": "CyberMattLee",
+          "icon": "activity-icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "cybermattleeThemeContainer": [
+        {
+          "id": "cybermattleeThemePalette",
+          "name": "Brand Palette",
+          "type": "webview",
+          "icon": "activity-icon.svg",
+          "contextualTitle": "CyberMattLee"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "cybermattleeTheme.switchDark",
+        "title": "Switch to CyberMattLee Dark",
+        "category": "CyberMattLee"
+      },
+      {
+        "command": "cybermattleeTheme.switchLight",
+        "title": "Switch to CyberMattLee Light",
+        "category": "CyberMattLee"
+      },
+      {
+        "command": "cybermattleeTheme.toggleVariant",
+        "title": "Toggle Dark/Light Variant",
+        "category": "CyberMattLee"
+      },
+      {
+        "command": "cybermattleeTheme.openAbout",
+        "title": "Open Brand Palette",
+        "category": "CyberMattLee",
+        "icon": "$(symbol-color)"
+      }
+    ],
+    "configuration": {
+      "title": "CyberMattLee Theme",
+      "properties": {
+        "cybermattleeTheme.showStatusBarItem": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show the CyberMattLee brand chip in the status bar while a CyberMattLee theme is active."
+        }
+      }
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "cybermattleeTheme.openAbout",
+          "when": "view == cybermattleeThemePalette",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
+  "engines": {
+    "vscode": "^1.107.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LucidLabsAU/lucid-labs-vscode-theme.git"
+  },
+  "bugs": {
+    "url": "https://github.com/LucidLabsAU/lucid-labs-vscode-theme/issues"
+  },
+  "homepage": "https://cybermattlee.com",
+  "main": "./extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ]
+}

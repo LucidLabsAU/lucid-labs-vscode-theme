@@ -134,7 +134,7 @@ Create these files in `extensions/<slug>/`:
 node_modules/**
 ```
 
-**`LICENSE`** — Copy from the root `LICENSE` file (MIT).
+> **Don't hand-author runtime files.** `LICENSE`, `extension.js`, `lib/palette-view.js`, `activity-icon.svg`, and `icon-theme.json` are auto-generated or copied into `extensions/<slug>/` by `scripts/generate.js` — never write them by hand. You only author `package.json`, `.vscodeignore`, and `CHANGELOG.md`.
 
 ### Step 5: Create Brand Icon
 
@@ -143,6 +143,8 @@ Create or obtain a 256×256 PNG icon at `brands/<slug>/icon.png`. This is the ex
 # Example with sips (macOS)
 sips -z 256 256 source.png --out brands/<slug>/icon.png
 ```
+
+Optionally, supply `brands/<slug>/icons/git.svg` using `{{accent}}` as the file-icon brand mark — `scripts/generate.js` also auto-converts it into the monochrome activity-bar icon (`activity-icon.svg`).
 
 ### Step 6: Create Brand README
 

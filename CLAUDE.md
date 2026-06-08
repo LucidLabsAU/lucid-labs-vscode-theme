@@ -68,6 +68,7 @@ extensions/<name>/package.json → VS Code extension manifest
 | Aurora Dairies | `lucidlabs.aurora-dairies-theme` | 1.1.2 |
 | Asplundh | `lucidlabs.asplundh-theme` | 1.0.1 |
 | Pax8 (suite: everyday + Beyond 2026 SLC/Copenhagen + CTF 2026) | `lucidlabs.pax8-theme` | 1.3.1 |
+| CyberMattLee (variants: Matt Lee Full Beard / Matt Lee Shaved) | `lucidlabs.cybermattlee-theme` | 1.0.0 |
 
 ## Repo-specific gotchas
 
