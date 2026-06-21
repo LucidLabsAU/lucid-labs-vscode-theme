@@ -1,0 +1,142 @@
+{
+  "$schema": "https://json.schemastore.org/package.json",
+  "name": "qpws-theme",
+  "displayName": "Queensland Parks & Wildlife (Unofficial)",
+  "description": "An unofficial VS Code colour theme inspired by the teal, cream and brown palette of Queensland's parks and wildlife.",
+  "version": "1.0.0",
+  "publisher": "lucidlabs",
+  "license": "MIT",
+  "icon": "icon.png",
+  "author": {
+    "name": "Lucid Labs",
+    "url": "https://lucidlabs.com.au"
+  },
+  "keywords": [
+    "theme",
+    "dark theme",
+    "light theme",
+    "colour theme",
+    "queensland",
+    "qpws",
+    "parks",
+    "wildlife",
+    "nature",
+    "conservation",
+    "teal",
+    "cream",
+    "australia",
+    "unofficial",
+    "icon theme",
+    "icons"
+  ],
+  "categories": [
+    "Themes",
+    "Other"
+  ],
+  "galleryBanner": {
+    "color": "#0C2123",
+    "theme": "dark"
+  },
+  "qna": "marketplace",
+  "extensionKind": [
+    "ui"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Queensland Parks & Wildlife Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/qpws-dark.json"
+      },
+      {
+        "label": "Queensland Parks & Wildlife Light",
+        "uiTheme": "vs",
+        "path": "./themes/qpws-light.json"
+      }
+    ],
+    "iconThemes": [
+      {
+        "id": "qpws-icons",
+        "label": "Queensland Parks & Wildlife Icons",
+        "path": "./icon-theme.json"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "qpwsThemeContainer",
+          "title": "Queensland Parks & Wildlife (Unofficial)",
+          "icon": "activity-icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "qpwsThemeContainer": [
+        {
+          "id": "qpwsThemePalette",
+          "name": "Brand Palette",
+          "type": "webview",
+          "icon": "activity-icon.svg",
+          "contextualTitle": "Queensland Parks & Wildlife (Unofficial)"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "qpwsTheme.switchDark",
+        "title": "Switch to Queensland Parks & Wildlife (Unofficial) Dark",
+        "category": "Queensland Parks & Wildlife (Unofficial)"
+      },
+      {
+        "command": "qpwsTheme.switchLight",
+        "title": "Switch to Queensland Parks & Wildlife (Unofficial) Light",
+        "category": "Queensland Parks & Wildlife (Unofficial)"
+      },
+      {
+        "command": "qpwsTheme.toggleVariant",
+        "title": "Toggle Dark/Light Variant",
+        "category": "Queensland Parks & Wildlife (Unofficial)"
+      },
+      {
+        "command": "qpwsTheme.openAbout",
+        "title": "Open Brand Palette",
+        "category": "Queensland Parks & Wildlife (Unofficial)",
+        "icon": "$(symbol-color)"
+      }
+    ],
+    "configuration": {
+      "title": "Queensland Parks & Wildlife (Unofficial) Theme",
+      "properties": {
+        "qpwsTheme.showStatusBarItem": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show the Queensland Parks & Wildlife (Unofficial) brand chip in the status bar while a Queensland Parks & Wildlife (Unofficial) theme is active."
+        }
+      }
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "qpwsTheme.openAbout",
+          "when": "view == qpwsThemePalette",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
+  "engines": {
+    "vscode": "^1.107.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LucidLabsAU/lucid-labs-vscode-theme.git"
+  },
+  "bugs": {
+    "url": "https://github.com/LucidLabsAU/lucid-labs-vscode-theme/issues"
+  },
+  "homepage": "https://parks.desi.qld.gov.au",
+  "main": "./extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ]
+}
