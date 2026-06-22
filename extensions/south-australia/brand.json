@@ -22,6 +22,15 @@
   ],
   "homepage": "https://www.sa.gov.au",
   "sponsor": "https://lucidlabs.com.au",
+  "brandColors": [
+    { "name": "SA Navy Blue", "hex": "#012169", "group": "primary", "role": "Core state blue — accent, status bar, links" },
+    { "name": "SA Red", "hex": "#E4002B", "group": "primary", "role": "Core state red — errors, keyword highlights" },
+    { "name": "Sky Blue", "hex": "#5B9BD5", "group": "secondary", "role": "Info, supporting accent" },
+    { "name": "River Blue", "hex": "#4D80C4", "group": "secondary", "role": "Functions, secondary blue" },
+    { "name": "Pale Blue", "hex": "#7EB8DA", "group": "secondary", "role": "Constants, tints" },
+    { "name": "Vine Green", "hex": "#6BBE27", "group": "other", "role": "Strings, success accents" },
+    { "name": "Wheat Gold", "hex": "#FFCC2C", "group": "other", "role": "Warnings, highlight badges" }
+  ],
   "dark": {
     "background": "#0A0C18",
     "foreground": "#E8EDF3",

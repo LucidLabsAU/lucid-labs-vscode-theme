@@ -71,12 +71,6 @@ function copyButtons(fmt) {
     .join('');
 }
 
-/** Format a role list: show all, with truncation handled in CSS, full text in title. */
-function renderRoles(roles) {
-  const all = roles.join(' · ');
-  return `<span class="role" title="${escapeHtml(all)}">${escapeHtml(all)}</span>`;
-}
-
 /** Format a colour for display, preferring supplied rgb/cmyk over derived. */
 function colourFormats(hex, rgb, cmyk) {
   const r = rgb || hexToRgb(hex);
@@ -96,22 +90,6 @@ function brandCard(c) {
       <span class="hex">${escapeHtml(fmt.hex)}</span>
       ${c.role ? `<span class="role" title="${escapeHtml(c.role)}">${escapeHtml(c.role)}</span>` : ''}
       ${pantone}
-    </div>
-    <div class="copies">${copyButtons(fmt)}</div>
-  </div>`;
-}
-
-/** One card for a de-duped theme-role colour. */
-function roleCard(entry, brandColors) {
-  const fmt = colourFormats(entry.hex);
-  const match = (brandColors || []).find((c) => formatHex(c.hex) === entry.hex);
-  const title = match ? escapeHtml(match.name) : escapeHtml(entry.hex);
-  return `<div class="card">
-    <span class="chip" style="background:${escapeHtml(formatHex(entry.hex))}"></span>
-    <div class="meta">
-      <span class="name" title="${title}">${title}</span>
-      <span class="hex">${escapeHtml(fmt.hex)}</span>
-      ${renderRoles(entry.roles)}
     </div>
     <div class="copies">${copyButtons(fmt)}</div>
   </div>`;
@@ -140,7 +118,7 @@ function brandSection(brandColors) {
  */
 function renderPaletteHtml(opts) {
   const {
-    brandName, palette, activeVariant, brandColors, nonce, cspSource,
+    brandName, brandColors, nonce, cspSource,
     themeGroups, hasIconTheme, iconsApplied, appliedThemeLabel,
   } = opts;
   const safeNonce = escapeHtml(nonce);
@@ -180,10 +158,7 @@ function renderPaletteHtml(opts) {
       applyRows += `<div class="action-row">${comboBtn(g.dark, 'dark')}${comboBtn(g.light, 'light')}</div>`;
     }
   }
-  const darkCards = dedupeRoles(palette.dark || {})
-    .map((e) => roleCard(e, brandColors)).join('');
-  const lightCards = dedupeRoles(palette.light || {})
-    .map((e) => roleCard(e, brandColors)).join('');
+  const brandHtml = brandSection(brandColors);
   const csp = `default-src 'none'; style-src ${safeCspSource} 'unsafe-inline'; `
     + `script-src 'nonce-${safeNonce}';`;
   return `<!DOCTYPE html><html lang="en"><head>
@@ -228,12 +203,6 @@ function renderPaletteHtml(opts) {
   button.copy.copied { background: var(--vscode-button-background);
     color: var(--vscode-button-foreground); }
   button.copy.copied .copy-label::before { content: '✓ '; }
-  .toggle { display: inline-flex; gap: 4px; }
-  .toggle button { font-size: 10px; padding: 3px 10px; cursor: pointer; line-height: 1.4;
-    background: var(--vscode-button-secondaryBackground);
-    color: var(--vscode-button-secondaryForeground); border: none; border-radius: 3px; }
-  .toggle button.active { background: var(--vscode-button-background);
-    color: var(--vscode-button-foreground); }
   .actions { display: flex; flex-direction: column; gap: 6px; margin: 2px 0 10px; }
   .actions-label { font-size: 10px; text-transform: uppercase; letter-spacing: .05em;
     color: var(--vscode-descriptionForeground); }
@@ -262,44 +231,19 @@ function renderPaletteHtml(opts) {
     color: var(--vscode-button-foreground); border-color: transparent; }
   button.action.flash { background: var(--vscode-button-background);
     color: var(--vscode-button-foreground); }
-  .roles-header { display: flex; align-items: center; justify-content: space-between;
-    gap: 12px; margin: 18px 0 6px; }
-  .roles-header h2 { margin: 0; }
-  body[data-variant="dark"] .roles-light { display: none; }
-  body[data-variant="light"] .roles-dark { display: none; }
   .note { font-size: 10px; color: var(--vscode-descriptionForeground); margin-top: 12px; }
 </style></head>
-<body data-variant="${escapeHtml(activeVariant)}">
+<body>
 <h1>${escapeHtml(brandName)} — Brand Palette</h1>
 <div class="actions">
   <span class="actions-label">Apply to editor</span>
   ${applyRows}
 </div>
-${brandSection(brandColors)}
-<div class="roles-header"><h2>Theme Roles</h2>
-  <span class="toggle">
-    <button data-variant="dark">Dark</button>
-    <button data-variant="light">Light</button>
-  </span>
-</div>
-<div class="grid roles-dark">${darkCards}</div>
-<div class="grid roles-light">${lightCards}</div>
-<p class="note">Role CMYK is an approximate RGB&rarr;CMYK conversion (no ICC profile).
-Brand-colour CMYK is the exact Pantone-matched value.</p>
+${brandHtml || '<p class="note">No brand colours defined for this theme.</p>'}
+<p class="note">CMYK is an approximate RGB&rarr;CMYK conversion (no ICC profile)
+unless a Pantone-matched value is given.</p>
 <script nonce="${safeNonce}">
   const vscode = acquireVsCodeApi();
-  function syncToggle() {
-    const v = document.body.dataset.variant;
-    document.querySelectorAll('.toggle button').forEach((b) => {
-      b.classList.toggle('active', b.dataset.variant === v);
-    });
-  }
-  document.querySelectorAll('.toggle button').forEach((b) => {
-    b.addEventListener('click', () => {
-      document.body.dataset.variant = b.dataset.variant;
-      syncToggle();
-    });
-  });
   document.querySelectorAll('button.copy').forEach((b) => {
     b.addEventListener('click', () => {
       vscode.postMessage({ type: 'copy', value: b.dataset.copy });
@@ -333,16 +277,8 @@ Brand-colour CMYK is the exact Pantone-matched value.</p>
     });
   });
   window.addEventListener('message', (e) => {
-    if (!e.data) return;
-    if (e.data.type === 'variant'
-        && (e.data.value === 'dark' || e.data.value === 'light')) {
-      document.body.dataset.variant = e.data.value;
-      syncToggle();
-    } else if (e.data.type === 'applied') {
-      syncApplied(e.data);
-    }
+    if (e.data && e.data.type === 'applied') syncApplied(e.data);
   });
-  syncToggle();
 </script>
 </body></html>`;
 }

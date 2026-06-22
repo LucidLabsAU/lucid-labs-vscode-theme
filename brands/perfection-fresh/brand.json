@@ -4,11 +4,53 @@
   "description": "A vibrant VS Code colour theme featuring red seal accents and fresh produce greens, inspired by the Perfection Fresh Australia visual identity. Built and published by Lucid Labs on behalf of Perfection Fresh. All trademarks belong to their respective owners.",
   "publisher": "lucidlabs",
   "keywords": [
-    "theme", "dark theme", "light theme", "colour theme", "perfection",
-    "perfection fresh", "fresh produce", "agriculture", "red", "green",
-    "brand", "australia", "food"
+    "theme",
+    "dark theme",
+    "light theme",
+    "colour theme",
+    "perfection",
+    "perfection fresh",
+    "fresh produce",
+    "agriculture",
+    "red",
+    "green",
+    "brand",
+    "australia",
+    "food"
   ],
   "homepage": "https://www.perfection.com.au",
+  "brandColors": [
+    {
+      "name": "Logo Red",
+      "hex": "#E4092D",
+      "group": "primary",
+      "role": "Primary brand red — logo, accent"
+    },
+    {
+      "name": "Fresh Green",
+      "hex": "#4CAF50",
+      "group": "primary",
+      "role": "Produce green — success, brand"
+    },
+    {
+      "name": "Theme Red",
+      "hex": "#E51E21",
+      "group": "secondary",
+      "role": "M365 suite-header accent"
+    },
+    {
+      "name": "Green Accent",
+      "hex": "#8BC34A",
+      "group": "secondary",
+      "role": "Light produce green"
+    },
+    {
+      "name": "Dark Green",
+      "hex": "#1B5E20",
+      "group": "other",
+      "role": "Deep produce green emphasis"
+    }
+  ],
   "dark": {
     "background": "#141414",
     "foreground": "#E8E6E2",

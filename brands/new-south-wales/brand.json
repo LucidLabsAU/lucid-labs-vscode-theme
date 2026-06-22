@@ -22,6 +22,14 @@
   ],
   "homepage": "https://www.nsw.gov.au",
   "sponsor": "https://lucidlabs.com.au",
+  "brandColors": [
+    { "name": "NSW Navy", "hex": "#002664", "rgb": [0, 38, 100], "group": "primary", "role": "Primary brand blue — accent, status bar, links" },
+    { "name": "Waratah Red", "hex": "#D7153A", "rgb": [215, 21, 58], "group": "primary", "role": "Signature red — keywords, terminal red, highlights" },
+    { "name": "Sky Blue", "hex": "#5B9BD5", "rgb": [91, 155, 213], "group": "secondary", "role": "Info, blockquote, lighter blue support" },
+    { "name": "Coastal Green", "hex": "#6BBE27", "rgb": [107, 190, 39], "group": "secondary", "role": "Strings, regex, supporting accent" },
+    { "name": "Harbour Night", "hex": "#0D0E14", "rgb": [13, 14, 20], "group": "other", "role": "Dark editor background" },
+    { "name": "Cloud White", "hex": "#E8EDF3", "rgb": [232, 237, 243], "group": "other", "role": "Primary foreground text on dark" }
+  ],
   "dark": {
     "background": "#0D0E14",
     "foreground": "#E8EDF3",

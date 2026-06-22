@@ -9,6 +9,14 @@
     "blue", "cream", "australia", "new zealand", "brand"
   ],
   "homepage": "https://auroradairies.com.au",
+  "brandColors": [
+    { "name": "Aurora Blue", "hex": "#003599", "group": "primary", "role": "The brand colour — deep aurora blue, status bar, buttons, light accent" },
+    { "name": "Dawn Blue", "hex": "#4D7FE0", "group": "primary", "role": "Brighter aurora accent — links, highlights on dark" },
+    { "name": "Pasture Green", "hex": "#7FC890", "group": "secondary", "role": "Pasture-green syntax — strings, success" },
+    { "name": "Dairy Cream", "hex": "#E6ECF5", "group": "secondary", "role": "Cream foreground / reversed text" },
+    { "name": "Hay Gold", "hex": "#E0B870", "group": "other", "role": "Warm accent — constants, warnings, attributes" },
+    { "name": "Midnight Pasture", "hex": "#0C1A33", "group": "other", "role": "Deep aurora-blue page background" }
+  ],
   "dark": {
     "background": "#0C1A33",
     "foreground": "#E6ECF5",
