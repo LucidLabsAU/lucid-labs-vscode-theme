@@ -3,7 +3,7 @@
   "name": "qpws-theme",
   "displayName": "Queensland Parks & Wildlife (Unofficial)",
   "description": "An unofficial VS Code colour theme inspired by the teal, cream and brown palette of Queensland's parks and wildlife.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "publisher": "lucidlabs",
   "license": "MIT",
   "icon": "icon.png",
