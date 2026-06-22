@@ -30,7 +30,8 @@
     "vscode": "^1.113.0"
   },
   "categories": [
-    "Themes"
+    "Themes",
+    "Other"
   ],
   "contributes": {
     "themes": [
@@ -106,10 +107,22 @@
           "group": "navigation"
         }
       ]
-    }
+    },
+    "iconThemes": [
+      {
+        "id": "ai-tour-sydney-icons",
+        "label": "AI Tour Sydney Icons",
+        "path": "./icon-theme.json"
+      }
+    ]
   },
   "main": "./extension.js",
   "activationEvents": [
     "onStartupFinished"
-  ]
+  ],
+  "galleryBanner": {
+    "color": "#0F2E74",
+    "theme": "dark"
+  },
+  "qna": "marketplace"
 }

@@ -2,7 +2,7 @@
   "$schema": "https://json.schemastore.org/package.json",
   "name": "progenesis-theme",
   "displayName": "Progenesis",
-  "description": "A professional, tech-forward VS Code colour theme featuring Progenesis blue, gradient teal, and magenta accents, inspired by the Progenesis visual identity. Built and published by Lucid Labs on behalf of Progenesis. All trademarks belong to their respective owners.",
+  "description": "A professional, tech-forward VS Code colour theme featuring Progenesis blue, gradient teal, and magenta accents, inspired by the Progenesis visual identity.",
   "version": "1.8.1",
   "publisher": "lucidlabs",
   "license": "MIT",

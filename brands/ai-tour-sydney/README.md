@@ -1,6 +1,14 @@
-# AI Tour Sydney Brand
+# AI Tour Sydney
 
 A modern, tech-forward colour palette inspired by the AI Tour Sydney 20-24 April 2026 event.
+
+## Installation
+
+1. Open VS Code
+2. Go to Extensions (Ctrl+Shift+X / Cmd+Shift+X)
+3. Search for "AI Tour Sydney"
+4. Click Install
+5. Select the theme: File > Preferences > Colour Theme
 
 ## Colour Scheme
 
@@ -10,7 +18,7 @@ A modern, tech-forward colour palette inspired by the AI Tour Sydney 20-24 April
 - **Teal**: `#1E6784` — Secondary accent
 
 ### Accent Colours
-- **Cyan**: `#C8F9F9` — Keywords, keywords, bright highlights
+- **Cyan**: `#C8F9F9` — Keywords and bright highlights
 - **Light Blue**: `#B1DDF5` — Strings, secondary elements
 - **Sky Blue**: `#00D9FF` — Terminal cyan
 

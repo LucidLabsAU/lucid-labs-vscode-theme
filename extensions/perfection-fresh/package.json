@@ -2,7 +2,7 @@
   "$schema": "https://json.schemastore.org/package.json",
   "name": "perfection-fresh-theme",
   "displayName": "Perfection Fresh",
-  "description": "A vibrant VS Code colour theme featuring red seal accents and fresh produce greens, inspired by the Perfection Fresh Australia visual identity. Built and published by Lucid Labs on behalf of Perfection Fresh. All trademarks belong to their respective owners.",
+  "description": "A vibrant VS Code colour theme featuring red-seal accents and fresh produce greens, inspired by the Perfection Fresh Australia visual identity.",
   "version": "1.8.2",
   "publisher": "lucidlabs",
   "license": "MIT",
