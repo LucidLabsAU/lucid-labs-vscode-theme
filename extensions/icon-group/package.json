@@ -3,7 +3,7 @@
   "name": "icon-group-theme",
   "displayName": "Icon Group",
   "description": "A professional VS Code theme inspired by Icon Group's brand identity — navy backgrounds, gold accents, and a healthcare focus reflecting their leadership in cancer care.",
-  "version": "1.9.2",
+  "version": "1.10.0",
   "publisher": "lucidlabs",
   "license": "MIT",
   "icon": "icon.png",
