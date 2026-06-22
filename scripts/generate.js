@@ -226,6 +226,7 @@ function main() {
       try {
         extensionJs = eb.renderExtensionJs(
           extensionJsTemplate, brand, brandConfig.displayName, themes, brandConfig.mcp,
+          (extPkg.contributes && extPkg.contributes.iconThemes) || [],
         );
       } catch (err) {
         console.error(`  ${err.message}`);

@@ -9,6 +9,19 @@ const THEME_DARK = 'Western Australia Dark';
 const THEME_LIGHT = 'Western Australia Light';
 const CONFIG_NS = 'westernAustraliaTheme';
 const VIEW_ID = 'westernAustraliaThemePalette';
+// The brand's icon-theme id (from package.json contributes.iconThemes), or ''
+// for brands that ship no icon theme — the palette page hides its Icons button.
+const ICON_THEME = 'western-australia-icons';
+
+// Every colour theme this extension bundles, grouped by edition (everyday plus
+// any variant editions). The generator injects this from contributes.themes;
+// `short` is the de-prefixed button label (e.g. 'Dark', or 'Full Beard').
+const THEMES = [{"edition":"Everyday","dark":{"label":"Western Australia Dark","short":"Dark"},"light":{"label":"Western Australia Light","short":"Light"}}];
+// Flattened {label, short, variant} entries for active-theme lookups.
+const ALL_THEMES = THEMES.flatMap((g) => [
+  g.dark && { ...g.dark, variant: 'dark' },
+  g.light && { ...g.light, variant: 'light' },
+].filter(Boolean));
 
 // Brand-gated: an HTTP MCP server definition for brands that ship one (the
 // generator substitutes an object for those brands, `null` for the rest).
@@ -26,19 +39,51 @@ function activeThemeName() {
   return vscode.workspace.getConfiguration().get('workbench.colorTheme') || '';
 }
 
-function isBrandActive() {
+/** The bundled-theme entry currently applied as the editor theme, or null. */
+function activeThemeEntry() {
   const name = activeThemeName();
-  return name === THEME_DARK || name === THEME_LIGHT;
+  return ALL_THEMES.find((t) => t.label === name) || null;
+}
+
+function isBrandActive() {
+  return !!activeThemeEntry();
 }
 
 function activeVariant() {
-  return activeThemeName() === THEME_LIGHT ? 'light' : 'dark';
+  const e = activeThemeEntry();
+  return e ? e.variant : 'dark';
+}
+
+/** Full label of the applied brand theme (any edition), or '' if none. */
+function appliedThemeLabel() {
+  const e = activeThemeEntry();
+  return e ? e.label : '';
+}
+
+/** Whether `label` is one of this extension's own bundled themes. */
+function isOwnTheme(label) {
+  return typeof label === 'string' && ALL_THEMES.some((t) => t.label === label);
 }
 
 async function setTheme(label) {
   await vscode.workspace
     .getConfiguration()
     .update('workbench.colorTheme', label, vscode.ConfigurationTarget.Global);
+}
+
+async function setIconTheme(id) {
+  if (!id) return;
+  await vscode.workspace
+    .getConfiguration()
+    .update('workbench.iconTheme', id, vscode.ConfigurationTarget.Global);
+}
+
+/** Whether the brand's icon theme is the active workbench icon theme. */
+function iconsApplied() {
+  return (
+    !!ICON_THEME &&
+    vscode.workspace.getConfiguration().get('workbench.iconTheme') === ICON_THEME
+  );
 }
 
 function makeStatusBarItem(context) {
@@ -69,16 +114,39 @@ function renderHtml(extensionPath, webview) {
     brandColors: brand.brandColors,
     nonce: crypto.randomBytes(16).toString('hex'),
     cspSource: webview.cspSource,
+    themeGroups: THEMES,
+    hasIconTheme: !!ICON_THEME,
+    iconsApplied: iconsApplied(),
+    appliedThemeLabel: appliedThemeLabel(),
   });
 }
 
-/** Wire copy messages from a webview to the clipboard. */
-function attachCopyHandler(webview, subscriptions) {
+/** Push the live apply-state (editor theme + icons) to a webview. */
+function postState(webview) {
+  if (!webview) return;
+  webview.postMessage({ type: 'variant', value: activeVariant() });
+  webview.postMessage({
+    type: 'applied',
+    theme: appliedThemeLabel(),
+    icons: iconsApplied(),
+  });
+}
+
+/** Wire webview messages: copy-to-clipboard, apply theme, apply icon theme. */
+function attachMessageHandler(webview, subscriptions) {
   subscriptions.push(
     webview.onDidReceiveMessage(async (msg) => {
-      if (msg && msg.type === 'copy' && msg.value) {
+      if (!msg) return;
+      if (msg.type === 'copy' && msg.value) {
         await vscode.env.clipboard.writeText(msg.value);
         vscode.window.setStatusBarMessage(`Copied ${msg.value}`, 1500);
+      } else if (msg.type === 'setThemeByLabel' && isOwnTheme(msg.label)) {
+        await setTheme(msg.label);
+      } else if (msg.type === 'setIcons') {
+        await setIconTheme(ICON_THEME);
+      } else if (msg.type === 'setThemeAndIconsByLabel' && isOwnTheme(msg.label)) {
+        await setTheme(msg.label);
+        await setIconTheme(ICON_THEME);
       }
     }),
   );
@@ -94,26 +162,33 @@ class PaletteViewProvider {
     this.view = webviewView;
     webviewView.webview.options = { enableScripts: true };
     webviewView.webview.html = renderHtml(this.extensionPath, webviewView.webview);
-    attachCopyHandler(webviewView.webview, []);
+    attachMessageHandler(webviewView.webview, []);
   }
 
-  /** Tell the live view which variant the editor is now on. */
-  notifyVariant() {
-    if (this.view) {
-      this.view.webview.postMessage({ type: 'variant', value: activeVariant() });
-    }
+  /** Push the live editor-theme/icon state to the sidebar view. */
+  notifyState() {
+    if (this.view) postState(this.view.webview);
   }
 }
 
+// A single shared "Brand Palette" editor panel — reused so repeated invocations
+// reveal the existing tab instead of stacking duplicates.
+let aboutPanel = null;
+
 function openAbout(context) {
-  const panel = vscode.window.createWebviewPanel(
+  if (aboutPanel) {
+    aboutPanel.reveal(vscode.ViewColumn.Active);
+    return;
+  }
+  aboutPanel = vscode.window.createWebviewPanel(
     `${CONFIG_NS}About`,
     `${BRAND} — Brand Palette`,
     vscode.ViewColumn.Active,
     { enableScripts: true, retainContextWhenHidden: false },
   );
-  panel.webview.html = renderHtml(context.extensionPath, panel.webview);
-  attachCopyHandler(panel.webview, context.subscriptions);
+  aboutPanel.onDidDispose(() => { aboutPanel = null; }, null, context.subscriptions);
+  aboutPanel.webview.html = renderHtml(context.extensionPath, aboutPanel.webview);
+  attachMessageHandler(aboutPanel.webview, context.subscriptions);
 }
 
 /**
@@ -162,15 +237,20 @@ function activate(context) {
   refreshStatusBar(statusBar);
 
   const provider = new PaletteViewProvider(context.extensionPath);
+  const refreshViews = () => {
+    refreshStatusBar(statusBar);
+    provider.notifyState();
+    if (aboutPanel) postState(aboutPanel.webview);
+  };
   context.subscriptions.push(
     vscode.window.registerWebviewViewProvider(VIEW_ID, provider),
-    vscode.window.onDidChangeActiveColorTheme(() => {
-      refreshStatusBar(statusBar);
-      provider.notifyVariant();
-    }),
+    vscode.window.onDidChangeActiveColorTheme(refreshViews),
     vscode.workspace.onDidChangeConfiguration((event) => {
       if (event.affectsConfiguration(`${CONFIG_NS}.showStatusBarItem`)) {
         refreshStatusBar(statusBar);
+      }
+      if (event.affectsConfiguration('workbench.iconTheme')) {
+        refreshViews();
       }
     }),
     vscode.commands.registerCommand(`${CONFIG_NS}.switchDark`, () => setTheme(THEME_DARK)),

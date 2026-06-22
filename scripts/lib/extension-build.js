@@ -27,6 +27,56 @@ function monochromeSvg(svg) {
   return out.replace(/<svg\b/, `<svg ${attr}`);
 }
 
+/**
+ * Longest common prefix of two strings, cut back to a word boundary (trailing
+ * space). 'Pax8 Dark'/'Pax8 Light' -> 'Pax8 '; 'Matt Lee Full Beard'/'Matt Lee
+ * Shaved' -> 'Matt Lee '. Returns '' when they diverge in the first word.
+ */
+function wordCommonPrefix(a, b) {
+  let i = 0;
+  while (i < a.length && i < b.length && a[i] === b[i]) i++;
+  const sp = a.lastIndexOf(' ', i - 1);
+  return sp >= 0 ? a.slice(0, sp + 1) : '';
+}
+
+/**
+ * Group a package.json contributes.themes array into editions for the palette
+ * page's "Apply to editor" bar. Themes are grouped by the text after ' · '
+ * (e.g. 'Pax8 Dark · CTF 2026' -> edition 'CTF 2026'); themes with no suffix
+ * form the default 'Everyday' group. Each group yields a `short` button label
+ * with the dark/light pair's shared prefix stripped, falling back to
+ * 'Dark'/'Light'. First-seen edition order is preserved.
+ */
+function buildThemeGroups(themes) {
+  const order = [];
+  const groups = new Map();
+  for (const t of themes || []) {
+    const parts = String(t.label).split(' · ');
+    const edition = parts.length > 1 ? parts.slice(1).join(' · ') : '';
+    if (!groups.has(edition)) {
+      groups.set(edition, { edition, dark: null, light: null });
+      order.push(edition);
+    }
+    const g = groups.get(edition);
+    if (t.uiTheme === 'vs-dark' && !g.dark) g.dark = t.label;
+    else if (t.uiTheme === 'vs' && !g.light) g.light = t.label;
+  }
+  return order.map((ed) => {
+    const g = groups.get(ed);
+    const base = (s) => (s ? s.split(' · ')[0] : '');
+    const prefix = g.dark && g.light ? wordCommonPrefix(base(g.dark), base(g.light)) : '';
+    const short = (full, fallback) => {
+      if (!full) return fallback;
+      return base(full).slice(prefix.length).trim() || fallback;
+    };
+    return {
+      edition: ed || 'Everyday',
+      dark: g.dark ? { label: g.dark, short: short(g.dark, 'Dark') } : null,
+      light: g.light ? { label: g.light, short: short(g.light, 'Light') } : null,
+    };
+  });
+}
+
 /** Build the generated contributes keys for a brand. */
 function buildContributes(brandKey, displayName) {
   const ns = nsFor(brandKey);
@@ -110,7 +160,7 @@ function mergeContributes(pkg, brandKey, displayName, mcp) {
  * Fill templates/extension.js placeholders for a brand.
  * themes — the package.json contributes.themes array (used to find labels).
  */
-function renderExtensionJs(template, brandKey, displayName, themes, mcp) {
+function renderExtensionJs(template, brandKey, displayName, themes, mcp, iconThemes) {
   const dark = (themes || []).find((t) => t.uiTheme === 'vs-dark');
   const light = (themes || []).find((t) => t.uiTheme === 'vs');
   if (!dark || !light) {
@@ -119,15 +169,22 @@ function renderExtensionJs(template, brandKey, displayName, themes, mcp) {
   const ns = nsFor(brandKey);
   // Inlined as a JS literal: an object for MCP-enabled brands, else `null`.
   const mcpConfig = mcp && mcp.id ? JSON.stringify(mcp) : 'null';
+  // The brand's icon-theme id, or '' when the brand ships no icon theme.
+  const iconTheme = (iconThemes && iconThemes[0] && iconThemes[0].id) || '';
+  // All bundled themes grouped by edition, inlined as a JS literal.
+  const themeGroups = JSON.stringify(buildThemeGroups(themes));
   return template
     .replace(/__BRAND__/g, displayName)
     .replace(/__THEME_DARK__/g, dark.label)
     .replace(/__THEME_LIGHT__/g, light.label)
     .replace(/__CONFIG_NS__/g, ns)
     .replace(/__VIEW_ID__/g, `${ns}Palette`)
+    .replace(/__ICON_THEME__/g, iconTheme)
+    .replace(/__THEMES__/g, themeGroups)
     .replace(/__MCP_CONFIG__/g, mcpConfig);
 }
 
 module.exports = {
-  camelCase, nsFor, monochromeSvg, buildContributes, mergeContributes, renderExtensionJs,
+  camelCase, nsFor, monochromeSvg, wordCommonPrefix, buildThemeGroups,
+  buildContributes, mergeContributes, renderExtensionJs,
 };

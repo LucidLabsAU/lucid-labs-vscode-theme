@@ -125,6 +125,44 @@ const THEMES = [
   { label: 'CHARLi Light', uiTheme: 'vs', path: './themes/charli-light.json' },
 ];
 
+test('wordCommonPrefix cuts the shared prefix back to a word boundary', () => {
+  assert.equal(eb.wordCommonPrefix('Pax8 Dark', 'Pax8 Light'), 'Pax8 ');
+  assert.equal(eb.wordCommonPrefix('Matt Lee Full Beard', 'Matt Lee Shaved'), 'Matt Lee ');
+  assert.equal(eb.wordCommonPrefix('Dark', 'Light'), '');
+});
+
+test('buildThemeGroups pairs a single edition with de-prefixed short labels', () => {
+  const groups = eb.buildThemeGroups([
+    { label: 'Lucid Labs Dark', uiTheme: 'vs-dark' },
+    { label: 'Lucid Labs Light', uiTheme: 'vs' },
+  ]);
+  assert.equal(groups.length, 1);
+  assert.equal(groups[0].edition, 'Everyday');
+  assert.deepEqual(groups[0].dark, { label: 'Lucid Labs Dark', short: 'Dark' });
+  assert.deepEqual(groups[0].light, { label: 'Lucid Labs Light', short: 'Light' });
+});
+
+test('buildThemeGroups keeps distinctive names when there is no dark/light word', () => {
+  const groups = eb.buildThemeGroups([
+    { label: 'Matt Lee Full Beard', uiTheme: 'vs-dark' },
+    { label: 'Matt Lee Shaved', uiTheme: 'vs' },
+  ]);
+  assert.equal(groups[0].dark.short, 'Full Beard');
+  assert.equal(groups[0].light.short, 'Shaved');
+});
+
+test('buildThemeGroups splits editions on the " · " suffix in order', () => {
+  const groups = eb.buildThemeGroups([
+    { label: 'Pax8 Dark', uiTheme: 'vs-dark' },
+    { label: 'Pax8 Light', uiTheme: 'vs' },
+    { label: 'Pax8 Dark · CTF 2026', uiTheme: 'vs-dark' },
+    { label: 'Pax8 Light · CTF 2026', uiTheme: 'vs' },
+  ]);
+  assert.deepEqual(groups.map((g) => g.edition), ['Everyday', 'CTF 2026']);
+  assert.equal(groups[1].dark.label, 'Pax8 Dark · CTF 2026');
+  assert.equal(groups[1].dark.short, 'Dark');
+});
+
 test('renderExtensionJs substitutes every placeholder', () => {
   const out = eb.renderExtensionJs(TEMPLATE, 'charli', 'CHARLi', THEMES);
   assert.match(out, /const BRAND = 'CHARLi';/);
