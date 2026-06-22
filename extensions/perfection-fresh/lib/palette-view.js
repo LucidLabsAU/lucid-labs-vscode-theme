@@ -139,9 +139,47 @@ function brandSection(brandColors) {
  *   brandColors — optional array; Brand Colours section omitted when absent
  */
 function renderPaletteHtml(opts) {
-  const { brandName, palette, activeVariant, brandColors, nonce, cspSource } = opts;
+  const {
+    brandName, palette, activeVariant, brandColors, nonce, cspSource,
+    themeGroups, hasIconTheme, iconsApplied, appliedThemeLabel,
+  } = opts;
   const safeNonce = escapeHtml(nonce);
   const safeCspSource = escapeHtml(cspSource);
+  // VS15 forces text (monochrome) rendering so the glyph inherits button colour.
+  const glyph = (g) => `<span class="ai" aria-hidden="true">${g}︎</span>`;
+  const moon = glyph('☾');
+  const sun = glyph('☀');
+  const groups = Array.isArray(themeGroups) ? themeGroups : [];
+  const multiEdition = groups.length > 1;
+  const iconBtn = hasIconTheme
+    ? `<button class="action${iconsApplied ? ' active' : ''}" data-action="icons">${glyph('▦')}Icons</button>`
+    : '';
+  const themeBtn = (t, variant) => {
+    if (!t) return '';
+    const active = t.label === appliedThemeLabel ? ' active' : '';
+    return `<button class="action${active}" data-action="theme" data-theme="${escapeHtml(t.label)}" data-variant="${variant}">${variant === 'dark' ? moon : sun}${escapeHtml(t.short)}</button>`;
+  };
+  const comboBtn = (t, variant) => {
+    if (!t) return '';
+    const active = t.label === appliedThemeLabel && iconsApplied ? ' active' : '';
+    return `<button class="action combo${active}" data-action="both" data-theme="${escapeHtml(t.label)}" data-variant="${variant}">${variant === 'dark' ? moon : sun}${escapeHtml(t.short)} + Icons</button>`;
+  };
+  let applyRows;
+  if (multiEdition) {
+    // One labelled row per edition; the brand-wide Icons button rides the first row.
+    applyRows = groups.map((g, i) => (
+      `<div class="action-row edition-row">`
+      + `<span class="edition">${escapeHtml(g.edition)}</span>`
+      + `<span class="edition-btns">${themeBtn(g.dark, 'dark')}${themeBtn(g.light, 'light')}${i === 0 ? iconBtn : ''}</span>`
+      + `</div>`
+    )).join('');
+  } else {
+    const g = groups[0] || { dark: null, light: null };
+    applyRows = `<div class="action-row">${themeBtn(g.dark, 'dark')}${themeBtn(g.light, 'light')}${iconBtn}</div>`;
+    if (hasIconTheme) {
+      applyRows += `<div class="action-row">${comboBtn(g.dark, 'dark')}${comboBtn(g.light, 'light')}</div>`;
+    }
+  }
   const darkCards = dedupeRoles(palette.dark || {})
     .map((e) => roleCard(e, brandColors)).join('');
   const lightCards = dedupeRoles(palette.light || {})
@@ -196,6 +234,34 @@ function renderPaletteHtml(opts) {
     color: var(--vscode-button-secondaryForeground); border: none; border-radius: 3px; }
   .toggle button.active { background: var(--vscode-button-background);
     color: var(--vscode-button-foreground); }
+  .actions { display: flex; flex-direction: column; gap: 6px; margin: 2px 0 10px; }
+  .actions-label { font-size: 10px; text-transform: uppercase; letter-spacing: .05em;
+    color: var(--vscode-descriptionForeground); }
+  .action-row { display: flex; flex-wrap: wrap; gap: 6px; }
+  .action-row.edition-row { align-items: center; gap: 10px; }
+  .edition { font-size: 11px; min-width: 88px; font-weight: 600;
+    color: var(--vscode-descriptionForeground); }
+  .edition-btns { display: flex; flex-wrap: wrap; gap: 6px; }
+  button.action { display: inline-flex; align-items: center; gap: 6px;
+    font-size: 11px; padding: 5px 12px; cursor: pointer; line-height: 1.5;
+    color: var(--vscode-button-secondaryForeground);
+    background: var(--vscode-button-secondaryBackground);
+    border: 1px solid transparent; border-radius: 999px;
+    transition: background .12s, border-color .12s, transform .08s; }
+  button.action:hover { background: var(--vscode-button-secondaryHoverBackground);
+    border-color: var(--vscode-focusBorder); }
+  button.action:active { transform: translateY(1px); }
+  button.action .ai { font-size: 12px; opacity: .85; line-height: 1; }
+  button.action.active { background: var(--vscode-button-background);
+    color: var(--vscode-button-foreground); border-color: transparent; font-weight: 600; }
+  button.action.active::before { content: '✓'; font-weight: 700; }
+  button.action.combo { background: transparent; color: var(--vscode-foreground);
+    border-color: var(--vscode-focusBorder); }
+  button.action.combo:hover { background: var(--vscode-button-secondaryHoverBackground); }
+  button.action.combo.active { background: var(--vscode-button-background);
+    color: var(--vscode-button-foreground); border-color: transparent; }
+  button.action.flash { background: var(--vscode-button-background);
+    color: var(--vscode-button-foreground); }
   .roles-header { display: flex; align-items: center; justify-content: space-between;
     gap: 12px; margin: 18px 0 6px; }
   .roles-header h2 { margin: 0; }
@@ -205,6 +271,10 @@ function renderPaletteHtml(opts) {
 </style></head>
 <body data-variant="${escapeHtml(activeVariant)}">
 <h1>${escapeHtml(brandName)} — Brand Palette</h1>
+<div class="actions">
+  <span class="actions-label">Apply to editor</span>
+  ${applyRows}
+</div>
 ${brandSection(brandColors)}
 <div class="roles-header"><h2>Theme Roles</h2>
   <span class="toggle">
@@ -237,11 +307,39 @@ Brand-colour CMYK is the exact Pantone-matched value.</p>
       setTimeout(() => b.classList.remove('copied'), 900);
     });
   });
+  function syncApplied(state) {
+    document.querySelectorAll('.action[data-action="theme"]').forEach((b) => {
+      b.classList.toggle('active', b.dataset.theme === state.theme);
+    });
+    document.querySelectorAll('.action[data-action="icons"]').forEach((b) => {
+      b.classList.toggle('active', !!state.icons);
+    });
+    document.querySelectorAll('.action[data-action="both"]').forEach((b) => {
+      b.classList.toggle('active', b.dataset.theme === state.theme && !!state.icons);
+    });
+  }
+  document.querySelectorAll('.action').forEach((b) => {
+    b.addEventListener('click', () => {
+      const a = b.dataset.action;
+      if (a === 'theme') {
+        vscode.postMessage({ type: 'setThemeByLabel', label: b.dataset.theme });
+      } else if (a === 'icons') {
+        vscode.postMessage({ type: 'setIcons' });
+      } else if (a === 'both') {
+        vscode.postMessage({ type: 'setThemeAndIconsByLabel', label: b.dataset.theme });
+      }
+      b.classList.add('flash');
+      setTimeout(() => b.classList.remove('flash'), 400);
+    });
+  });
   window.addEventListener('message', (e) => {
-    if (e.data && e.data.type === 'variant'
+    if (!e.data) return;
+    if (e.data.type === 'variant'
         && (e.data.value === 'dark' || e.data.value === 'light')) {
       document.body.dataset.variant = e.data.value;
       syncToggle();
+    } else if (e.data.type === 'applied') {
+      syncApplied(e.data);
     }
   });
   syncToggle();
