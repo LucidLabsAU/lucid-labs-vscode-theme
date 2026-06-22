@@ -22,6 +22,15 @@
   ],
   "homepage": "https://www.vic.gov.au",
   "sponsor": "https://lucidlabs.com.au",
+  "brandColors": [
+    { "name": "VIC Blue", "hex": "#0052C2", "group": "primary", "role": "Core state blue — accent, status bar, links" },
+    { "name": "VIC Navy", "hex": "#003174", "group": "primary", "role": "Deep navy — keywords, headers, brand depth" },
+    { "name": "Midnight Navy", "hex": "#001E50", "group": "secondary", "role": "Darkest navy — borders, emphasis" },
+    { "name": "Harbour Blue", "hex": "#3D7FD6", "group": "secondary", "role": "Functions, secondary blue" },
+    { "name": "Sky Blue", "hex": "#5B9BD5", "group": "secondary", "role": "Info, supporting accent" },
+    { "name": "Pale Blue", "hex": "#7EB8DA", "group": "other", "role": "Constants, tints" },
+    { "name": "Wattle Gold", "hex": "#FFCC2C", "group": "other", "role": "Warnings, highlight badges" }
+  ],
   "dark": {
     "background": "#0C0E18",
     "foreground": "#E8EDF3",

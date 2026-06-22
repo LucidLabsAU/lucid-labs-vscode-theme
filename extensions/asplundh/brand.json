@@ -10,6 +10,13 @@
     "orange", "black", "australia", "brand"
   ],
   "homepage": "https://www.asplundh.com.au",
+  "brandColors": [
+    { "name": "Asplundh Orange", "hex": "#F08028", "group": "primary", "role": "The brand colour — livery orange, accents, buttons, status bar" },
+    { "name": "Asplundh Black", "hex": "#000000", "group": "primary", "role": "Core — truck/livery black, deepest surface, banner" },
+    { "name": "Burnt Orange", "hex": "#C75F10", "group": "secondary", "role": "Deeper orange — light-mode accent, borders" },
+    { "name": "Amber Highlight", "hex": "#FFB870", "group": "secondary", "role": "Warm highlight — functions, attributes, constants" },
+    { "name": "Crew White", "hex": "#F2F2F2", "group": "other", "role": "High-contrast text on black" }
+  ],
   "dark": {
     "background": "#0F0F0F",
     "foreground": "#F2F2F2",

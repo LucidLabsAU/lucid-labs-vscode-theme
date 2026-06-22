@@ -11,6 +11,15 @@
   ],
   "homepage": "https://cybermattlee.com",
   "sponsor": "https://cybermattlee.com",
+  "brandColors": [
+    { "name": "Beard Magenta", "hex": "#D9009C", "group": "primary", "role": "Signature accent — Matt Lee's hot-magenta beard / buttons / status bar / badges" },
+    { "name": "Neon Pink", "hex": "#FF63BE", "group": "primary", "role": "Keywords / tags / bright magenta highlight" },
+    { "name": "Midnight Purple", "hex": "#1E0F38", "group": "primary", "role": "Deep-purple cyber background / page canvas" },
+    { "name": "Cyber Cyan", "hex": "#7DE3D0", "group": "secondary", "role": "Strings / teal terminal accent" },
+    { "name": "Electric Blue", "hex": "#5FB4F5", "group": "secondary", "role": "Functions / info" },
+    { "name": "Amber Glow", "hex": "#FFC46B", "group": "other", "role": "Constants / HTML attributes / warnings" },
+    { "name": "Lavender Mist", "hex": "#EDE7F6", "group": "other", "role": "Foreground text on midnight" }
+  ],
   "dark": {
     "background": "#1E0F38",
     "foreground": "#EDE7F6",

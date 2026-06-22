@@ -64,10 +64,6 @@ test('dedupeRoles collapses 8-digit alpha hexes onto their 6-digit colour', () =
   assert.deepEqual(result, [{ hex: '#CCCCCC', roles: ['comment', 'commentToken'] }]);
 });
 
-const SAMPLE = {
-  dark: { accent: '#339999', function: '#339999', keyword: '#9B7ED9' },
-  light: { accent: '#2B8282', keyword: '#7454B3' },
-};
 const BRAND_COLOURS = [
   { name: 'Teal Green', hex: '#339999', rgb: [51, 153, 153], cmyk: [67, 0, 0, 40], pantone: '321 C', group: 'primary', role: 'Accent' },
   { name: 'Lucid Blue', hex: '#677EB2', rgb: [103, 126, 178], cmyk: [41, 29, 0, 30], pantone: '2129 C', group: 'secondary', role: 'Secondary' },
@@ -75,8 +71,8 @@ const BRAND_COLOURS = [
 
 test('renderPaletteHtml includes the Brand Colours section when brandColors given', () => {
   const html = pv.renderPaletteHtml({
-    brandName: 'Lucid Labs', palette: SAMPLE, activeVariant: 'dark',
-    brandColors: BRAND_COLOURS, nonce: 'abc123', cspSource: 'vscode-webview://x',
+    brandName: 'Lucid Labs', brandColors: BRAND_COLOURS,
+    nonce: 'abc123', cspSource: 'vscode-webview://x',
   });
   assert.match(html, /Brand Colours/);
   assert.match(html, /Primary Palette/);
@@ -85,47 +81,52 @@ test('renderPaletteHtml includes the Brand Colours section when brandColors give
   assert.match(html, /PANTONE 321 C/);
 });
 
-test('renderPaletteHtml omits the Brand Colours section when brandColors absent', () => {
+test('renderPaletteHtml shows an empty-state and no roles section when brandColors absent', () => {
   const html = pv.renderPaletteHtml({
-    brandName: 'Acme', palette: SAMPLE, activeVariant: 'dark',
-    brandColors: undefined, nonce: 'abc123', cspSource: 'vscode-webview://x',
+    brandName: 'Acme', brandColors: undefined,
+    nonce: 'abc123', cspSource: 'vscode-webview://x',
   });
   assert.doesNotMatch(html, /Brand Colours/);
-  assert.match(html, /Theme Roles/);
+  assert.doesNotMatch(html, /Theme Roles/);
+  assert.match(html, /No brand colours defined/);
 });
 
-test('renderPaletteHtml de-dups roles and labels brand-matched colours', () => {
+test('renderPaletteHtml renders only named brand colours (no raw-hex role cards)', () => {
   const html = pv.renderPaletteHtml({
-    brandName: 'Lucid Labs', palette: SAMPLE, activeVariant: 'dark',
-    brandColors: BRAND_COLOURS, nonce: 'abc123', cspSource: 'vscode-webview://x',
+    brandName: 'Lucid Labs', brandColors: BRAND_COLOURS,
+    nonce: 'abc123', cspSource: 'vscode-webview://x',
   });
-  assert.match(html, /accent · function/);
+  assert.doesNotMatch(html, /Theme Roles/);
+  assert.doesNotMatch(html, /accent · function/);
   assert.match(html, /Teal Green/);
+  assert.match(html, /Lucid Blue/);
 });
 
 test('renderPaletteHtml embeds the nonce on the script tag and a CSP', () => {
   const html = pv.renderPaletteHtml({
-    brandName: 'Lucid Labs', palette: SAMPLE, activeVariant: 'dark',
-    brandColors: BRAND_COLOURS, nonce: 'abc123', cspSource: 'vscode-webview://x',
+    brandName: 'Lucid Labs', brandColors: BRAND_COLOURS,
+    nonce: 'abc123', cspSource: 'vscode-webview://x',
   });
   assert.match(html, /<script nonce="abc123">/);
   assert.match(html, /Content-Security-Policy/);
   assert.match(html, /nonce-abc123/);
 });
 
-test('renderPaletteHtml sets the initial variant on the body', () => {
+test('renderPaletteHtml renders the Apply to editor bar', () => {
   const html = pv.renderPaletteHtml({
-    brandName: 'Lucid Labs', palette: SAMPLE, activeVariant: 'light',
-    brandColors: BRAND_COLOURS, nonce: 'n', cspSource: 'x',
+    brandName: 'Lucid Labs', brandColors: BRAND_COLOURS,
+    themeGroups: [{ edition: 'Everyday', dark: { label: 'Lucid Labs Dark', short: 'Dark' }, light: { label: 'Lucid Labs Light', short: 'Light' } }],
+    hasIconTheme: true, iconsApplied: false, appliedThemeLabel: 'Lucid Labs Dark',
+    nonce: 'n', cspSource: 'x',
   });
-  assert.match(html, /<body data-variant="light">/);
+  assert.match(html, /Apply to editor/);
+  assert.match(html, /data-action="theme" data-theme="Lucid Labs Dark"/);
+  assert.match(html, /data-action="icons"/);
 });
 
 test('renderPaletteHtml escapes HTML-special characters in brand data', () => {
   const html = pv.renderPaletteHtml({
     brandName: '<script>x</script>',
-    palette: SAMPLE,
-    activeVariant: 'dark',
     brandColors: [{
       name: 'Evil "<b>"', hex: '#339999', rgb: [51, 153, 153],
       cmyk: [67, 0, 0, 40], pantone: 'P&Q', group: 'primary', role: 'r',

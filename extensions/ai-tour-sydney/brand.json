@@ -19,6 +19,15 @@
   ],
   "homepage": "https://lucidlabs.com.au",
   "sponsor": "https://lucidlabs.com.au",
+  "brandColors": [
+    { "name": "Deep Navy", "hex": "#0F2E74", "group": "primary", "role": "Event navy background / brand canvas" },
+    { "name": "Brilliant Blue", "hex": "#1570EF", "group": "primary", "role": "Signature accent — links / regex / highlights" },
+    { "name": "Vibrant Cyan", "hex": "#4ECDC4", "group": "primary", "role": "Success / cyan terminal accent / additions" },
+    { "name": "Aqua Teal", "hex": "#7FE5D8", "group": "secondary", "role": "Keywords / teal highlight" },
+    { "name": "Ice Mist", "hex": "#B8F1E6", "group": "secondary", "role": "Strings / muted aqua text" },
+    { "name": "Deep Teal", "hex": "#1E9BA5", "group": "other", "role": "Functions / supporting teal" },
+    { "name": "Signal Yellow", "hex": "#FFD93D", "group": "other", "role": "Warnings / yellow accent" }
+  ],
   "dark": {
     "background": "#0F2E74",
     "foreground": "#E8F0FF",

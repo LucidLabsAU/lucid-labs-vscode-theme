@@ -109,8 +109,6 @@ function renderHtml(extensionPath, webview) {
   const brand = loadBrand(extensionPath);
   return pv.renderPaletteHtml({
     brandName: brand.displayName || BRAND,
-    palette: brand,
-    activeVariant: activeVariant(),
     brandColors: brand.brandColors,
     nonce: crypto.randomBytes(16).toString('hex'),
     cspSource: webview.cspSource,
@@ -124,7 +122,6 @@ function renderHtml(extensionPath, webview) {
 /** Push the live apply-state (editor theme + icons) to a webview. */
 function postState(webview) {
   if (!webview) return;
-  webview.postMessage({ type: 'variant', value: activeVariant() });
   webview.postMessage({
     type: 'applied',
     theme: appliedThemeLabel(),

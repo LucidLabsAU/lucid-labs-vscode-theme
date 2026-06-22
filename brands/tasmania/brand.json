@@ -22,6 +22,15 @@
   ],
   "homepage": "https://www.tas.gov.au",
   "sponsor": "https://lucidlabs.com.au",
+  "brandColors": [
+    { "name": "Tasman Blue", "hex": "#005A96", "group": "primary", "role": "Core state blue — accent, status bar, links" },
+    { "name": "Bottle Green", "hex": "#2E7A58", "group": "primary", "role": "Forest green — success, deep brand green" },
+    { "name": "Fern Green", "hex": "#3E8E68", "group": "secondary", "role": "Keywords, mid green" },
+    { "name": "Spring Green", "hex": "#7DD694", "group": "secondary", "role": "Strings, bright foliage accent" },
+    { "name": "Sky Blue", "hex": "#5B9BD5", "group": "secondary", "role": "Info, supporting accent" },
+    { "name": "Harbour Blue", "hex": "#3D8FD6", "group": "other", "role": "Functions, secondary blue" },
+    { "name": "Pale Blue", "hex": "#7EB8DA", "group": "other", "role": "Constants, tints" }
+  ],
   "dark": {
     "background": "#0B1218",
     "foreground": "#E8EDF3",

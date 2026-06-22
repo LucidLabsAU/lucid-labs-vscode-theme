@@ -22,6 +22,14 @@
   ],
   "homepage": "https://www.wa.gov.au",
   "sponsor": "https://lucidlabs.com.au",
+  "brandColors": [
+    { "name": "WA Gold", "hex": "#FFD100", "group": "primary", "role": "Core state gold — accent, keywords, status bar" },
+    { "name": "WA Black", "hex": "#0E0E0E", "group": "primary", "role": "Core black — page background, banner" },
+    { "name": "Deep Gold", "hex": "#E0B800", "group": "secondary", "role": "Functions, hover gold" },
+    { "name": "Bronze Gold", "hex": "#9A7E00", "group": "secondary", "role": "Light-mode accent, muted gold" },
+    { "name": "Sky Blue", "hex": "#5B9BD5", "group": "other", "role": "Info, supporting accent" },
+    { "name": "Pale Blue", "hex": "#7EB8DA", "group": "other", "role": "Constants, tints" }
+  ],
   "dark": {
     "background": "#0E0E0E",
     "foreground": "#E8EDF3",

@@ -18,6 +18,121 @@
     "brand"
   ],
   "homepage": "https://charli.health",
+  "brandColors": [
+    {
+      "name": "Taffy",
+      "hex": "#F1A8C9",
+      "rgb": [
+        242,
+        168,
+        201
+      ],
+      "cmyk": [
+        1,
+        42,
+        0,
+        0
+      ],
+      "group": "primary",
+      "role": "Primary brand — CTAs, brand elements"
+    },
+    {
+      "name": "Blueberry",
+      "hex": "#1D76B8",
+      "rgb": [
+        29,
+        118,
+        184
+      ],
+      "cmyk": [
+        85,
+        50,
+        3,
+        0
+      ],
+      "group": "primary",
+      "role": "Primary accent — links, secondary CTAs"
+    },
+    {
+      "name": "Jungle",
+      "hex": "#34B9A4",
+      "rgb": [
+        52,
+        185,
+        164
+      ],
+      "cmyk": [
+        71,
+        1,
+        45,
+        0
+      ],
+      "group": "secondary",
+      "role": "Success / positive states"
+    },
+    {
+      "name": "Apricot",
+      "hex": "#FCC88F",
+      "rgb": [
+        252,
+        200,
+        143
+      ],
+      "cmyk": [
+        0,
+        23,
+        47,
+        0
+      ],
+      "group": "secondary",
+      "role": "Warm accent — highlights"
+    },
+    {
+      "name": "Salmon",
+      "hex": "#F58F85",
+      "rgb": [
+        245,
+        143,
+        133
+      ],
+      "cmyk": [
+        0,
+        54,
+        39,
+        0
+      ],
+      "group": "secondary",
+      "role": "Alert / emphasis"
+    },
+    {
+      "name": "Almond",
+      "hex": "#FDE7D2",
+      "rgb": [
+        253,
+        231,
+        210
+      ],
+      "cmyk": [
+        0,
+        9,
+        17,
+        1
+      ],
+      "group": "other",
+      "role": "Subtle card backgrounds"
+    },
+    {
+      "name": "Dark Gray",
+      "hex": "#58595B",
+      "rgb": [
+        88,
+        89,
+        91
+      ],
+      "group": "other",
+      "role": "Headings / UI text"
+    }
+  ],
   "dark": {
     "background": "#1E1A24",
     "foreground": "#F0E8E0",

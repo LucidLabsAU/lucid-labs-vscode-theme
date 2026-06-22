@@ -22,6 +22,15 @@
   ],
   "homepage": "https://icongroup.global",
   "sponsor": "https://icongroup.global",
+  "brandColors": [
+    { "name": "Icon Navy", "hex": "#0E2A4A", "group": "primary", "role": "Core navy-blue background / brand canvas" },
+    { "name": "Icon Gold", "hex": "#FDBD10", "group": "primary", "role": "Signature accent — gold highlight / status bar / badges" },
+    { "name": "Care Blue", "hex": "#006FB9", "group": "primary", "role": "Primary brand blue (light variant) — links / accents" },
+    { "name": "Healing Green", "hex": "#4CAF7D", "group": "secondary", "role": "Success / additions / supporting green" },
+    { "name": "Compassion Purple", "hex": "#9B6FCF", "group": "secondary", "role": "Keywords / modified markers / purple highlight" },
+    { "name": "Sky Blue", "hex": "#4DA6E8", "group": "other", "role": "Functions / info accent" },
+    { "name": "Soft Sage", "hex": "#7BC8A4", "group": "other", "role": "Strings / muted green" }
+  ],
   "dark": {
     "background": "#0E2A4A",
     "foreground": "#E0E8F0",

@@ -24,6 +24,15 @@
   ],
   "homepage": "https://parks.desi.qld.gov.au",
   "sponsor": "https://lucidlabs.com.au",
+  "brandColors": [
+    { "name": "Lagoon Teal", "hex": "#3DB6AD", "group": "primary", "role": "Primary accent — links, badges, highlights" },
+    { "name": "Deep Forest Teal", "hex": "#014F54", "group": "primary", "role": "Core deep teal — status bar, buttons, light accent" },
+    { "name": "Park Cream", "hex": "#DED2BF", "group": "primary", "role": "Cream — strings, light foreground" },
+    { "name": "Khaki Gold", "hex": "#CBA06A", "group": "secondary", "role": "Keywords, tags — dry-grass khaki" },
+    { "name": "Bark Brown", "hex": "#D8B98C", "group": "secondary", "role": "Constants, attributes — tree bark tone" },
+    { "name": "Eucalypt Green", "hex": "#8FB173", "group": "other", "role": "Success, foliage accents" },
+    { "name": "Reef Cyan", "hex": "#54C7BE", "group": "other", "role": "Info, bright teal accent" }
+  ],
   "dark": {
     "background": "#0C2123",
     "foreground": "#ECE4D6",

@@ -4,11 +4,60 @@
   "description": "A professional VS Code colour theme inspired by Australian Food & Fibre (AFF) — deep navy backgrounds with gold accents, evoking Australian cotton fields and agricultural excellence.",
   "publisher": "lucidlabs",
   "keywords": [
-    "theme", "dark theme", "light theme", "colour theme", "australian food fibre",
-    "aff", "cotton", "agriculture", "agribusiness", "navy", "gold",
-    "professional", "brand", "business"
+    "theme",
+    "dark theme",
+    "light theme",
+    "colour theme",
+    "australian food fibre",
+    "aff",
+    "cotton",
+    "agriculture",
+    "agribusiness",
+    "navy",
+    "gold",
+    "professional",
+    "brand",
+    "business"
   ],
   "homepage": "https://australianfoodandfibre.com.au",
+  "brandColors": [
+    {
+      "name": "AFF Navy",
+      "hex": "#253F92",
+      "group": "primary",
+      "role": "Primary brand — headers, key emphasis"
+    },
+    {
+      "name": "AFF Wheat",
+      "hex": "#B9965F",
+      "group": "primary",
+      "role": "Secondary brand — accents"
+    },
+    {
+      "name": "AFF Sage",
+      "hex": "#008A69",
+      "group": "secondary",
+      "role": "Positive / good status"
+    },
+    {
+      "name": "AFF Gold",
+      "hex": "#D9B300",
+      "group": "secondary",
+      "role": "Neutral accent / alerts"
+    },
+    {
+      "name": "AFF Blue",
+      "hex": "#3599B8",
+      "group": "other",
+      "role": "Supporting data series"
+    },
+    {
+      "name": "AFF Red",
+      "hex": "#D64550",
+      "group": "other",
+      "role": "Negative / bad status"
+    }
+  ],
   "dark": {
     "background": "#0E1826",
     "foreground": "#E4E8F0",

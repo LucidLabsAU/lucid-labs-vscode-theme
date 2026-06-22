@@ -17,6 +17,32 @@
     "brand"
   ],
   "homepage": "https://www.progensoft.com",
+  "brandColors": [
+    {
+      "name": "Progenesis Blue",
+      "hex": "#3892D5",
+      "group": "primary",
+      "role": "Primary brand accent — buttons, links"
+    },
+    {
+      "name": "Logo Navy",
+      "hex": "#031649",
+      "group": "primary",
+      "role": "Logo dark / primary mark"
+    },
+    {
+      "name": "Sky Blue",
+      "hex": "#6AA0CA",
+      "group": "secondary",
+      "role": "Gradient end / secondary accent"
+    },
+    {
+      "name": "Logo Green",
+      "hex": "#00BB77",
+      "group": "secondary",
+      "role": "Logo accent / brand mark"
+    }
+  ],
   "dark": {
     "background": "#181C26",
     "foreground": "#E2E6EF",

@@ -4,11 +4,96 @@
   "description": "A bold VS Code colour theme featuring electric blue accents and deep purple backgrounds, inspired by the Banjo Loans visual identity. Built and published by Lucid Labs on behalf of Banjo Loans. All trademarks belong to their respective owners.",
   "publisher": "lucidlabs",
   "keywords": [
-    "theme", "dark theme", "light theme", "colour theme", "banjo",
-    "banjo loans", "fintech", "finance", "blue", "purple",
-    "professional", "brand", "business", "loans"
+    "theme",
+    "dark theme",
+    "light theme",
+    "colour theme",
+    "banjo",
+    "banjo loans",
+    "fintech",
+    "finance",
+    "blue",
+    "purple",
+    "professional",
+    "brand",
+    "business",
+    "loans"
   ],
   "homepage": "https://banjoloans.com",
+  "brandColors": [
+    {
+      "name": "Banjo Electric Blue",
+      "hex": "#0039F6",
+      "cmyk": [
+        100,
+        68,
+        0,
+        0
+      ],
+      "group": "primary",
+      "role": "Primary brand — buttons, badges"
+    },
+    {
+      "name": "Banjo Mint Green",
+      "hex": "#34D9C3",
+      "cmyk": [
+        61,
+        0,
+        33,
+        0
+      ],
+      "group": "primary",
+      "role": "Primary accent"
+    },
+    {
+      "name": "Banjo Purple",
+      "hex": "#5F73FF",
+      "group": "secondary",
+      "role": "Secondary brand colour"
+    },
+    {
+      "name": "Banjo Orange",
+      "hex": "#FF7305",
+      "cmyk": [
+        0,
+        62,
+        97,
+        0
+      ],
+      "group": "secondary",
+      "role": "Accent / alerts"
+    },
+    {
+      "name": "Banjo Soft Blue",
+      "hex": "#72D0EB",
+      "cmyk": [
+        4,
+        0,
+        5,
+        0
+      ],
+      "group": "other",
+      "role": "Light blue accent"
+    },
+    {
+      "name": "Banjo Aubergine",
+      "hex": "#30003C",
+      "group": "other",
+      "role": "Dark neutral / section headers"
+    },
+    {
+      "name": "Banjo Warm Grey",
+      "hex": "#F1EFEB",
+      "group": "other",
+      "role": "Light neutral background"
+    },
+    {
+      "name": "Banjo Red",
+      "hex": "#800000",
+      "group": "other",
+      "role": "Danger / error states"
+    }
+  ],
   "dark": {
     "background": "#1A1024",
     "foreground": "#E8E4F0",
