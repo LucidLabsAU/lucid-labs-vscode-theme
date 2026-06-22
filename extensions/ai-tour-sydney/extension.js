@@ -11,7 +11,7 @@ const CONFIG_NS = 'aiTourSydneyTheme';
 const VIEW_ID = 'aiTourSydneyThemePalette';
 // The brand's icon-theme id (from package.json contributes.iconThemes), or ''
 // for brands that ship no icon theme — the palette page hides its Icons button.
-const ICON_THEME = '';
+const ICON_THEME = 'ai-tour-sydney-icons';
 
 // Every colour theme this extension bundles, grouped by edition (everyday plus
 // any variant editions). The generator injects this from contributes.themes;

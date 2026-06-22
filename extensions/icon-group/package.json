@@ -2,7 +2,7 @@
   "$schema": "https://json.schemastore.org/package.json",
   "name": "icon-group-theme",
   "displayName": "Icon Group",
-  "description": "A professional theme for Visual Studio Code inspired by Icon Group's brand identity. Features navy blue backgrounds, gold accents, and healthcare-focused aesthetics reflecting Icon Group's leadership in cancer care.",
+  "description": "A professional VS Code theme inspired by Icon Group's brand identity — navy backgrounds, gold accents, and a healthcare focus reflecting their leadership in cancer care.",
   "version": "1.9.2",
   "publisher": "lucidlabs",
   "license": "MIT",
