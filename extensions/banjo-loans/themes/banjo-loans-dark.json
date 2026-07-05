@@ -1506,9 +1506,5 @@
     "annotation:dart": "#6B9BFF",
     "parameter.label:dart": "#E8E4F0"
   },
-  "name": "Banjo Loans Dark",
-  "displayName": "Banjo Loans Dark",
-  "description": "A bold VS Code colour theme featuring electric blue accents and deep purple backgrounds, inspired by the Banjo Loans visual identity. Built and published by Lucid Labs on behalf of Banjo Loans. All trademarks belong to their respective owners.",
-  "version": "1.0.0",
-  "publisher": "lucidlabs"
+  "name": "Banjo Loans Dark"
 }

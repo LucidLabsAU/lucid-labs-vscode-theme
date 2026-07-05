@@ -6,28 +6,29 @@ Every extension ships **dual dark + light themes**, a **custom file-icon theme**
 
 ## Extensions
 
-| Brand | Marketplace | Version |
-|-------|------------|---------|
-| **Lucid Labs** | [lucidlabs.lucid-labs-theme](https://marketplace.visualstudio.com/items?itemName=lucidlabs.lucid-labs-theme) | 1.16.0 |
-| **CHARLI Health** | [lucidlabs.charli-theme](https://marketplace.visualstudio.com/items?itemName=lucidlabs.charli-theme) | 1.9.1 |
-| **Perfection Fresh** | [lucidlabs.perfection-fresh-theme](https://marketplace.visualstudio.com/items?itemName=lucidlabs.perfection-fresh-theme) | 1.8.2 |
-| **Australian Food & Fibre** | [lucidlabs.australian-food-fibre-theme](https://marketplace.visualstudio.com/items?itemName=lucidlabs.australian-food-fibre-theme) | 1.8.3 |
-| **Banjo Loans** | [lucidlabs.banjo-loans-theme](https://marketplace.visualstudio.com/items?itemName=lucidlabs.banjo-loans-theme) | 1.8.2 |
-| **Progenesis** | [lucidlabs.progenesis-theme](https://marketplace.visualstudio.com/items?itemName=lucidlabs.progenesis-theme) | 1.8.1 |
-| **Icon Group** | [lucidlabs.icon-group-theme](https://marketplace.visualstudio.com/items?itemName=lucidlabs.icon-group-theme) | 1.9.2 |
-| **Queensland** | [lucidlabs.queensland-theme](https://marketplace.visualstudio.com/items?itemName=lucidlabs.queensland-theme) | 1.8.2 |
-| **New South Wales** | [lucidlabs.new-south-wales-theme](https://marketplace.visualstudio.com/items?itemName=lucidlabs.new-south-wales-theme) | 1.7.2 |
-| **Victoria** | [lucidlabs.victoria-theme](https://marketplace.visualstudio.com/items?itemName=lucidlabs.victoria-theme) | 1.7.2 |
-| **Tasmania** | [lucidlabs.tasmania-theme](https://marketplace.visualstudio.com/items?itemName=lucidlabs.tasmania-theme) | 1.7.2 |
-| **South Australia** | [lucidlabs.south-australia-theme](https://marketplace.visualstudio.com/items?itemName=lucidlabs.south-australia-theme) | 1.7.2 |
-| **Western Australia** | [lucidlabs.western-australia-theme](https://marketplace.visualstudio.com/items?itemName=lucidlabs.western-australia-theme) | 1.7.2 |
-| **Northern Territory** | [lucidlabs.northern-territory-theme](https://marketplace.visualstudio.com/items?itemName=lucidlabs.northern-territory-theme) | 1.7.2 |
-| **ACT** | [lucidlabs.act-theme](https://marketplace.visualstudio.com/items?itemName=lucidlabs.act-theme) | 1.7.2 |
-| **AI Tour Sydney** | [lucidlabs.ai-tour-sydney-theme](https://marketplace.visualstudio.com/items?itemName=lucidlabs.ai-tour-sydney-theme) | 1.3.2 |
-| **Aurora Dairies** | [lucidlabs.aurora-dairies-theme](https://marketplace.visualstudio.com/items?itemName=lucidlabs.aurora-dairies-theme) | 1.1.3 |
-| **Asplundh** | [lucidlabs.asplundh-theme](https://marketplace.visualstudio.com/items?itemName=lucidlabs.asplundh-theme) | 1.0.2 |
-| **Pax8** | [lucidlabs.pax8-theme](https://marketplace.visualstudio.com/items?itemName=lucidlabs.pax8-theme) | 1.3.2 |
-| **CyberMattLee** | [lucidlabs.cybermattlee-theme](https://marketplace.visualstudio.com/items?itemName=lucidlabs.cybermattlee-theme) | 1.0.0 |
+Versions live in each extension's `package.json` — the marketplace listing is always current.
+
+| Brand | Marketplace |
+|-------|------------|
+| **Lucid Labs** | [lucidlabs.lucid-labs-theme](https://marketplace.visualstudio.com/items?itemName=lucidlabs.lucid-labs-theme) |
+| **CHARLI Health** | [lucidlabs.charli-health-theme](https://marketplace.visualstudio.com/items?itemName=lucidlabs.charli-health-theme) |
+| **Perfection Fresh** | [lucidlabs.perfection-fresh-theme](https://marketplace.visualstudio.com/items?itemName=lucidlabs.perfection-fresh-theme) |
+| **Australian Food & Fibre** | [lucidlabs.australian-food-fibre-theme](https://marketplace.visualstudio.com/items?itemName=lucidlabs.australian-food-fibre-theme) |
+| **Banjo Loans** | [lucidlabs.banjo-loans-theme](https://marketplace.visualstudio.com/items?itemName=lucidlabs.banjo-loans-theme) |
+| **Progenesis** | [lucidlabs.progenesis-theme](https://marketplace.visualstudio.com/items?itemName=lucidlabs.progenesis-theme) |
+| **Queensland** | [lucidlabs.queensland-theme](https://marketplace.visualstudio.com/items?itemName=lucidlabs.queensland-theme) |
+| **New South Wales** | [lucidlabs.new-south-wales-theme](https://marketplace.visualstudio.com/items?itemName=lucidlabs.new-south-wales-theme) |
+| **Victoria** | [lucidlabs.victoria-theme](https://marketplace.visualstudio.com/items?itemName=lucidlabs.victoria-theme) |
+| **Tasmania** | [lucidlabs.tasmania-theme](https://marketplace.visualstudio.com/items?itemName=lucidlabs.tasmania-theme) |
+| **South Australia** | [lucidlabs.south-australia-theme](https://marketplace.visualstudio.com/items?itemName=lucidlabs.south-australia-theme) |
+| **Western Australia** | [lucidlabs.western-australia-theme](https://marketplace.visualstudio.com/items?itemName=lucidlabs.western-australia-theme) |
+| **Northern Territory** | [lucidlabs.northern-territory-theme](https://marketplace.visualstudio.com/items?itemName=lucidlabs.northern-territory-theme) |
+| **ACT** | [lucidlabs.act-theme](https://marketplace.visualstudio.com/items?itemName=lucidlabs.act-theme) |
+| **AI Tour Sydney** | [lucidlabs.ai-tour-sydney-theme](https://marketplace.visualstudio.com/items?itemName=lucidlabs.ai-tour-sydney-theme) |
+| **Aurora Dairies** | [lucidlabs.aurora-dairies-theme](https://marketplace.visualstudio.com/items?itemName=lucidlabs.aurora-dairies-theme) |
+| **Pax8** | [lucidlabs.pax8-theme](https://marketplace.visualstudio.com/items?itemName=lucidlabs.pax8-theme) |
+| **CyberMattLee** | [lucidlabs.cybermattlee-theme](https://marketplace.visualstudio.com/items?itemName=lucidlabs.cybermattlee-theme) |
+| **Queensland Parks & Wildlife (Unofficial)** | [lucidlabs.qpws-theme](https://marketplace.visualstudio.com/items?itemName=lucidlabs.qpws-theme) |
 
 ## How It Works
 
@@ -60,9 +61,9 @@ See `.github/copilot-instructions.md` for the full brand-authoring guide.
 
 There is no `release-please` step — publishing is handled by the `Auto Publish` GitHub Actions workflow (`.github/workflows/auto-publish.yml`):
 
-1. Bump `version` in `extensions/<slug>/package.json` and add an entry to that extension's `CHANGELOG.md`.
+1. Bump `version` in `extensions/<slug>/package.json` and add an entry to that extension's `CHANGELOG.md`. For a templates/brands change that should ship to every extension, bump them all in one pass: `npm run bump -- --minor -m "What changed"`.
 2. Push to `main`.
-3. The workflow detects changed extensions (a `templates/` or `brands/` change publishes all of them), authenticates to Azure via OIDC, fetches the VSCE PAT from Key Vault, and publishes to the VS Code Marketplace. Already-published versions skip gracefully.
+3. The workflow detects changed extensions (a `templates/` or `brands/` change publishes all of them), authenticates to Azure via OIDC, fetches the VSCE PAT from Key Vault, and publishes to the VS Code Marketplace. Already-published versions skip gracefully — the run warns if a templates/brands change shipped nothing because no versions were bumped.
 
 A manual `workflow_dispatch` run republishes every extension.
 

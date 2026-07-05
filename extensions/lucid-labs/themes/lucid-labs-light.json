@@ -1506,9 +1506,5 @@
     "annotation:dart": "#7454B3",
     "parameter.label:dart": "#271D3B"
   },
-  "name": "Lucid Labs Light",
-  "displayName": "Lucid Labs Light",
-  "description": "A professional dark theme for Visual Studio Code based on Lucid Labs brand guidelines. Features dark purple backgrounds, teal accents, and cloud-inspired aesthetics perfect for Azure development, PowerShell scripting, and enterprise coding.",
-  "version": "1.0.0",
-  "publisher": "lucidlabs"
+  "name": "Lucid Labs Light"
 }

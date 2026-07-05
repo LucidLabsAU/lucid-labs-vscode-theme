@@ -1506,9 +1506,5 @@
     "annotation:dart": "#0F5FD8",
     "parameter.label:dart": "#0F2E74"
   },
-  "name": "AI Tour Sydney Light",
-  "displayName": "AI Tour Sydney Light",
-  "description": "A modern, premium dark theme inspired by the AI Tour Sydney 20-24 April 2026 event. Features deep navy backgrounds, vibrant cyan accents, and brilliant blue highlights for a tech-forward coding experience.",
-  "version": "1.0.0",
-  "publisher": "lucidlabs"
+  "name": "AI Tour Sydney Light"
 }

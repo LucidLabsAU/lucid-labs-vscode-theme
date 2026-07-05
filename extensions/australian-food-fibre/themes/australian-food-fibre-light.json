@@ -1506,9 +1506,5 @@
     "annotation:dart": "#1E3D82",
     "parameter.label:dart": "#111827"
   },
-  "name": "Australian Food & Fibre Light",
-  "displayName": "Australian Food & Fibre Light",
-  "description": "A professional VS Code colour theme inspired by Australian Food & Fibre (AFF) — deep navy backgrounds with gold accents, evoking Australian cotton fields and agricultural excellence.",
-  "version": "1.0.0",
-  "publisher": "lucidlabs"
+  "name": "Australian Food & Fibre Light"
 }

@@ -1506,9 +1506,5 @@
     "annotation:dart": "#003174",
     "parameter.label:dart": "#0C0E18"
   },
-  "name": "Victoria Light",
-  "displayName": "Victoria Light",
-  "description": "A professional theme for Visual Studio Code featuring Victoria's iconic blue and navy colour palette.",
-  "version": "1.0.0",
-  "publisher": "lucidlabs"
+  "name": "Victoria Light"
 }

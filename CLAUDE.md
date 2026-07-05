@@ -16,6 +16,9 @@ node scripts/generate.js --brand lucid-labs
 # Lint all generated themes
 npm run lint
 
+# Bump every extension's version + changelog in one pass (for template/brand releases)
+npm run bump -- --minor -m "What changed"
+
 # Package all extensions
 npm run package:all
 
@@ -47,32 +50,34 @@ extensions/<name>/package.json → VS Code extension manifest
 
 ### Current brands
 
-| Brand | Extension ID | Version |
-|-------|-------------|---------|
-| Lucid Labs | `lucidlabs.lucid-labs-theme` | 1.15.2 |
-| CHARLI Health | `lucidlabs.charli-health-theme` | 1.9.1 |
-| Perfection Fresh | `lucidlabs.perfection-fresh-theme` | 1.8.2 |
-| Australian Food & Fibre | `lucidlabs.australian-food-fibre-theme` | 1.8.2 |
-| Banjo Loans | `lucidlabs.banjo-loans-theme` | 1.8.2 |
-| Progenesis | `lucidlabs.progenesis-theme` | 1.8.1 |
-| Icon Group | `lucidlabs.icon-group-theme` | 1.9.2 |
-| Queensland | `lucidlabs.queensland-theme` | 1.8.2 |
-| New South Wales | `lucidlabs.new-south-wales-theme` | 1.7.2 |
-| Victoria | `lucidlabs.victoria-theme` | 1.7.2 |
-| Tasmania | `lucidlabs.tasmania-theme` | 1.7.2 |
-| South Australia | `lucidlabs.south-australia-theme` | 1.7.2 |
-| Western Australia | `lucidlabs.western-australia-theme` | 1.7.2 |
-| Northern Territory | `lucidlabs.northern-territory-theme` | 1.7.2 |
-| ACT | `lucidlabs.act-theme` | 1.7.2 |
-| AI Tour Sydney | `lucidlabs.ai-tour-sydney-theme` | 1.3.2 |
-| Aurora Dairies | `lucidlabs.aurora-dairies-theme` | 1.1.2 |
-| Asplundh | `lucidlabs.asplundh-theme` | 1.0.1 |
-| Pax8 (suite: everyday + Beyond 2026 SLC/Copenhagen + CTF 2026) | `lucidlabs.pax8-theme` | 1.3.1 |
-| CyberMattLee (variants: Matt Lee Full Beard / Matt Lee Shaved) | `lucidlabs.cybermattlee-theme` | 1.0.0 |
-| Queensland Parks & Wildlife (Unofficial) | `lucidlabs.qpws-theme` | 1.0.0 |
+Versions are the `version` field in each `extensions/<slug>/package.json` — never duplicate them here.
+
+| Brand | Extension ID |
+|-------|-------------|
+| Lucid Labs | `lucidlabs.lucid-labs-theme` |
+| CHARLI Health | `lucidlabs.charli-health-theme` |
+| Perfection Fresh | `lucidlabs.perfection-fresh-theme` |
+| Australian Food & Fibre | `lucidlabs.australian-food-fibre-theme` |
+| Banjo Loans | `lucidlabs.banjo-loans-theme` |
+| Progenesis | `lucidlabs.progenesis-theme` |
+| Queensland | `lucidlabs.queensland-theme` |
+| New South Wales | `lucidlabs.new-south-wales-theme` |
+| Victoria | `lucidlabs.victoria-theme` |
+| Tasmania | `lucidlabs.tasmania-theme` |
+| South Australia | `lucidlabs.south-australia-theme` |
+| Western Australia | `lucidlabs.western-australia-theme` |
+| Northern Territory | `lucidlabs.northern-territory-theme` |
+| ACT | `lucidlabs.act-theme` |
+| AI Tour Sydney | `lucidlabs.ai-tour-sydney-theme` |
+| Aurora Dairies | `lucidlabs.aurora-dairies-theme` |
+| Pax8 (suite: everyday + Beyond 2026 SLC/Copenhagen + CTF 2026) | `lucidlabs.pax8-theme` |
+| CyberMattLee (variants: Matt Lee Full Beard / Matt Lee Shaved) | `lucidlabs.cybermattlee-theme` |
+| Queensland Parks & Wildlife (Unofficial) | `lucidlabs.qpws-theme` |
 
 ## Repo-specific gotchas
 
 - **Husky pre-commit hook** runs `npm run generate && npm run lint` to ensure generated themes are always up-to-date and valid.
 - **Adding a new brand**: create `brands/<name>/brand.json` with palette mapped to semantic roles, add `brands/<name>/icon.png` (256x256 PNG) and `brands/<name>/README.md`, create `extensions/<name>/{package.json,.vscodeignore,CHANGELOG.md,LICENSE}`, then run `npm run generate`.
 - **Release flow**: bump version in `extensions/<name>/package.json` and update `CHANGELOG.md`, push to `main`. Auto-publish workflow detects changed extensions, Azure OIDC authenticates, fetches VSCE PAT from Key Vault, publishes to marketplace. Manual dispatch (`workflow_dispatch`) publishes all extensions. Already-published versions skip gracefully.
+- **Template/brand releases need version bumps**: a `templates/` or `brands/` change triggers a publish of ALL extensions, but any extension whose version already exists on the marketplace is skipped — the change ships nowhere without bumps. Run `npm run bump -- --minor -m "..."` first; the workflow emits a warning if a template-triggered run published nothing.
+- **CI drift gate**: `.github/workflows/ci.yml` regenerates themes and fails if the committed output differs — pre-commit hooks can be skipped, CI cannot.

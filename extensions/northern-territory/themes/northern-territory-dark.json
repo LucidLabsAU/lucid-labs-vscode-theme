@@ -1506,9 +1506,5 @@
     "annotation:dart": "#FFB347",
     "parameter.label:dart": "#E8EDF3"
   },
-  "name": "Northern Territory Dark",
-  "displayName": "Northern Territory Dark",
-  "description": "A professional theme for Visual Studio Code featuring the Northern Territory's iconic red ochre and black colour palette.",
-  "version": "1.0.0",
-  "publisher": "lucidlabs"
+  "name": "Northern Territory Dark"
 }

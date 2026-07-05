@@ -1506,9 +1506,5 @@
     "annotation:dart": "#FF63BE",
     "parameter.label:dart": "#EDE7F6"
   },
-  "name": "CyberMattLee Dark",
-  "displayName": "CyberMattLee Dark",
-  "description": "A neon-on-midnight VS Code colour theme inspired by CyberMattLee — Matt Lee's hot-magenta beard and deep-purple cyber aesthetic. Raise the tide of cybersecurity, one keystroke at a time.",
-  "version": "1.0.0",
-  "publisher": "lucidlabs"
+  "name": "CyberMattLee Dark"
 }

@@ -1506,9 +1506,5 @@
     "annotation:dart": "#1A5C3A",
     "parameter.label:dart": "#0B1218"
   },
-  "name": "Tasmania Light",
-  "displayName": "Tasmania Light",
-  "description": "A professional theme for Visual Studio Code featuring Tasmania's iconic blue and forest green colour palette.",
-  "version": "1.0.0",
-  "publisher": "lucidlabs"
+  "name": "Tasmania Light"
 }

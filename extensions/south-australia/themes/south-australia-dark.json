@@ -1506,9 +1506,5 @@
     "annotation:dart": "#F03050",
     "parameter.label:dart": "#E8EDF3"
   },
-  "name": "South Australia Dark",
-  "displayName": "South Australia Dark",
-  "description": "A professional theme for Visual Studio Code featuring South Australia's iconic blue and red colour palette.",
-  "version": "1.0.0",
-  "publisher": "lucidlabs"
+  "name": "South Australia Dark"
 }

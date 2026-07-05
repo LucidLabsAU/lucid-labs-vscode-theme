@@ -1506,9 +1506,5 @@
     "annotation:dart": "#E63A56",
     "parameter.label:dart": "#E8EDF3"
   },
-  "name": "New South Wales Dark",
-  "displayName": "New South Wales Dark",
-  "description": "A professional theme for Visual Studio Code featuring New South Wales' iconic blue and waratah red colour palette.",
-  "version": "1.0.0",
-  "publisher": "lucidlabs"
+  "name": "New South Wales Dark"
 }

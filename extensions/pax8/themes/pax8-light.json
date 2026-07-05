@@ -1506,9 +1506,5 @@
     "annotation:dart": "#0447BF",
     "parameter.label:dart": "#0B0B0D"
   },
-  "name": "Pax8 Light",
-  "displayName": "Pax8 Light",
-  "description": "A black-first VS Code theme suite for Pax8 — the everyday electric-mint-on-black identity plus event editions for Pax8 Beyond 2026 (Salt Lake City & Copenhagen) and the Pax8 + Microsoft Beyond CTF.",
-  "version": "1.0.0",
-  "publisher": "lucidlabs"
+  "name": "Pax8 Light"
 }

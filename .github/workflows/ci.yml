@@ -1,0 +1,47 @@
+name: CI
+
+# Server-side enforcement of the same gates as the husky pre-commit hook
+# (generate + lint + test), plus a drift check: the committed generated
+# output must exactly match what the templates and brand configs produce.
+# Hooks can be skipped locally; this cannot.
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - run: npm ci
+
+      - name: Generate themes
+        run: npm run generate
+
+      - name: Check for drift between committed and generated output
+        run: |
+          if ! git diff --quiet; then
+            echo "::error::Committed generated files do not match generator output. Run 'npm run generate' and commit the result."
+            git diff --stat
+            exit 1
+          fi
+
+      - name: Lint themes
+        run: npm run lint
+
+      - name: Run tests
+        run: npm test

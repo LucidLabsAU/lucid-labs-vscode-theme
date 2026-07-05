@@ -21,22 +21,12 @@
 const fs = require('fs');
 const path = require('path');
 const eb = require('./lib/extension-build');
+const { parseJsonc } = require('./lib/jsonc');
 
 const ROOT = path.join(__dirname, '..');
 const BRANDS_DIR = path.join(ROOT, 'brands');
 const TEMPLATES_DIR = path.join(ROOT, 'templates');
 const EXTENSIONS_DIR = path.join(ROOT, 'extensions');
-
-/**
- * Strip JSONC comments and trailing commas, then parse as JSON.
- */
-function parseJsonc(text) {
-  // Remove single-line comments (// ...)
-  let cleaned = text.replace(/^\s*\/\/.*$/gm, '');
-  // Remove trailing commas before } or ]
-  cleaned = cleaned.replace(/,(\s*[}\]])/g, '$1');
-  return JSON.parse(cleaned);
-}
 
 /**
  * Flatten a nested object into dot-notation keys.
@@ -114,12 +104,10 @@ function generateTheme(brandName, variant, brandConfig, template) {
   // Parse to validate JSON and get clean object
   const theme = JSON.parse(result);
 
-  // Add metadata
+  // `name` is the only metadata key the theme-file schema knows about;
+  // everything user-facing (label, description, publisher) lives in the
+  // extension's package.json.
   theme.name = `${brandConfig.name} ${variant === 'dark' ? 'Dark' : 'Light'}`;
-  theme.displayName = `${brandConfig.displayName} ${variant === 'dark' ? 'Dark' : 'Light'}`;
-  theme.description = brandConfig.description;
-  theme.version = '1.0.0';
-  theme.publisher = brandConfig.publisher;
 
   return theme;
 }
@@ -285,7 +273,6 @@ function main() {
             // everyday brand themes sort to the top of the (localeCompare) picker.
             const variantWord = variant === 'dark' ? 'Dark' : 'Light';
             theme.name = `${brandConfig.displayName} ${variantWord} · ${vcfg.name}`;
-            theme.displayName = theme.name;
             const vPath = path.join(outDir, `${brand}-${vslug}-${variant}.json`);
             fs.writeFileSync(vPath, JSON.stringify(theme, null, 2) + '\n');
             console.log(`  ✓ ${brand}-${vslug}-${variant}.json`);

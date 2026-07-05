@@ -1506,9 +1506,5 @@
     "annotation:dart": "#7A6500",
     "parameter.label:dart": "#0A0C18"
   },
-  "name": "ACT Light",
-  "displayName": "ACT Light",
-  "description": "A professional theme for Visual Studio Code featuring the Australian Capital Territory's iconic blue and gold colour palette.",
-  "version": "1.0.0",
-  "publisher": "lucidlabs"
+  "name": "ACT Light"
 }

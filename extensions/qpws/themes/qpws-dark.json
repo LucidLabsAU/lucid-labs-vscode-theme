@@ -1506,9 +1506,5 @@
     "annotation:dart": "#CBA06A",
     "parameter.label:dart": "#ECE4D6"
   },
-  "name": "Queensland Parks & Wildlife (Unofficial) Dark",
-  "displayName": "Queensland Parks & Wildlife (Unofficial) Dark",
-  "description": "An unofficial VS Code colour theme inspired by the teal, cream and brown palette of Queensland's parks and wildlife.",
-  "version": "1.0.0",
-  "publisher": "lucidlabs"
+  "name": "Queensland Parks & Wildlife (Unofficial) Dark"
 }

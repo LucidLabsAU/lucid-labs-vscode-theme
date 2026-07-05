@@ -26,6 +26,7 @@ jobs:
     if: "!contains(github.event.head_commit.message, '[skip ci]')"
     outputs:
       extensions: ${{ steps.detect.outputs.extensions }}
+      reason: ${{ steps.detect.outputs.reason }}
     steps:
     - name: Checkout code
       uses: actions/checkout@v7
@@ -46,6 +47,7 @@ jobs:
         if [ "$EVENT_NAME" = "workflow_dispatch" ]; then
           EXTENSIONS=$(all_extensions)
           echo "extensions=${EXTENSIONS}" >> "$GITHUB_OUTPUT"
+          echo "reason=dispatch" >> "$GITHUB_OUTPUT"
           exit 0
         fi
 
@@ -65,6 +67,7 @@ jobs:
         if echo "$CHANGED_FILES" | grep -qE '^(templates/|brands/)'; then
           EXTENSIONS=$(all_extensions)
           echo "extensions=${EXTENSIONS}" >> "$GITHUB_OUTPUT"
+          echo "reason=templates" >> "$GITHUB_OUTPUT"
           exit 0
         fi
 
@@ -75,6 +78,7 @@ jobs:
         else
           echo "extensions=${EXTENSIONS}" >> "$GITHUB_OUTPUT"
         fi
+        echo "reason=extensions" >> "$GITHUB_OUTPUT"
 
   publish:
     needs: detect-changes
@@ -103,7 +107,12 @@ jobs:
     - name: Allow runner access to Key Vault
       id: firewall
       run: |
-        RUNNER_IP=$(curl -s https://api.ipify.org)
+        # Two independent providers so one outage can't block the whole publish.
+        RUNNER_IP=$(curl -sf --max-time 10 https://api.ipify.org || curl -sf --max-time 10 https://ifconfig.me/ip)
+        if ! echo "$RUNNER_IP" | grep -qE '^[0-9]{1,3}(\.[0-9]{1,3}){3}$'; then
+          echo "::error::Could not determine runner IP (got: '$RUNNER_IP')"
+          exit 1
+        fi
         echo "runner_ip=$RUNNER_IP" >> "$GITHUB_OUTPUT"
         az keyvault network-rule add --name "${{ env.KEY_VAULT_NAME }}" --ip-address "$RUNNER_IP/32" --only-show-errors
         sleep 10
@@ -116,17 +125,19 @@ jobs:
         echo "VSCE_PAT=$VSCE_PAT" >> "$GITHUB_ENV"
 
     - name: Remove runner access from Key Vault
-      if: always()
+      if: always() && steps.firewall.outputs.runner_ip != ''
       run: |
         az keyvault network-rule remove --name "${{ env.KEY_VAULT_NAME }}" --ip-address "${{ steps.firewall.outputs.runner_ip }}/32" --only-show-errors
 
     - name: Publish extensions
       env:
         EXTENSIONS_JSON: ${{ needs.detect-changes.outputs.extensions }}
+        REASON: ${{ needs.detect-changes.outputs.reason }}
       run: |
         EXTENSIONS="$EXTENSIONS_JSON"
         FAILED=""
-        SUCCEEDED=""
+        PUBLISHED_NEW=""
+        SKIPPED=""
 
         for ext in $(echo "$EXTENSIONS" | jq -r '.[]'); do
           echo "::group::Publishing $ext"
@@ -147,14 +158,14 @@ jobs:
             echo "Attempt $attempt of 3..."
             PUBLISH_OUTPUT=$( (cd "extensions/$ext" && vsce publish -p "$VSCE_PAT") 2>&1) && {
               echo "$ext v$VERSION published successfully!"
-              SUCCEEDED="$SUCCEEDED $ext"
+              PUBLISHED_NEW="$PUBLISHED_NEW $ext"
               PUBLISHED=true
               break
             }
             echo "$PUBLISH_OUTPUT"
             if echo "$PUBLISH_OUTPUT" | grep -q "already exists"; then
               echo "$ext v$VERSION already published — skipping."
-              SUCCEEDED="$SUCCEEDED $ext"
+              SKIPPED="$SKIPPED $ext"
               PUBLISHED=true
               break
             fi
@@ -177,7 +188,16 @@ jobs:
 
         echo ""
         echo "=== Summary ==="
-        [ -n "$SUCCEEDED" ] && echo "Succeeded:$SUCCEEDED"
+        [ -n "$PUBLISHED_NEW" ] && echo "Published:$PUBLISHED_NEW"
+        [ -n "$SKIPPED" ] && echo "Skipped (already published):$SKIPPED"
         [ -n "$FAILED" ] && echo "Failed:$FAILED"
+
+        # A templates/brands change republishes everything — if every version
+        # already existed, the change reached nobody. Run `npm run bump` and
+        # push to actually ship it.
+        if [ "$REASON" = "templates" ] && [ -z "$PUBLISHED_NEW" ] && [ -z "$FAILED" ]; then
+          echo "::warning::Templates or brands changed but every extension version already exists on the marketplace — nothing shipped. Bump versions (npm run bump -- --minor -m \"...\") and push."
+        fi
+
         [ -n "$FAILED" ] && exit 1
-        echo "All extensions published successfully!"
+        echo "Done."
