@@ -24,7 +24,6 @@ Versions live in each extension's `package.json` — the marketplace listing is 
 | **Western Australia** | [lucidlabs.western-australia-theme](https://marketplace.visualstudio.com/items?itemName=lucidlabs.western-australia-theme) |
 | **Northern Territory** | [lucidlabs.northern-territory-theme](https://marketplace.visualstudio.com/items?itemName=lucidlabs.northern-territory-theme) |
 | **ACT** | [lucidlabs.act-theme](https://marketplace.visualstudio.com/items?itemName=lucidlabs.act-theme) |
-| **AI Tour Sydney** | [lucidlabs.ai-tour-sydney-theme](https://marketplace.visualstudio.com/items?itemName=lucidlabs.ai-tour-sydney-theme) |
 | **Aurora Dairies** | [lucidlabs.aurora-dairies-theme](https://marketplace.visualstudio.com/items?itemName=lucidlabs.aurora-dairies-theme) |
 | **Pax8** | [lucidlabs.pax8-theme](https://marketplace.visualstudio.com/items?itemName=lucidlabs.pax8-theme) |
 | **CyberMattLee** | [lucidlabs.cybermattlee-theme](https://marketplace.visualstudio.com/items?itemName=lucidlabs.cybermattlee-theme) |
