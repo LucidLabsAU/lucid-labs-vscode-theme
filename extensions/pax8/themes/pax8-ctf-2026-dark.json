@@ -47,7 +47,7 @@
     "editor.focusedStackFrameHighlightBackground": "#39FF1430",
     "editor.inlineValuesForeground": "#8B97A8CC",
     "editor.inlineValuesBackground": "#39FF1415",
-    "editorLineNumber.foreground": "#3A4656",
+    "editorLineNumber.foreground": "#58626F",
     "editorLineNumber.activeForeground": "#39FF14",
     "editorLineNumber.dimmedForeground": "#8B97A850",
     "editorMultiCursor.primary.foreground": "#39FF14",

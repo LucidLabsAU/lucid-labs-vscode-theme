@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.1.1] - 2026-07-05
+
+- WCAG contrast fixes (line numbers, brackets, function tokens, status bar)
+
 ## [1.1.0] - 2026-06-23
 
 ### Added

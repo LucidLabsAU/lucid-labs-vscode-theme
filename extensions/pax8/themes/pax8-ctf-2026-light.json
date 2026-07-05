@@ -241,7 +241,7 @@
     "commandCenter.inactiveBorder": "#0A0F1A15",
     "commandCenter.activeBorder": "#0A0F1A50",
     "commandCenter.debuggingBackground": "#0E8C3A20",
-    "statusBar.background": "#0E8C3A",
+    "statusBar.background": "#0E8838",
     "statusBar.foreground": "#FFFFFF",
     "statusBar.border": "#0A7530",
     "statusBar.noFolderBackground": "#0A7530",
