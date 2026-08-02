@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.1.2] - 2026-08-02
+
+- Add current VS Code theme tokens and migrate MCP config
+
 ## [1.1.1] - 2026-07-05
 
 - WCAG contrast fixes (line numbers, brackets, function tokens, status bar)

@@ -18,26 +18,6 @@
       "replacement": "editor.linkedEditingBackground",
       "since": "1.52"
     },
-    "list.filterMatchBackground": {
-      "replacement": "list.filterMatchBorder",
-      "since": "1.40"
-    },
-    "editor.snippetTabstopHighlightBackground": {
-      "replacement": "editorSnippetTabstopHighlightBackground",
-      "since": "1.0"
-    },
-    "editor.snippetTabstopHighlightBorder": {
-      "replacement": "editorSnippetTabstopHighlightBorder",
-      "since": "1.0"
-    },
-    "editor.snippetFinalTabstopHighlightBackground": {
-      "replacement": "editorSnippetFinalTabstopHighlightBackground",
-      "since": "1.0"
-    },
-    "editor.snippetFinalTabstopHighlightBorder": {
-      "replacement": "editorSnippetFinalTabstopHighlightBorder",
-      "since": "1.0"
-    },
     "editorUnnecessary.foreground": {
       "replacement": "editorUnnecessaryCode.opacity",
       "since": "1.30"

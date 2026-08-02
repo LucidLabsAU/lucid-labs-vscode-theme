@@ -190,7 +190,7 @@ function openAbout(context) {
 
 /**
  * Register the brand's hosted MCP server with VS Code so it appears in the
- * MCP server list without the user hand-editing `.vscode/mcp.json`. No-op for
+ * MCP server list without the user hand-editing `.mcp.json`. No-op for
  * brands without an `mcp` config, and on hosts too old to expose the API.
  * Authentication is handled by VS Code: on a 401 the server advertises its
  * OAuth protected-resource metadata and VS Code drives the sign-in flow.

@@ -10,6 +10,7 @@
     // ─── Contrast (high contrast themes only, transparent by default) ──
     "contrastActiveBorder": "{{accent}}00",
     "contrastBorder": "{{accent}}00",
+    "strongForeground": "{{foreground}}",
 
     // ─── Editor ───────────────────────────────────────────────
     "editor.background": "{{background}}",
@@ -48,6 +49,10 @@
     "editor.foldPlaceholderForeground": "{{muted}}",
     "editor.placeholder.foreground": "{{muted}}",
     "editor.compositionBorder": "{{accent}}",
+    "editor.snippetTabstopHighlightBackground": "{{accent}}20",
+    "editor.snippetTabstopHighlightBorder": "{{accent}}00",
+    "editor.snippetFinalTabstopHighlightBackground": "{{success}}20",
+    "editor.snippetFinalTabstopHighlightBorder": "{{success}}00",
     "editorSnippetTabstopHighlightBackground": "{{accent}}20",
     "editorSnippetTabstopHighlightBorder": "{{accent}}00",
     "editorSnippetFinalTabstopHighlightBackground": "{{success}}20",
@@ -261,6 +266,7 @@
     "list.warningForeground": "{{warning}}",
     "list.deemphasizedForeground": "{{muted}}",
     "list.inactiveFocusOutline": "{{accent}}40",
+    "list.filterMatchBackground": "{{accent}}20",
     "list.filterMatchBorder": "{{accent}}60",
     "listFilterWidget.background": "{{backgroundInput}}",
     "listFilterWidget.outline": "{{accent}}",
@@ -817,6 +823,7 @@
     "quickInput.foreground": "{{foreground}}",
     "quickInputList.focusBackground": "{{accent}}30",
     "quickInputList.focusForeground": "{{foreground}}",
+    "quickInputList.focusHighlightForeground": "{{accent}}",
     "quickInputList.focusIconForeground": "{{foreground}}",
     "quickInputList.hoverBackground": "{{backgroundHover}}",
     "quickInput.border": "{{accent}}25",
@@ -1035,6 +1042,9 @@
     // ─── Charts ──────────────────────────────────────────────
     "charts.foreground": "{{foreground}}",
     "charts.lines": "{{muted}}",
+    "chart.line": "{{accent}}",
+    "chart.axis": "{{muted}}80",
+    "chart.guide": "{{muted}}40",
     "charts.red": "{{error}}",
     "charts.blue": "{{accent}}",
     "charts.yellow": "{{warning}}",

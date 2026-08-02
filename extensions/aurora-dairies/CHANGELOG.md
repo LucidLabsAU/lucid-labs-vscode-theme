@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.2.1] - 2026-08-02
+
+- Add current VS Code theme tokens and migrate MCP config
+
 ## [1.2.0] - 2026-06-23
 
 ### Added
