@@ -49,14 +49,11 @@
     "editor.foldPlaceholderForeground": "{{muted}}",
     "editor.placeholder.foreground": "{{muted}}",
     "editor.compositionBorder": "{{accent}}",
+    "editor.border": "{{accent}}20",
     "editor.snippetTabstopHighlightBackground": "{{accent}}20",
     "editor.snippetTabstopHighlightBorder": "{{accent}}00",
     "editor.snippetFinalTabstopHighlightBackground": "{{success}}20",
     "editor.snippetFinalTabstopHighlightBorder": "{{success}}00",
-    "editorSnippetTabstopHighlightBackground": "{{accent}}20",
-    "editorSnippetTabstopHighlightBorder": "{{accent}}00",
-    "editorSnippetFinalTabstopHighlightBackground": "{{success}}20",
-    "editorSnippetFinalTabstopHighlightBorder": "{{success}}00",
     "editor.stackFrameHighlightBackground": "{{warning}}20",
     "editor.focusedStackFrameHighlightBackground": "{{success}}20",
     "editor.inlineValuesForeground": "{{muted}}",
@@ -222,6 +219,12 @@
     "activityErrorBadge.foreground": "#FFFFFF",
     "activityErrorBadge.background": "{{error}}",
 
+    // ─── Modern activity bar ─────────────────────────────────
+    "modernActivityBar.activeBackground": "{{background}}50",
+    "modernActivityBar.activeForeground": "{{foreground}}",
+    "modernActivityBar.hoverBackground": "{{backgroundHover}}",
+    "modernActivityBar.hoverForeground": "{{foreground}}",
+
     // ─── Profiles ────────────────────────────────────────────
     "profileBadge.background": "{{accent}}",
     "profileBadge.foreground": "#FFFFFF",
@@ -297,7 +300,7 @@
 
     // ─── Status bar ──────────────────────────────────────────
     "statusBar.background": "{{statusBar|keyword}}",
-    "statusBar.foreground": "#FFFFFF",
+    "statusBar.foreground": "{{statusBarFg|#FFFFFF}}",
     "statusBar.border": "{{statusBarBorder|sectionHeader|keyword}}",
     "statusBar.noFolderBackground": "{{statusBarBorder|sectionHeader|keyword}}",
     "statusBar.noFolderForeground": "#FFFFFF",
@@ -307,7 +310,7 @@
     "statusBar.debuggingBorder": "{{debuggingBg|success}}CC",
     "statusBar.focusBorder": "{{accent}}",
     "statusBarItem.activeBackground": "{{statusBarBorder|sectionHeader|keyword}}80",
-    "statusBarItem.hoverForeground": "#FFFFFF",
+    "statusBarItem.hoverForeground": "{{statusBarFg|#FFFFFF}}",
     "statusBarItem.hoverBackground": "{{statusBarBorder|sectionHeader|keyword}}80",
     "statusBarItem.prominentForeground": "{{accentFg|#FFFFFF}}",
     "statusBarItem.prominentBackground": "{{prominentButton|accent}}",
@@ -361,6 +364,22 @@
     "tab.unfocusedActiveModifiedBorder": "{{modified|keyword}}CC",
     "tab.unfocusedInactiveModifiedBorder": "{{modified|keyword}}50",
     "tab.dragAndDropBorder": "{{keyword}}",
+
+    // ─── Modern tabs ─────────────────────────────────────────
+    "modernEditorTab.activeBackground": "{{background}}",
+    "modernEditorTab.activeForeground": "{{foreground}}",
+    "modernEditorTab.inactiveBackground": "{{backgroundPanel}}",
+    "modernEditorTab.hoverBackground": "{{backgroundHover}}",
+    "modernEditorTab.hoverForeground": "{{foreground}}",
+    "modernEditorTab.activeHoverBackground": "{{backgroundHover}}",
+    "modernEditorTab.activeActionBackground": "{{accent}}15",
+    "modernEditorTab.activeHoverActionBackground": "{{accent}}25",
+    "modernEditorTab.hoverActionBackground": "{{accent}}15",
+    "modernEditorTab.selectedActionBackground": "{{accent}}25",
+    "modernTab.activeBackground": "{{background}}",
+    "modernTab.activeForeground": "{{foreground}}",
+    "modernTab.hoverBackground": "{{backgroundHover}}",
+    "modernTab.hoverForeground": "{{foreground}}",
 
     // ─── Editor groups ───────────────────────────────────────
     "editorGroupHeader.tabsBackground": "{{backgroundDeep}}",
@@ -604,6 +623,7 @@
     "editorSuggestWidget.border": "{{accent}}50",
     "editorSuggestWidget.foreground": "{{foreground}}",
     "editorSuggestWidget.focusHighlightForeground": "{{accent}}",
+    "editorSuggestWidget.focusOutline": "{{accent}}",
     "editorSuggestWidget.highlightForeground": "{{accent}}",
     "editorSuggestWidget.selectedBackground": "{{accent}}50",
     "editorSuggestWidget.selectedForeground": "{{foreground}}",
@@ -714,7 +734,6 @@
     "minimap.infoHighlight": "{{info}}",
     "minimap.chatEditHighlight": "{{accent}}30",
     "editorMinimap.inlineChatInserted": "{{added|success}}30",
-    "editorMinimap.inlineChatRemoved": "{{error}}30",
     "minimapSlider.background": "{{accent}}30",
     "minimapSlider.hoverBackground": "{{accent}}50",
     "minimapSlider.activeBackground": "{{accent}}70",
@@ -783,8 +802,12 @@
     "chat.inputWorkingBorderColor1": "{{button|accent}}",
     "chat.inputWorkingBorderColor2": "{{accentHover|accent}}",
     "chat.inputWorkingBorderColor3": "{{accent}}",
-    "chatManagement.sashBorder": "{{accent}}",
-    "aiCustomizationManagement.sashBorder": "{{accent}}",
+    "chat.findMatchBackground": "{{findMatch|accent}}50",
+    "chat.findMatchHighlightBackground": "{{findMatch|accent}}30",
+    "chat.dictationActiveMicGlow": "{{accent}}60",
+    "chat.voiceGlowBaseColor": "{{accent}}30",
+    "chat.voiceListeningGlow": "{{accent}}",
+    "chat.voiceSpeakingGlow": "{{success|accent}}",
 
     // ─── Panel chat ──────────────────────────────────────────
     "interactive.activeCodeBorder": "{{accent}}",
@@ -810,6 +833,8 @@
     "scmGraph.foreground4": "{{warning}}",
     "scmGraph.foreground5": "{{success}}",
     "scmGraph.historyItemHoverLabelForeground": "{{foreground}}",
+    "scmGraph.historyItemHoverDefaultLabelBackground": "{{accent}}20",
+    "scmGraph.historyItemHoverDefaultLabelForeground": "{{foreground}}",
     "scmGraph.historyItemHoverAdditionsForeground": "{{added|success}}",
     "scmGraph.historyItemHoverDeletionsForeground": "{{error}}",
     "scmGraph.historyItemRefColor": "{{accent}}",
@@ -825,8 +850,6 @@
     "quickInputList.focusForeground": "{{foreground}}",
     "quickInputList.focusHighlightForeground": "{{accent}}",
     "quickInputList.focusIconForeground": "{{foreground}}",
-    "quickInputList.hoverBackground": "{{backgroundHover}}",
-    "quickInput.border": "{{accent}}25",
     "quickInputTitle.background": "{{backgroundDeep}}",
 
     // ─── Keybinding labels ───────────────────────────────────
@@ -865,6 +888,8 @@
     "testing.uncoveredBackground": "{{error}}10",
     "testing.uncoveredBorder": "{{error}}30",
     "testing.uncoveredGutterBackground": "{{error}}40",
+    "testing.coveredMinimapBackground": "{{success}}40",
+    "testing.uncoveredMinimapBackground": "{{error}}40",
     "testing.coverCountBadgeBackground": "{{accent}}",
     "testing.coverCountBadgeForeground": "#FFFFFF",
     "testing.message.error.badgeBackground": "{{error}}",
@@ -936,15 +961,6 @@
 
     // ─── Simple find widget ──────────────────────────────────
     "simpleFindWidget.sashBorder": "{{accent}}",
-
-    // ─── Gauge ───────────────────────────────────────────────
-    "gauge.background": "{{background}}",
-    "gauge.foreground": "{{foreground}}",
-    "gauge.border": "{{accent}}20",
-    "gauge.warningBackground": "{{warning}}20",
-    "gauge.warningForeground": "{{warning}}",
-    "gauge.errorBackground": "{{error}}20",
-    "gauge.errorForeground": "{{error}}",
 
     // ─── Welcome page ────────────────────────────────────────
     "welcomePage.background": "{{background}}",
@@ -1064,6 +1080,45 @@
     "agentSessionSelectedBadge.border": "{{accent}}40",
     "agentSessionSelectedUnfocusedBadge.border": "{{foreground}}40",
     "agentStatusIndicator.background": "{{backgroundElevated}}",
+    "activeSessionView.background": "{{background}}",
+    "activeSessionView.foreground": "{{foreground}}",
+    "inactiveSessionView.background": "{{backgroundPanel}}",
+    "inactiveSessionView.foreground": "{{muted}}",
+    "agentFeedbackEditorWidget.background": "{{backgroundElevated}}",
+    "agentFeedbackEditorWidget.border": "{{accent}}50",
+    "agentFeedbackInputWidget.border": "{{accent}}50",
+
+    // ─── Agents view ─────────────────────────────────────────
+    "agents.background": "{{background}}",
+    "agentsPanel.background": "{{backgroundPanel}}",
+    "agentsPanel.border": "{{accent}}20",
+    "agentsPanel.foreground": "{{foreground}}",
+    "agentsBottomPanel.border": "{{accent}}30",
+    "agentsCard.border": "{{accent}}30",
+    "agentsGradient.tintColor": "{{accent}}20",
+    "agentsBadge.background": "{{badge|accent}}",
+    "agentsBadge.foreground": "{{accentFg|#FFFFFF}}",
+    "agentsUnreadBadge.background": "{{accent}}",
+    "agentsUnreadBadge.foreground": "{{accentFg|#FFFFFF}}",
+    "agentsChatInput.background": "{{backgroundInput}}",
+    "agentsChatInput.border": "{{accent}}30",
+    "agentsChatInput.focusBorder": "{{accent}}",
+    "agentsChatInput.foreground": "{{foreground}}",
+    "agentsChatInput.placeholderForeground": "{{muted}}",
+    "agentsNewSessionButton.background": "{{button|accent}}",
+    "agentsNewSessionButton.border": "{{accent}}50",
+    "agentsNewSessionButton.foreground": "{{accentFg|#FFFFFF}}",
+    "agentsNewSessionButton.hoverBackground": "{{buttonHover|accentHover}}",
+    "agentsUpdateButton.downloadingBackground": "{{accent}}",
+    "agentsUpdateButton.downloadedBackground": "{{success}}",
+    "agentsVoice.speakingBackground": "{{accent}}20",
+    "agentsVoice.speakingForeground": "{{accent}}",
+
+    // ─── Surfaces ────────────────────────────────────────────
+    "surface.background": "{{background}}",
+    "surface.foreground": "{{foreground}}",
+    "surface.border": "{{accent}}30",
+    "browser.border": "{{accent}}30",
 
     // ─── Action bar ──────────────────────────────────────────
     "actionBar.toggledBackground": "{{accent}}30",

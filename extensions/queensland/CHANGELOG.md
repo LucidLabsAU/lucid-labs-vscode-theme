@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.10.0] - 2026-08-21
+
+- Cover the full VS Code 1.134 colour registry: add 64 new tokens (agent sessions, modern tabs/activity bar, chat voice + find, surfaces), drop 16 removed ones
+
 ## [1.9.1] - 2026-08-02
 
 - Add current VS Code theme tokens and migrate MCP config
