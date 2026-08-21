@@ -11,3 +11,6 @@ coverage/
 .env
 .env.*
 .env.local
+
+# Local-only test brand (not published)
+extensions/low-strain/
