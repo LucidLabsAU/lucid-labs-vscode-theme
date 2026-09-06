@@ -100,6 +100,7 @@
     "editorLightBulbAi.foreground": "{{accent}}",
 
     // ─── Bracket pairs ───────────────────────────────────────
+    "editorBracketMatch.background": "{{accent}}20",
     "editorBracketMatch.border": "{{accent}}60",
     "editorBracketMatch.foreground": "{{accent}}",
     "editorBracketHighlight.foreground1": "{{bracket1}}",
@@ -220,10 +221,13 @@
     "activityErrorBadge.background": "{{error}}",
 
     // ─── Modern activity bar ─────────────────────────────────
-    "modernActivityBar.activeBackground": "{{background}}50",
-    "modernActivityBar.activeForeground": "{{foreground}}",
-    "modernActivityBar.hoverBackground": "{{backgroundHover}}",
-    "modernActivityBar.hoverForeground": "{{foreground}}",
+    "modernActivityBar.background": "{{backgroundDeep}}",
+    "modernActivityBar.inactiveBackground": "{{backgroundDeep}}",
+    "modernActivityBar.border": "{{keyword}}30",
+    "modernActivityBarItem.activeBackground": "{{background}}50",
+    "modernActivityBarItem.activeForeground": "{{foreground}}",
+    "modernActivityBarItem.hoverBackground": "{{backgroundHover}}",
+    "modernActivityBarItem.hoverForeground": "{{foreground}}",
 
     // ─── Profiles ────────────────────────────────────────────
     "profileBadge.background": "{{accent}}",
@@ -898,6 +902,7 @@
 
     // ─── Debug ───────────────────────────────────────────────
     "debugToolBar.background": "{{background}}",
+    "debugToolBar.border": "{{accent}}50",
     "debugView.exceptionLabelForeground": "#FFFFFF",
     "debugView.exceptionLabelBackground": "{{error}}",
     "debugView.stateLabelForeground": "#FFFFFF",

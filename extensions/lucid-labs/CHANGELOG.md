@@ -1,5 +1,9 @@
 # Change Log
 
+## [1.19.0] - 2026-09-06
+
+- Track the VS Code 1.136 colour registry: modern activity bar item keys, bar background/border/inactive background, plus editorBracketMatch.background and debugToolBar.border
+
 ## [1.18.0] - 2026-08-21
 
 - Cover the full VS Code 1.134 colour registry: add 64 new tokens (agent sessions, modern tabs/activity bar, chat voice + find, surfaces), drop 16 removed ones
