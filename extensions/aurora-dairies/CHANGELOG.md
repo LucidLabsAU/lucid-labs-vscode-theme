@@ -1,6 +1,6 @@
 # Changelog
 
-## [1.4.0] - 2026-09-06
+## [1.4.0] - 2026-09-07
 
 - Track the VS Code 1.136 colour registry: modern activity bar item keys, bar background/border/inactive background, plus editorBracketMatch.background and debugToolBar.border
 

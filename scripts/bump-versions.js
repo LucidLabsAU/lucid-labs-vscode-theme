@@ -18,6 +18,15 @@ const path = require('path');
 const ROOT = path.join(__dirname, '..');
 const EXTENSIONS_DIR = path.join(ROOT, 'extensions');
 
+/**
+ * Today in the machine's own timezone. toISOString() would stamp UTC, which
+ * is the previous day for most of an Australian working morning.
+ */
+function localDate(now = new Date()) {
+  const pad = (n) => String(n).padStart(2, '0');
+  return `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}`;
+}
+
 function bump(version, level) {
   const [major, minor, patch] = version.split('.').map(Number);
   if ([major, minor, patch].some(Number.isNaN)) {
@@ -67,7 +76,7 @@ function main() {
     process.exit(1);
   }
 
-  const date = new Date().toISOString().slice(0, 10);
+  const date = localDate();
 
   for (const ext of extensions) {
     const pkgPath = path.join(EXTENSIONS_DIR, ext, 'package.json');
@@ -98,4 +107,6 @@ function main() {
   console.log(`\nBumped ${extensions.length} extension(s) (${level}). Review CHANGELOGs, then commit.`);
 }
 
-main();
+if (require.main === module) main();
+
+module.exports = { bump, localDate };
