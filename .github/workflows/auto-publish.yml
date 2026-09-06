@@ -92,10 +92,10 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v7
       with:
-        node-version: '20'
+        node-version: '24'
 
     - name: Install vsce
-      run: npm install -g @vscode/vsce
+      run: npm install -g @vscode/vsce@3.9.2
 
     - name: Azure Login (OIDC)
       uses: azure/login@v3
