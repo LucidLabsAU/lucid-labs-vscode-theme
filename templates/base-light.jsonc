@@ -288,6 +288,8 @@
     "titleBar.activeBackground": "{{titleBarBg|backgroundDeep}}",
     "titleBar.activeForeground": "{{titleBarFg|foreground}}",
     "titleBar.inactiveBackground": "{{titleBarBg|backgroundDeep}}",
+    "modernUI.shellBackground": "{{titleBarBg|backgroundDeep}}",
+    "modernUI.inactiveShellBackground": "{{titleBarBg|backgroundDeep}}",
     "titleBar.inactiveForeground": "{{titleBarFg|inactiveForeground|foreground}}70",
     "titleBar.border": "{{titleBarBorder|titleBarBg|keyword}}30",
 
@@ -304,6 +306,7 @@
 
     // ─── Status bar ──────────────────────────────────────────
     "statusBar.background": "{{statusBar|keyword}}",
+    "statusBar.inactiveBackground": "{{statusBar|keyword}}",
     "statusBar.foreground": "{{statusBarFg|#FFFFFF}}",
     "statusBar.border": "{{statusBarBorder|sectionHeader|keyword}}",
     "statusBar.noFolderBackground": "{{statusBarBorder|sectionHeader|keyword}}",
@@ -404,6 +407,7 @@
     // ─── Panel ───────────────────────────────────────────────
     "panel.background": "{{backgroundPanel}}",
     "panel.border": "{{keyword}}20",
+    "modernPanel.border": "{{keyword}}20",
     "panel.dropBorder": "{{keyword}}",
     "panelTitle.activeForeground": "{{keyword}}",
     "panelTitle.inactiveForeground": "{{inactiveForeground|foreground}}60",
@@ -556,6 +560,7 @@
     "errorForeground": "{{error}}",
     "icon.foreground": "{{accent}}",
     "sash.hoverBorder": "{{accent}}",
+    "modernSash.gripForeground": "{{foreground}}66",
 
     // ─── Window ──────────────────────────────────────────────
     "window.activeBorder": "{{accent}}00",
@@ -726,6 +731,7 @@
     "editorOverviewRuler.commentDraftForeground": "{{accent}}50",
     "editorOverviewRuler.inlineChatInserted": "{{added|success}}60",
     "editorOverviewRuler.inlineChatRemoved": "{{error}}60",
+    "editorOverviewRuler.agentFeedbackForeground": "{{info}}60",
 
     // ─── Minimap ─────────────────────────────────────────────
     "minimap.findMatchHighlight": "{{accent}}80",
@@ -804,8 +810,10 @@
     "chat.checkpointSeparator": "{{accent}}30",
     "chat.thinkingShimmer": "{{accent}}30",
     "chat.inputWorkingBorderColor1": "{{button|accent}}",
-    "chat.inputWorkingBorderColor2": "{{accentHover|accent}}",
-    "chat.inputWorkingBorderColor3": "{{accent}}",
+    "chat.statusBackground": "{{foreground}}12",
+    "chat.sessionStateIndicator.inProgressBorder": "{{warning}}",
+    "chat.sessionStateIndicator.needsInputBorder": "{{error}}",
+    "chat.sessionStateIndicator.unvisitedBorder": "{{success}}",
     "chat.findMatchBackground": "{{findMatch|accent}}50",
     "chat.findMatchHighlightBackground": "{{findMatch|accent}}30",
     "chat.dictationActiveMicGlow": "{{accent}}60",
@@ -1092,6 +1100,9 @@
     "agentFeedbackEditorWidget.background": "{{backgroundElevated}}",
     "agentFeedbackEditorWidget.border": "{{accent}}50",
     "agentFeedbackInputWidget.border": "{{accent}}50",
+    "agentsMobileDiff.addedForeground": "{{added|success}}",
+    "agentsMobileDiff.modifiedForeground": "{{modified|keyword}}",
+    "agentsMobileDiff.deletedForeground": "{{error}}",
 
     // ─── Agents view ─────────────────────────────────────────
     "agents.background": "{{background}}",

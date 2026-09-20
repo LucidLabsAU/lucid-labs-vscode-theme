@@ -42,7 +42,7 @@ extensions/<name>/package.json → VS Code extension manifest
 ### Key files
 
 - **Brand configs**: `brands/*/brand.json` — ~40 semantic colour roles per variant (background, foreground, accent, keyword, string, function, etc.)
-- **Templates**: `templates/base-*.jsonc` — 970 UI colour keys (full VS Code 1.136 colour registry), 55 tokenColor entries, 15 semantic tokens with `{{role}}` placeholders
+- **Templates**: `templates/base-*.jsonc` — 981 UI colour keys (full VS Code 1.138 colour registry), 55 tokenColor entries, 15 semantic tokens with `{{role}}` placeholders
 - **Copilot Instructions**: `.github/copilot-instructions.md` — full guide for AI agents to create new brand themes
 - **Generator**: `scripts/generate.js` — supports `{{role}}`, `{{role}}XX` (alpha suffix), `{{a|b|c}}` (fallback chains)
 - **Linter**: `scripts/lint-themes.js` — checks for deprecated properties, comments, and missing transparency

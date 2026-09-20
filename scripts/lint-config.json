@@ -33,6 +33,14 @@
     "modernActivityBar.hoverForeground": {
       "replacement": "modernActivityBarItem.hoverForeground",
       "since": "1.136"
+    },
+    "chat.inputWorkingBorderColor2": {
+      "replacement": "chat.inputWorkingBorderColor1",
+      "since": "1.138"
+    },
+    "chat.inputWorkingBorderColor3": {
+      "replacement": "chat.inputWorkingBorderColor1",
+      "since": "1.138"
     }
   },
   "requiresTransparency": [

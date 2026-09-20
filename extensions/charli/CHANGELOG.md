@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.13.0] - 2026-09-20
+
+- Track the VS Code 1.138 colour registry: modern UI shell/panel/sash, inactive status bar, chat status + session state indicators, agent mobile diff and agent feedback ruler; drop the deprecated chat.inputWorkingBorderColor2/3
+
 ## [1.12.0] - 2026-09-07
 
 - Track the VS Code 1.136 colour registry: modern activity bar item keys, bar background/border/inactive background, plus editorBracketMatch.background and debugToolBar.border
