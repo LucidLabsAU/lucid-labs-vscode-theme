@@ -68,10 +68,8 @@ Versions are the `version` field in each `extensions/<slug>/package.json` — ne
 | Western Australia | `lucidlabs.western-australia-theme` |
 | Northern Territory | `lucidlabs.northern-territory-theme` |
 | ACT | `lucidlabs.act-theme` |
-| Aurora Dairies | `lucidlabs.aurora-dairies-theme` |
 | Pax8 (suite: everyday + Beyond 2026 SLC/Copenhagen + CTF 2026) | `lucidlabs.pax8-theme` |
 | CyberMattLee (variants: Matt Lee Full Beard / Matt Lee Shaved) | `lucidlabs.cybermattlee-theme` |
-| Queensland Parks & Wildlife (Unofficial) | `lucidlabs.qpws-theme` |
 
 ## Repo-specific gotchas
 
