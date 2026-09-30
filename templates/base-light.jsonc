@@ -84,6 +84,7 @@
     "editorIndentGuide.activeBackground5": "{{bracket5}}",
     "editorIndentGuide.activeBackground6": "{{bracket6}}",
     "editorWhitespace.foreground": "{{indentGuide|guideMuted|muted}}50",
+    "editorWordWrapIndicator.foreground": "{{indentGuide|guideMuted|muted}}50",
     "editorRuler.foreground": "{{guideMuted|muted}}30",
 
     // Unicode highlight
@@ -810,6 +811,8 @@
     "chat.checkpointSeparator": "{{accent}}30",
     "chat.thinkingShimmer": "{{accent}}30",
     "chat.inputWorkingBorderColor1": "{{button|accent}}",
+    "chat.workingProgressStableIconForeground": "{{accent}}",
+    "chat.workingProgressInsidersIconForeground": "{{success}}",
     "chat.statusBackground": "{{foreground}}12",
     "chat.sessionStateIndicator.inProgressBorder": "{{warning}}",
     "chat.sessionStateIndicator.needsInputBorder": "{{error}}",

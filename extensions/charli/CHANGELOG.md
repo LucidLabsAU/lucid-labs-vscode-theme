@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.14.0] - 2026-09-30
+
+- Track the VS Code 1.139 colour registry: chat working-progress icon colours and the soft-wrap indicator
+
 ## [1.13.0] - 2026-09-20
 
 - Track the VS Code 1.138 colour registry: modern UI shell/panel/sash, inactive status bar, chat status + session state indicators, agent mobile diff and agent feedback ruler; drop the deprecated chat.inputWorkingBorderColor2/3
