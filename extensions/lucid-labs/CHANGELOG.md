@@ -1,5 +1,9 @@
 # Change Log
 
+## [1.21.1] - 2026-10-05
+
+- Write the client name as CHARLI Health in the next-steps walkthrough
+
 ## [1.21.0] - 2026-09-30
 
 - Track the VS Code 1.139 colour registry: chat working-progress icon colours and the soft-wrap indicator

@@ -1116,22 +1116,22 @@ function samplePkg() {
     version: '1.7.0',
     contributes: {
       themes: [
-        { label: 'CHARLi Dark', uiTheme: 'vs-dark', path: './themes/charli-dark.json' },
-        { label: 'CHARLi Light', uiTheme: 'vs', path: './themes/charli-light.json' },
+        { label: 'CHARLI Dark', uiTheme: 'vs-dark', path: './themes/charli-dark.json' },
+        { label: 'CHARLI Light', uiTheme: 'vs', path: './themes/charli-light.json' },
       ],
-      iconThemes: [{ id: 'charli-icons', label: 'CHARLi Icons', path: './icon-theme.json' }],
+      iconThemes: [{ id: 'charli-icons', label: 'CHARLI Icons', path: './icon-theme.json' }],
     },
   };
 }
 
 test('mergeContributes sets main and activationEvents', () => {
-  const pkg = eb.mergeContributes(samplePkg(), 'charli', 'CHARLi');
+  const pkg = eb.mergeContributes(samplePkg(), 'charli', 'CHARLI');
   assert.equal(pkg.main, './extension.js');
   assert.ok(pkg.activationEvents.includes('onStartupFinished'));
 });
 
 test('mergeContributes adds a namespaced container, webview view and commands', () => {
-  const pkg = eb.mergeContributes(samplePkg(), 'charli', 'CHARLi');
+  const pkg = eb.mergeContributes(samplePkg(), 'charli', 'CHARLI');
   assert.equal(pkg.contributes.viewsContainers.activitybar[0].id, 'charliThemeContainer');
   const view = pkg.contributes.views.charliThemeContainer[0];
   assert.equal(view.id, 'charliThemePalette');
@@ -1144,14 +1144,14 @@ test('mergeContributes adds a namespaced container, webview view and commands', 
 });
 
 test('mergeContributes preserves themes and iconThemes', () => {
-  const pkg = eb.mergeContributes(samplePkg(), 'charli', 'CHARLi');
+  const pkg = eb.mergeContributes(samplePkg(), 'charli', 'CHARLI');
   assert.equal(pkg.contributes.themes.length, 2);
   assert.equal(pkg.contributes.iconThemes.length, 1);
 });
 
 test('mergeContributes is idempotent', () => {
-  const once = eb.mergeContributes(samplePkg(), 'charli', 'CHARLi');
-  const twice = eb.mergeContributes(JSON.parse(JSON.stringify(once)), 'charli', 'CHARLi');
+  const once = eb.mergeContributes(samplePkg(), 'charli', 'CHARLI');
+  const twice = eb.mergeContributes(JSON.parse(JSON.stringify(once)), 'charli', 'CHARLI');
   assert.deepEqual(twice, once);
 });
 ```
@@ -1271,22 +1271,22 @@ const TEMPLATE = [
 ].join('\n');
 
 const THEMES = [
-  { label: 'CHARLi Dark', uiTheme: 'vs-dark', path: './themes/charli-dark.json' },
-  { label: 'CHARLi Light', uiTheme: 'vs', path: './themes/charli-light.json' },
+  { label: 'CHARLI Dark', uiTheme: 'vs-dark', path: './themes/charli-dark.json' },
+  { label: 'CHARLI Light', uiTheme: 'vs', path: './themes/charli-light.json' },
 ];
 
 test('renderExtensionJs substitutes every placeholder', () => {
-  const out = eb.renderExtensionJs(TEMPLATE, 'charli', 'CHARLi', THEMES);
-  assert.match(out, /const BRAND = 'CHARLi';/);
-  assert.match(out, /const THEME_DARK = 'CHARLi Dark';/);
-  assert.match(out, /const THEME_LIGHT = 'CHARLi Light';/);
+  const out = eb.renderExtensionJs(TEMPLATE, 'charli', 'CHARLI', THEMES);
+  assert.match(out, /const BRAND = 'CHARLI';/);
+  assert.match(out, /const THEME_DARK = 'CHARLI Dark';/);
+  assert.match(out, /const THEME_LIGHT = 'CHARLI Light';/);
   assert.match(out, /const CONFIG_NS = 'charliTheme';/);
   assert.match(out, /const VIEW_ID = 'charliThemePalette';/);
   assert.doesNotMatch(out, /__[A-Z_]+__/);
 });
 
 test('renderExtensionJs throws when a theme label is missing', () => {
-  assert.throws(() => eb.renderExtensionJs(TEMPLATE, 'charli', 'CHARLi', []));
+  assert.throws(() => eb.renderExtensionJs(TEMPLATE, 'charli', 'CHARLI', []));
 });
 ```
 
@@ -1500,9 +1500,9 @@ Expected: `charli packaged ok`
 
 - [ ] **Step 7: Manual verification**
 
-Open `extensions/charli` in VS Code, press `F5`, and confirm in the dev host: the CHARLi
+Open `extensions/charli` in VS Code, press `F5`, and confirm in the dev host: the CHARLI
 activity-bar icon appears, the Brand Palette view opens showing **only** the Theme Roles
-section (CHARLi has no `brandColors` yet — graceful degradation), the Dark/Light toggle
+section (CHARLI has no `brandColors` yet — graceful degradation), the Dark/Light toggle
 works, and copy buttons populate the clipboard.
 
 - [ ] **Step 8: Commit**
@@ -1521,7 +1521,7 @@ git commit -m "feat: roll brand palette viewer and activity icon out to all 17 b
 - [ ] Lucid Labs dev host: cloud-and-arrows activity icon; Brand Colours in three
       sub-groups with PANTONE; de-duped Theme Roles; HEX/RGB/CMYK copy works; Dark/Light
       toggle swaps roles without changing the editor theme.
-- [ ] A non-Lucid dev host (e.g. CHARLi): activity icon present; Theme Roles section only
+- [ ] A non-Lucid dev host (e.g. CHARLI): activity icon present; Theme Roles section only
       (no Brand Colours), no errors.
 - [ ] `vsce package` succeeds for `lucid-labs` and one non-Lucid brand.
 

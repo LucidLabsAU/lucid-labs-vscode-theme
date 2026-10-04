@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.14.1] - 2026-10-05
+
+- Write the client name as CHARLI Health throughout
+
 ## [1.14.0] - 2026-09-30
 
 - Track the VS Code 1.139 colour registry: chat working-progress icon colours and the soft-wrap indicator
@@ -31,7 +35,7 @@
 
 - **Named-only palette.** The palette view now shows only the named brand colours; the previous Theme Roles section and raw-hex cards have been removed.
 - Opening the brand palette reuses a single panel instead of stacking duplicate tabs.
-- Brand colours sourced from the official CHARLi brand palette.
+- Brand colours sourced from the official CHARLI brand palette.
 - Trimmed the marketplace description to fit the gallery card.
 
 ## [1.9.1] - 2026-05-26

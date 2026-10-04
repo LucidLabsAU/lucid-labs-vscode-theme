@@ -36,7 +36,7 @@ into generator-emitted artifacts and rolls it out to the remaining 16 brands.
   (`CLAUDE.md` lists 15; `ai-tour-sydney` and `aurora-dairies` are newer and `CLAUDE.md`
   should be updated to match.)
 - **Every brand has `brands/<name>/icons/git.svg`** — a brand mark authored with
-  `{{role}}` template placeholders (e.g. CHARLi's "C letterform"). This is the activity-icon
+  `{{role}}` template placeholders (e.g. CHARLI's "C letterform"). This is the activity-icon
   source for every brand.
 - Only `lucid-labs` has `extension.js`, `activity-icon.svg`, and the
   `viewsContainers`/`views`/`commands` contributions in `package.json`.

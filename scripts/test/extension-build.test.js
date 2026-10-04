@@ -39,22 +39,22 @@ function samplePkg() {
     version: '1.7.0',
     contributes: {
       themes: [
-        { label: 'CHARLi Dark', uiTheme: 'vs-dark', path: './themes/charli-dark.json' },
-        { label: 'CHARLi Light', uiTheme: 'vs', path: './themes/charli-light.json' },
+        { label: 'CHARLI Dark', uiTheme: 'vs-dark', path: './themes/charli-dark.json' },
+        { label: 'CHARLI Light', uiTheme: 'vs', path: './themes/charli-light.json' },
       ],
-      iconThemes: [{ id: 'charli-icons', label: 'CHARLi Icons', path: './icon-theme.json' }],
+      iconThemes: [{ id: 'charli-icons', label: 'CHARLI Icons', path: './icon-theme.json' }],
     },
   };
 }
 
 test('mergeContributes sets main and activationEvents', () => {
-  const pkg = eb.mergeContributes(samplePkg(), 'charli', 'CHARLi');
+  const pkg = eb.mergeContributes(samplePkg(), 'charli', 'CHARLI');
   assert.equal(pkg.main, './extension.js');
   assert.ok(pkg.activationEvents.includes('onStartupFinished'));
 });
 
 test('mergeContributes adds a namespaced container, webview view and commands', () => {
-  const pkg = eb.mergeContributes(samplePkg(), 'charli', 'CHARLi');
+  const pkg = eb.mergeContributes(samplePkg(), 'charli', 'CHARLI');
   assert.equal(pkg.contributes.viewsContainers.activitybar[0].id, 'charliThemeContainer');
   const view = pkg.contributes.views.charliThemeContainer[0];
   assert.equal(view.id, 'charliThemePalette');
@@ -67,14 +67,14 @@ test('mergeContributes adds a namespaced container, webview view and commands', 
 });
 
 test('mergeContributes preserves themes and iconThemes', () => {
-  const pkg = eb.mergeContributes(samplePkg(), 'charli', 'CHARLi');
+  const pkg = eb.mergeContributes(samplePkg(), 'charli', 'CHARLI');
   assert.equal(pkg.contributes.themes.length, 2);
   assert.equal(pkg.contributes.iconThemes.length, 1);
 });
 
 test('mergeContributes is idempotent', () => {
-  const once = eb.mergeContributes(samplePkg(), 'charli', 'CHARLi');
-  const twice = eb.mergeContributes(JSON.parse(JSON.stringify(once)), 'charli', 'CHARLi');
+  const once = eb.mergeContributes(samplePkg(), 'charli', 'CHARLI');
+  const twice = eb.mergeContributes(JSON.parse(JSON.stringify(once)), 'charli', 'CHARLI');
   assert.deepEqual(twice, once);
 });
 
@@ -83,7 +83,7 @@ test('mergeContributes preserves menu positions it does not own', () => {
   pkg.contributes.menus = {
     'editor/context': [{ command: 'charliTheme.somethingElse', group: 'z' }],
   };
-  const merged = eb.mergeContributes(pkg, 'charli', 'CHARLi');
+  const merged = eb.mergeContributes(pkg, 'charli', 'CHARLI');
   // generator's view/title is added
   assert.equal(merged.contributes.menus['view/title'][0].command, 'charliTheme.openAbout');
   // the hand-authored editor/context entry survives
@@ -91,7 +91,7 @@ test('mergeContributes preserves menu positions it does not own', () => {
 });
 
 test('mergeContributes adds an MCP provider when the brand declares one', () => {
-  const pkg = eb.mergeContributes(samplePkg(), 'charli', 'CHARLi', {
+  const pkg = eb.mergeContributes(samplePkg(), 'charli', 'CHARLI', {
     id: 'lucidOperations', label: 'Lucid Operations', url: 'https://example/mcp',
   });
   assert.deepEqual(pkg.contributes.mcpServerDefinitionProviders, [
@@ -100,14 +100,14 @@ test('mergeContributes adds an MCP provider when the brand declares one', () => 
 });
 
 test('mergeContributes omits the MCP provider for brands without one', () => {
-  const pkg = eb.mergeContributes(samplePkg(), 'charli', 'CHARLi');
+  const pkg = eb.mergeContributes(samplePkg(), 'charli', 'CHARLI');
   assert.equal(pkg.contributes.mcpServerDefinitionProviders, undefined);
 });
 
 test('mergeContributes strips a stale MCP provider (idempotent gate-off)', () => {
   const pkg = samplePkg();
   pkg.contributes.mcpServerDefinitionProviders = [{ id: 'old', label: 'Old' }];
-  const merged = eb.mergeContributes(pkg, 'charli', 'CHARLi');
+  const merged = eb.mergeContributes(pkg, 'charli', 'CHARLI');
   assert.equal(merged.contributes.mcpServerDefinitionProviders, undefined);
 });
 
@@ -121,8 +121,8 @@ const TEMPLATE = [
 ].join('\n');
 
 const THEMES = [
-  { label: 'CHARLi Dark', uiTheme: 'vs-dark', path: './themes/charli-dark.json' },
-  { label: 'CHARLi Light', uiTheme: 'vs', path: './themes/charli-light.json' },
+  { label: 'CHARLI Dark', uiTheme: 'vs-dark', path: './themes/charli-dark.json' },
+  { label: 'CHARLI Light', uiTheme: 'vs', path: './themes/charli-light.json' },
 ];
 
 test('wordCommonPrefix cuts the shared prefix back to a word boundary', () => {
@@ -164,28 +164,28 @@ test('buildThemeGroups splits editions on the " · " suffix in order', () => {
 });
 
 test('renderExtensionJs substitutes every placeholder', () => {
-  const out = eb.renderExtensionJs(TEMPLATE, 'charli', 'CHARLi', THEMES);
-  assert.match(out, /const BRAND = 'CHARLi';/);
-  assert.match(out, /const THEME_DARK = 'CHARLi Dark';/);
-  assert.match(out, /const THEME_LIGHT = 'CHARLi Light';/);
+  const out = eb.renderExtensionJs(TEMPLATE, 'charli', 'CHARLI', THEMES);
+  assert.match(out, /const BRAND = 'CHARLI';/);
+  assert.match(out, /const THEME_DARK = 'CHARLI Dark';/);
+  assert.match(out, /const THEME_LIGHT = 'CHARLI Light';/);
   assert.match(out, /const CONFIG_NS = 'charliTheme';/);
   assert.match(out, /const VIEW_ID = 'charliThemePalette';/);
   assert.doesNotMatch(out, /__[A-Z_]+__/);
 });
 
 test('renderExtensionJs throws when a theme label is missing', () => {
-  assert.throws(() => eb.renderExtensionJs(TEMPLATE, 'charli', 'CHARLi', []));
+  assert.throws(() => eb.renderExtensionJs(TEMPLATE, 'charli', 'CHARLI', []));
 });
 
 test('renderExtensionJs inlines null MCP_CONFIG when no mcp is given', () => {
-  const out = eb.renderExtensionJs(TEMPLATE, 'charli', 'CHARLi', THEMES);
+  const out = eb.renderExtensionJs(TEMPLATE, 'charli', 'CHARLI', THEMES);
   assert.match(out, /const MCP_CONFIG = null;/);
   assert.doesNotMatch(out, /__[A-Z_]+__/);
 });
 
 test('renderExtensionJs inlines the mcp object as a JS literal', () => {
   const mcp = { id: 'lucidOperations', label: 'Lucid Operations', url: 'https://example/mcp' };
-  const out = eb.renderExtensionJs(TEMPLATE, 'charli', 'CHARLi', THEMES, mcp);
+  const out = eb.renderExtensionJs(TEMPLATE, 'charli', 'CHARLI', THEMES, mcp);
   const m = out.match(/const MCP_CONFIG = (.+);/);
   assert.ok(m, 'MCP_CONFIG assignment present');
   assert.deepEqual(JSON.parse(m[1]), mcp);
