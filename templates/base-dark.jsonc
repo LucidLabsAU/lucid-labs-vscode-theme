@@ -375,6 +375,7 @@
     "tab.unfocusedHoverForeground": "{{foreground}}CC",
     "tab.unfocusedHoverBorder": "{{accent}}30",
     "tab.lastPinnedBorder": "{{accent}}40",
+    "tab.divider": "{{accent}}20",
     "tab.activeModifiedBorder": "{{modified|function}}",
     "tab.inactiveModifiedBorder": "{{modified|function}}80",
     "tab.unfocusedActiveModifiedBorder": "{{modified|function}}CC",
@@ -399,6 +400,7 @@
 
     // ─── Editor groups ───────────────────────────────────────
     "editorGroupHeader.tabsBackground": "{{backgroundPanel}}",
+    "editorGroupHeader.connectedTabsBackground": "{{backgroundPanel}}",
     "editorGroupHeader.tabsBorder": "{{accent}}20",
     "editorGroupHeader.noTabsBackground": "{{background}}",
     "editorGroupHeader.border": "{{accent}}20",
@@ -822,6 +824,8 @@
     "chat.workingProgressStableIconForeground": "{{accent}}",
     "chat.workingProgressInsidersIconForeground": "{{success}}",
     "chat.statusBackground": "{{foreground}}14",
+    "chat.mcpCompatibilityWarningForeground": "{{warning}}",
+    "agentsDetail.background": "{{background}}",
     "chat.sessionStateIndicator.inProgressBorder": "{{warning}}",
     "chat.sessionStateIndicator.needsInputBorder": "{{error}}",
     "chat.sessionStateIndicator.unvisitedBorder": "{{success}}",

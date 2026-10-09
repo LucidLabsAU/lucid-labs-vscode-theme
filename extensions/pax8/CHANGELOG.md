@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.9.0] - 2026-10-09
+
+- Track the VS Code 1.141 colour registry: agent details pane background, MCP compatibility warning, connected tabs header background and tab dividers
+
 ## [1.8.0] - 2026-09-30
 
 - Track the VS Code 1.139 colour registry: chat working-progress icon colours and the soft-wrap indicator

@@ -1,5 +1,9 @@
 # Change Log
 
+## [1.22.0] - 2026-10-09
+
+- Track the VS Code 1.141 colour registry: agent details pane background, MCP compatibility warning, connected tabs header background and tab dividers
+
 ## [1.21.1] - 2026-10-05
 
 - Write the client name as CHARLI Health in the next-steps walkthrough
