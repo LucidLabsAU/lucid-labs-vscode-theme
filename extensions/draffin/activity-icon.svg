@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-2 -29 114 114">
+  <!-- Draffin park bench (activity bar), from draffin.com.au (Group-58.svg) -->
+    <g id="Desktop" stroke-width="1" fill-rule="evenodd">
+        <g id="Homepage" transform="translate(-500.000000, -690.000000)">
+            <g id="Group" transform="translate(500.000000, 690.000000)">
+                <g id="Group-58">
+                    <path d="M103.599682,21 L6.40074476,21 C6.17948249,21 6,20.8392976 6,20.6415689 L6,17.3584311 C6,17.1599389 6.17948249,17 6.40074476,17 L103.599682,17 C103.820944,17 104,17.1599389 104,17.3584311 L104,20.6415689 C104,20.8392976 103.820944,21 103.599682,21 Z" id="Stroke-1" stroke="currentColor" fill="none"></path>
+                    <path d="M16,20 C16,20.5524723 15.5520807,21 15.0002522,21 C14.4474149,21 14,20.5524723 14,20 C14,19.4475277 14.4474149,19 15.0002522,19 C15.5520807,19 16,19.4475277 16,20" id="Fill-3" fill="currentColor" stroke="none"></path>
+                    <path d="M97,20 C97,20.5524723 96.5521936,21 96,21 C95.4478064,21 95,20.5524723 95,20 C95,19.4475277 95.4478064,19 96,19 C96.5521936,19 97,19.4475277 97,20" id="Fill-5" fill="currentColor" stroke="none"></path>
+                    <path d="M103.599682,16 L6.40074476,16 C6.17948249,16 6,15.8392976 6,15.6415689 L6,12.3584311 C6,12.1599389 6.17948249,12 6.40074476,12 L103.599682,12 C103.820944,12 104,12.1599389 104,12.3584311 L104,15.6415689 C104,15.8392976 103.820944,16 103.599682,16 Z" id="Stroke-7" stroke="currentColor" fill="none"></path>
+                    <path d="M16,14 C16,14.5524723 15.5520807,15 15.0002522,15 C14.4474149,15 14,14.5524723 14,14 C14,13.4475277 14.4474149,13 15.0002522,13 C15.5520807,13 16,13.4475277 16,14" id="Fill-9" fill="currentColor" stroke="none"></path>
+                    <path d="M97,14 C97,14.5524723 96.5521936,15 96,15 C95.4478064,15 95,14.5524723 95,14 C95,13.4475277 95.4478064,13 96,13 C96.5521936,13 97,13.4475277 97,14" id="Fill-11" fill="currentColor" stroke="none"></path>
+                    <path d="M103.599682,10 L6.40074476,10 C6.17948249,10 6,9.83929764 6,9.64156885 L6,6.35843115 C6,6.15993893 6.17948249,6 6.40074476,6 L103.599682,6 C103.820944,6 104,6.15993893 104,6.35843115 L104,9.64156885 C104,9.83929764 103.820944,10 103.599682,10 Z" id="Stroke-13" stroke="currentColor" fill="none"></path>
+                    <path d="M16,8 C16,8.55247225 15.5520807,9 15.0002522,9 C14.4474149,9 14,8.55247225 14,8 C14,7.44752775 14.4474149,7 15.0002522,7 C15.5520807,7 16,7.44752775 16,8" id="Fill-15" fill="currentColor" stroke="none"></path>
+                    <path d="M97,8 C97,8.55247225 96.5521936,9 96,9 C95.4478064,9 95,8.55247225 95,8 C95,7.44752775 95.4478064,7 96,7 C96.5521936,7 97,7.44752775 97,8" id="Fill-17" fill="currentColor" stroke="none"></path>
+                    <path d="M103.599682,5 L6.40074476,5 C6.17948249,5 6,4.83929764 6,4.64156885 L6,1.35843115 C6,1.15993893 6.17948249,1 6.40074476,1 L103.599682,1 C103.820944,1 104,1.15993893 104,1.35843115 L104,4.64156885 C104,4.83929764 103.820944,5 103.599682,5 Z" id="Stroke-19" stroke="currentColor" fill="none"></path>
+                    <path d="M16,3 C16,3.55247225 15.5520807,4 15.0002522,4 C14.4474149,4 14,3.55247225 14,3 C14,2.44752775 14.4474149,2 15.0002522,2 C15.5520807,2 16,2.44752775 16,3" id="Fill-21" fill="currentColor" stroke="none"></path>
+                    <path d="M97,3 C97,3.55247225 96.5521936,4 96,4 C95.4478064,4 95,3.55247225 95,3 C95,2.44752775 95.4478064,2 96,2 C96.5521936,2 97,2.44752775 97,3" id="Fill-23" fill="currentColor" stroke="none"></path>
+                    <polygon id="Stroke-25" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" points="110 30 0 30 10.6926505 27 99.3073495 27" fill="none"></polygon>
+                    <g id="Clip-28"></g>
+                    <polygon id="Stroke-27" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" points="0 34 110 34 110 31 0 31" fill="none"></polygon>
+                    <polygon id="Stroke-29" stroke="currentColor" points="13 51 17 51 17 37 13 37" fill="none"></polygon>
+                    <polygon id="Stroke-30" stroke="currentColor" points="94 51 98 51 98 37 94 37" fill="none"></polygon>
+                    <polygon id="Stroke-31" stroke="currentColor" points="102 55 106 55 106 34 102 34" fill="none"></polygon>
+                    <polygon id="Stroke-32" stroke="currentColor" points="4 55 8 55 8 34 4 34" fill="none"></polygon>
+                    <polygon id="Stroke-33" stroke="currentColor" points="8 37 102 37 102 34 8 34" fill="none"></polygon>
+                    <g id="Group-36">
+                        <g transform="translate(7.000000, 28.000000)">
+                            <path d="M0.423304036,0.7011 L95.8873399,0.7011" id="Fill-34" stroke="none" fill="currentColor" fill-rule="evenodd"></path>
+                            <path d="M0.423304036,0.7011 L95.8873399,0.7011" id="Stroke-35" stroke="currentColor" stroke-width="0.65" fill="none"></path>
+                        </g>
+                    </g>
+                    <g id="Group-39">
+                        <g transform="translate(5.000000, 29.000000)">
+                            <path d="M100.752316,0.29825 L0.0570202532,0.29825" id="Fill-37" stroke="none" fill="currentColor" fill-rule="evenodd"></path>
+                            <path d="M100.752316,0.29825 L0.0570202532,0.29825" id="Stroke-38" stroke="currentColor" stroke-width="0.65" fill="none"></path>
+                        </g>
+                    </g>
+                    <path d="M13.5,5 L13.5,4" id="Stroke-40" stroke="currentColor" fill="none"></path>
+                    <path d="M13.5,11 L13.5,10" id="Stroke-41" stroke="currentColor" fill="none"></path>
+                    <path d="M13.5,17 L13.5,16" id="Stroke-42" stroke="currentColor" fill="none"></path>
+                    <path d="M17.5,16 L17.5,17" id="Stroke-43" stroke="currentColor" fill="none"></path>
+                    <path d="M17.5,10 L17.5,11" id="Stroke-44" stroke="currentColor" fill="none"></path>
+                    <path d="M17.5,5 L17.5,6" id="Stroke-45" stroke="currentColor" fill="none"></path>
+                    <polyline id="Stroke-46" stroke="currentColor" points="17 21.0720486 17 27 13 27 13 21" fill="none"></polyline>
+                    <path d="M94.5,5 L94.5,4" id="Stroke-47" stroke="currentColor" fill="none"></path>
+                    <path d="M94.5,11 L94.5,10" id="Stroke-48" stroke="currentColor" fill="none"></path>
+                    <path d="M94.5,17 L94.5,16" id="Stroke-49" stroke="currentColor" fill="none"></path>
+                    <path d="M98.5,16 L98.5,17" id="Stroke-50" stroke="currentColor" fill="none"></path>
+                    <path d="M98.5,10 L98.5,11" id="Stroke-51" stroke="currentColor" fill="none"></path>
+                    <path d="M98.5,5 L98.5,6" id="Stroke-52" stroke="currentColor" fill="none"></path>
+                    <polyline id="Stroke-53" stroke="currentColor" points="98 21.0720486 98 27 94 27 94 21" fill="none"></polyline>
+                    <path d="M98.5,16 L98.5,17" id="Stroke-54" stroke="currentColor" fill="none"></path>
+                    <path d="M98.5,10 L98.5,11" id="Stroke-55" stroke="currentColor" fill="none"></path>
+                    <path d="M98.5,5 L98.5,6" id="Stroke-56" stroke="currentColor" fill="none"></path>
+                    <polyline id="Stroke-57" stroke="currentColor" points="98 21.0720486 98 27 94 27 94 21" fill="none"></polyline>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

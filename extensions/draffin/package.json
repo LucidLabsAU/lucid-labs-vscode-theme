@@ -1,0 +1,141 @@
+{
+  "$schema": "https://json.schemastore.org/package.json",
+  "name": "draffin-theme",
+  "displayName": "Draffin Street Furniture",
+  "description": "A crisp VS Code colour theme pairing Draffin red with powder-coat charcoal, inspired by the Draffin Street Furniture visual identity.",
+  "version": "1.0.0",
+  "publisher": "lucidlabs",
+  "license": "MIT",
+  "icon": "icon.png",
+  "author": {
+    "name": "Lucid Labs",
+    "url": "https://lucidlabs.com.au"
+  },
+  "keywords": [
+    "theme",
+    "dark theme",
+    "light theme",
+    "colour theme",
+    "draffin",
+    "draffin street furniture",
+    "street furniture",
+    "urban design",
+    "red",
+    "charcoal",
+    "professional",
+    "brand",
+    "business",
+    "icon theme",
+    "icons"
+  ],
+  "categories": [
+    "Themes",
+    "Other"
+  ],
+  "galleryBanner": {
+    "color": "#221E1F",
+    "theme": "dark"
+  },
+  "qna": "marketplace",
+  "extensionKind": [
+    "ui"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Draffin Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/draffin-dark.json"
+      },
+      {
+        "label": "Draffin Light",
+        "uiTheme": "vs",
+        "path": "./themes/draffin-light.json"
+      }
+    ],
+    "iconThemes": [
+      {
+        "id": "draffin-icons",
+        "label": "Draffin Icons",
+        "path": "./icon-theme.json"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "draffinThemeContainer",
+          "title": "Draffin Street Furniture",
+          "icon": "activity-icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "draffinThemeContainer": [
+        {
+          "id": "draffinThemePalette",
+          "name": "Brand Palette",
+          "type": "webview",
+          "icon": "activity-icon.svg",
+          "contextualTitle": "Draffin Street Furniture"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "draffinTheme.switchDark",
+        "title": "Switch to Draffin Street Furniture Dark",
+        "category": "Draffin Street Furniture"
+      },
+      {
+        "command": "draffinTheme.switchLight",
+        "title": "Switch to Draffin Street Furniture Light",
+        "category": "Draffin Street Furniture"
+      },
+      {
+        "command": "draffinTheme.toggleVariant",
+        "title": "Toggle Dark/Light Variant",
+        "category": "Draffin Street Furniture"
+      },
+      {
+        "command": "draffinTheme.openAbout",
+        "title": "Open Brand Palette",
+        "category": "Draffin Street Furniture",
+        "icon": "$(symbol-color)"
+      }
+    ],
+    "configuration": {
+      "title": "Draffin Street Furniture Theme",
+      "properties": {
+        "draffinTheme.showStatusBarItem": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show the Draffin Street Furniture brand chip in the status bar while a Draffin Street Furniture theme is active."
+        }
+      }
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "draffinTheme.openAbout",
+          "when": "view == draffinThemePalette",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
+  "engines": {
+    "vscode": "^1.107.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LucidLabsAU/lucid-labs-vscode-theme.git"
+  },
+  "bugs": {
+    "url": "https://github.com/LucidLabsAU/lucid-labs-vscode-theme/issues"
+  },
+  "homepage": "https://draffin.com.au",
+  "main": "./extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ]
+}

@@ -26,6 +26,7 @@ Versions live in each extension's `package.json` — the marketplace listing is 
 | **ACT** | [lucidlabs.act-theme](https://marketplace.visualstudio.com/items?itemName=lucidlabs.act-theme) |
 | **Pax8** | [lucidlabs.pax8-theme](https://marketplace.visualstudio.com/items?itemName=lucidlabs.pax8-theme) |
 | **CyberMattLee** | [lucidlabs.cybermattlee-theme](https://marketplace.visualstudio.com/items?itemName=lucidlabs.cybermattlee-theme) |
+| **Draffin Street Furniture** | [lucidlabs.draffin-theme](https://marketplace.visualstudio.com/items?itemName=lucidlabs.draffin-theme) |
 
 ## How It Works
 
