@@ -5,8 +5,9 @@ on:
 
 permissions:
   contents: read
-  pull-requests: read
+  copilot-requests: write
   issues: read
+  pull-requests: read
 
 network: defaults
 
