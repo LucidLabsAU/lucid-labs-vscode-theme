@@ -14,6 +14,11 @@ updates:
       - "dependencies"
       - "github-actions"
     open-pull-requests-limit: 10
+    ignore:
+      # Owned by the gh aw CLI, not Dependabot: a hand-bumped setup pin drifts from the
+      # compiled .lock.yml files and actions-lock.json and fails at runtime with
+      # `Cannot find module`. Move it with `gh extension upgrade aw && gh aw compile`.
+      - dependency-name: "github/gh-aw-actions/*"
     groups:
       github-actions:
         patterns:
