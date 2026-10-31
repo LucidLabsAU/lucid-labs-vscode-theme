@@ -61,7 +61,7 @@ There is no `release-please` step — publishing is handled by the `Auto Publish
 
 1. Bump `version` in `extensions/<slug>/package.json` and add an entry to that extension's `CHANGELOG.md`. For a templates/brands change that should ship to every extension, bump them all in one pass: `npm run bump -- --minor -m "What changed"`.
 2. Push to `main`.
-3. The workflow detects changed extensions (a `templates/` or `brands/` change publishes all of them), authenticates to Azure via OIDC, fetches the VSCE PAT from Key Vault, and publishes to the VS Code Marketplace. Already-published versions skip gracefully — the run warns if a templates/brands change shipped nothing because no versions were bumped.
+3. The workflow detects changed extensions (a `templates/` or `brands/` change publishes all of them), and publishes to the VS Code Marketplace via Trusted Publishing (GitHub OIDC exchanged for a short-lived Marketplace credential; no PAT). Already-published versions skip gracefully — the run warns if a templates/brands change shipped nothing because no versions were bumped.
 
 A manual `workflow_dispatch` run republishes every extension.
 

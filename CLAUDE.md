@@ -46,7 +46,7 @@ extensions/<name>/package.json → VS Code extension manifest
 - **Copilot Instructions**: `.github/copilot-instructions.md` — full guide for AI agents to create new brand themes
 - **Generator**: `scripts/generate.js` — supports `{{role}}`, `{{role}}XX` (alpha suffix), `{{a|b|c}}` (fallback chains)
 - **Linter**: `scripts/lint-themes.js` — checks for deprecated properties, comments, and missing transparency
-- **CI/CD**: `.github/workflows/auto-publish.yml` — sequential publish with change detection, Azure OIDC + Key Vault
+- **CI/CD**: `.github/workflows/auto-publish.yml` — sequential publish with change detection, Marketplace Trusted Publishing (`vsce publish --oidc`, no PAT)
 
 ### Current brands
 
@@ -76,6 +76,6 @@ Versions are the `version` field in each `extensions/<slug>/package.json` — ne
 
 - **Husky pre-commit hook** runs `npm run generate && npm run lint` to ensure generated themes are always up-to-date and valid.
 - **Adding a new brand**: create `brands/<name>/brand.json` with palette mapped to semantic roles, add `brands/<name>/icon.png` (256x256 PNG) and `brands/<name>/README.md`, create `extensions/<name>/{package.json,.vscodeignore,CHANGELOG.md,LICENSE}`, then run `npm run generate`.
-- **Release flow**: bump version in `extensions/<name>/package.json` and update `CHANGELOG.md`, push to `main`. Auto-publish workflow detects changed extensions, Azure OIDC authenticates, fetches VSCE PAT from Key Vault, publishes to marketplace. Manual dispatch (`workflow_dispatch`) publishes all extensions. Already-published versions skip gracefully.
+- **Release flow**: bump version in `extensions/<name>/package.json` and update `CHANGELOG.md`, push to `main`. Auto-publish workflow detects changed extensions and publishes to the marketplace via Trusted Publishing (GitHub OIDC, no stored PAT). Manual dispatch (`workflow_dispatch`) publishes all extensions. Already-published versions skip gracefully.
 - **Template/brand releases need version bumps**: a `templates/` or `brands/` change triggers a publish of ALL extensions, but any extension whose version already exists on the marketplace is skipped — the change ships nowhere without bumps. Run `npm run bump -- --minor -m "..."` first; the workflow emits a warning if a template-triggered run published nothing.
 - **CI drift gate**: `.github/workflows/ci.yml` regenerates themes and fails if the committed output differs — pre-commit hooks can be skipped, CI cannot.

@@ -209,7 +209,7 @@ For light themes, ensure text colours against white/light backgrounds meet 4.5:1
 
 ## Publishing
 
-Push to `main` — the auto-publish workflow detects changed extensions and publishes to the VS Code Marketplace via Azure OIDC + Key Vault. Already-published versions are skipped.
+Push to `main` — the auto-publish workflow detects changed extensions and publishes to the VS Code Marketplace via Trusted Publishing (`vsce publish --oidc`). Already-published versions are skipped.
 
 ---
 
