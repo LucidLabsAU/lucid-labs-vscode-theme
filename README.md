@@ -33,7 +33,7 @@ Versions live in each extension's `package.json` — the marketplace listing is 
 1. **Brand configs** (`brands/<slug>/brand.json`) define ~40 semantic colour roles per dark/light variant.
 2. **Templates** (`templates/base-dark.jsonc`, `templates/base-light.jsonc`) define the full theme structure with `{{role}}` placeholders.
 3. **Generator** (`scripts/generate.js`) substitutes brand colours into the templates to produce the committed theme JSON under `extensions/<slug>/themes/`. It also builds the **extension runtime** — `activity-icon.svg`, `extension.js`, `lib/palette-view.js`, `icon-theme.json` — and patches the `contributes` block in each `extensions/<slug>/package.json`.
-4. **Generated files are committed.** The Husky pre-commit hook runs `npm run generate && npm run lint` so the committed output is always current and valid.
+4. **Generated files are committed.** The Husky pre-commit hook runs `npm run generate && npm run lint && npm test` so the committed output is always current and valid.
 
 ## Quick Start
 

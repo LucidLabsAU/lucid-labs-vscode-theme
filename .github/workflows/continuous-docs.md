@@ -31,8 +31,8 @@ Only act when `github.event.pull_request.merged == true` and the base branch is 
 Verify the "Current Brands" table in `CLAUDE.md` matches reality:
 - List all directories in `brands/` that have a `brand.json`
 - Compare against the table entries
-- Check that version numbers match `extensions/<name>/package.json`
-- Flag any missing, extra, or version-mismatched entries
+- The table intentionally omits version numbers (they live only in `extensions/<name>/package.json`); do not add them
+- Flag any missing or extra entries
 
 ### 2. README Brand Count
 

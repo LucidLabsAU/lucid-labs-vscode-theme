@@ -16,6 +16,10 @@ node scripts/generate.js --brand lucid-labs
 # Lint all generated themes
 npm run lint
 
+# Unit tests (single file: node --test scripts/test/jsonc.test.js) and WCAG contrast audit
+npm test
+node scripts/check-contrast.js
+
 # Bump every extension's version + changelog in one pass (for template/brand releases)
 npm run bump -- --minor -m "What changed"
 
@@ -71,11 +75,13 @@ Versions are the `version` field in each `extensions/<slug>/package.json` — ne
 | Pax8 (suite: everyday + Beyond 2026 SLC/Copenhagen + CTF 2026) | `lucidlabs.pax8-theme` |
 | CyberMattLee (variants: Matt Lee Full Beard / Matt Lee Shaved) | `lucidlabs.cybermattlee-theme` |
 | Draffin Street Furniture | `lucidlabs.draffin-theme` |
+| Low Strain (local test brand, `private`, not for the Marketplace) | `low-strain-theme` |
 
 ## Repo-specific gotchas
 
-- **Husky pre-commit hook** runs `npm run generate && npm run lint` to ensure generated themes are always up-to-date and valid.
-- **Adding a new brand**: create `brands/<name>/brand.json` with palette mapped to semantic roles, add `brands/<name>/icon.png` (256x256 PNG) and `brands/<name>/README.md`, create `extensions/<name>/{package.json,.vscodeignore,CHANGELOG.md,LICENSE}`, then run `npm run generate`.
+- **Husky pre-commit hook** runs `npm run generate && npm run lint && npm test` to ensure generated themes are always up-to-date and valid.
+- **gh-aw workflows**: `.github/workflows/*.lock.yml` are compiled from the sibling `*.md` (auto-brand-theme, ci-failure-fix, continuous-docs). Edit the `.md`, then run `gh aw compile`; never hand-edit the lock files.
+- **Adding a new brand**: create `brands/<name>/brand.json` with palette mapped to semantic roles, add `brands/<name>/icon.png` (256x256 PNG) and `brands/<name>/README.md`, create `extensions/<name>/{package.json,.vscodeignore,CHANGELOG.md}` (`LICENSE` is auto-copied), then run `npm run generate`. The brand/extension directory name is the slug; the npm `name` may differ (e.g. `charli` → `charli-health-theme`).
 - **Release flow**: bump version in `extensions/<name>/package.json` and update `CHANGELOG.md`, push to `main`. Auto-publish workflow detects changed extensions and publishes to the marketplace via Trusted Publishing (GitHub OIDC, no stored PAT). Manual dispatch (`workflow_dispatch`) publishes all extensions. Already-published versions skip gracefully.
 - **Template/brand releases need version bumps**: a `templates/` or `brands/` change triggers a publish of ALL extensions, but any extension whose version already exists on the marketplace is skipped — the change ships nowhere without bumps. Run `npm run bump -- --minor -m "..."` first; the workflow emits a warning if a template-triggered run published nothing.
 - **CI drift gate**: `.github/workflows/ci.yml` regenerates themes and fails if the committed output differs — pre-commit hooks can be skipped, CI cannot.
