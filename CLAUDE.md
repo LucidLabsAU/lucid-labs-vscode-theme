@@ -75,7 +75,6 @@ Versions are the `version` field in each `extensions/<slug>/package.json` — ne
 | Pax8 (suite: everyday + Beyond 2026 SLC/Copenhagen + CTF 2026) | `lucidlabs.pax8-theme` |
 | CyberMattLee (variants: Matt Lee Full Beard / Matt Lee Shaved) | `lucidlabs.cybermattlee-theme` |
 | Draffin Street Furniture | `lucidlabs.draffin-theme` |
-| Low Strain (local test brand, `private`, not for the Marketplace) | `low-strain-theme` |
 
 ## Repo-specific gotchas
 

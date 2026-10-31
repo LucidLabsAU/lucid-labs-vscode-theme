@@ -13,7 +13,6 @@ coverage/
 .env.local
 
 # Local-only test brand (not published)
-extensions/low-strain/
 
 # Claude Code per-machine settings
 **/.claude/settings.local.json
