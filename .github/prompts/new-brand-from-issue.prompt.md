@@ -46,7 +46,8 @@ Create `extensions/<slug>/` with:
 - `package.json` — use `extensions/lucid-labs/package.json` as template
 - `CHANGELOG.md` — version 1.0.0 initial release
 - `.vscodeignore` — standard exclusions
-- `LICENSE` — copy from root
+
+Also add `brands/<slug>/icon.png` and `brands/<slug>/README.md`. `LICENSE` and the extension runtime files are produced by `npm run generate` — don't hand-author them.
 
 ### 5. Generate and Validate
 

@@ -2,6 +2,27 @@
 
 This repository is a **theme factory monorepo** that generates branded VS Code colour themes from shared templates. Every brand uses the same template system — you only need to create a `brand.json` colour palette and extension scaffolding.
 
+## Commands
+
+```bash
+npm run generate                          # all brands: templates + brand.json → extensions/*/themes
+node scripts/generate.js --brand <slug>   # single brand
+npm run lint                              # scripts/lint-themes.js on generated themes
+npm test                                  # node --test (scripts/test/*.test.js)
+node --test scripts/test/jsonc.test.js    # single test file
+node scripts/check-contrast.js            # WCAG contrast audit (also run by contrast-audit.yml)
+npm run bump -- --minor -m "What changed" # bump version + CHANGELOG for every extension
+cd extensions/<slug> && vsce package      # package one extension (needs global @vscode/vsce)
+```
+
+The Husky pre-commit hook runs `npm run generate && npm run lint && npm test`. CI (`ci.yml`) regenerates themes and fails if committed output differs, so always commit regenerated `extensions/*/themes/`.
+
+## Release gotchas
+
+- Changes under `templates/` or `brands/` trigger auto-publish of ALL extensions, but any extension whose version is already on the Marketplace is skipped — run `npm run bump` first or the change ships nowhere.
+- `.github/workflows/*.lock.yml` are compiled by gh-aw from the sibling `*.md` (auto-brand-theme, ci-failure-fix, continuous-docs). Edit the `.md` then run `gh aw compile`; never hand-edit lock files.
+- Per-extension release: bump `version` in `extensions/<slug>/package.json` and add a `CHANGELOG.md` entry, then push to `main`.
+
 ## Architecture
 
 ```
@@ -14,6 +35,16 @@ scripts/generate.js            → Substitutes brand colours into templates → 
 extensions/<slug>/themes/      → Generated theme files (committed, never hand-edited)
 extensions/<slug>/package.json → VS Code extension manifest
 ```
+
+### Generator behaviour (`scripts/generate.js`)
+
+- The brand directory name (`brands/<slug>`) must equal the extension directory name (`extensions/<slug>`). The npm `name` in `package.json` can differ (e.g. slug `charli` → `charli-health-theme`).
+- Per brand it **overwrites** in `extensions/<slug>/`: `themes/*.json`, `icon-theme.json`, `icons/`, `lib/palette-view.js`, `extension.js`, and copies of `brand.json`, `README.md`, `icon.png`, `activity-icon.svg` from `brands/<slug>/`. Edit the `brands/<slug>/` source, never the copy. `LICENSE` is only copied if missing.
+- It also **rewrites `package.json`** (`eb.mergeContributes` patches `contributes`), so `package.json` is hand-authored but partly generator-managed; expect the diff after `npm run generate`.
+- A brand can declare `variants: { <slug>: { name, dark, light, ... } }` in `brand.json` to bundle extra themes into one extension (Pax8 editions, CyberMattLee). Output is `<brand>-<variant>-{dark,light}.json`, named `"<Brand> Dark · <Variant>"`.
+- Template/generator logic is shared in `scripts/lib/` (`extension-build.js`, `jsonc.js`); template files are JSONC, parse them with `parseJsonc`, not `JSON.parse`.
+- Tests live in `scripts/test/` and `extensions/<slug>/test/` (`npm test` → `node --test`).
+- Unresolved `{{placeholders}}` make generation fail (exit 1), so a missing role in `brand.json` surfaces at generate time.
 
 ## Placeholder Syntax
 
@@ -204,8 +235,9 @@ For light themes, ensure text colours against white/light backgrounds meet 4.5:1
 - Don't edit files in `extensions/*/themes/` — they're generated and overwritten
 - The `commentToken` role (dark only) should include alpha, e.g. `#CCCCCC80`
 - Light themes may need extra roles like `listActiveSelectionForeground`, `inactiveForeground`, `peekEditorBg` etc. — check existing brands for patterns
-- Always run `npm run generate && npm run lint` before committing
-- The pre-commit hook enforces this automatically
+- Always run `npm run generate && npm run lint && npm test` before committing
+- The pre-commit hook enforces this automatically; CI also enforces it plus the drift check
+- `npm run bump` after any `templates/` or `brands/` change (see Release gotchas)
 
 ## Publishing
 

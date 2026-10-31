@@ -55,7 +55,8 @@ Create all files in `extensions/<slug>/`:
 - `package.json` — copy structure from existing extension, update name/display/version/colours
 - `CHANGELOG.md` — initial release entry
 - `.vscodeignore` — standard exclusions
-- `LICENSE` — MIT (copy from root)
+
+`LICENSE`, `extension.js`, `lib/`, `icon-theme.json` and `activity-icon.svg` are produced by `npm run generate` — don't hand-author them.
 
 ### 5. Generate and Validate
 
