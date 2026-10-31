@@ -14,12 +14,6 @@ permissions:
   id-token: write
   contents: read
 
-env:
-  AZURE_CLIENT_ID: "32a7f876-b319-4703-be8c-f45654b3ad13"
-  AZURE_TENANT_ID: "38fcc012-5a88-4df9-b912-44ad0ee73268"
-  AZURE_SUBSCRIPTION_ID: "42fa28b4-93f8-496e-8093-53417e5be8bf"
-  KEY_VAULT_NAME: "lucidhub-kv-dev"
-
 jobs:
   detect-changes:
     runs-on: ubuntu-latest
@@ -95,39 +89,7 @@ jobs:
         node-version: '24'
 
     - name: Install vsce
-      run: npm install -g @vscode/vsce@3.9.2
-
-    - name: Azure Login (OIDC)
-      uses: azure/login@a641126d1b8aa4d1fa005f4f92df94a3a4c4c906 # v3
-      with:
-        client-id: ${{ env.AZURE_CLIENT_ID }}
-        tenant-id: ${{ env.AZURE_TENANT_ID }}
-        subscription-id: ${{ env.AZURE_SUBSCRIPTION_ID }}
-
-    - name: Allow runner access to Key Vault
-      id: firewall
-      run: |
-        # Two independent providers so one outage can't block the whole publish.
-        RUNNER_IP=$(curl -sf --max-time 10 https://api.ipify.org || curl -sf --max-time 10 https://ifconfig.me/ip)
-        if ! echo "$RUNNER_IP" | grep -qE '^[0-9]{1,3}(\.[0-9]{1,3}){3}$'; then
-          echo "::error::Could not determine runner IP (got: '$RUNNER_IP')"
-          exit 1
-        fi
-        echo "runner_ip=$RUNNER_IP" >> "$GITHUB_OUTPUT"
-        az keyvault network-rule add --name "${{ env.KEY_VAULT_NAME }}" --ip-address "$RUNNER_IP/32" --only-show-errors
-        sleep 10
-
-    - name: Get VSCE PAT from Key Vault
-      id: keyvault
-      run: |
-        VSCE_PAT=$(az keyvault secret show --vault-name "${{ env.KEY_VAULT_NAME }}" --name "vsce-marketplace-pat" --query "value" -o tsv)
-        echo "::add-mask::$VSCE_PAT"
-        echo "VSCE_PAT=$VSCE_PAT" >> "$GITHUB_ENV"
-
-    - name: Remove runner access from Key Vault
-      if: always() && steps.firewall.outputs.runner_ip != ''
-      run: |
-        az keyvault network-rule remove --name "${{ env.KEY_VAULT_NAME }}" --ip-address "${{ steps.firewall.outputs.runner_ip }}/32" --only-show-errors
+      run: npm install -g @vscode/vsce@4.0.0
 
     - name: Publish extensions
       env:
@@ -156,7 +118,7 @@ jobs:
           PUBLISHED=false
           for attempt in 1 2 3; do
             echo "Attempt $attempt of 3..."
-            PUBLISH_OUTPUT=$( (cd "extensions/$ext" && vsce publish -p "$VSCE_PAT") 2>&1) && {
+            PUBLISH_OUTPUT=$( (cd "extensions/$ext" && vsce publish --oidc) 2>&1) && {
               echo "$ext v$VERSION published successfully!"
               PUBLISHED_NEW="$PUBLISHED_NEW $ext"
               PUBLISHED=true
