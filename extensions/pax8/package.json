@@ -2,8 +2,8 @@
   "$schema": "https://json.schemastore.org/package.json",
   "name": "pax8-theme",
   "displayName": "Pax8",
-  "description": "A black-first VS Code theme suite for Pax8 — the everyday electric-mint-on-black identity plus event editions for Pax8 Beyond 2026 (Salt Lake City & Copenhagen) and the Pax8 + Microsoft Beyond CTF.",
-  "version": "1.10.0",
+  "description": "A black-first VS Code theme suite for Pax8 — the everyday electric-mint-on-black identity plus event editions for Pax8 Beyond 2027: Sydney (APAC), San Diego and Madrid (EMEA).",
+  "version": "1.11.0",
   "publisher": "lucidlabs",
   "license": "MIT",
   "icon": "icon.png",
@@ -18,10 +18,6 @@
     "colour theme",
     "pax8",
     "pax8 beyond",
-    "beyond 2026",
-    "copenhagen",
-    "ctf",
-    "capture the flag",
     "marketplace",
     "cloud",
     "msp",
@@ -34,7 +30,12 @@
     "black",
     "brand",
     "icon theme",
-    "icons"
+    "icons",
+    "sydney",
+    "san diego",
+    "madrid",
+    "apac",
+    "beyond 2027"
   ],
   "categories": [
     "Themes",
@@ -61,34 +62,34 @@
         "path": "./themes/pax8-light.json"
       },
       {
-        "label": "Pax8 Dark · Beyond 2026",
+        "label": "Pax8 Dark · Beyond 2027 Sydney",
         "uiTheme": "vs-dark",
-        "path": "./themes/pax8-beyond-2026-dark.json"
+        "path": "./themes/pax8-beyond-2027-sydney-dark.json"
       },
       {
-        "label": "Pax8 Light · Beyond 2026",
+        "label": "Pax8 Light · Beyond 2027 Sydney",
         "uiTheme": "vs",
-        "path": "./themes/pax8-beyond-2026-light.json"
+        "path": "./themes/pax8-beyond-2027-sydney-light.json"
       },
       {
-        "label": "Pax8 Dark · Beyond 2026 Copenhagen",
+        "label": "Pax8 Dark · Beyond 2027 San Diego",
         "uiTheme": "vs-dark",
-        "path": "./themes/pax8-beyond-2026-copenhagen-dark.json"
+        "path": "./themes/pax8-beyond-2027-san-diego-dark.json"
       },
       {
-        "label": "Pax8 Light · Beyond 2026 Copenhagen",
+        "label": "Pax8 Light · Beyond 2027 San Diego",
         "uiTheme": "vs",
-        "path": "./themes/pax8-beyond-2026-copenhagen-light.json"
+        "path": "./themes/pax8-beyond-2027-san-diego-light.json"
       },
       {
-        "label": "Pax8 Dark · CTF 2026",
+        "label": "Pax8 Dark · Beyond 2027 Madrid",
         "uiTheme": "vs-dark",
-        "path": "./themes/pax8-ctf-2026-dark.json"
+        "path": "./themes/pax8-beyond-2027-madrid-dark.json"
       },
       {
-        "label": "Pax8 Light · CTF 2026",
+        "label": "Pax8 Light · Beyond 2027 Madrid",
         "uiTheme": "vs",
-        "path": "./themes/pax8-ctf-2026-light.json"
+        "path": "./themes/pax8-beyond-2027-madrid-light.json"
       }
     ],
     "iconThemes": [

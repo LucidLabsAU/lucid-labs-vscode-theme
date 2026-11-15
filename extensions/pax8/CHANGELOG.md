@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.11.0] - 2026-11-15
+
+- **New:** Beyond 2027 editions, dark + light:
+  - **Beyond 2027 Sydney** (APAC, 14–16 Mar 2027): Education Yellow lead with Sydney Lime strings
+  - **Beyond 2027 San Diego** (6–8 Jun 2027): Innovation Blue lead
+  - **Beyond 2027 Madrid** (EMEA, 3–5 Oct 2027): Community Red into Madrid Magenta
+- **Removed:** the 2026 editions (Beyond 2026 Salt Lake City, Beyond 2026 Copenhagen, CTF 2026). The events have passed.
+
 ## [1.10.0] - 2026-11-15
 
 - Track the VS Code 1.146 colour registry: confetti, Copilot Fusion badge and Agents window graphic colours

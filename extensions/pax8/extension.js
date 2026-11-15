@@ -19,7 +19,7 @@ const ICON_THEME = 'pax8-icons';
 // Every colour theme this extension bundles, grouped by edition (everyday plus
 // any variant editions). The generator injects this from contributes.themes;
 // `short` is the de-prefixed button label (e.g. 'Dark', or 'Full Beard').
-const THEMES = [{"edition":"Everyday","dark":{"label":"Pax8 Dark","short":"Dark"},"light":{"label":"Pax8 Light","short":"Light"}},{"edition":"Beyond 2026","dark":{"label":"Pax8 Dark · Beyond 2026","short":"Dark"},"light":{"label":"Pax8 Light · Beyond 2026","short":"Light"}},{"edition":"Beyond 2026 Copenhagen","dark":{"label":"Pax8 Dark · Beyond 2026 Copenhagen","short":"Dark"},"light":{"label":"Pax8 Light · Beyond 2026 Copenhagen","short":"Light"}},{"edition":"CTF 2026","dark":{"label":"Pax8 Dark · CTF 2026","short":"Dark"},"light":{"label":"Pax8 Light · CTF 2026","short":"Light"}}];
+const THEMES = [{"edition":"Everyday","dark":{"label":"Pax8 Dark","short":"Dark"},"light":{"label":"Pax8 Light","short":"Light"}},{"edition":"Beyond 2027 Sydney","dark":{"label":"Pax8 Dark · Beyond 2027 Sydney","short":"Dark"},"light":{"label":"Pax8 Light · Beyond 2027 Sydney","short":"Light"}},{"edition":"Beyond 2027 San Diego","dark":{"label":"Pax8 Dark · Beyond 2027 San Diego","short":"Dark"},"light":{"label":"Pax8 Light · Beyond 2027 San Diego","short":"Light"}},{"edition":"Beyond 2027 Madrid","dark":{"label":"Pax8 Dark · Beyond 2027 Madrid","short":"Dark"},"light":{"label":"Pax8 Light · Beyond 2027 Madrid","short":"Light"}}];
 // Flattened {label, short, variant} entries for active-theme lookups.
 const ALL_THEMES = THEMES.flatMap((g) => [
   g.dark && { ...g.dark, variant: 'dark' },

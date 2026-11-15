@@ -7,9 +7,9 @@ A black-first VS Code **theme suite** for Pax8 — the everyday Pax8 identity pl
 | Theme | Lead colour | For |
 |-------|-------------|-----|
 | **Pax8 Dark / Light** | Mint `#03DE91` + Pax8 Blue `#0447BF` | Everyday Pax8 |
-| **Pax8 Dark / Light · Beyond 2026** | Innovation Blue `#00BBEF` | Beyond 2026, Salt Lake City (NA) |
-| **Pax8 Dark / Light · Beyond 2026 Copenhagen** | Community Red `#FF0D3B` | Beyond 2026, Bella Center (EMEA), 18–20 Oct 2026 |
-| **Pax8 Dark / Light · CTF 2026** | Terminal green `#39FF14` | Pax8 + Microsoft Beyond Capture the Flag |
+| **Pax8 Dark / Light · Beyond 2027 Sydney** | Education Yellow `#ECFF18` → Sydney Lime `#E0FE57` | Beyond APAC 2027, Hyatt Regency Sydney, 14–16 Mar 2027 |
+| **Pax8 Dark / Light · Beyond 2027 San Diego** | Innovation Blue `#00BBEF` | Beyond 2027, San Diego, 6–8 Jun 2027 |
+| **Pax8 Dark / Light · Beyond 2027 Madrid** | Community Red `#FF0D3B` → Madrid Magenta `#FF2E8A` | Beyond EMEA 2027, Madrid, 3–5 Oct 2027 |
 
 ## Brand colours
 
@@ -20,14 +20,15 @@ A black-first VS Code **theme suite** for Pax8 — the everyday Pax8 identity pl
 | **Community Red** | `#FF0D3B` | Beyond press kit (PMS 199C) |
 | **Education Yellow** | `#ECFF18` | Beyond press kit (PMS 389C) |
 | **Innovation Blue** | `#00BBEF` | Beyond press kit (PMS 2985C) |
-| **Terminal Green** | `#39FF14` | pax8ctf.com design system |
+| **Sydney Lime** | `#E0FE57` | Beyond APAC 2027 key visual |
+| **Madrid Magenta** | `#FF2E8A` | Beyond EMEA 2027 key visual |
 | **Black / White** | `#000000` / `#FFFFFF` | Pax8 core |
 
-The Beyond editions use the same official press-kit palette — the **Salt Lake City** edition is blue-forward, the **Copenhagen** edition is red-forward, so they read distinctly.
+The Beyond 2027 editions share the official press-kit palette, each led by a different colour so they read distinctly: **Sydney** is yellow-forward (the yellow-to-lime APAC key visual), **San Diego** is blue-forward, and **Madrid** runs red into magenta (the EMEA key visual).
 
 ## Features
 
-- 4 flavours × dark + light = 8 themes in a single install
+- 4 editions × dark + light = 8 themes in a single install
 - WCAG AA contrast across syntax tokens (darkened neons in the light variants for legibility)
 - White Pax8 cloud activity-bar mark, with red/yellow/blue Beyond stripes on the marketplace icon
 - Custom file icon theme using the Pax8 palette
