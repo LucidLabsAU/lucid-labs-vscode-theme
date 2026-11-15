@@ -26,7 +26,7 @@ Versions live in each extension's `package.json` — the marketplace listing is 
 | **Western Australia** | [lucidlabs.western-australia-theme](https://marketplace.visualstudio.com/items?itemName=lucidlabs.western-australia-theme) |
 | **Northern Territory** | [lucidlabs.northern-territory-theme](https://marketplace.visualstudio.com/items?itemName=lucidlabs.northern-territory-theme) |
 | **ACT** | [lucidlabs.act-theme](https://marketplace.visualstudio.com/items?itemName=lucidlabs.act-theme) |
-| **Pax8** — everyday, Beyond 2026 (SLC + Copenhagen), CTF 2026 | [lucidlabs.pax8-theme](https://marketplace.visualstudio.com/items?itemName=lucidlabs.pax8-theme) |
+| **Pax8** — everyday, Beyond 2027 Sydney, San Diego, Madrid | [lucidlabs.pax8-theme](https://marketplace.visualstudio.com/items?itemName=lucidlabs.pax8-theme) |
 | **CyberMattLee** — Full Beard, Shaved | [lucidlabs.cybermattlee-theme](https://marketplace.visualstudio.com/items?itemName=lucidlabs.cybermattlee-theme) |
 | **Draffin Street Furniture** | [lucidlabs.draffin-theme](https://marketplace.visualstudio.com/items?itemName=lucidlabs.draffin-theme) |
 

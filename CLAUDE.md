@@ -72,7 +72,7 @@ Versions are the `version` field in each `extensions/<slug>/package.json` — ne
 | Western Australia | `lucidlabs.western-australia-theme` |
 | Northern Territory | `lucidlabs.northern-territory-theme` |
 | ACT | `lucidlabs.act-theme` |
-| Pax8 (suite: everyday + Beyond 2026 SLC/Copenhagen + CTF 2026) | `lucidlabs.pax8-theme` |
+| Pax8 (suite: everyday + Beyond 2027 Sydney/San Diego/Madrid) | `lucidlabs.pax8-theme` |
 | CyberMattLee (variants: Matt Lee Full Beard / Matt Lee Shaved) | `lucidlabs.cybermattlee-theme` |
 | Draffin Street Furniture | `lucidlabs.draffin-theme` |
 
