@@ -2,7 +2,9 @@
 
 A theme factory monorepo that generates branded VS Code colour themes from shared templates and brand configurations. Each brand defines a colour palette; shared templates define the full theme structure with `{{role}}` placeholders; the generator substitutes colours to produce final theme JSON and the extension runtime.
 
-Every extension ships **dual dark + light themes**, a **custom file-icon theme**, and a **Brand Palette sidebar** that previews the brand's semantic colour roles.
+Every extension ships **dark + light themes**, a **custom file-icon theme**, and a **Brand Palette sidebar** that previews the brand's semantic colour roles. 17 extensions, 40 themes in total.
+
+Templates cover the full **VS Code 1.141 colour registry** — 988 UI colour keys, 55 `tokenColors` entries and 15 semantic token rules — so no surface falls back to VS Code defaults.
 
 ## Extensions
 
@@ -24,14 +26,17 @@ Versions live in each extension's `package.json` — the marketplace listing is 
 | **Western Australia** | [lucidlabs.western-australia-theme](https://marketplace.visualstudio.com/items?itemName=lucidlabs.western-australia-theme) |
 | **Northern Territory** | [lucidlabs.northern-territory-theme](https://marketplace.visualstudio.com/items?itemName=lucidlabs.northern-territory-theme) |
 | **ACT** | [lucidlabs.act-theme](https://marketplace.visualstudio.com/items?itemName=lucidlabs.act-theme) |
-| **Pax8** | [lucidlabs.pax8-theme](https://marketplace.visualstudio.com/items?itemName=lucidlabs.pax8-theme) |
-| **CyberMattLee** | [lucidlabs.cybermattlee-theme](https://marketplace.visualstudio.com/items?itemName=lucidlabs.cybermattlee-theme) |
+| **Pax8** — everyday, Beyond 2026 (SLC + Copenhagen), CTF 2026 | [lucidlabs.pax8-theme](https://marketplace.visualstudio.com/items?itemName=lucidlabs.pax8-theme) |
+| **CyberMattLee** — Full Beard, Shaved | [lucidlabs.cybermattlee-theme](https://marketplace.visualstudio.com/items?itemName=lucidlabs.cybermattlee-theme) |
 | **Draffin Street Furniture** | [lucidlabs.draffin-theme](https://marketplace.visualstudio.com/items?itemName=lucidlabs.draffin-theme) |
 
 ## How It Works
 
 1. **Brand configs** (`brands/<slug>/brand.json`) define ~40 semantic colour roles per dark/light variant.
-2. **Templates** (`templates/base-dark.jsonc`, `templates/base-light.jsonc`) define the full theme structure with `{{role}}` placeholders.
+2. **Templates** (`templates/base-dark.jsonc`, `templates/base-light.jsonc`) define the full theme structure with placeholders:
+   - `{{role}}` — brand colour for that role
+   - `{{role}}XX` — same colour with a hex alpha suffix (e.g. `{{accent}}40`)
+   - `{{a|b|c}}` — fallback chain; first role the brand defines wins
 3. **Generator** (`scripts/generate.js`) substitutes brand colours into the templates to produce the committed theme JSON under `extensions/<slug>/themes/`. It also builds the **extension runtime** — `activity-icon.svg`, `extension.js`, `lib/palette-view.js`, `icon-theme.json` — and patches the `contributes` block in each `extensions/<slug>/package.json`.
 4. **Generated files are committed.** The Husky pre-commit hook runs `npm run generate && npm run lint && npm test` so the committed output is always current and valid.
 
@@ -39,9 +44,12 @@ Versions live in each extension's `package.json` — the marketplace listing is 
 
 ```bash
 npm install
-npm run generate     # Generate all themes + extension runtime
-npm run lint         # Validate generated themes
-npm run package:all  # Package all extensions
+npm run generate                          # Generate all themes + extension runtime
+node scripts/generate.js --brand <slug>   # Generate a single brand
+npm run lint                              # Validate generated themes
+npm test                                  # Unit tests (node --test)
+node scripts/check-contrast.js            # WCAG contrast audit
+npm run package:all                       # Package all extensions
 ```
 
 Packaging requires `@vscode/vsce` installed globally (`npm install -g @vscode/vsce`).
@@ -64,6 +72,17 @@ There is no `release-please` step — publishing is handled by the `Auto Publish
 3. The workflow detects changed extensions (a `templates/` or `brands/` change publishes all of them), and publishes to the VS Code Marketplace via Trusted Publishing (GitHub OIDC exchanged for a short-lived Marketplace credential; no PAT). Already-published versions skip gracefully — the run warns if a templates/brands change shipped nothing because no versions were bumped.
 
 A manual `workflow_dispatch` run republishes every extension.
+
+## CI & Automation
+
+| Workflow | What it does |
+|----------|--------------|
+| `ci.yml` | Regenerates themes and fails if committed output drifts; runs lint and tests. Pre-commit hooks can be skipped, CI cannot. |
+| `auto-publish.yml` | Publishes changed extensions to the Marketplace via Trusted Publishing |
+| `contrast-audit.yml` | Weekly WCAG contrast audit across every brand |
+| `codeql.yml`, `defender-for-devops.yml` | CodeQL and Microsoft Security DevOps scans |
+| `dependabot-auto-merge.yml` | Enables auto-merge on Dependabot PRs so they land once CI passes |
+| `auto-brand-theme`, `ci-failure-fix`, `continuous-docs` | GitHub Agentic Workflows (gh-aw). Edit the `.md`, then `gh aw compile` — never hand-edit the `.lock.yml` |
 
 ## Licence
 
