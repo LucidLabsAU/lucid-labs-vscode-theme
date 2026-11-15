@@ -15,6 +15,7 @@ node scripts/check-contrast.js
 ### 1. Parse Failures
 
 Identify each failing pair from the output:
+
 - **Element** — what UI element failed (e.g. "Editor text", "Token: Keywords")
 - **Foreground colour** — the hex colour of the text/icon
 - **Background colour** — the hex colour behind it
@@ -34,15 +35,18 @@ For each failing colour, determine which `brand.json` role produces it:
 For each failing role, calculate the minimum adjustment:
 
 **Dark themes (light text on dark background):**
+
 - Increase the foreground colour's luminance until it meets the minimum ratio
 - Preserve the hue and saturation as much as possible
 - If lightening desaturates too much, compensate by increasing saturation
 
 **Light themes (dark text on light background):**
+
 - Decrease the foreground colour's luminance until it meets the minimum ratio
 - Preserve the hue and saturation as much as possible
 
 **Target ratios:**
+
 - Aim for 5:1+ (comfortably above AA 4.5:1 minimum)
 - For text that's also used in other contexts, check those pairings too
 
@@ -51,6 +55,7 @@ For each failing role, calculate the minimum adjustment:
 Edit the relevant `brands/<name>/brand.json` to update the colour role values.
 
 **Rules:**
+
 - Never change `background`, `backgroundDeep`, or `backgroundPanel` — these define the brand identity
 - Prefer adjusting foreground/accent colours
 - Check that the fix doesn't break other pairings that use the same role
@@ -65,6 +70,7 @@ node scripts/check-contrast.js
 ```
 
 Confirm:
+
 - [ ] All previously failing checks now pass
 - [ ] No new failures introduced
 - [ ] Theme still looks visually cohesive (colours aren't washed out)

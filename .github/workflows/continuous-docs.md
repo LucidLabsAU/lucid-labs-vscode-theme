@@ -29,6 +29,7 @@ Only act when `github.event.pull_request.merged == true` and the base branch is 
 ### 1. CLAUDE.md Brand Table
 
 Verify the "Current Brands" table in `CLAUDE.md` matches reality:
+
 - List all directories in `brands/` that have a `brand.json`
 - Compare against the table entries
 - The table intentionally omits version numbers (they live only in `extensions/<name>/package.json`); do not add them
@@ -37,18 +38,21 @@ Verify the "Current Brands" table in `CLAUDE.md` matches reality:
 ### 2. README Brand Count
 
 For each `brands/<name>/README.md`, verify:
+
 - The file icon count (if mentioned) matches the actual count in `templates/icon-theme.jsonc`
 - Brand-specific claims are accurate
 
 ### 3. CHANGELOG Entries
 
 For each extension with a version bump in the merged PR:
+
 - Verify `extensions/<name>/CHANGELOG.md` has an entry for the new version
 - Flag missing changelog entries
 
 ### 4. Copilot Instructions
 
 Verify `.github/copilot-instructions.md` is consistent with:
+
 - Current colour roles in brand.json files
 - Current template placeholder patterns
 - Current scripts and commands
@@ -56,6 +60,7 @@ Verify `.github/copilot-instructions.md` is consistent with:
 ## Output
 
 If any documentation is out of sync:
+
 1. Create a PR with the fixes
 2. Title: `docs: sync documentation after <merged PR title>`
 3. List all changes made in the PR body

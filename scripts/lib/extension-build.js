@@ -1,11 +1,26 @@
 'use strict';
 
-/** kebab-case -> camelCase. */
+/**
+ * @typedef {{ label: string, uiTheme: string, path?: string }} ThemeContribution
+ * @typedef {{ id: string, label?: string, url?: string }} McpConfig
+ * @typedef {{ label: string, short: string }} ThemeButton
+ * @typedef {{ edition: string, dark: ThemeButton | null, light: ThemeButton | null }} ThemeGroup
+ */
+
+/**
+ * kebab-case -> camelCase.
+ * @param {unknown} s
+ * @returns {string}
+ */
 function camelCase(s) {
   return String(s).replace(/-([a-z0-9])/g, (_, c) => c.toUpperCase());
 }
 
-/** Brand key -> command/config namespace, e.g. 'lucid-labs' -> 'lucidLabsTheme'. */
+/**
+ * Brand key -> command/config namespace, e.g. 'lucid-labs' -> 'lucidLabsTheme'.
+ * @param {string} brandKey
+ * @returns {string}
+ */
 function nsFor(brandKey) {
   return camelCase(brandKey) + 'Theme';
 }
@@ -16,6 +31,9 @@ function nsFor(brandKey) {
  * hex) and set fill="currentColor" on the root <svg> — plus stroke="currentColor"
  * when the mark was stroke-coloured. Marks that still cannot be flattened (e.g.
  * gradient url() fills) should get a hand-authored brands/<brand>/activity-icon.svg.
+ *
+ * @param {string} svg
+ * @returns {string}
  */
 function monochromeSvg(svg) {
   const usesStroke = /\sstroke="(?:\{\{[^}]+\}\}|#[0-9A-Fa-f]{3,8})"/.test(svg);
@@ -31,6 +49,10 @@ function monochromeSvg(svg) {
  * Longest common prefix of two strings, cut back to a word boundary (trailing
  * space). 'Pax8 Dark'/'Pax8 Light' -> 'Pax8 '; 'Matt Lee Full Beard'/'Matt Lee
  * Shaved' -> 'Matt Lee '. Returns '' when they diverge in the first word.
+ *
+ * @param {string} a
+ * @param {string} b
+ * @returns {string}
  */
 function wordCommonPrefix(a, b) {
   let i = 0;
@@ -46,9 +68,14 @@ function wordCommonPrefix(a, b) {
  * form the default 'Everyday' group. Each group yields a `short` button label
  * with the dark/light pair's shared prefix stripped, falling back to
  * 'Dark'/'Light'. First-seen edition order is preserved.
+ *
+ * @param {ThemeContribution[] | undefined} themes
+ * @returns {ThemeGroup[]}
  */
 function buildThemeGroups(themes) {
+  /** @type {string[]} */
   const order = [];
+  /** @type {Map<string, { edition: string, dark: string | null, light: string | null }>} */
   const groups = new Map();
   for (const t of themes || []) {
     const parts = String(t.label).split(' · ');
@@ -63,9 +90,9 @@ function buildThemeGroups(themes) {
   }
   return order.map((ed) => {
     const g = groups.get(ed);
-    const base = (s) => (s ? s.split(' · ')[0] : '');
+    const base = (/** @type {string | null} */ s) => (s ? s.split(' · ')[0] : '');
     const prefix = g.dark && g.light ? wordCommonPrefix(base(g.dark), base(g.light)) : '';
-    const short = (full, fallback) => {
+    const short = (/** @type {string | null} */ full, /** @type {string} */ fallback) => {
       if (!full) return fallback;
       return base(full).slice(prefix.length).trim() || fallback;
     };
@@ -77,7 +104,11 @@ function buildThemeGroups(themes) {
   });
 }
 
-/** Build the generated contributes keys for a brand. */
+/**
+ * Build the generated contributes keys for a brand.
+ * @param {string} brandKey
+ * @param {string} displayName
+ */
 function buildContributes(brandKey, displayName) {
   const ns = nsFor(brandKey);
   const container = `${ns}Container`;
@@ -131,6 +162,12 @@ function buildContributes(brandKey, displayName) {
  * value. `menus` is merged one level deep, so the generated `view/title`
  * entry is regenerated while any other menu positions are preserved.
  * Idempotent. Returns the same object.
+ *
+ * @param {Record<string, any>} pkg parsed package.json
+ * @param {string} brandKey
+ * @param {string} displayName
+ * @param {McpConfig} [mcp]
+ * @returns {Record<string, any>}
  */
 function mergeContributes(pkg, brandKey, displayName, mcp) {
   pkg.main = './extension.js';
@@ -159,6 +196,14 @@ function mergeContributes(pkg, brandKey, displayName, mcp) {
 /**
  * Fill templates/extension.js placeholders for a brand.
  * themes — the package.json contributes.themes array (used to find labels).
+ *
+ * @param {string} template
+ * @param {string} brandKey
+ * @param {string} displayName
+ * @param {ThemeContribution[] | undefined} themes
+ * @param {McpConfig} [mcp]
+ * @param {Array<{ id: string }>} [iconThemes]
+ * @returns {string}
  */
 function renderExtensionJs(template, brandKey, displayName, themes, mcp, iconThemes) {
   const dark = (themes || []).find((t) => t.uiTheme === 'vs-dark');

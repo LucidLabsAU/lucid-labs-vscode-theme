@@ -26,6 +26,9 @@ const EXTENSIONS_DIR = path.join(__dirname, '..', 'extensions');
 /**
  * Escape all regex special characters in a string
  * Handles: . * + ? ^ $ { } ( ) | [ ] \
+ *
+ * @param {string} str
+ * @returns {string}
  */
 function escapeRegex(str) {
   return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -34,6 +37,9 @@ function escapeRegex(str) {
 /**
  * Check if a hex color has transparency (alpha channel)
  * Valid formats: #RRGGBBAA or #RGBA
+ *
+ * @param {unknown} color
+ * @returns {boolean}
  */
 function hasTransparency(color) {
   if (!color || typeof color !== 'string') return false;
@@ -41,6 +47,9 @@ function hasTransparency(color) {
   return color.length === 9 || color.length === 5;
 }
 
+/**
+ * @param {string} filePath
+ */
 function lintThemeFile(filePath) {
   const errors = [];
   const content = fs.readFileSync(filePath, 'utf8');

@@ -1,6 +1,20 @@
 'use strict';
 
-/** Parse a #RRGGBB or #RRGGBBAA hex string into [r, g, b] (alpha ignored). */
+/**
+ * @typedef {number[]} Rgb [r, g, b]
+ * @typedef {number[]} Cmyk [c, m, y, k] percentages
+ * @typedef {{ hex: string, rgb: string, cmyk: string }} ColourFormats
+ * @typedef {{ key?: string, name: string, hex: string, group?: string, role?: string,
+ *   pantone?: string, rgb?: Rgb, cmyk?: Cmyk }} BrandColour
+ * @typedef {{ label: string, short: string }} ThemeButton
+ * @typedef {{ edition: string, dark: ThemeButton | null, light: ThemeButton | null }} ThemeGroup
+ */
+
+/**
+ * Parse a #RRGGBB or #RRGGBBAA hex string into [r, g, b] (alpha ignored).
+ * @param {string} hex
+ * @returns {Rgb}
+ */
 function hexToRgb(hex) {
   const h = String(hex).replace('#', '').slice(0, 6);
   return [
@@ -10,7 +24,11 @@ function hexToRgb(hex) {
   ];
 }
 
-/** Naive RGB->CMYK conversion (no ICC profile). Returns integer percentages. */
+/**
+ * Naive RGB->CMYK conversion (no ICC profile). Returns integer percentages.
+ * @param {Rgb} rgb
+ * @returns {Cmyk}
+ */
 function rgbToCmyk([r, g, b]) {
   const rp = r / 255;
   const gp = g / 255;
@@ -25,22 +43,38 @@ function rgbToCmyk([r, g, b]) {
   ];
 }
 
-/** Normalise any hex to an upper-case #RRGGBB string. */
+/**
+ * Normalise any hex to an upper-case #RRGGBB string.
+ * @param {string} hex
+ * @returns {string}
+ */
 function formatHex(hex) {
   return '#' + String(hex).replace('#', '').slice(0, 6).toUpperCase();
 }
 
-/** Render [r,g,b] as a CSS rgb() string. */
+/**
+ * Render [r,g,b] as a CSS rgb() string.
+ * @param {Rgb} rgb
+ * @returns {string}
+ */
 function formatRgb([r, g, b]) {
   return `rgb(${r}, ${g}, ${b})`;
 }
 
-/** Render [c,m,y,k] as a cmyk() percentage string. */
+/**
+ * Render [c,m,y,k] as a cmyk() percentage string.
+ * @param {Cmyk} cmyk
+ * @returns {string}
+ */
 function formatCmyk([c, m, y, k]) {
   return `cmyk(${c}%, ${m}%, ${y}%, ${k}%)`;
 }
 
-/** Escape a string for safe interpolation into HTML text/attributes. */
+/**
+ * Escape a string for safe interpolation into HTML text/attributes.
+ * @param {unknown} s
+ * @returns {string}
+ */
 function escapeHtml(s) {
   return String(s).replace(/[&<>"']/g, (ch) => (
     { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]
@@ -51,8 +85,12 @@ function escapeHtml(s) {
  * Collapse a variant's role->colour map into one entry per unique colour.
  * Only top-level string values matching #RRGGBB(AA) are included; alpha is
  * dropped so #CCCCCC80 groups with #CCCCCC. First-seen order is preserved.
+ *
+ * @param {Record<string, unknown>} variantColours
+ * @returns {Array<{ hex: string, roles: string[] }>}
  */
 function dedupeRoles(variantColours) {
+  /** @type {Map<string, string[]>} */
   const byHex = new Map();
   for (const [role, value] of Object.entries(variantColours)) {
     if (typeof value !== 'string') continue;
@@ -64,21 +102,35 @@ function dedupeRoles(variantColours) {
   return [...byHex.entries()].map(([hex, roles]) => ({ hex, roles }));
 }
 
-/** Build the three copy buttons for a colour, given pre-formatted strings. */
+/**
+ * Build the three copy buttons for a colour, given pre-formatted strings.
+ * @param {ColourFormats} fmt
+ * @returns {string}
+ */
 function copyButtons(fmt) {
   return ['hex', 'rgb', 'cmyk']
     .map((k) => `<button class="copy" data-copy="${escapeHtml(fmt[k])}" title="Copy ${escapeHtml(fmt[k])}"><span class="copy-label">${k.toUpperCase()}</span><span class="copy-icon" aria-hidden="true">⧉</span></button>`)
     .join('');
 }
 
-/** Format a colour for display, preferring supplied rgb/cmyk over derived. */
+/**
+ * Format a colour for display, preferring supplied rgb/cmyk over derived.
+ * @param {string} hex
+ * @param {Rgb} [rgb]
+ * @param {Cmyk} [cmyk]
+ * @returns {ColourFormats}
+ */
 function colourFormats(hex, rgb, cmyk) {
   const r = rgb || hexToRgb(hex);
   const c = cmyk || rgbToCmyk(r);
   return { hex: formatHex(hex), rgb: formatRgb(r), cmyk: formatCmyk(c) };
 }
 
-/** One card for a named brand colour. */
+/**
+ * One card for a named brand colour.
+ * @param {BrandColour} c
+ * @returns {string}
+ */
 function brandCard(c) {
   const fmt = colourFormats(c.hex, c.rgb, c.cmyk);
   const pantone = c.pantone
@@ -95,7 +147,11 @@ function brandCard(c) {
   </div>`;
 }
 
-/** Render the Brand Colours section (three group sub-sections), or '' if none. */
+/**
+ * Render the Brand Colours section (three group sub-sections), or '' if none.
+ * @param {BrandColour[] | undefined} brandColors
+ * @returns {string}
+ */
 function brandSection(brandColors) {
   if (!Array.isArray(brandColors) || brandColors.length === 0) return '';
   const groups = [
@@ -115,6 +171,11 @@ function brandSection(brandColors) {
  * opts: { brandName, palette, activeVariant, brandColors, nonce, cspSource }
  *   palette — the brand.json object (has .dark and .light role maps)
  *   brandColors — optional array; Brand Colours section omitted when absent
+ *
+ * @param {{ brandName: string, brandColors?: BrandColour[], nonce: string,
+ *   cspSource: string, themeGroups?: ThemeGroup[], hasIconTheme?: boolean,
+ *   iconsApplied?: boolean, appliedThemeLabel?: string }} opts
+ * @returns {string}
  */
 function renderPaletteHtml(opts) {
   const {
@@ -124,7 +185,7 @@ function renderPaletteHtml(opts) {
   const safeNonce = escapeHtml(nonce);
   const safeCspSource = escapeHtml(cspSource);
   // VS15 forces text (monochrome) rendering so the glyph inherits button colour.
-  const glyph = (g) => `<span class="ai" aria-hidden="true">${g}︎</span>`;
+  const glyph = (/** @type {string} */ g) => `<span class="ai" aria-hidden="true">${g}︎</span>`;
   const moon = glyph('☾');
   const sun = glyph('☀');
   const groups = Array.isArray(themeGroups) ? themeGroups : [];
@@ -132,12 +193,12 @@ function renderPaletteHtml(opts) {
   const iconBtn = hasIconTheme
     ? `<button class="action${iconsApplied ? ' active' : ''}" data-action="icons">${glyph('▦')}Icons</button>`
     : '';
-  const themeBtn = (t, variant) => {
+  const themeBtn = (/** @type {ThemeButton | null} */ t, /** @type {string} */ variant) => {
     if (!t) return '';
     const active = t.label === appliedThemeLabel ? ' active' : '';
     return `<button class="action${active}" data-action="theme" data-theme="${escapeHtml(t.label)}" data-variant="${variant}">${variant === 'dark' ? moon : sun}${escapeHtml(t.short)}</button>`;
   };
-  const comboBtn = (t, variant) => {
+  const comboBtn = (/** @type {ThemeButton | null} */ t, /** @type {string} */ variant) => {
     if (!t) return '';
     const active = t.label === appliedThemeLabel && iconsApplied ? ' active' : '';
     return `<button class="action combo${active}" data-action="both" data-theme="${escapeHtml(t.label)}" data-variant="${variant}">${variant === 'dark' ? moon : sun}${escapeHtml(t.short)} + Icons</button>`;

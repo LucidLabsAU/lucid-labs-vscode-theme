@@ -31,13 +31,18 @@ const EXTENSIONS_DIR = path.join(ROOT, 'extensions');
 /**
  * Flatten a nested object into dot-notation keys.
  * e.g. { terminal: { black: "#000" } } → { "terminal.black": "#000" }
+ *
+ * @param {Record<string, unknown>} obj
+ * @param {string} [prefix]
+ * @returns {Record<string, unknown>}
  */
 function flatten(obj, prefix = '') {
+  /** @type {Record<string, unknown>} */
   const result = {};
   for (const [key, value] of Object.entries(obj)) {
     const fullKey = prefix ? `${prefix}.${key}` : key;
     if (typeof value === 'object' && value !== null && !Array.isArray(value)) {
-      Object.assign(result, flatten(value, fullKey));
+      Object.assign(result, flatten(/** @type {Record<string, unknown>} */ (value), fullKey));
     } else {
       result[fullKey] = value;
     }
@@ -48,6 +53,10 @@ function flatten(obj, prefix = '') {
 /**
  * Resolve a placeholder like {{role}} or {{a|b|c}} against the palette.
  * Returns the resolved colour string or null if not found.
+ *
+ * @param {string} placeholder
+ * @param {Record<string, unknown>} palette
+ * @returns {string | null}
  */
 function resolveRole(placeholder, palette) {
   const roles = placeholder.split('|');
@@ -55,7 +64,7 @@ function resolveRole(placeholder, palette) {
     const trimmed = role.trim();
     // Literal hex passthrough
     if (trimmed.startsWith('#')) return trimmed;
-    if (palette[trimmed]) return palette[trimmed];
+    if (palette[trimmed]) return /** @type {string} */ (palette[trimmed]);
   }
   return null;
 }
@@ -63,8 +72,13 @@ function resolveRole(placeholder, palette) {
 /**
  * Substitute all {{...}} placeholders in a string.
  * Supports {{role}}XX where XX is a hex alpha suffix.
+ *
+ * @param {string} text
+ * @param {Record<string, unknown>} palette
+ * @returns {{ result: string, errors: string[] }}
  */
 function substitute(text, palette) {
+  /** @type {string[]} */
   const errors = [];
 
   const result = text.replace(/\{\{([^}]+)\}\}([0-9A-Fa-f]{2})?/g, (match, roleExpr, alphaSuffix) => {
@@ -81,6 +95,12 @@ function substitute(text, palette) {
 
 /**
  * Generate a single theme file.
+ *
+ * @param {string} brandName
+ * @param {string} variant `dark` or `light`
+ * @param {Record<string, any>} brandConfig
+ * @param {object} template
+ * @returns {Record<string, any> | null}
  */
 function generateTheme(brandName, variant, brandConfig, template) {
   const variantConfig = brandConfig[variant];

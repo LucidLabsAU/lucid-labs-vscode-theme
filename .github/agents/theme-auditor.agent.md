@@ -20,6 +20,7 @@ node scripts/check-contrast.js
 ```
 
 Parse the output to identify:
+
 - **FAIL** entries — must be fixed
 - **AA-lg** entries — acceptable for large text/UI only, flag if used for normal text
 - **AA** entries — passing but could be improved
@@ -28,6 +29,7 @@ Parse the output to identify:
 ### 2. Analyse Failures
 
 For each failing pair, determine:
+
 - Which `brand.json` colour role maps to the failing token
 - The template placeholder chain (e.g. `{{keyword}}` or `{{accent|function}}`)
 - Whether the failure is in the dark variant, light variant, or both
@@ -37,6 +39,7 @@ For each failing pair, determine:
 Adjust colours in `brands/<name>/brand.json` to meet minimums while preserving brand identity:
 
 **Adjustment strategies:**
+
 - **Lighten** foreground colours on dark backgrounds (increase luminance)
 - **Darken** foreground colours on light backgrounds (decrease luminance)
 - **Shift hue slightly** if lightening/darkening moves too far from brand
@@ -58,6 +61,7 @@ Verify all previously failing checks now pass without introducing new failures.
 ## Template Variable Understanding
 
 The templates use these patterns that affect contrast:
+
 - `{{role}}` — direct colour from brand.json
 - `{{role}}XX` — colour with hex alpha suffix (e.g. `{{accent}}50` = 50% opacity)
 - `{{a|b|c}}` — fallback chain: tries `a`, then `b`, then `c` from brand.json

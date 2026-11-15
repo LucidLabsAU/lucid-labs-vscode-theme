@@ -59,7 +59,7 @@ test('mergeContributes adds a namespaced container, webview view and commands', 
   const view = pkg.contributes.views.charliThemeContainer[0];
   assert.equal(view.id, 'charliThemePalette');
   assert.equal(view.type, 'webview');
-  const cmdIds = pkg.contributes.commands.map((c) => c.command);
+  const cmdIds = pkg.contributes.commands.map((/** @type {{ command: string }} */ c) => c.command);
   assert.deepEqual(cmdIds, [
     'charliTheme.switchDark', 'charliTheme.switchLight',
     'charliTheme.toggleVariant', 'charliTheme.openAbout',
