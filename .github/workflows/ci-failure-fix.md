@@ -3,6 +3,10 @@ on:
   check_run:
     types: [completed]
 
+# Only spend an agent run on failed checks attached to a pull request.
+# Successful checks and failures on main have nowhere to comment.
+if: github.event.check_run.conclusion == 'failure' && github.event.check_run.pull_requests[0] != null
+
 permissions:
   contents: read
   copilot-requests: write
@@ -13,6 +17,7 @@ network: defaults
 safe-outputs:
   add-comment:
     max: 1
+  noop:
 ---
 
 # CI Failure Analysis
@@ -21,7 +26,9 @@ When a CI check fails on a pull request, analyse the failure and comment with a 
 
 ## Instructions
 
-Only act when `github.event.check_run.conclusion == 'failure'`. Otherwise do nothing.
+Only act when `github.event.check_run.conclusion == 'failure'` and the check run belongs to a pull request. Otherwise call the `noop` safe output with a one-line reason and stop.
+
+Every run must end with exactly one terminal safe output: `add-comment` on the PR, or `noop` if there is nothing to report (logs unavailable, failure unrelated to the categories below, or no PR to comment on).
 
 1. Read the failing check run's logs
 2. Identify the root cause — categorise as one of:
