@@ -1,5 +1,9 @@
 # Change Log
 
+## [1.23.0] - 2026-11-15
+
+- Track the VS Code 1.146 colour registry: confetti, Copilot Fusion badge and Agents window graphic colours
+
 ## [1.22.0] - 2026-10-09
 
 - Track the VS Code 1.141 colour registry: agent details pane background, MCP compatibility warning, connected tabs header background and tab dividers

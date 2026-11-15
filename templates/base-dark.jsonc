@@ -826,6 +826,9 @@
     "chat.statusBackground": "{{foreground}}14",
     "chat.mcpCompatibilityWarningForeground": "{{warning}}",
     "agentsDetail.background": "{{background}}",
+    "agentsWindowGraphic.orange": "{{constant}}",
+    "chat.fusionBadgeGradientStart": "{{accent}}",
+    "chat.fusionBadgeGradientEnd": "{{keyword}}",
     "chat.sessionStateIndicator.inProgressBorder": "{{warning}}",
     "chat.sessionStateIndicator.needsInputBorder": "{{error}}",
     "chat.sessionStateIndicator.unvisitedBorder": "{{success}}",
@@ -1095,6 +1098,12 @@
     "charts.orange": "{{constant}}",
     "charts.green": "{{success}}",
     "charts.purple": "{{keyword}}",
+    "confetti.color1": "{{error}}",
+    "confetti.color2": "{{constant}}",
+    "confetti.color3": "{{warning}}",
+    "confetti.color4": "{{success}}",
+    "confetti.color5": "{{accent}}",
+    "confetti.color6": "{{keyword}}",
 
     // ─── Markdown alerts ─────────────────────────────────────
     "markdownAlert.note.foreground": "{{info}}",

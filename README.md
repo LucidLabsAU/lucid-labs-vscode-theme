@@ -4,7 +4,7 @@ A theme factory monorepo that generates branded VS Code colour themes from share
 
 Every extension ships **dark + light themes**, a **custom file-icon theme**, and a **Brand Palette sidebar** that previews the brand's semantic colour roles. 17 extensions, 40 themes in total.
 
-Templates cover the full **VS Code 1.141 colour registry** — 988 UI colour keys, 55 `tokenColors` entries and 15 semantic token rules — so no surface falls back to VS Code defaults.
+Templates cover the full **VS Code 1.146 colour registry** — 997 UI colour keys, 55 `tokenColors` entries and 15 semantic token rules — so no surface falls back to VS Code defaults.
 
 ## Extensions
 
