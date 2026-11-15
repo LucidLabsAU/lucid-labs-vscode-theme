@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.1.0] - 2026-11-15
+
+- Track the VS Code 1.146 colour registry: confetti, Copilot Fusion badge and Agents window graphic colours
+
 ## [1.0.0] - 2026-10-09
 
 - Initial release with dark and light theme variants

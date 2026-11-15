@@ -3,7 +3,7 @@
   "name": "draffin-theme",
   "displayName": "Draffin Street Furniture",
   "description": "A crisp VS Code colour theme pairing Draffin red with powder-coat charcoal, inspired by the Draffin Street Furniture visual identity.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "publisher": "lucidlabs",
   "license": "MIT",
   "icon": "icon.png",
