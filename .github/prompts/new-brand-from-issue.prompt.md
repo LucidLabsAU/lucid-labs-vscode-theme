@@ -5,6 +5,7 @@ You are creating a new VS Code theme for the Lucid Labs theme factory. Follow th
 ## Input
 
 Parse the issue body for these fields:
+
 - **Brand Name**: `{{ brand-name }}`
 - **Website URL**: `{{ website-url }}`
 - **Logo**: `{{ logo }}` (attached image or URL)
@@ -25,6 +26,7 @@ Parse the issue body for these fields:
 ### 2. Create the Brand Slug
 
 Convert the brand name to kebab-case for directory/file names:
+
 - "Acme Corporation" → `acme-corporation`
 - "ABC Group" → `abc-group`
 
@@ -33,16 +35,19 @@ Convert the brand name to kebab-case for directory/file names:
 Use `brands/lucid-labs/brand.json` as a structural reference. Map extracted colours to all semantic roles for both `dark` and `light` variants.
 
 **Dark theme background strategy:**
+
 - Take the brand's darkest colour and desaturate/darken further
 - Create a 4-level surface hierarchy with 5-10% lightness increments
 
 **Light theme background strategy:**
+
 - Use `#FFFFFF` or very light tint of brand colour
 - Ensure sufficient contrast for all foreground colours
 
 ### 4. Create Extension Files
 
 Create `extensions/<slug>/` with:
+
 - `package.json` — use `extensions/lucid-labs/package.json` as template
 - `CHANGELOG.md` — version 1.0.0 initial release
 - `.vscodeignore` — standard exclusions
@@ -74,6 +79,7 @@ Add the new brand to the table in `CLAUDE.md` under "Current Brands".
 Title: `feat: add <Brand Name> theme`
 
 Include in the PR body:
+
 - Colour palette table (role → hex for dark and light)
 - Contrast check results (all passing)
 - Installation instructions for testing

@@ -1,11 +1,4 @@
 {
-  "cSpell.language": "en-AU",
-  "cSpell.words": [
-    "CMYK",
-    "lucidlabs",
-    "Stackframe",
-    "WCAG"
-  ],
   "github.copilot.chat.codeGeneration.instructions": [
     { "file": ".github/copilot-instructions.md" }
   ]

@@ -14,6 +14,10 @@ const path = require('path');
 
 const EXTENSIONS_DIR = path.join(__dirname, '..', 'extensions');
 
+/**
+ * @param {string} hex `#RGB`, `#RRGGBB` or `#RRGGBBAA` (alpha ignored)
+ * @returns {[number, number, number]}
+ */
 function hexToRgb(hex) {
   hex = hex.replace(/^#/, '');
   if (hex.length === 3) hex = hex[0]+hex[0]+hex[1]+hex[1]+hex[2]+hex[2];
@@ -23,6 +27,10 @@ function hexToRgb(hex) {
   return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
 }
 
+/**
+ * @param {[number, number, number]} rgb
+ * @returns {number}
+ */
 function relativeLuminance([r, g, b]) {
   const [rs, gs, bs] = [r, g, b].map(c => {
     c = c / 255;
@@ -31,6 +39,11 @@ function relativeLuminance([r, g, b]) {
   return 0.2126 * rs + 0.7152 * gs + 0.0722 * bs;
 }
 
+/**
+ * @param {string} hex1
+ * @param {string} hex2
+ * @returns {number}
+ */
 function contrastRatio(hex1, hex2) {
   const l1 = relativeLuminance(hexToRgb(hex1));
   const l2 = relativeLuminance(hexToRgb(hex2));
@@ -39,6 +52,10 @@ function contrastRatio(hex1, hex2) {
   return (lighter + 0.05) / (darker + 0.05);
 }
 
+/**
+ * @param {number} ratio
+ * @returns {string}
+ */
 function grade(ratio) {
   if (ratio >= 7) return 'AAA';
   if (ratio >= 4.5) return 'AA';
@@ -47,6 +64,7 @@ function grade(ratio) {
 }
 
 // Key pairs to check: [fg property, bg property, description, min ratio]
+/** @type {Array<[string, string, string, number]>} */
 const CHECKS = [
   // Editor text
   ['editor.foreground', 'editor.background', 'Editor text', 4.5],
@@ -71,6 +89,7 @@ const CHECKS = [
 ];
 
 // Token colour checks against editor background
+/** @type {Array<[string, string]>} */
 const TOKEN_CHECKS = [
   ['keyword', 'Keywords'],
   ['string', 'Strings'],
@@ -81,6 +100,11 @@ const TOKEN_CHECKS = [
   ['type', 'Types'],
 ];
 
+/**
+ * @param {{ tokenColors?: Array<{ scope?: string | string[], settings?: { foreground?: string } }> }} theme
+ * @param {string} scopeName
+ * @returns {string | null | undefined}
+ */
 function findTokenColour(theme, scopeName) {
   if (!theme.tokenColors) return null;
   for (const tc of theme.tokenColors) {
@@ -94,6 +118,9 @@ function findTokenColour(theme, scopeName) {
   return null;
 }
 
+/**
+ * @param {string} filePath
+ */
 function checkTheme(filePath) {
   const theme = JSON.parse(fs.readFileSync(filePath, 'utf8'));
   const colours = theme.colors || {};

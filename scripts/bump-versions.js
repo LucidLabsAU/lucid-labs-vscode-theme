@@ -23,10 +23,15 @@ const EXTENSIONS_DIR = path.join(ROOT, 'extensions');
  * is the previous day for most of an Australian working morning.
  */
 function localDate(now = new Date()) {
-  const pad = (n) => String(n).padStart(2, '0');
+  const pad = (/** @type {number} */ n) => String(n).padStart(2, '0');
   return `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}`;
 }
 
+/**
+ * @param {string} version semver `major.minor.patch`
+ * @param {string} level `major` | `minor` | `patch`
+ * @returns {string}
+ */
 function bump(version, level) {
   const [major, minor, patch] = version.split('.').map(Number);
   if ([major, minor, patch].some(Number.isNaN)) {

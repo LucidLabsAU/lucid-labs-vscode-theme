@@ -18,6 +18,7 @@ When assigned an issue with the `brand` label:
 ### 1. Parse the Issue
 
 Extract from the issue body:
+
 - **Brand name** and **slug** (kebab-case)
 - **Website URL** for colour extraction
 - **Logo** (attached image or URL)
@@ -29,6 +30,7 @@ Extract from the issue body:
 ### 2. Extract Brand Colours
 
 From the website and logo, identify:
+
 - Primary colour (used for accent, buttons, links)
 - Secondary colour (used for keywords, headings)
 - Tertiary/accent colours (used for strings, functions)
@@ -52,6 +54,7 @@ Map extracted colours to all semantic roles for both `dark` and `light` variants
 ### 4. Scaffold Extension
 
 Create all files in `extensions/<slug>/`:
+
 - `package.json` — copy structure from existing extension, update name/display/version/colours
 - `CHANGELOG.md` — initial release entry
 - `.vscodeignore` — standard exclusions
@@ -77,6 +80,7 @@ Verify the `.vsix` is created without errors.
 ### 7. Open PR
 
 Create a PR with:
+
 - Title: `feat: add <Brand Name> theme`
 - Body: colour palette table, contrast check results
 

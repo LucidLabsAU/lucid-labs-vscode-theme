@@ -27,11 +27,13 @@
 
 ---
 
+<!-- markdownlint-disable-next-line MD025 -->
 # PHASE 1 — Lucid Labs reference implementation
 
 ## Task 1: Add the `node:test` harness
 
 **Files:**
+
 - Modify: `package.json` (root)
 - Modify: `.husky/pre-commit`
 
@@ -74,6 +76,7 @@ git commit -m "build: add node:test harness and run it in pre-commit"
 ## Task 2: Hand-author the monochrome activity-bar icon
 
 **Files:**
+
 - Create: `brands/lucid-labs/activity-icon.svg` (overwrites the existing "L+K" file)
 
 The source mark is `brands/lucid-labs/icons/git.svg` (cloud ring + two exchange arrows, authored with `{{accent}}`/`{{keyword}}` placeholders). The activity-bar version must be a single colour: set `fill="currentColor"` on the root `<svg>` and remove every per-path `fill` so all paths inherit. VS Code tints the result with the theme foreground.
@@ -112,6 +115,7 @@ git commit -m "feat(lucid-labs): replace activity-bar icon with cloud-and-arrows
 ## Task 3: Add the `brandColors` array to `brand.json`
 
 **Files:**
+
 - Modify: `brands/lucid-labs/brand.json`
 
 Values are taken verbatim from the brand guide's `brandColorMeta` (Pantone-matched CMYK). The array goes at the top level of the brand config, after the `sponsor` field and before `dark`.
@@ -157,6 +161,7 @@ git commit -m "feat(lucid-labs): add canonical brandColors palette to brand conf
 ## Task 4: Pure module — colour conversion helpers
 
 **Files:**
+
 - Create: `extensions/lucid-labs/lib/palette-view.js`
 - Test: `extensions/lucid-labs/test/palette-view.test.js`
 
@@ -288,6 +293,7 @@ git commit -m "feat(lucid-labs): add colour-format helpers to palette-view modul
 ## Task 5: Pure module — de-duplicate theme roles by hex
 
 **Files:**
+
 - Modify: `extensions/lucid-labs/lib/palette-view.js`
 - Test: `extensions/lucid-labs/test/palette-view.test.js`
 
@@ -385,6 +391,7 @@ git commit -m "feat(lucid-labs): add hex de-duplication of theme roles"
 ## Task 6: Pure module — render the palette webview HTML
 
 **Files:**
+
 - Modify: `extensions/lucid-labs/lib/palette-view.js`
 - Test: `extensions/lucid-labs/test/palette-view.test.js`
 
@@ -652,6 +659,7 @@ git commit -m "feat(lucid-labs): render grouped brand palette + de-duped theme r
 ## Task 7: Rewrite `extension.js` to host the webview view
 
 **Files:**
+
 - Modify: `extensions/lucid-labs/extension.js` (full rewrite)
 
 The tree provider is replaced by a `WebviewViewProvider`. View/container IDs adopt the
@@ -829,6 +837,7 @@ git commit -m "feat(lucid-labs): host brand palette as a webview view with clipb
 ## Task 8: Update `package.json`, changelog, regenerate and verify
 
 **Files:**
+
 - Modify: `extensions/lucid-labs/package.json`
 - Modify: `extensions/lucid-labs/CHANGELOG.md`
 
@@ -929,6 +938,7 @@ Expected: `packaged ok` (requires `@vscode/vsce` installed globally; if absent, 
 - [ ] **Step 8: Manual verification in the Extension Development Host**
 
 Open `extensions/lucid-labs` in VS Code and press `F5`. In the dev host:
+
 - Confirm the activity bar shows the cloud-and-arrows icon (not the old "L" mark).
 - Open the **Brand Palette** view: confirm Primary/Secondary/Other sub-sections, the
   PANTONE labels, and the Theme Roles section below.
@@ -948,11 +958,13 @@ git commit -m "feat(lucid-labs): ship webview palette view, bump to 1.15.0"
 
 ---
 
+<!-- markdownlint-disable-next-line MD025 -->
 # PHASE 2 — Fleet rollout to all 17 brands
 
 ## Task 9: Extract the pure module and templated `extension.js` into `templates/`
 
 **Files:**
+
 - Create: `templates/lib/palette-view.js` (copy of the Phase 1 module)
 - Create: `templates/extension.js` (Phase 1 `extension.js` with placeholder tokens)
 
@@ -1005,6 +1017,7 @@ git commit -m "refactor: move palette-view module and templated extension.js int
 ## Task 10: Generator helpers — namespacing and monochrome SVG
 
 **Files:**
+
 - Create: `scripts/lib/extension-build.js`
 - Test: `scripts/test/extension-build.test.js`
 
@@ -1097,6 +1110,7 @@ git commit -m "feat(generator): add namespacing and monochrome-SVG helpers"
 ## Task 11: Generator helper — merge the `contributes` block
 
 **Files:**
+
 - Modify: `scripts/lib/extension-build.js`
 - Test: `scripts/test/extension-build.test.js`
 
@@ -1250,6 +1264,7 @@ git commit -m "feat(generator): merge namespaced contributes block into package.
 ## Task 12: Generator helper — render `extension.js` from the template
 
 **Files:**
+
 - Modify: `scripts/lib/extension-build.js`
 - Test: `scripts/test/extension-build.test.js`
 
@@ -1345,6 +1360,7 @@ git commit -m "feat(generator): render extension.js from the brand template"
 ## Task 13: Wire the generator to emit extension assets per brand
 
 **Files:**
+
 - Modify: `scripts/generate.js`
 
 - [ ] **Step 1: Require the helpers and templates**
@@ -1439,6 +1455,7 @@ git commit -m "feat(generator): emit activity icon, palette lib and extension.js
 ## Task 14: Roll out — version bumps, changelogs, docs, verification
 
 **Files:**
+
 - Modify: `extensions/*/package.json` (all 16 non-Lucid brands)
 - Modify: `extensions/*/CHANGELOG.md` (all 16 non-Lucid brands)
 - Modify: `CLAUDE.md` (repo root of this project)

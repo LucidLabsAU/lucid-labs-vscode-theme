@@ -1,0 +1,13 @@
+// markdownlint rules for this repo (read by markdownlint-cli2 and the VS Code
+// markdownlint extension).
+{
+  "default": true,
+  // Long table rows, badges and links are deliberate; wrapping them hurts more
+  // than it helps.
+  "MD013": false,
+  // CHANGELOGs repeat "Added" / "Changed" under each release heading.
+  "MD024": { "siblings_only": true },
+  // Tables pad their cells but keep compact `|---|` delimiter rows; MD060
+  // flags that mix even though it renders identically.
+  "MD060": false
+}

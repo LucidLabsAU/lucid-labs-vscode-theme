@@ -25,7 +25,7 @@ The Husky pre-commit hook runs `npm run generate && npm run lint && npm test`. C
 
 ## Architecture
 
-```
+```text
 brands/<slug>/brand.json       → Colour palette (~40 semantic roles per dark/light variant)
 brands/<slug>/icon.png         → 256×256 PNG extension icon
 brands/<slug>/README.md        → Marketplace README
@@ -49,6 +49,7 @@ extensions/<slug>/package.json → VS Code extension manifest
 ## Placeholder Syntax
 
 Templates use these placeholder patterns:
+
 - `{{role}}` — resolves to the brand colour for that semantic role
 - `{{role}}XX` — resolves to the brand colour + hex alpha suffix (e.g. `{{accent}}50`)
 - `{{a|b|c}}` — fallback chain: tries `a`, then `b`, then `c`
@@ -60,6 +61,7 @@ Templates use these placeholder patterns:
 ### Step 1: Extract Brand Colours
 
 Given a brand's website URL or logo, extract their primary colours:
+
 1. Visit the website and identify primary, secondary, and accent colours
 2. Look at the logo, navigation, buttons, links, headings, and footer
 3. Check for a brand guidelines page or style guide
@@ -74,6 +76,7 @@ Create `brands/<slug>/` where `<slug>` is the brand name in kebab-case (e.g. `ac
 Map extracted colours to semantic roles. Use an existing brand (e.g. `brands/lucid-labs/brand.json`) as a reference for the full structure.
 
 **Required top-level fields:**
+
 ```json
 {
   "name": "Brand Name",
@@ -116,6 +119,7 @@ Map extracted colours to semantic roles. Use an existing brand (e.g. `brands/luc
 | `galleryBanner` | Marketplace banner colour | Background colour |
 
 **Terminal colours** (nested under `terminal`):
+
 ```json
 "terminal": {
   "black": "#...", "red": "#...", "green": "#...", "yellow": "#...",
@@ -134,6 +138,7 @@ Cycle through 6 distinct colours from the brand palette for bracket pair colouri
 Create these files in `extensions/<slug>/`:
 
 **`package.json`** — Copy from an existing extension and update:
+
 - `name`: `<slug>-theme`
 - `displayName`: Brand display name
 - `description`: Brand-specific description
@@ -146,6 +151,7 @@ Create these files in `extensions/<slug>/`:
 - `homepage`: Brand website URL
 
 **`CHANGELOG.md`**:
+
 ```markdown
 # Changelog
 
@@ -157,7 +163,8 @@ Create these files in `extensions/<slug>/`:
 ```
 
 **`.vscodeignore`**:
-```
+
+```text
 .vscode/**
 .git/**
 **/*.vsix
@@ -170,6 +177,7 @@ node_modules/**
 ### Step 5: Create Brand Icon
 
 Create or obtain a 256×256 PNG icon at `brands/<slug>/icon.png`. This is the extension marketplace icon. If using an SVG source, convert it:
+
 ```bash
 # Example with sips (macOS)
 sips -z 256 256 source.png --out brands/<slug>/icon.png
@@ -180,6 +188,7 @@ Optionally, supply `brands/<slug>/icons/git.svg` using `{{accent}}` as the file-
 ### Step 6: Create Brand README
 
 Create `brands/<slug>/README.md` with:
+
 - Brand name as heading
 - Description of the theme
 - Features list (dual theme, WCAG AA, brand-aligned, etc.)
@@ -223,6 +232,7 @@ This means **no new template changes are needed** when adding a brand — just t
 ## Contrast Requirements
 
 All themes must meet WCAG AA contrast minimums:
+
 - **Normal text**: 4.5:1 against background
 - **Large text/UI**: 3:1 against background
 - **Interactive elements**: Clearly distinguishable
@@ -278,6 +288,7 @@ In Bicep:
 **Resource types that REJECT user tags** (don't try): `Microsoft.Insights/diagnosticSettings`, `Microsoft.OperationsManagement/solutions`, `Microsoft.Automation/automationAccounts/runbooks`, `microsoft.alertsmanagement/smartDetectorAlertRules`, some `Microsoft.Web/certificates`, some `Microsoft.EventGrid/systemTopics`, `Microsoft.App/agents`. Their parents carry the linkage instead.
 
 **Caveats:**
+
 - Defender's IaC mapping is GA on Azure DevOps, partial on GitHub (the MSDO GitHub Action does not ship `IaCFileScanner`). Authoring `mapping_tag` now is forward-compatible.
 - ~12-hour propagation delay before Defender Cloud Security Explorer reflects the link.
 - Requires Defender CSPM plan (Foundational CSPM is insufficient).

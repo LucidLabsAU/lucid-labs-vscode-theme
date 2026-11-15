@@ -4,6 +4,9 @@ const path = require('path');
 const crypto = require('crypto');
 const pv = require('./lib/palette-view');
 
+/** @typedef {import('vscode').ExtensionContext} ExtensionContext */
+/** @typedef {import('vscode').Webview} Webview */
+
 const BRAND = 'CyberMattLee';
 const THEME_DARK = 'Matt Lee Full Beard';
 const THEME_LIGHT = 'Matt Lee Shaved';
@@ -27,8 +30,12 @@ const ALL_THEMES = THEMES.flatMap((g) => [
 // generator substitutes an object for those brands, `null` for the rest).
 const MCP_CONFIG = null;
 
+/** @type {{ displayName?: string, brandColors?: import('./lib/palette-view').BrandColour[] } | undefined} */
 let brandData;
 
+/**
+ * @param {string} extensionPath
+ */
 function loadBrand(extensionPath) {
   if (brandData) return brandData;
   brandData = JSON.parse(fs.readFileSync(path.join(extensionPath, 'brand.json'), 'utf8'));
@@ -60,17 +67,27 @@ function appliedThemeLabel() {
   return e ? e.label : '';
 }
 
-/** Whether `label` is one of this extension's own bundled themes. */
+/**
+ * Whether `label` is one of this extension's own bundled themes.
+ * @param {unknown} label
+ * @returns {boolean}
+ */
 function isOwnTheme(label) {
   return typeof label === 'string' && ALL_THEMES.some((t) => t.label === label);
 }
 
+/**
+ * @param {string} label
+ */
 async function setTheme(label) {
   await vscode.workspace
     .getConfiguration()
     .update('workbench.colorTheme', label, vscode.ConfigurationTarget.Global);
 }
 
+/**
+ * @param {string} id
+ */
 async function setIconTheme(id) {
   if (!id) return;
   await vscode.workspace
@@ -86,6 +103,9 @@ function iconsApplied() {
   );
 }
 
+/**
+ * @param {ExtensionContext} context
+ */
 function makeStatusBarItem(context) {
   const item = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right, 100);
   item.command = `${CONFIG_NS}.openAbout`;
@@ -94,6 +114,9 @@ function makeStatusBarItem(context) {
   return item;
 }
 
+/**
+ * @param {import('vscode').StatusBarItem} item
+ */
 function refreshStatusBar(item) {
   const cfg = vscode.workspace.getConfiguration(CONFIG_NS);
   if (!cfg.get('showStatusBarItem', true) || !isBrandActive()) {
@@ -104,7 +127,12 @@ function refreshStatusBar(item) {
   item.show();
 }
 
-/** Build the webview HTML for a given webview instance. */
+/**
+ * Build the webview HTML for a given webview instance.
+ * @param {string} extensionPath
+ * @param {Webview} webview
+ * @returns {string}
+ */
 function renderHtml(extensionPath, webview) {
   const brand = loadBrand(extensionPath);
   return pv.renderPaletteHtml({
@@ -119,7 +147,10 @@ function renderHtml(extensionPath, webview) {
   });
 }
 
-/** Push the live apply-state (editor theme + icons) to a webview. */
+/**
+ * Push the live apply-state (editor theme + icons) to a webview.
+ * @param {Webview | undefined} webview
+ */
 function postState(webview) {
   if (!webview) return;
   webview.postMessage({
@@ -129,10 +160,14 @@ function postState(webview) {
   });
 }
 
-/** Wire webview messages: copy-to-clipboard, apply theme, apply icon theme. */
+/**
+ * Wire webview messages: copy-to-clipboard, apply theme, apply icon theme.
+ * @param {Webview} webview
+ * @param {{ dispose(): unknown }[]} subscriptions
+ */
 function attachMessageHandler(webview, subscriptions) {
   subscriptions.push(
-    webview.onDidReceiveMessage(async (msg) => {
+    webview.onDidReceiveMessage(async (/** @type {{ type?: string, value?: string, label?: string } | undefined} */ msg) => {
       if (!msg) return;
       if (msg.type === 'copy' && msg.value) {
         await vscode.env.clipboard.writeText(msg.value);
@@ -150,11 +185,18 @@ function attachMessageHandler(webview, subscriptions) {
 }
 
 class PaletteViewProvider {
+  /**
+   * @param {string} extensionPath
+   */
   constructor(extensionPath) {
     this.extensionPath = extensionPath;
+    /** @type {import('vscode').WebviewView | null} */
     this.view = null;
   }
 
+  /**
+   * @param {import('vscode').WebviewView} webviewView
+   */
   resolveWebviewView(webviewView) {
     this.view = webviewView;
     webviewView.webview.options = { enableScripts: true };
@@ -170,8 +212,12 @@ class PaletteViewProvider {
 
 // A single shared "Brand Palette" editor panel — reused so repeated invocations
 // reveal the existing tab instead of stacking duplicates.
+/** @type {import('vscode').WebviewPanel | null} */
 let aboutPanel = null;
 
+/**
+ * @param {ExtensionContext} context
+ */
 function openAbout(context) {
   if (aboutPanel) {
     aboutPanel.reveal(vscode.ViewColumn.Active);
@@ -194,6 +240,8 @@ function openAbout(context) {
  * brands without an `mcp` config, and on hosts too old to expose the API.
  * Authentication is handled by VS Code: on a 401 the server advertises its
  * OAuth protected-resource metadata and VS Code drives the sign-in flow.
+ *
+ * @param {ExtensionContext} context
  */
 function registerMcpProvider(context) {
   const cfg = MCP_CONFIG;
@@ -218,6 +266,7 @@ function registerMcpProvider(context) {
         ),
       ];
     },
+    /** @param {import('vscode').McpServerDefinition} server */
     resolveMcpServerDefinition(server) {
       // VS Code negotiates OAuth from the server's protected-resource metadata.
       return server;
@@ -228,6 +277,9 @@ function registerMcpProvider(context) {
   );
 }
 
+/**
+ * @param {ExtensionContext} context
+ */
 function activate(context) {
   registerMcpProvider(context);
   const statusBar = makeStatusBarItem(context);

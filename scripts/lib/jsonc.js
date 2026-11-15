@@ -6,6 +6,9 @@
  * string contents are tracked so a "//" or ",}" inside a value is never
  * mangled. Comments are replaced with spaces to preserve line/column numbers
  * in any downstream JSON.parse error.
+ *
+ * @param {string} text
+ * @returns {string}
  */
 function stripJsonc(text) {
   let out = '';
@@ -95,7 +98,11 @@ function stripJsonc(text) {
   return out;
 }
 
-/** Parse JSONC text: strip comments and trailing commas, then JSON.parse. */
+/**
+ * Parse JSONC text: strip comments and trailing commas, then JSON.parse.
+ * @param {string} text
+ * @returns {any}
+ */
 function parseJsonc(text) {
   return JSON.parse(stripJsonc(text));
 }
